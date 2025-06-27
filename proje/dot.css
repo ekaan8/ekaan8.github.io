@@ -1,0 +1,615 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    text-align: left;
+    margin-left: 1.0rem;
+    font-weight: 600;
+    font-size: 3rem;
+    background: linear-gradient(to right, #935fed, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0; /* Boşluğu kaldır */
+    line-height: 1.2; /* Satır yüksekliğini azalt */
+    margin-bottom: 0.5rem; /* Alt boşluğu azalt */
+    margin-top: 3rem;
+}
+
+.description {
+    text-align: left;
+    margin-left: 1.0rem;
+    margin-bottom: 1.0rem;
+    margin-top: 0; /* Üst boşluğu kaldır */
+    color: #666;
+    font-size: 1.4rem;
+    line-height: 1.29;
+    max-width: 94%;
+    font-weight: 500;;
+}
+
+
+
+/* "Dönüştür" butonunu içeren container'ın stili */
+.container {
+  position: relative;      /* İçindeki absolute elemanlar buna göre konumlanacak */
+  width: calc(100% - 40px);
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+
+/* Controls ve butonun hizalanması */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+#convertBtn {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 1rem; /* Yazı boyutunu ayarla */
+    font-weight: 500;
+}
+
+#convertBtn:hover {
+    background-color: #0056b3;
+}
+
+.range-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.range-value {
+    background: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 100px;
+    min-width: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+
+/* Slider'ların genel stili */
+input[type="range"] {
+    -webkit-appearance: none; /* Tarayıcı varsayılan stilini kaldırma */
+    width: 100%; /* Slider'ın genişliği */
+    height: 10px; /* Slider çizgisinin kalınlığı */
+    background: #e0e0e0; /* Arka plan rengi (gri tonu) */
+    outline: none; /* Odaklanıldığında kenarlık kaldırma */
+    border-radius: 5px; /* Yuvarlatılmış köşeler */
+    margin: 10px 0; /* Üst ve alt boşluk */
+}
+
+/* Slider başlığı (thumb) stili */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px; /* Thumb'un genişliği */
+    height: 20px; /* Thumb'un yüksekliği */
+    background: #007BFF; /* Mavi thumb (buton) rengi */
+    border-radius: 50%; /* Yuvarlak thumb */
+    cursor: pointer; /* İmleci el şekline çevir */
+    border: 2px solid #fff; /* Beyaz kenarlık */
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3); /* Gölge efekti */
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #007BFF;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Slider üzerine gelindiğinde (hover) */
+input[type="range"]:hover {
+    background: #d0d0d0; /* Daha koyu gri tonu */
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    background: #0056b3; /* Daha koyu mavi */
+}
+
+/* Slider aktif durum (tıklandığında) */
+input[type="range"]:active::-webkit-slider-thumb {
+    background: #003d7a; /* Daha koyu mavi */
+}
+
+
+
+label {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+body.dark-mode label {
+    color: #8a8a8a; /* Beyaz renk */
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 32px;
+}
+
+img, canvas {
+    width: 50%;
+    height: 50%;
+    border: 0.1px solid #cdcdcd;
+    border-radius: 16px;
+    display: none;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.download-buttons {
+    border-radius: 100px;
+    display: flex;
+    gap: 10px; /* Butonlar arasındaki boşluk */
+    margin-top: 20px; /* Canvas ile boşluk */
+    justify-content: center; /* Butonları ortala (isteğe bağlı, sağa veya sola hizalayabilirsiniz) */
+}
+
+#downloadBtn, #copyBtn {
+    padding: 10px 20px;
+    background-color: #007BFF; /* Mavi renk, mevcut tasarımınıza uyabilir */
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#downloadBtn:hover, #copyBtn:hover {
+    background-color: #0056b3; /* Hover efekti */
+}
+
+#downloadBtn:disabled, #copyBtn:disabled {
+    background-color: #cccccc; /* Devre dışı bırakıldığında gri */
+    cursor: not-allowed;
+}
+
+
+#fileSelectBtn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    /* Kenar boşluklarını sadece sol ve üst/bottom verecek şekilde ayarla */
+    margin: 20px 0 20px 20px;
+    /* Container'ın stretch etkisini önlemek için sola hizala */
+    align-self: flex-start;
+    font-weight: 500;
+}
+
+#fileSelectBtn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Karanlık modda body ve container */
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark-mode .container {
+  background-color: #2a2a2a;
+  /* softer, more diffuse shadow */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+
+body.dark-mode .description {
+  color: #ccc;
+}
+
+/* Karanlık modda butonlar */
+body.dark-mode button,
+body.dark-mode input[type="range"]::-webkit-slider-thumb {
+  background-color: #444;
+  color: #eee;
+}
+body.dark-mode button:hover {
+  background-color: #666;
+}
+
+/* İndir/Kopyala vs. düğmeler de dahil */
+body.dark-mode #downloadBtn,
+body.dark-mode #copyBtn,
+body.dark-mode #convertBtn,
+body.dark-mode #fileSelectBtn {
+  background-color: #1f1f1f;
+  border: 1px solid #ffffffc5;
+}
+body.dark-mode #downloadBtn:hover,
+body.dark-mode #copyBtn:hover,
+body.dark-mode #convertBtn:hover,
+body.dark-mode #fileSelectBtn:hover {
+  background-color: #666;
+}
+
+/* 1) Container just lays them out */
+.buttons-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 100px;;
+  display: flex;
+  gap: 8px;              /* space between the pills */
+  align-items: center;
+  background: none;/* no background on the container itself */
+  border: 1px solid #696969; /* no border on the container itself */
+}
+body.dark-mode .buttons-container {
+  border: 1px solid rgb(180, 180, 180);
+}
+
+/* 2) Each toggle gets its own fixed-width pill */
+.buttons-container .theme-toggle,
+.buttons-container .lang-toggle {
+  background: #6b6b6b;   /* same dark pill color */
+  color: #fff;
+
+  width: 80px;           /* fixed width for all states */
+  height: 30px;          /* fixed height */
+  padding: 0;            /* no extra padding needed */
+  border-radius: 100px;  /* full pill shape */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center the text */
+  font-size: 1rem;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+}
+
+/* 3) Dark mode inversion */
+body.dark-mode .buttons-container .theme-toggle,
+body.dark-mode .buttons-container .lang-toggle {
+  background: rgb(180, 180, 180);
+  color: #000000db;
+}
+
+/* 4) Hover state (light tint on the pill itself) */
+.buttons-container .theme-toggle:hover,
+.buttons-container .lang-toggle:hover {
+  background: rgb(0, 0, 0);
+}
+body.dark-mode .buttons-container .theme-toggle:hover,
+body.dark-mode .buttons-container .lang-toggle:hover {
+  background: rgba(229, 229, 229, 0.613);
+}
+
+
+
+/* .theme-toggle {
+  position: absolute;
+  top: 20px;               
+  right: 20px;             
+  padding: 6px 12px;
+  border-radius: 100px;
+  background: #404040;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+body.dark-mode .theme-toggle {
+  background: rgba(255, 255, 255, 0.1);  
+  color: #ffffffdb;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.theme-toggle:hover {
+  background-color: #678; 
+}
+
+.lang-toggle {
+  position: absolute;
+  top: 20px;
+  right: 6.8rem;
+  padding: 6px 12px;
+  border-radius: 100px;
+  background: #404040;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color 0.3s, color 0.3s;
+  width: 80px;            
+  text-align: center; 
+}
+body.dark-mode .lang-toggle {
+  background: rgba(255, 255, 255, 0.1);  
+  color: #ffffffdb;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.lang-toggle:hover {
+  background-color: #678; 
+} */
+
+
+/* START: Add these new styles for palette buttons */
+
+/* Container for the palette buttons row */
+.palette-selector-container {
+    display: flex; /* Align label and button row */
+    align-items: center; /* Vertically center label with buttons */
+    flex-wrap: wrap; /* Allow wrapping if space is limited */
+    gap: 10px; /* Space between label and button group */
+}
+
+.palette-selector {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+/* Individual palette button styling */
+.palette-btn {
+  flex: 1; /* Make buttons share space equally */
+  padding: 8px 5px; /* Adjust padding (less horizontal padding if text is short) */
+  background-color: #e0e0e0; /* Default background */
+  border: 1px solid #ccc;
+  border-radius: 88px; /* Slightly rounded corners */
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  color: #333;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+@media (max-width: 920px) {
+  /* Stack label above palette buttons */
+  .palette-selector-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Turn the button row into a 2-column grid */
+  .palette-selector {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+
+  /* Make buttons fill each grid cell nicely */
+  .palette-btn {
+    flex: none;           /* cancel flex:1 */
+    width: 100%;          /* full cell width */
+    padding: 10px;        /* a bit more padding for tap targets */
+    white-space: normal;  /* allow wrapping on very narrow screens */
+  }
+}
+
+/*mobil için palette buttons*/
+@media (max-width: 640px) {
+  .palette-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+}
+
+
+/* Style for the active/selected button */
+.palette-btn.active {
+  background-color: rgb(222, 237, 253); /* A distinct active color (e.g., blue) */
+  color: rgb(58, 132, 248); /* White text for active button */
+  border-color: rgb(222, 237, 253);
+  font-weight: bold; /* Make active button text bold */
+
+}
+
+/* Hover effect for non-active buttons */
+.palette-btn:not(.active):hover {
+  background-color: #d4d4d4;
+  border-color: #bbb;
+}
+
+/* Focus style for accessibility */
+.palette-btn:focus {
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+}
+
+
+/* --- Dark Mode Palette Button Styles --- */
+
+body.dark-mode .palette-selector-container label {
+    color: #e0e0e0; /* Lighter label text in dark mode */
+}
+
+body.dark-mode .palette-btn {
+    background-color: #444; /* Darker default background */
+    border-color: #666;
+    color: #ddd; /* Lighter default text */
+}
+
+body.dark-mode .palette-btn.active {
+  background-color: rgb(58, 132, 248); /* A distinct active color (e.g., blue) */
+  color:            rgb(222, 237, 253); /* White text for active button */
+  border-color:    rgb(58, 132, 248);
+}
+
+body.dark-mode .palette-btn:not(.active):hover {
+    background-color: #555;
+    border-color: #777;
+}
+
+body.dark-mode .palette-btn:focus {
+    outline-color: #4e9af1;
+}
+
+/* END: New palette button styles */
+
+.back-button {
+    position: absolute; /* Container'a göre mutlak konumlandırma */
+    /* Container'ın padding-top değeri kadar aşağı kaydırın */
+    /* Container'ın padding-top'ı 20px, bu değeri kullanabiliriz veya biraz daha ayar yapabiliriz */
+    top: 20px; /* Container'ın üst kenarından 20px aşağı */
+
+    /* Başlığın margin-left'i kadar sağa kaydırın */
+    /* Başlığın margin-left'i 1.25rem, bu değeri kullanın */
+    left: 2.0rem; /* Container'ın sol kenarından 1.25rem sağa */
+
+    cursor: pointer;
+    z-index: 10; /* Diğer öğelerin üstünde görünmesini sağlar */
+
+    /* İstenmeyen kenarlık, arka plan ve dolguyu kaldır */
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0;
+
+
+}
+
+.back-button img {
+    width: 30px; /* İkon boyutu */
+    height: auto;
+    display: block; /* Resmin kutu gibi davranmasını sağlar */
+    /* Resimde istenmeyen kenarlık veya çizgi olmaması için */
+    outline: none;
+    border: none;
+}
+
+/* Tıklanabilir görseller için stil */
+#originalImage, #canvas {
+    cursor: zoom-in;
+    transition: opacity 0.3s ease;
+}
+
+
+
+
+/* Zoom işlevi için stiller */
+.zoomable-image {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.zoom-checkbox {
+    display: none !important; /* Checkbox'ı tamamen gizle */
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.zoomable-image label {
+    display: block;
+    cursor: zoom-in;
+}
+
+.zoom-checkbox:checked ~ label {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: zoom-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.zoom-checkbox:checked ~ label img,
+.zoom-checkbox:checked ~ label canvas {
+    max-width: 90%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Oranları koru */
+    aspect-ratio: attr(width) / attr(height); /* Orijinal en-boy oranını koru */
+}
+
+/* Dark mode için arka plan rengi */
+body.dark-mode .zoom-checkbox:checked ~ label {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+#originalImage, #canvas {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: block; /* Görsel altındaki boşluğu kaldır */
+    -webkit-user-select: none; /* Mobilde seçim efektini engelle */
+    user-select: none;
+    pointer-events: auto; /* Tıklanabilirliği etkinleştir */
+}
+
+/* Mobil için özel düzenlemeler */
+@media (max-width: 768px) {
+    .zoomable-image label {
+        touch-action: manipulation; /* Mobilde daha iyi dokunma davranışı */
+    }
+    
+    .zoom-checkbox:checked ~ label {
+        touch-action: none; /* Zoom durumunda scroll'u engelle */
+    }
+}

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+    <link rel="stylesheet" href="blog2.css?v=20250425">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menü Çubuğu -->
+    <!-- navbar kısmını bu şekilde güncelleyin -->
+    <div class="navbar">
+        <!-- Tema değiştirme butonu -->
+        <div class="toggle-mode" onclick="toggleMode()">
+            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+        </div>
+        <!-- Site başlığı -->
+        <div class="mobile-site-title">emre kaan</div>
+             <!-- Dil İkonu (Sağ Tarafta) -->
+        <div class="language-toggle" onclick="changeLanguage()">
+            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+        </div>       
+        <!-- Hamburger ikonu (sadece mobilde görünecek) -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+        </div>
+
+        <div class="menu">
+            <!-- Menü linkleri -->
+            <a href="index-en.html" class="menu-link">home</a>
+            <a href="about-en.html" class="menu-link">about</a>
+            <a href="blog-en.html" class="menu-link active">blog</a>
+            <a href="contact-en.html" class="menu-link">contact</a>
+        </div>
+    </div>
+
+
+    <!-- İçerik -->
+    <div class="container-about">
+        <div class="website">
+        <h2>
+            <span class="website-h">website</span>
+        </h2>
+        <!-- jackorn.com için ayrı satır -->
+        <div class="jackorn">jackorn.com</div>
+            <div class="website-text">
+                <p>
+                    this website was designed as a personal portfolio. i wanted to create a minimalist space where i can share my projects, thoughts and works
+                    .<br>
+                     by prioritizing simplicity and functionality in the design, i created a responsive structure that works smoothly on both desktop and mobile devices
+                    .<br><br>
+                    The source code of the website is available at 
+                    <a href="https://github.com/yourusername/website" target="_blank">my GitHub page</a>
+                </p>
+            </div>
+            
+            <!-- Website Görsel Grid -->
+            <div class="website-grid-container">
+                <div class="website-grid">
+                    <div class="website-image">
+                        <img src="agreat.webp" alt="Website Görsel 1">
+                    </div>
+                    <div class="website-image">
+                        <img src="shan.png" alt="Website Görsel 2">
+                    </div>
+                    <div class="website-image">
+                        <img src="nvidia.png" alt="Website Görsel 3">
+                    </div>
+                    <div class="website-image">
+                        <img src="cs.png" alt="Website Görsel 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Instagram Bölümü -->
+        <div class="instagram-about">
+            <h2>
+                <span class="instagram-text">instagram</span>
+                <span class="tag">@technovision101</span>
+            </h2>
+            <div class="insta-text">
+                <p>
+                    I produce content on Instagram by combining my own perception of beauty and aesthetic values with computer science.
+                    In particular, I talk about people who have made significant contributions in this field under the name of the "IconTech" series.
+                    Other posts focus on events, tools and inventions that have revolutionary qualities around the world.<br><br>
+                    You can see some of my posts below and click on them directly.
+                    As the name suggests, this page was created to provide a vision for technology.<br><br>
+                    Everything you see here has a purpose. There is nothing unnecessary.
+                    Simplicity, symmetry and clarity in design are important to me.
+                    Because the best works are the ones where the labor spent in the background is not visible.
+                    That's why smooth transitions, transparent boxes, golden ratios and symmetries are everywhere.<br><br>
+                    You are invited to visit 
+                <a href="https://www.instagram.com/technovision101/" target="_blank">my Instagram page  </a>to access all my posts and see the wonders of science.
+                </p>
+            </div>
+
+            <!-- Yeni Slider Yapısı -->
+            <div class="instagram-grid-container">
+                <div class="instagram-grid-wrapper">
+                    <div class="instagram-grid-slider">
+                        <!-- İlk grup (varsayılan gösterilen) -->
+                        <div class="post-group">
+                            
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6jRPKEqbiZ/" target="_blank">
+                                    <img src="ada.png" alt="Instagram Post 1">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/DDRymcsocub/" target="_blank">
+                                    <img src="risc.png" alt="Instagram Post 2">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C-zqv1HgdqQ/" target="_blank">
+                                    <img src="linux.png" alt="Instagram Post 3">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C_ik9N-osib/" target="_blank">
+                                    <img src="trs.png" alt="Instagram Post 4">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6y7J2gKRog/" target="_blank">
+                                    <img src="hellog3.png" alt="Instagram Post 4">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/DEup3k2AYBd/" target="_blank">
+                                    <img src="intelli.png" alt="Instagram Post 4">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/DFx3OYLABqC/" target="_blank">
+                                    <img src="display.png" alt="Instagram Post 4">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C9nIBw9KDep/" target="_blank">
+                                    <img src="nvidia.png" alt="Instagram Post 4">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Grup 1 -->
+                        <div class="post-group">
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
+                                    <img src="gui2.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C9zHVlTgXpw/" target="_blank">
+                                    <img src="arm.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C61XX9LKgLz/" target="_blank">
+                                    <img src="ibm.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C7WzA9fKgna/" target="_blank">
+                                    <img src="hopper.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/DBjkDs8IoLg/" target="_blank">
+                                    <img src="mham.png" alt="Instagram Post 17">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C7mw7njgmbc/" target="_blank">
+                                    <img src="moore.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/DCwYUU0oMMS/" target="_blank">
+                                    <img src="mouse.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C-lLW-YAzdr/" target="_blank">
+                                    <img src="spc.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- ... group-2'in diğer postları -->
+                        <div class="post-group">
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/DD4N7l_g23v/" target="_blank">
+                                    <img src="is.png" alt="Instagram Post 17">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/endustrimuh101/p/C7R9Q_DtVyZ/" target="_blank">
+                                    <img src="ftay.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C-5bF2ZKLcF/" target="_blank">
+                                    <img src="dknu.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C97bIJlKsec/" target="_blank">
+                                    <img src="jmc.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6d0kyrq9Q-/" target="_blank">
+                                    <img src="vb.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C9Scc_wqAzk/" target="_blank">
+                                    <img src="shan.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6i4Z16KFVG/" target="_blank">
+                                    <img src="jvn.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6ggCxGqGy_/" target="_blank">
+                                    <img src="mic.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="post-group">
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
+                                    <img src="stack.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <!-- ... group-3'in diğer postları -->
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
+                                    <img src="www.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
+                                    <img src="hsim.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
+                                    <img src="unix.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                            <div class="instagram-post-about">
+                                <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
+                                    <img src="open.png" alt="Instagram Post 13">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Navigasyon Butonları -->
+                <div class="slider-navigation">
+                    <button class="nav-button prev-button" onclick="slideImages('prev')">
+                        <img src="96b.png" alt="Önceki" width="24" height="24">
+                    </button>
+                    <!-- Daireler (Indicator Dots) -->
+                    <div class="dots-container">
+                        <span class="dot" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                        <span class="dot" data-index="3"></span>
+                    </div>
+                    <button class="nav-button next-button" onclick="slideImages('next')">
+                        <img src="96f.png" alt="Sonraki" width="24" height="24">
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <!-- Instagram bölümünden sonra, content-about bölümünden önce -->
+        <div class="dot-image-about">
+            <h2>
+                <span class="dot-image-header">dot-based image</span>
+            </h2>
+            <div class="dot-image-text">
+                <p>
+                    I have developed a web application where you can convert your images into point-based artworks.
+                    with this application you can convert your photos into point-based images, 
+                    you can adjust the number and size of points.<br><br>
+                    you can download or copy the converted images.
+                </p>
+            </div>
+            
+            <!-- Dot Image Görsel Grid -->
+            <div class="dot-image-grid">
+                <div class="dot-image-pair">
+                    <img src="california.jpg" alt="original image">
+                    <img src="dot-calif.png" alt="cınverted image">
+                    <img src="Earth-facts.jpg" alt="Orijinal Görsel">
+                    <img src="dot-earth.png" alt="Dönüştürülmüş Görsel">
+                </div>
+            </div>
+
+            <!-- Dot Image Sayfasına Yönlendirme Butonu -->
+            <div class="dot-button-container">
+                <a href="proje/dot.html" class="dot-redirect-button">
+                    try the app
+                </a>
+            </div>
+        </div>
+
+        
+        <div class="content-about">
+            <h2>one more thing</h2>
+            <div class="post-grid-about">
+                <!-- Her bir post-card-about içine img ekleyin -->
+                <div class="post-card-about">
+                    <a href="metod.html">
+                        <img src="agreat.webp" class="post-card-image" alt="Sanat İnancımız">
+                        <div class="post-card-content">
+                            <h3>our belief in art</h3>
+                            <p>short notes on projects where technology and art intersect...</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Her bir post-card-about içine img ekleyin -->
+                <div class="post-card-about">
+                    <a href="ilke.html">
+                        <img src="arm.png" class="post-card-image" alt="Sanat İnancımız">
+                        <div class="post-card-content">
+                            <h3>our belief in art</h3>
+                            <p>short notes on projects where technology and art intersect...</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Her bir post-card-about içine img ekleyin -->
+                <div class="post-card-about">
+                    <a href="ilke.html">
+                        <img src="ada.png" class="post-card-image" alt="Sanat İnancımız">
+                        <div class="post-card-content">
+                            <h3>our belief in art</h3>
+                            <p>short notes on projects where technology and art intersect...</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Her bir post-card-about içine img ekleyin -->
+                <div class="post-card-about">
+                    <a href="ilke.html">
+                        <img src="shan.png" class="post-card-image" alt="Sanat İnancımız">
+                        <div class="post-card-content">
+                            <h3>sanat inancımız</h3>
+                            <p>Teknoloji ve sanatın kesiştiği projeler üzerine kısa notlar...</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Her bir post-card-about içine img ekleyin -->
+                <div class="post-card-about">
+                    <a href="ilke.html">
+                        <img src="dknu.png" class="post-card-image" alt="Sanat İnancımız">
+                        <div class="post-card-content">
+                            <h3>sanat inancımız</h3>
+                            <p>Teknoloji ve sanatın kesiştiği projeler üzerine kısa notlar...</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Her bir post-card-about içine img ekleyin -->
+                <div class="post-card-about">
+                    <a href="ilke.html">
+                        <img src="gold.png" class="post-card-image" alt="Sanat İnancımız">
+                        <div class="post-card-content">
+                            <h3>sanat inancımız</h3>
+                            <p>Teknoloji ve sanatın kesiştiği projeler üzerine kısa notlar...</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            
+            // Mod değiştirme
+            body.classList.toggle('dark-mode');
+    
+            // Karanlık mod durumu LocalStorage'a kaydediliyor
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+        }
+    
+        // Sayfa yüklendiğinde karanlık mod ve dil durumunu kontrol et
+        window.onload = function() {
+            const modeIcon = document.getElementById('mode-icon');
+            const darkMode = localStorage.getItem('darkMode');
+    
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                document.body.classList.remove('dark-mode');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+    
+            // Dil durumunu kontrol et
+            const savedLanguage = localStorage.getItem('language') || 'tr';
+            document.documentElement.lang = savedLanguage;
+    
+            const languageIcon = document.getElementById('language-icon');
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+        };
+    
+        function changeLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'tr' ? 'en' : 'tr';
+    
+            // Dil tercihini kaydet
+            localStorage.setItem('language', newLang);
+    
+            // İlgili sayfaya yönlendir
+            if (newLang === 'en') {
+                window.location.href = 'blog-en.html';
+            } else {
+                window.location.href = 'blog2.html';
+            }
+        }
+    </script>
+
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 4; // Toplam 4 bölüm
+
+        function slideImages(direction) {
+            const slider = document.querySelector('.instagram-grid-slider');
+            
+            if (direction === 'next' && currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else if (direction === 'prev' && currentSlide > 0) {
+                currentSlide--;
+            }
+            
+            // Slider'ı translate et (yatay kaydırma)
+            const translateValue = -(currentSlide * 100);
+            slider.style.transform = `translateX(${translateValue}%)`;
+            
+            // Navigasyon butonlarını ve aktif daireyi güncelle
+            updateNavigationButtons();
+            updateActiveDot();
+        }
+        
+        function updateNavigationButtons() {
+            const prevButton = document.querySelector('.prev-button');
+            const nextButton = document.querySelector('.next-button');
+            
+            prevButton.style.opacity = currentSlide === 0 ? '0.5' : '1';
+            prevButton.style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
+            
+            nextButton.style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
+            nextButton.style.pointerEvents = currentSlide === totalSlides - 1 ? 'none' : 'auto';
+        }
+        
+        function updateActiveDot() {
+            const dots = document.querySelectorAll('.dot');
+            // Tüm dot'lardan aktif sınıfını kaldır
+            dots.forEach(dot => dot.classList.remove('active'));
+            // Şu anki slide'ı temsil eden dot'a aktif sınıfını ekle
+            if (dots[currentSlide]) {
+                dots[currentSlide].classList.add('active');
+            }
+        }
+        
+        // Sayfa yüklendiğinde buton ve dot durumlarını güncelle
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNavigationButtons();
+            updateActiveDot();
+        });
+
+        
+
+    </script>
+
+
+<script>
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        const icon = document.querySelector('.menu-icon img');
+        
+        // Fade out
+        icon.style.opacity = 0;
+        
+        // Toggle menu ve src güncellemesini fade-out animasyonu tamamlandıktan sonra yapıyoruz
+        setTimeout(() => {
+            menu.classList.toggle('active');
+        
+            if (menu.classList.contains('active')) {
+                icon.src = 'close-icon.png'; // "X" ikonunuzun dosya adını kullanın
+                icon.alt = 'Menüyü Kapat';
+            } else {
+                icon.src = 'menu-icon.png';
+                icon.alt = 'Menü';
+            }
+            
+            // Fade in
+            icon.style.opacity = 1;
+        }, 150); // 150ms delay, ihtiyaca göre ayarlanabilir
+    }
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const menu = document.querySelector('.menu');
+        const menuIcon = document.querySelector('.menu-icon');
+        if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                const icon = menuIcon.querySelector('img');
+                icon.src = 'menu-icon.png';
+                icon.alt = 'Menü';
+            }
+        }
+    });
+    </script>
+
+
+</body>
+</html>

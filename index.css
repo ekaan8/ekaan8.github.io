@@ -1,0 +1,2267 @@
+/* Temel Stiller */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: rgb(245, 245, 247);
+    color: rgb(29, 29, 32);
+    min-height: 100vh;
+}
+/* This is the key addition needed */
+body.dark-mode ~ html,
+html {
+    background-color: inherit;
+}
+html, body {
+    overflow-x: hidden;
+}
+/* En üste ekleyin, tüm CSS’inizin başına: */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+  
+
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(5px);
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 0.8px 1px rgba(18, 18, 18, 0.089);
+}
+
+/* Menü */
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%; /* Changed from auto to 100% */
+    padding: 0; /* Remove padding-left */
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -18px;
+    width: 100%;
+    height: 2px;
+    background-color: #6c6c6c;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.menu-link:hover::after,
+.menu-link.active::after {
+    transform: scaleX(1);
+}
+
+/* Update container styling */
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 92vh;
+    padding: 80px 10% 0 10%; /* Increased top padding to account for navbar */
+    margin-top: 0; /* Remove negative margin */
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+}
+body.dark-mode .container {
+    background-color: rgb(42, 42, 42);
+}
+
+.profile-section {
+    display: flex;
+    align-items: flex-start; /* Changed from center to flex-start */
+    gap: 40px;
+    width: 100%;
+    padding-top: 20px; /* Additional padding from navbar */
+}
+/* Add responsive adjustments */
+@media screen and (max-width: 768px) {
+    .container {
+        padding-top: 4rem; /* More padding on mobile */
+        min-height: auto;
+    }
+    
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .gradient-text {
+        font-size: 3rem; /* Smaller font on mobile */
+        line-height: 1.0; /* Adjust line height */
+    }
+    .menu-icon img {
+        transition: opacity 0.3s ease;
+    }
+
+    .container .profile-section .profile-pic {
+        width: 248px !important;
+        height: auto !important;
+        margin-top: 0 !important;    /* yukarı kaydırmak için */
+    }
+}
+
+.profile-pic {
+    width: 280px;
+    height: 280px;
+    height: auto;
+    border-radius: 48px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.intro-text {
+    max-width: 650px;
+    text-align: left;
+    color: rgb(88, 88, 88);
+    font-size: 1.5rem;
+    line-height: 1.4; /* Improved readability */
+    letter-spacing: 0.2px;
+    font-weight: 600;
+    padding-left: 0px;
+}
+body.dark-mode .intro-text {
+    color: rgb(230, 230, 235);
+}
+
+.nowrap {
+    white-space: nowrap;      /* Satır kırılmasını engeller      */
+    display: inline-block;    /* Tarayıcıya tek parça gibi gelir */
+}
+  
+.gradient-text {
+    font-size: 4.6rem;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #1e3c72 0%, #2a5298 40%, #005f73 100%); /* Canlı renkler */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+body.dark-mode .gradient-text {
+    /*background: linear-gradient(to bottom, #870b8d, #cc00ff, #8a2be2);*/
+    /*background: linear-gradient(to right,#c471f5, #fa71cd, #ff416c);*/
+  background: linear-gradient(
+    to right,
+    #e44bae 0%,   /* fuşya ton */
+    #ff7750 100%  /* turuncumsu ton */
+  );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+}
+
+
+
+
+
+.instagram-section {
+    text-align: left;
+    padding: 5px 110px;
+    background-color: #e9e7e7;
+    margin-top: 2rem; /* Add this line to create a gap */
+}
+
+.instagram-section h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #2c3f53, rgb(90, 110, 245), #f8f9fa);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-top: 2px;
+    text-align: left; /* Eklendi */
+    padding-left: 0; /* Eklendi */
+    line-height: 1.5;
+}
+body.dark-mode .instagram-section h2 {
+    background: linear-gradient(    90deg,
+    #c471f5 0%,   /* morumsu lila */
+    #fa71cd 50%,  /* canlı pembe */
+    #ff416c 100%);
+    -webkit-background-clip: text; /* Yalnızca metin üzerinde gradyan efektini uygular */
+    color: transparent; /* Metnin kendisinin rengini şeffaf yapar */
+}
+
+
+.instagram-section p {
+    /* Removed padding-left */
+    font-size: 24px;
+    margin-bottom: 40px;
+    font-weight: 480;
+    color: #212020;
+    max-width: 100%; /* Full width within container */
+    margin-top: 10px;
+}
+/*link altındaki çizgi için*/
+/* Mevcut CSS'inize ekleyin */
+.instagram-section p a {
+    text-decoration: none;
+    color: #72737b; /* Mavi ton (istediğiniz renk kodunu kullanabilirsiniz) */
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.instagram-section p a:hover {
+    color: #3f5ad3; /* Hover efekt için biraz daha açık ton */
+}
+
+/* Dark mode için alternatif renk */
+body.dark-mode .instagram-section p a {
+    color: #858485;
+}
+body.dark-mode .instagram-section p a:hover {
+    color: #8a2be2;
+}
+
+
+
+
+
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 sütun */
+    gap: 20px; /* Görseller arasındaki boşluk */
+    margin: 0 auto; /* Yatayda ortala */
+    padding: 0; /* İç boşlukları kaldır */
+    width: 100%; /* Tam genişlik */
+    justify-content: center; /* Yatayda ortala */
+    align-items: center; /* Dikeyde ortala */
+}
+.instagram-post {
+    width: 100%;
+    aspect-ratio: 1/1; /* Removed max-width constraint */
+}
+
+
+.instagram-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.instagram-post img:hover {
+    transform: scale(1.05);
+}
+
+.instagram-header {
+    background-color: #e4e3e3;
+    color: rgb(0, 0, 0);
+    display: block;
+    flex-wrap: wrap;        /* dar ekranda satır kaydırır */
+    align-items: center;    /* dikey hizalama */
+    gap: 0.75rem;           /* metin–kapsül arası mesafe */
+    margin-bottom: 1rem;    /* başlık–paragraf arası nefes */
+    padding: 0; 
+    text-align: left; /* Değiştirildi (center'dan left'e) */
+}
+
+.tag {
+    background: rgb(230, 230, 235);
+    color: rgb(0, 0, 0);
+    border-radius: 100px;
+    padding: 1px 25px;
+    font-size: 36px;
+    font-weight: 480;
+    display: inline-block;
+    box-shadow: 
+    0 0 4px rgb(54, 68, 101), /* Açık pembe */
+    0 0 8px rgb(82, 96, 194), /* Orta pembe */
+    0 0 12px rgb(118, 132, 240); /* Koyu pembe */
+    text-decoration: none;
+    transition: box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; /* Yumuşak geçiş */
+}
+body.dark-mode .tag {
+    background: black; /* Gradyan gri-beyaz */
+    color: #d8d8d8;
+    border-radius: 100px;
+    padding: 1px 25px;
+    font-size: 36px;
+    box-shadow: 
+    0 0 4px #c471f5, /* Açık pembe */
+    0 0 8px #fa71cd, /* Orta pembe */
+    0 0 12px #ff416c; /* Koyu pembe */
+    display: inline-block; /* Gradyanın düzgün çalışması için */
+    text-decoration: none;
+    transition: box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease; /* Yumuşak geçiş */
+
+}
+.tag:hover {
+    box-shadow: 
+        0 0 2px rgb(54, 68, 101), /* Daha az belirgin açık pembe */
+        0 0 4px rgb(82, 96, 194), /* Daha az belirgin orta pembe */
+        0 0 6px rgb(118, 132, 240); /* Daha az belirgin koyu pembe */
+}
+body.dark-mode .tag:hover {
+    box-shadow: 
+        0 0 2px #c471f5, /* Daha az belirgin açık pembe */
+        0 0 4px #fa71cd, /* Daha az belirgin orta pembe */
+        0 0 6px #ff416c; /* Daha az belirgin koyu pembe */;
+}
+@media (max-width: 600px) {
+  .tag {
+    font-size: 32px;
+  }  
+  body.dark-mode .tag {
+        box-shadow: 
+        0 0 4px #c471f5, /* Açık pembe */
+        0 0 8px #fa71cd, /* Orta pembe */
+        0 0 12px #ff416c; /* Koyu pembe */
+        display: inline-block; /* Gradyanın düzgün çalışması için */
+        font-size: 32px;
+    }
+    
+}
+
+.content-section {
+    text-align: left;
+    margin: 2rem 0;
+    padding: 20px 110px 30px; /* Same padding as instagram-section */
+    background-color: rgb(230, 230, 235);
+    box-sizing: border-box;
+    font-size: 36px;
+    margin-bottom: 0px;
+}
+
+
+
+/* İçerik başlık ve paragrafları için ekstra ayar (isteğe bağlı) */
+.content-section h2 {
+    /* Gradient renk tanımı */
+    background-image: linear-gradient(135deg, #13265f,#2a3d86, #3f5ad3);
+    
+    /* Metne gradient uygulama */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
+    
+    /* Gradient'in görünürlüğünü artırmak için ekstra stil */
+    display: inline-block; /* Bazı tarayıcılar için gerekli */
+    font-weight: bold; /* Renk geçişini belirginleştirir */
+    font-size: 48px; /* Büyük yazı boyutu ile test edin */
+    margin-top: 1%;
+
+    line-height: 1.3; /* Yeni eklenen satır */
+}
+body.dark-mode .content-section h2 {
+    background: linear-gradient(
+        90deg,
+        #c471f5 0%,   /* morumsu lila */
+        #fa71cd 50%,  /* canlı pembe */
+        #ff416c 100%  /* parlak kırmızı */
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+.content-section p {
+    padding-left: 0; /* Instagram bölümüyle aynı hizada olması için */
+    max-width: 80%; /* Instagram bölümündeki paragrafla uyumlu */
+}
+
+/* Başlık altı kısa açıklama */
+.content-section .section-desc {
+    font-size: 1.5rem;             /* ~16px */
+    font-weight: 600;
+    color: #555;                 /* açık mod metin rengi */
+    max-width: 100%;              /* satır uzunluğunu sınırla */
+    margin-top: 0.25rem;          /* başlıkla arasına boşluk */
+    margin-bottom: 1.5rem;       /* açıklama ile grid arası */
+    line-height: 1.6;            /* okunabilir satır yüksekliği */
+    margin-left: 20px;
+}
+
+/* Dark mode’da açıklama rengi */
+body.dark-mode .content-section .section-desc {
+    color: #bbb;
+}
+
+/* Mobilde full genişlik ve biraz daha küçük metin */
+@media (max-width: 768px) {
+    .content-section .section-desc {
+        max-width: 100%;
+        margin-left: 0px;
+    }
+}
+
+
+/* .post-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+}
+
+.post-card {
+    width: 320px;
+    padding: 30px;
+    background-color: #f8f8f8;
+    border-radius: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+/* Post grid layout */
+/* Ensure child elements also respect the padding */
+.post-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Post card structure */
+.post-card {
+    padding: 0;
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    gap: 20px;
+    position: relative;
+    transition: transform 0.3s ease-out;
+    transform-origin: center center;
+}
+.post-card::after {
+    content: '';
+    position: absolute;
+    bottom: -1.25rem;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(170, 170, 170, 0.82);
+}
+.post-card:last-child::after {
+    content: none;
+}
+/* 
+.post-card:hover {
+    transform: scale(1.05);
+} */
+/* Image styling */
+.post-card-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+/* 2) Hover sadece görseli büyütsün */
+.post-card:hover .post-card-image {
+    transform: scale(1.05);
+}
+.post-card a:hover {
+    transform: none !important;
+}
+
+/* Content styling */
+.post-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.post-card-content h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(55, 55, 55);
+}
+.post-card-content p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    line-height: 1.6;
+}
+
+.post-card h3 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+/* Link styling */
+.post-card a {
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    gap: 20px;
+    transition: transform 0.2s ease;
+}
+
+.post-card a:hover {
+    transform: translateX(5px);
+}
+/* Dark mode styles */
+
+body.dark-mode .post-card-content h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .post-card-content p {
+    color: #d2d2d2;
+}
+/* Mobile responsive */
+@media (max-width: 600px) {
+    /* 1) Post listesi: dikey sütun, aralarında boşluk */
+    .content-section .post-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 0 1rem;      /* isteğe göre iç boşluk */
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  
+    /* 2) Kartın satır düzene geçmesi */
+    .post-card a {
+      display: flex;
+      flex-direction: row !important;  /* column’u ez */
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;    /* üst-alt boşluk */
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  
+    /* 3) Resmi sabit genişlikte yan tarafa yerleştir */
+    .post-card-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 16px;
+      flex-shrink: 0;
+    }
+  
+    /* 4) İçerik sütunu esnek kalsın */
+    .post-card-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+  
+    /* 5) Başlık ve metin boyutları */
+    .post-card-content h3 {
+      font-size: 1.125rem;  /* ~18px */
+      line-height: 1.2;
+      margin: 0;
+    }
+    .post-card-content p {
+      font-size: 1.0rem;  /* ~14px */
+      line-height: 1.4;
+      margin: 0;
+      white-space: normal;      /* satır kaydırmayı geri aç */
+      overflow: visible;
+      text-overflow: clip;
+      color: #555;
+    }
+  
+    /* 6) Kartlar arasındaki çizgiyi başlık hizasına indirme (opsiyonel) */
+    .post-card::after {
+      left: calc(0rem);   /* resim + gap kadar boşluk bırak */
+    }
+      /* Paragraflar artık birden fazla satıra sığacak */
+  .post-card-content p,
+  .post-card p {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    display: block;            /* bloğa çevir, flex içi de olsa */
+  }
+}
+  
+
+
+.post-card p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.6;
+
+    margin: 10px 0 0;
+}
+
+.toggle-mode {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.toggle-mode img {
+    width: 36px;
+    height: 36px;
+    transition: transform 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar {
+    background-color: rgba(30, 30, 30, 0.9) !important; /* Opaklık ekleyin */
+    box-shadow: 0 0.8px 1px rgba(240, 240, 240, 0.271);
+}
+
+body.dark-mode .menu a {
+    color: #ffffff;
+}
+
+body.dark-mode .menu-link {
+    color: #ffffff;
+}
+
+body.dark-mode .menu-link::after {
+    background-color: #ffffff;
+}
+
+
+body.dark-mode .instagram-section {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .instagram-section p {
+    color: #ffffff;
+}
+
+body.dark-mode .instagram-header {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+
+body.dark-mode .content-section {
+    background-color: #2a2a2a;
+}
+
+
+body.dark-mode .post-card {
+    background-color: transparent;
+}
+
+body.dark-mode .post-card h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .post-card p {
+    color: #d2d2d2;
+}
+
+
+/* Dil İkonu */
+.language-toggle {
+    position: absolute;
+    right: 24px; /* Navbar'ın sağından mesafe */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.language-toggle img {
+    width: 28px; /* İkon boyutu */
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+
+.language-toggle:hover img {
+    transform: scale(1.1); /* Hover efekti */
+}
+
+/* Karanlık Modda Dil İkonu */
+body.dark-mode .language-toggle img {
+    filter: invert(1);
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .instagram-section {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .content-section {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .profile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-section img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .profile-section h1 {
+        margin-top: 10px;
+    }
+
+    .profile-section p {
+        margin-top: 10px;
+        max-width: 100%;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .instagram-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .instagram-section h2 {
+        font-size: 36px;
+    }
+
+    .instagram-grid {
+        grid-template-columns: 1fr;
+    }
+    .content-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    body.dark-mode .content-section h2 {
+        /* dark‑mode gradient’inizi de burada koruyun: */
+        background: linear-gradient(
+        90deg,
+        #c471f5, 
+        #fa71cd, 
+        #ff416c 
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+}
+
+
+@media screen and (max-width: 800px) {
+    .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+/* Single breakpoint for 2x2 grid */
+@media screen and (max-width: 1000px) {
+    .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 600px;
+    }
+}
+
+/*yeni ekleme*/
+.menu-icon {
+    display: none; /* Masaüstünde varsayılan olarak gizli */
+}
+.mobile-site-title {
+    display: none;
+}
+/* ===== MOBILE STYLES ===== */
+@media (max-width: 768px) {
+    /* Navbar and Menu Layout */
+    .navbar {
+        position: fixed; /* Change from relative to fixed */
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(5.0px);
+        z-index: 1000; /* Ensure it stays on top */
+        box-shadow: 0 0.8px 1px rgba(18, 18, 18, 0.089);
+    }
+    body.dark-mode .navbar {
+        background-color: rgba(30, 30, 30, 0.62) !important; /* Opaklık ekleyin */
+        box-shadow: 0 0.8px 1px rgba(240, 240, 240, 0.271);
+    }
+    
+    /* Mobile site title - position on the far left */
+    .mobile-site-title {
+        display: block;
+        position: absolute;
+        left: 20px; /* Keep on the left */
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #333;
+        text-align: left;
+        z-index: 1; /* Ensure it's above other elements */
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+      }
+    
+    /* Toggle mode - position to the left of hamburger menu */
+    .toggle-mode {
+      display: block;
+      position: absolute;
+      right: 60px; /* Position to the left of hamburger menu */
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      margin: 0;
+      left: auto; /* Remove left positioning */
+    }
+    
+    /* Language toggle - position to the left of toggle-mode */
+    .language-toggle {
+      display: block;
+      position: absolute;
+      right: 108px; /* Position to the left of toggle-mode */
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0;
+    }
+    .language-toggle img {
+        width: 28px; /* Reduced from 28px */
+        height: 28px; /* Reduced from 28px */
+        transition: transform 0.3s ease;
+    }
+    
+    /* Menu icon - position on the far right */
+    .menu-icon {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    
+    /* Menu dropdown */
+    .menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 0;
+        text-align: left;
+      }
+    
+    .menu.active {
+      display: flex;
+    }
+    
+    .menu-link {
+        font-size: 2rem;
+        color: #555;
+        padding-left: 20px; /* mobile-site-title ile aynı hizada olması için */
+        width: auto; /* Changed from 100% to auto */
+        text-align: left; /* Yazıyı sola hizala */
+        display: inline-block; /* Add this line */
+        position: relative; /* Add this line */
+    }
+
+    .menu-link::after {
+        content: '';
+        position: absolute;
+        left: 20px;
+        bottom: -4px;
+        width: 0; /* Changed from 100% to 0 */
+        height: 2px;
+        background-color: #6c6c6c;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .menu-link:hover::after,
+    .menu-link.active::after {
+        transform: scaleX(1);
+        width: calc(100% - 20px);
+    }
+    
+    /* Dark mode adjustments */
+    body.dark-mode .mobile-site-title {
+      color: #ffffff;
+    }
+    
+    body.dark-mode .menu-icon img {
+      filter: invert(1);
+    }
+    
+
+    body.dark-mode .toggle-mode img {
+        content: url('night.png');
+        width: 36px; /* Match light mode size */
+        height: 36px; /* Match light mode size */
+        object-fit: contain;
+    }
+    
+    body.dark-mode .navbar .menu {
+      background: rgba(30, 30, 30, 0.95);
+    }
+}
+body.dark-mode .toggle-mode img {
+    content: url('night.png');
+}
+
+
+@media screen and (max-width: 800px) {
+    .instagram-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem; /* Araya boşluk ekler, ihtiyaca göre değeri ayarlayabilirsiniz */
+    }
+}
+
+
+.dual-section-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem auto; /* Changed from 1rem 0 to 1rem auto */
+    max-width: 1200px; /* Add max-width */
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Common styles for both boxes */
+.feature-box-left, .feature-box-right {
+    background: #ffffff;
+    padding: 2rem;
+    width: 100%;
+    max-width: none;
+}
+
+/* Left box specific styles */
+.feature-box-left {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Left box image styles */
+.feature-box-left .feature-images {
+    display: flex;
+    flex-direction: column; /* Changed from row to column */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.feature-box-left .feature-image {
+    width: 100%; /* Changed from 50% to 100% */
+    height: 50%; /* Added height 50% */
+    object-fit: cover;
+    margin: 0;
+}
+
+
+.feature-box-left .feature-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Changed from space-between */
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    gap: 20px; /* Add space between elements */
+}
+
+.feature-box-left h2 {
+    color: rgba(255, 255, 255, 0.883);
+    text-align: center;
+    margin: 0; /* Remove margins */
+    font-size: 3rem;
+}
+
+.feature-box-left p {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 0; /* Remove margins */
+    font-size: 1.5rem;
+    max-width: 80%; /* Optional: limit text width for better readability */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Push button to bottom */
+.feature-box-left .feature-button {
+    margin-top: auto;
+}
+
+
+
+
+/* Right box specific styles */
+.feature-box-right {
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Flexbox kullan */
+    flex-direction: column; /* İçeriği dikey olarak sırala */
+}
+
+/* Right box image styles */
+/* Right box image styles */
+.feature-box-right .feature-images {
+    width: 100%;
+    height: 100%; /* Yüksekliği %100 yap */
+    position: absolute; /* Absolute pozisyonlama kullan */
+    top: 0;
+    left: 0;
+    overflow: hidden; /* Taşmayı gizle */
+}
+
+.feature-box-right .feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Blok element yap */
+}
+
+.feature-box-right .feature-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.feature-box-right h2 {
+    color: white;
+    text-align: center;
+    margin: 0; /* Remove margins */
+    font-size: 2.7rem;
+}
+
+/* Common button styles */
+.feature-button {
+    /*background: linear-gradient(to right, #935fed, #ec4899);*/
+    background: #000000bb;
+    color: rgb(241, 142, 43);
+    border-color: rgb(241, 142, 43);
+    border: 1px solid;
+    padding: 0.5rem 1.7rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.feature-box-right .feature-button {
+    background: linear-gradient(135deg, #935fed55, #ec489a54);
+    color: #ffffffca;
+    /* isteğe bağlı: border, box-shadow, vs */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+
+.feature-button:hover {
+    transform: translateY(-2px);
+}
+
+/* Dark mode styles */
+body.dark-mode .feature-box-left,
+body.dark-mode .feature-box-right {
+    background: #2a2a2a;
+}
+
+body.dark-mode .feature-box-right h2 {
+    color: #ffffff;
+}
+
+/* Common styles for both boxes */
+.feature-box-left, .feature-box-right {
+    background: #ffffff;
+    padding: 2rem;
+    width: 90%;
+
+    max-width: none;
+    aspect-ratio: 1/1; /* Makes boxes square */
+    position: relative;
+    overflow: hidden;
+}
+/* feature-content’i kutu içine absolute yay */
+.feature-box-left .feature-content,
+.feature-box-right .feature-content {
+  position: absolute;
+  inset: 0;                    /* top/right/bottom/left = 0 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* üstte başlık/paragraf, altta buton */
+  align-items: center;             /* yatayda ortala */
+  padding: 2rem;                   /* mevcut padding’i koru */
+  box-sizing: border-box;
+}
+
+
+
+/* Media Query: 770px ve daha az genişlikte alt alta yerleştirme */
+@media (max-width: 860px) {
+    .dual-section-container {
+        flex-direction: column; /* Yan yana yerine alt alta */
+        gap: 2rem; /* Kutucuklar arasında daha fazla boşluk */
+        padding: 1rem 20px;
+    }
+
+    .feature-box-left, .feature-box-right {
+        width: 90%; /* Her kutucuk tam genişlikte olacak */
+        max-width: 90%; /* Maksimum genişlik sınırı kaldır */
+        align-self: center;
+    }
+
+    /* Sol kutucuk için butonun en altta olmasını sağla */
+    .feature-box-left .feature-content {
+        justify-content: space-between; /* İçeriği dağıtarak butonu aşağı it */
+    }
+
+    .feature-box-left .feature-button {
+        margin-top: auto; /* Butonu en alta sabitle */
+    }
+
+    /* Sağ kutucuk için butonun en altta olmasını sağla */
+    .feature-box-right .feature-content {
+        justify-content: space-between; /* İçeriği dağıtarak butonu aşağı it */
+    }
+
+    .feature-box-right .feature-button {
+        margin-top: auto; /* Butonu en alta sabitle */
+    }
+}
+
+/* ── MOBİL ÖZEL (≤768px) ── */
+@media (max-width: 768px) {
+    /* 1) kutuların kareliğini korumak istiyorsanız aspect-ratio’yu bırakın,
+          ama padding/top-bottom’ı azaltın */
+    .feature-box-left,
+    .feature-box-right {
+      padding: 1rem;      /* fazla iç boşluğu azalt */
+      width: 100%; /* tam genişlik */
+      max-width: none;
+      align-self: center;
+    }
+  
+    /* 2) içerik kabının altına ekstra yer bırak */
+    .feature-box-left .feature-content,
+    .feature-box-right .feature-content {
+      padding-bottom: 2.5rem;  /* butonun alt sınırdan taşmaması için */
+      gap: 0.5rem;             /* başlık‑metin arası mesafeyi daralt */
+    }
+  
+    /* 3) başlığı küçült */
+    .feature-box-left h2,
+    .feature-box-right h2 {
+      font-size: 2.4rem;     /* önce 3rem’di, şimdi daha makul */
+      line-height: 1.0;    /* satırlar sıkışmasın */
+    }
+  
+    /* 4) paragrafı küçült */
+    .feature-box-left p {
+      font-size: 1.2rem;     
+      max-width: 100%;
+    }
+  
+    /* 5) butonu biraz küçült */
+    .feature-box-left .feature-button,
+    .feature-box-right .feature-button {
+      padding: 0.4rem 0.8rem;
+      font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .instagram-grid {
+      /* mobilde artık 600px sınırını kaldır */
+      max-width: none !important;
+      /* width zaten %100 ama güvenli olması için tekrar koyabilirsiniz */
+      width: 100% !important;
+      /* grid içeriğinin kutu içinde düzgün dağılması için */
+      justify-content: center; 
+    }
+}
+  
+
+  
+/* Marcia Bölümü Stilleri */
+.marcia {
+    width: 100%; /* dual-section-container kadar genişlik */
+    max-width: 1200px; /* container genişliğine göre ayarlanabilir */
+    margin: 0 auto; /* ortalamak için */
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box; /* padding'in genişliğe dahil olmasını sağlar */
+    margin-bottom: 20px; /* Altındaki bölüme boşluk bırakır *//* feature-box-left ile aynı hizaya getir */
+
+}
+
+.marcia img {
+    width: 38%; /* görselin genişliği */
+    border-radius: 38px;
+    margin-right: 20px; /* Görsel ve yazı arasına boşluk */
+}
+
+.marcia-content {
+    width: 60%; /* yazının genişliği */
+}
+
+.marcia-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333; /* Başlık rengi */
+}
+
+.marcia-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555; /* Metin rengi */
+}
+
+/* Dark mode stilleri */
+body.dark-mode .marcia-content h2 {
+    color: #eee; /* Dark mode başlık rengi */
+}
+
+body.dark-mode .marcia-content p {
+    color: #ddd; /* Dark mode metin rengi */
+}
+
+
+
+@media (max-width: 700px) {
+    .dual-section-container,
+    .marcia {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .marcia {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .marcia img {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 16px;
+    }
+}
+
+
+
+
+/* ───── MARCIA WRAPPER ───── */
+.marcia-wrapper {
+  width: 96.5%;
+  max-width: 1200px;      /* dual-section-container ile aynı */
+  margin: 2rem auto;
+  padding: 0rem;          /* dual-section-container ile aynı */
+  box-sizing: border-box;
+  background-color: #e8e8e8;
+  border-radius: 38px;
+  box-shadow: 
+    -12px -12px 24px rgba(0, 119, 190, 0.15),    /* Sol-üst: Deniz mavisi */
+    -12px 12px 24px rgba(0, 119, 190, 0.15),     /* Sol-alt: Deniz mavisi */
+    12px -12px 24px rgba(0, 119, 190, 0.15),     /* Sağ-üst: Deniz mavisi */
+    12px 12px 24px rgba(0, 119, 190, 0.15); 
+}
+body.dark-mode .marcia-wrapper {
+  background-color: #2a2a2a;
+  box-shadow: 
+    -12px -12px 24px rgba(218, 165, 32, 0.15),   /* Sol-üst: Altın rengi */
+    -12px 12px 24px rgba(205, 134, 63, 0.15),    /* Sol-alt: Çöl rengi */
+    12px -12px 24px rgba(218, 165, 32, 0.15),    /* Sağ-üst: Altın rengi */
+    12px 12px 24px rgba(205, 134, 63, 0.15);     /* Sağ-alt: Çöl rengi */
+}
+/* wrapper içindeki .marcia zaten flex-row, sadece araya gap ekleyelim */
+.marcia-wrapper .marcia {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;                    /* img ↔ metin arası boşluk */
+  padding: 0;                     /* wrapper’ın padding’i yeterli */
+  margin: 0;                      /* üst-alt fazladan boşluk yok */
+}
+
+/* Görselin kendi radius’u zaten var, eğer yeni kontekstte eksikse tekrarlayabilirsiniz */
+.marcia-wrapper .marcia img {
+  flex: 0 0 auto;                /* boyutu koru */
+  width: 32%;                     /* isterseniz %. */
+  border-radius: 38px;            /* container ile uyumlu */
+}
+
+/* Metin kısmı da esnek kalsın */
+.marcia-wrapper .marcia-content {
+  flex: 1 1 0;
+}
+
+/* ───── Mobilde satır satır hizalama ───── */
+@media (max-width: 700px) {
+  .marcia-wrapper {
+    padding: 0rem;                /* mobilde daha dar */
+  }
+  .marcia-wrapper .marcia {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .marcia-wrapper .marcia img {
+    width: 100%;                  /* full-width */
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 953px) {
+  .dual-section-container,
+  .marcia-wrapper {
+    max-width: 90%;
+    padding: 0rem 0px;
+  }
+}
+@media (max-width: 953px) {
+  .marcia-wrapper {
+    max-width: 85.6%;
+    padding: 0rem 0px;
+  }
+}
+@media (min-width: 860px) and (max-width: 953px) {
+    .marcia-wrapper {
+    max-width: 96%; /* dual-section-container ile aynı */
+    padding: 0rem 0px;
+  }
+}
+@media (width: 953px) {
+  .marcia-wrapper {
+    max-width: 90%;
+    padding: 0rem 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .marcia-wrapper {
+    padding: 0rem 0rem;   /* Mobilde kenarlardan boşluk */
+    width: 94.8%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .marcia-wrapper .marcia {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0;
+  }
+  .marcia-wrapper .marcia img {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 1rem;
+    border-radius: 28px;
+  }
+
+
+
+   .marcia-wrapper .marcia-content {
+    width: 100%;
+    padding-left:16px;
+    padding-bottom: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Sola hizala */
+  }
+  .marcia-wrapper .marcia-content h1,
+  .marcia-wrapper .marcia-content h2 {
+    background: linear-gradient(to right,#966622, #e29a35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 36px;
+    margin: 0 0 0.5rem 0;
+    text-align: left;      /* Sola hizala */
+    align-self: flex-start;
+  }
+  .marcia-wrapper .marcia-content p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: left;      /* Sola hizala */
+    margin: 0;
+    align-self: flex-start;
+  }
+}
+
+
+@media (min-width: 769px) {
+  .marcia-wrapper .marcia {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Görsel ve içerik üstten hizalı */
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+  }
+  .marcia-wrapper .marcia img {
+    flex: 0 0 auto;
+    width: 32%;
+    border-radius: 38px;
+    margin: 0;
+    align-self: flex-start; /* Görsel de üstte hizalı */
+  }
+  .marcia-wrapper .marcia-content {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px 16px 0 16px; /* üstte padding yok, sadece sağ ve soldan */
+    height: auto; /* Yükseklik otomatik */
+  }
+  .marcia-wrapper .marcia-content h1,
+  .marcia-wrapper .marcia-content h2 {
+    background: linear-gradient(to top, #966622, #e29a35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+    text-align: left;
+    align-self: flex-start;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+  }
+  .marcia-wrapper .marcia-content p {
+    text-align: left;
+    align-self: flex-start;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #555;
+    line-height: 1.6;
+    max-width: 90%;
+  }
+}
+@media (min-width: 768px) and (max-width: 900px) {
+  .marcia-wrapper .marcia-content p {
+    font-size: 1.28rem; /* Daha küçük bir font boyutu */
+    line-height: 1.4; /* Satır yüksekliğini biraz artır */
+    max-width: 100%;
+  }
+}
+
+.marcia-wrapper .marcia a {
+  display: block;
+  width: 32%;           /* img ile aynı genişlik */
+  min-width: 120px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.marcia-wrapper .marcia a img {
+  width: 100%;
+  display: block;
+  border-radius: 38px;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .marcia-wrapper .marcia {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0;
+  }
+  .marcia-wrapper .marcia a {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+  .marcia-wrapper .marcia a img {
+    width: 100% !important;
+    max-width: none !important;
+    margin-bottom: 1rem;
+    border-radius: 28px;
+    display: block;
+
+    height: 620px; /* İstediğiniz yüksekliği buraya girin */
+    object-fit: cover;
+    object-position: top;
+  }
+  .marcia-wrapper .marcia-content {
+    width: 100%;
+    padding-left:16px;
+    padding-bottom: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 700px) and (max-width: 768px) {
+  .marcia-wrapper .marcia a img {
+    width: 100% !important;
+    max-width: none !important;
+    margin-bottom: 1rem;
+    border-radius: 28px;
+    display: block;
+    height: 720px; /* Yüksekliği artırdık */
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+
+
+.marcia-wrapper .marcia a {
+  overflow: hidden; /* Görselin taşmasını engelle */
+  border-radius: 38px;
+  display: block;
+  position: relative;
+}
+
+.marcia-wrapper .marcia a img {
+  transition: transform 0.8s cubic-bezier(.4,2,.6,1);
+}
+
+.marcia-wrapper .marcia a:hover img,
+.marcia-wrapper .marcia a:focus img {
+  transform: scale(1.07); /* İçeriden büyüt */
+}
+
+
+@media (min-width: 769px) {
+  .marcia-wrapper .marcia {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+  }
+  .marcia-wrapper .marcia a {
+    flex: 0 0 39%;      /* Görselin genişliği wrapper'ın %38'i kadar olsun */
+    width: auto;
+    min-width: 180px;   /* Minimum genişlik (isteğe bağlı) */
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    border-radius: 38px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .marcia-wrapper .marcia a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Görsel kutuyu tamamen kaplasın */
+    border-radius: 38px;
+    display: block;
+    transition: transform 0.8s cubic-bezier(.4,2,.6,1);
+  }
+  .marcia-wrapper .marcia-content {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px 16px 0 16px;
+    height: auto;
+  }
+}
+
+@media (min-width: 1300px) {
+  .marcia-wrapper .marcia-content p {
+    font-size: 1.7rem;
+    line-height: 1.5;
+    max-width: 90%;
+  }
+  .content-section .section-desc {
+    font-size: 1.7rem;
+    line-height: 1.5;
+  }
+}
+
+.handwriting {
+  width: 100%;
+  height: auto;
+}
+
+.handwriting text {
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;
+  fill: none;                /* Dolgu yok, sadece stroke */
+  stroke: #000;              /* Yazı rengi */
+  stroke-width: 1px;
+  stroke-dasharray: 1000;    /* Çizginin toplam uzunluğu >= path uzunluğu */
+  stroke-dashoffset: 1000;   /* Başlangıçta “çıkarma” kadar gizle */
+  animation: draw 4s ease forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;    /* Animasyon sonunda tam görünür */
+  }
+}
+
+
+/*ihello*/
+
+    /* Başlık Kabı */
+.hero-heading {
+        position: relative;
+        display: block; /* Tam genişlik alıp ortalamak için block yapıldı */
+        margin: 20px auto; /* Üstten ve alttan boşluk, ve ortalama */
+        padding: 0;
+        text-align: center; /* SVG'nin içindeki olası metinler için (gerçi burada SVG var) */
+        width: 100%; /* Genişliği %100 yaparak içindeki SVG'nin boyutlarına uyum sağlar */
+}
+
+/* SVG Konteyneri ve Ölçekleme */
+/* ==== HERO HEADING SVG ================================= */
+.hello-outline{
+    width:100%;          /* fill the intro column, nothing more                */
+    max-width:100%;      /* never overflow its parent                           */
+    height:auto;         /* keep aspect-ratio                                   */
+    display:block;       /* so margin-auto can centre it if needed              */
+    overflow:visible;    /* keep the animated stroke visible at the edges       */
+}
+
+
+    /* Dolgu Yolu (Gradient ile dolu kısım) */
+.fill-path {
+        fill: url(#hello-gradient); /* SVG içinde tanımlanan gradient ile doldur */
+        opacity: 0;   /* Başlangıçta görünmez yap */
+        animation:revealFill .3s ease-out forwards 3.5s; /* Çizim animasyonu bittikten hemen sonra başlasın (drawHello 8s ise) */
+}
+
+    /* Çizgi Yolu (Anime edilen dış çizgi) */
+/* Sadece stroke kısmının çizim animasyonu için */
+.stroke-path {
+  /* SVG üzerinde zaten stroke="url(#hello-gradient)" olduğu için 
+     CSS’te ekstra stroke tanımlamaya gerek yok; 
+     ancak linecap ve dasharray orayı burayı da buradan da yazabiliriz. */
+  fill-opacity: 0;  /* JavaScript veya CSS değiştirmeyecek; SMIL yapacak. */
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* dasharray/dashoffset SMIL içinden kontrol ediliyor, 
+     CSS’ten ekstra bir keyframe’e gerek kalmadı. */
+}
+
+
+
+    /* Keyframes: Çizim Animasyonu */
+    @keyframes drawHello {
+        to {
+            stroke-dashoffset: 0; /* Çizgiyi tamamen görünür yap */
+        }
+    }
+    @keyframes revealFill{to{opacity:1}}
+
+    /* Keyframes: Dolgu Belirme Animasyonu 
+    @keyframes fadeInFill {
+        to {
+            opacity: 0; Dolguyu tamamen görünür yap 
+        }
+    }*/
+    /* -------------------------------------------------- */
+
+/* 1200px’in altına düşüldüğünde .hello-outline genişliğini artır */
+@media screen and (max-width: 1400px) {
+  .hello-outline {
+    width: 64vw;       /* Ekran genişliğinin %90'ı kadar yer kaplasın */
+    max-width: 800px;   /* 800px kısıtını kaldırıyoruz */
+  }
+}
+
+/* Daha da küçüldüğünde (900px altı) zaten flex column olduğu için 
+   SVG mobil tanıma göre tam genişliğe geçiyor; o kısma dokunmaya gerek yok */
+@media screen and (max-width: 900px) {
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hello-outline {
+    width: 95vw;       /* Mobilde iyice genişlesin */
+    max-width: none;
+  }
+}
+
+
+
+
+    /* Mobil için özel düzenlemeler (örnek: 768px altında) */
+/* -------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  /* 1) Profile-section'ı sütun (column) olarak düzenle, 
+        böylece önce görsel, hemen altında başlık yer alır */
+
+
+  /* 2) <h1 class="hero-heading"> için gerekli düzenlemeler */
+  .hero-heading {
+    /* Mobilde tam genişlik alsın ve ortalansın */
+    display: block;          
+    width: 90vw;             /* Ekran genişliğinin %90'ı kadar */
+    max-width: none;         /* Masaüstü max-width’ini pas geç */
+    margin: 1rem auto 0;     /* Üstten 1rem boşluk, yatayda otomatik ortala */
+    padding: 0;              
+    text-align: center;      /* SVG içindeki metin/çizim ortalansın */
+  }
+
+  /* 3) SVG (yani .hello-outline) mobilde genişlesin, 
+        ekrana taşan kısımlar görünür olsun */
+  .hello-outline {
+    display: block;          
+    width: 100%;             /* %100 genişlik (parent olan .hero-heading’in %90’ı) */
+    max-width: 100%;         /* Kısıtlamayı kaldır */
+    height: auto;            
+    overflow: visible;       /* SVG’nin dışına taşan çizimler görünür kalsın */
+    margin: 0 auto;          /* Ortalamak için gereklidir */
+  }
+
+  /* 4) Stroke ve Fill animasyonları için aynı CSS kalsın. 
+        Sadece SVG container boyutu ve flex düzen değişiyor */
+}
+
+/* ==== INTRO TEXT COLUMN ================================ */
+.intro-content{
+    flex:1 1 0;      /* grow, shrink, start at 0px  */
+    min-width:0;     /* allow shrinking below content’s intrinsic width */
+}
+
+
+/* -------------------------- */
+/* 900px VE ALTINDA HIZALAMA */
+/* -------------------------- */
+@media screen and (max-width: 900px) {
+  /* 1) Profil bölümü sütuna dönsün, içindekiler ortalansın */
+  .profile-section {
+    display: flex;
+    flex-direction: column;    /* satırdan sütuna geç */
+    align-items: center;       /* içindekileri yatayda ortala */
+    gap: 1px;
+    text-align: center;        /* metin de ortalansın */
+  }
+
+  /* 2) H1 hero-heading tam genişlik alsın, içindeki SVG’yi ortala 
+  .hero-heading {
+        text-align: center; 
+        margin-left: 20px; 
+        margin-right: 20px; 
+        margin-bottom: 1px;
+  }*/
+  .hero-heading {
+    position: relative; /* Konumlandırmayı kontrol etmek için relative */
+    display: block; /* Tam genişlik alıp ortalamak için block yapıldı */
+    margin: 0 auto; /* Yatayda ortala */
+    padding: 0;
+    text-align: center; /* SVG'nin içindeki metin/çizim ortalansın */
+    width: 100%; /* Genişliği %100 yaparak içindeki SVG'nin boyutlarına uyum sağlar */
+    top: 20%; /* Görselin tam altında konumlandır */
+    transform: translateY(90%); /* Dikeyde ortalama */
+    transform: translateX(8%); /* Dikeyde ortalama */
+
+  }
+  .hero-heading svg {
+    display: inline-block;     /* satır içi blok olarak davranır */
+    margin: 0 auto;            /* yatayda ortala */
+    width: 93vw;               /* isterseniz mobilde %90 genişlik verin */
+    max-width: 1880px;          /* çok küçük olmayacak maksimum sınır */
+    height: auto;              /* orantılı ölçek koru */
+  }
+
+  /* 1) Intro-content kapsayıcısına yatayda eşit padding ver */
+  .intro-content {
+    padding: 0 1rem;
+  }
+
+  /* 2) Intro-text p için margin: 0  yerine sadece dikey boşluk (üst-alt) verelim */
+    .intro-text {
+        text-align: left; /* Instagram-section ile aynı hizalama */
+        padding-left: 20px; /* Instagram-section ile aynı padding */
+        padding-right: 20px; /* Instagram-section ile aynı padding */
+        margin: 1.2rem 0; /* Üst-alt boşluk */
+        font-size: 1.5rem; /* Instagram-section ile aynı boyut */
+        max-width: 100%; /* Tam genişlik */
+        margin-top: 10px;
+    }
+
+}
+@media (max-width: 768px) {
+    .intro-text {
+        padding-left: 10px; /* Instagram-section ve content-section ile aynı */
+        padding-right: 10px; /* Sağdan da aynı boşluk */
+        margin: 1.0rem 0; /* Üst-alt boşluk */
+        font-size: 1.5rem; /* Boyut uyumu */
+        line-height: 1.4; /* Satır yüksekliği */
+        max-width: 120%; /* Tam genişlik */
+        text-align: left; /* Soldan hizalama */
+        font-weight: 600;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 682px) {
+    .instagram-section h2 {
+        font-size: 38px; /* Font boyutunu küçült */
+        line-height: 1.2; /* Satır yüksekliğini ayarla */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hero-heading svg {
+        width: 99vw; /* SVG genişliğini artır */
+        max-width: none; /* Maksimum genişlik sınırını kaldır */
+        height: auto; /* Orantılı ölçek koru */
+        margin: 0 auto; /* Ortala */
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 800px) {
+    .intro-text {
+        padding-left: 32px; /* Daha sola hizala */
+        padding-right: 40px; /* Sağdan da aynı boşluk */
+        margin: 1.2rem 0; /* Üst-alt boşluk */
+        font-size: 1.5rem; /* Boyut uyumu */
+        line-height: 1.4; /* Satır yüksekliği */
+        max-width: 100%; /* Tam genişlik */
+        text-align: left; /* Soldan hizalama */
+        font-weight: 600;
+    }
+}
+/* Mobilde intro-text tam genişlik ve padding ayarı */
+@media (max-width: 768px) {
+    .intro-text {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box;
+        text-align: left;
+        display: block;
+    }
+}
+
+.profile-section img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 
+        -45px -45px 70px rgba(255, 255, 255, 0.2), /* Üst ve sol gölge */
+        12px 12px 25px rgba(0, 0, 0, 0.5), /* Alt ve sağ gölge */
+        inset 0 0 25px rgba(255, 255, 255, 0.3), /* İç beyaz gölge */
+        inset 0 0 15px rgba(0, 0, 0, 0.4); /* İç siyah gölge */
+    transition: box-shadow 0.4s ease; /* Hover efekt için geçiş */
+    border-radius: 32px;
+}
+
+.profile-section img:hover {
+    box-shadow: 
+        -50px -50px 80px rgba(255, 255, 255, 0.3), /* Hover'da daha belirgin üst ve sol gölge */
+        15px 15px 30px rgba(0, 0, 0, 0.6), /* Hover'da daha belirgin alt ve sağ gölge */
+        inset 0 0 30px rgba(255, 255, 255, 0.4), /* Hover'da daha belirgin iç beyaz gölge */
+        inset 0 0 20px rgba(0, 0, 0, 0.5); /* Hover'da daha belirgin iç siyah gölge */
+}
+
+
+@media screen and (min-width: 768px) {
+    .instagram-header h1 {
+        margin-right: 10px; /* H1 başlığı ile tag arasında boşluk */
+    }
+
+}
+
+/* Başlıklar için slide-up animasyonu */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasyon uygulanacak başlıklar için ortak class */
+.instagram-section h2,
+.instagram-section p,
+.marcia-wrapper .marcia-content h2,
+.marcia-wrapper .marcia-content p,
+.content-section h2,
+.content-section .section-desc,
+.intro-text {
+    opacity: 0;
+    animation: slideUp 1.2s ease forwards;
+    animation-play-state: paused;
+}
+
+/* Paragraflar için gecikme ekleyelim */
+.instagram-section p,
+.marcia-wrapper .marcia-content p,
+.content-section .section-desc {
+    animation-delay: 0.1s; /* Başlıktan sonra görünmesi için gecikme */
+}
+.intro-text {
+    animation-delay: 0s !important; 
+}
+.intro-text.slide-up-visible {
+    animation-play-state: running !important;
+}
+
+
+/* Mevcut animasyonları koruyarak görsel animasyonlarını ekleyin */
+
+.feature-box-left .feature-images img,
+.feature-box-right .feature-images img {
+    opacity: 0;
+    animation: slideUp 1.2s ease forwards;
+    animation-play-state: paused;
+}
+
+/* İkinci görsel için gecikme ekleyelim */
+.feature-box-left .feature-images img:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+/* İçeriklerin animasyonu */
+.feature-box-left .feature-content,
+.feature-box-right .feature-content {
+    opacity: 0;
+    animation: slideUp 1.2s ease forwards;
+    animation-play-state: paused;
+    animation-delay: 0.3s; /* İçerik görselden sonra görünsün */
+}
+
+
+.post-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.post-card.slide-up-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.instagram-post {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.instagram-post.slide-up-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Görünür olduğunda aktif olacak class */
+.slide-up-visible {
+    animation-play-state: running !important;
+}
+
+::selection {
+    background-color: #94c8d8; /* Seçim arka plan rengi */
+    color: #2b3759;
+}
+body.dark-mode ::selection {
+    background-color: #dd8ea6b8;
+    color: #36364c /* Karanlık modda seçim arka plan rengi */
+}
+
+
+
+/*hello için ortalama*/
+@media screen and (max-width: 900px) {
+    /* Profile section düzeni */
+    .profile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        gap: 1rem; /* Elemanlar arası sabit boşluk */
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Profil resmi */
+    .profile-section .profile-pic {
+        width: 248px;
+        height: auto;
+        margin: 0; /* Margin'i sıfırla */
+    }
+
+    /* Hero heading (h1) container */
+    .hero-heading {
+        position: static; /* Relative pozisyonlamayı kaldır */
+        width: 100%;
+        margin: 0; /* Tüm marginleri sıfırla */
+        padding: 0;
+        order: 2; /* Flex order ile sıralama */
+        transform: translateY(50%); /* Dikeyde ortalama */
+        transform: translateX(-2%); /* Dikeyde ortalama */
+    }
+
+    /* SVG container */
+    .hello-outline {
+        width: 90vw;
+        max-width: 600px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* İntro text */
+    .intro-text {
+        order: 3; /* Flex order ile en sona al */
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 0 20px;
+    }
+
+    /* İçerik container'ı */
+    .intro-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 2rem; /* İçerikler arası sabit boşluk */
+        padding: 0;
+    }
+}
+
+/* Daha küçük ekranlar için ek düzenlemeler */
+@media screen and (max-width: 600px) {
+    .profile-section {
+        gap: 1.5rem; /* Daha küçük boşluk */
+    }
+
+    .hello-outline {
+        width: 95vw;
+    }
+    .hero-heading {
+        transform: translateY(50%); /* Dikeyde ortalama */
+        transform: translateX(-8%); /* Dikeyde ortalama */
+    }
+    .intro-text {
+        font-size: 1.34rem !important;    /* Daha küçük font */
+        line-height: 1.5 !important;     /* Okunabilirlik için */
+        max-width: 98vw !important;      /* Ekrana yakın tam genişlik */
+        width: 98vw !important;
+        padding-right: 18vw !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container{
+        width: 90%;
+        max-width: 1400px;
+        margin: 60px auto;
+        padding: 40px;
+        border-radius: 38px;
+        background: #e9e7e7;
+        margin-top: 100px;
+  }
+  .instagram-section,
+  .content-section {
+        width: 90%;
+        margin: 60px auto;
+        padding: 40px;
+        border-radius: 38px;
+    }
+
+    /*ışıltılı tasarım*/
+    /* -----------------------------------------------------------
+   Cam benzeri ana kutucuklar (dark-mode)
+   ----------------------------------------------------------- */
+body.dark-mode .instagram-section,
+body.dark-mode .container,
+body.dark-mode .content-section,
+body.dark-mode .marcia-wrapper {
+    /* 1) Yarı saydam cam yüzey  ----------------------------- */
+    background: rgba(38, 50, 56, 0.60); /* temel ton */
+    /* Hafif iç parıltı için radial “ışık halesi” ekle */
+    background: radial-gradient(
+                  circle at 50% 30%,            /* merkez biraz yukarıda */
+                  rgba(255, 255, 255, 0.15) 0%,
+                  rgba(255, 255, 255, 0.02) 60%,
+                  rgba(48, 55, 59, 0.6) 100%);
+    
+    /* 2) Camdaki buğulanma efekti  --------------------------- */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+
+    /* 3) Genel kutu ayarları  ------------------------------- */
+    border-radius: 38px;
+    color: #CFD8DC;             /* açık gri metin rengi */
+    overflow: hidden;           /* parıltının dışarı taşmaması */
+    transition: all .3s ease-in-out;
+    border: none;               /* katı çizgi yerine cam hissi */
+
+    /* 4) Derinlik & yansıma gölgeleri  ---------------------- */
+    box-shadow:
+        /* dış glow (üst-sol parıltı) */
+        -30px -30px 50px rgba(255, 255, 255, 0.05),
+        /* dış düşen gölge (alt-sağ) */
+        8px 8px 15px rgba(0, 0, 0, 0.40),
+        /* iç glow – cam kalınlığı hissi */
+        inset 0 0 15px rgba(255, 255, 255, 0.10),
+        inset 0 0 8px  rgba(0, 0, 0, 0.30);
+}
+
+/* -----------------------------------------------------------
+   Yansıma/ışık halesi – kutuların içine hafif hareket katmak
+   ----------------------------------------------------------- */
+body.dark-mode .instagram-section::before,
+body.dark-mode .container::before,
+body.dark-mode .content-section::before,
+body.dark-mode .marcia-wrapper::before {
+    content: '';
+    background: radial-gradient(
+                  circle,
+                  rgba(255, 255, 255, 0.20) 0%,
+                  rgba(255, 255, 255, 0.00) 70%);
+    transition: transform .6s ease;
+}
+
+
+
+
+    .dual-section-container {
+        margin: 60px auto; /* Diğer bölümlerle aynı margin */
+    }
+
+    /* Marcia wrapper için margin ayarı */
+    .marcia-wrapper {
+        margin: 60px auto; /* Diğer bölümlerle aynı margin */
+    }
+
+    /* Instagram grid ve post-grid için maksimum genişlik */
+    .instagram-grid,
+    .post-grid {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+}
+/* Mevcut medya sorgusunu güncelleyin */
+@media screen and (max-width: 1200px) {
+    .instagram-section {
+        margin-bottom: 18px; /* Alt boşluğu ekledik */
+    }
+
+    /* Dual section'a üstten margin ekledik */
+    .dual-section-container {
+        margin: 30px auto 30px auto; /* üst 60px, alt 30px */
+    }
+
+    .marcia-wrapper {
+        margin: 30px auto 30px auto; /* üst 30px, alt 60px */
+    }
+}
+@media screen and (min-width: 870px) {
+  .feature-box-left {
+      border-radius: 38px 0 0 38px;
+  }
+
+  .feature-box-right {
+      border-radius: 0 38px 38px 0; /* Sol üst ve sağ üst 38px, diğerleri 0 */
+  }
+
+  /* Dark mode için border-radius değerlerini koruyalım */
+  body.dark-mode .feature-box-left {
+      border-radius: 38px 0 0 38px;
+  }
+  body.dark-mode .feature-box-right {
+      border-radius: 0 38px 38px 0;
+  }
+}
+
+
+
+
+
+
+
+/* MOBİL (600px ve altı) - TEMİZLENMİŞ VERSİYON */
+@media (max-width: 600px) {
+    .profile-section {
+        gap: 1rem; /* Azaltılmış boşluk */
+        padding: 10px 0;
+    }
+    
+    .profile-section .profile-pic {
+        width: 120px;
+    }
+    
+    .hero-heading {
+        position: static;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        order: 2;
+        /* transform çakışması var, sadece biri çalışır! */
+        /* Aşağıdaki iki satırdan sadece sonuncusu geçerli olur */
+        transform: translateY(50%); /* Dikeyde ortalama */
+        transform: translateX(-2%); /* Sadece X ekseninde kaydırır */
+    }
+
+}

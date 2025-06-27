@@ -1,0 +1,99 @@
+    <div class="container">
+        <h1>Gradyan Metin Oluşturucu</h1>
+        
+        <div class="text-input">
+            <label for="userText">Metninizi girin:</label>
+            <textarea id="userText">Gradyan örnek metin!</textarea>
+        </div>
+        
+        <div class="control-panel">
+            <!-- Color Selection Canvas -->
+            <div class="panel-section color-selection">
+                <div class="color-canvas-container" style="position: relative;">
+                    <canvas id="colorCanvas" width="700" height="200"></canvas>
+                    <div id="colorCirclesContainer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                </div>
+                <button id="addColor">Renk Ekle</button>
+            </div>
+            
+            <!-- Gradient Direction -->
+            <div class="panel-section">
+                <div class="control-group">
+                    <label for="gradientDirection">Gradyan Yönü:</label>
+                    <select id="gradientDirection">
+                        <option value="to right">Soldan Sağa</option>
+                        <option value="to left">Sağdan Sola</option>
+                        <option value="to bottom">Yukarıdan Aşağıya</option>
+                        <option value="to top">Aşağıdan Yukarıya</option>
+                        <option value="to bottom right">Köşegen (Sol Üst - Sağ Alt)</option>
+                        <option value="to bottom left">Köşegen (Sağ Üst - Sol Alt)</option>
+                        <option value="custom">Özel Gradyan</option>
+                    </select>
+                </div>
+            </div>
+                        <!-- Font and Background -->
+            <div class="panel-section">
+                <div class="control-group">
+                    <label for="fontFamily">Yazı Tipi:</label>
+                    <select id="fontFamily">
+                        <option value="'system-ui', sans-serif">System UI</option>
+                        <option value="'Segoe UI', sans-serif">Segoe UI</option>
+                        <option value="Arial, sans-serif">Arial</option>
+                        <option value="'Times New Roman', serif">Times New Roman</option>
+                        <option value="Georgia, serif">Georgia</option>
+                        <option value="monospace">Monospace</option>
+                        <option value="cursive">Cursive</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="backgroundColor">Arka Plan Rengi:</label>
+                    <input type="color" id="backgroundColor" value="#ffffff">
+                </div>
+                <div class="control-group">
+                    <label for="textAlign">Metin Hizalama:</label>
+                    <select id="textAlign">
+                        <option value="left">Sola Hizalı</option>
+                        <option value="center">Ortalanmış</option>
+                        <option value="right">Sağa Hizalı</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="panel-section">
+                <div class="control-group">
+                    <label for="fontSize">Yazı Boyutu (px):</label>
+                    <input type="range" id="fontSize" class="custom-slider" value="56" min="12" max="100">
+                    <span id="fontSizeValue" class="slider-value-display">56px</span>
+                </div>
+                <div class="control-group">
+                    <label for="lineHeight">Satır Aralığı:</label>
+                    <input type="range" id="lineHeight" class="custom-slider" value="1.9" min="0.8" max="3" step="0.1">
+                    <span id="lineHeightValue" class="slider-value-display">1.9</span>
+                </div>
+                <div class="control-group">
+                    <label for="fontWeight">Yazı Kalınlığı:</label>
+                    <input type="range" id="fontWeight" class="custom-slider" value="500" min="100" max="900" step="100">
+                    <span id="fontWeightValue" class="slider-value-display">500</span>
+                </div>
+            </div>    
+        </div>
+        
+        <div class="preview">
+            <p id="previewText" class="preview-text">Gradyan örnek metin!</p>
+            <div id="gradientControl" class="gradient-control" style="display: none;">
+                <div id="gradientLine" class="gradient-line"></div>
+                <div id="startCircle" class="gradient-circle start-circle"></div>
+                <div id="endCircle" class="gradient-circle end-circle"></div>
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button id="updatePreview">Önizlemeyi Güncelle</button>
+            <button id="showCode">CSS Kodunu Göster</button>
+            <button id="copyCode">CSS Kodunu Kopyala</button>
+            <button id="downloadImage">Görseli İndir</button>
+            <button id="copyImage">Görseli Kopyala</button>
+        </div>
+        
+        <div id="codeOutput" class="code-output"></div>
+    </div>

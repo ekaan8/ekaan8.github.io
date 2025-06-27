@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradyan Metin Oluşturucu</title>
+    <link rel="stylesheet" href="addcolor.css?v=20240527">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="back-button">
+        <a href="#" onclick="handleBackNavigation(event)">
+            <img src="iback.png" alt="Geri Dön" />
+        </a>
+    </div>
+    <button id="darkModeToggle" class="dark-mode-toggle">
+        <img src="light-mode-icon.svg" alt="Light Mode" id="darkModeIcon">
+    </button>
+    <h1>Gradyan Metin Oluşturucu</h1>
+
+    <div class="text-input">
+        <label for="userText">Metninizi girin:</label>
+        <textarea id="userText">Merhaba, bir şeyler yazın!</textarea>
+    </div>
+
+        <div class="control-panel">
+            <!-- Top Buttons (Kaldırıldı) -->
+
+            <!-- Gradient Direction -->
+            <div class="control-group">
+                <label for="gradientDirection">Yön</label>
+                <select id="gradientDirection">
+                    <option value="to right">Soldan Sağa</option>
+                    <option value="to left">Sağdan Sola</option>
+                    <option value="to bottom">Yukarıdan Aşağıya</option>
+                    <option value="to top">Aşağıdan Yukarıya</option>
+                    <option value="to bottom right">Köşegen (Sol Üst - Sağ Alt)</option>
+                    <option value="to bottom left">Köşegen (Sağ Üst - Sol Alt)</option>
+                    <option value="custom">Özel Gradyan</option>
+                </select>
+            </div>
+
+            <!-- Font Family -->
+            <div class="control-group">
+                <label for="fontFamily">Font</label>
+                <select id="fontFamily">
+                    <option value="'system-ui', sans-serif">System UI</option>
+                    <option value="'Segoe UI', sans-serif">Segoe UI</option>
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="'Times New Roman', serif">Times New Roman</option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="monospace">Monospace</option>
+                    <option value="cursive">Cursive</option>
+                    <option value="'Roboto', sans-serif">Roboto</option>
+                    <option value="'Open Sans', sans-serif">Open Sans</option>
+                    <option value="'Lato', sans-serif">Lato</option>
+                    <option value="'Montserrat', sans-serif">Montserrat</option>
+                    <option value="'Poppins', sans-serif">Poppins</option>
+                    <option value="'Merriweather', serif">Merriweather</option>
+                </select>
+            </div>
+
+            <!-- Background Color -->
+            <div class="control-group">
+                <label for="backgroundColor">Arka Plan</label>
+                <input type="color" id="backgroundColor" value="#ffffff">
+            </div>
+
+            <!-- Text Align -->
+            <div class="control-group">
+                <label for="textAlign">Hizalama</label>
+                <select id="textAlign">
+                    <option value="left">Sola Hizalı</option>
+                    <option value="center">Ortalanmış</option>
+                    <option value="right">Sağa Hizalı</option>
+                </select>
+            </div>
+
+            <!-- Full Width Sliders -->
+            <div class="panel-section full-width-sliders">
+                <div class="control-group">
+                    <label for="fontSize">Yazı Boyutu (px):</label>
+                    <input type="range" id="fontSize" class="custom-slider" value="56" min="12" max="100">
+                    <span id="fontSizeValue" class="slider-value-display">56px</span>
+                </div>
+                <div class="control-group">
+                    <label for="lineHeight">Satır Aralığı:</label>
+                    <input type="range" id="lineHeight" class="custom-slider" value="1.9" min="0.8" max="3" step="0.1">
+                    <span id="lineHeightValue" class="slider-value-display">1.9</span>
+                </div>
+                <div class="control-group">
+                    <label for="fontWeight">Yazı Kalınlığı:</label>
+                    <input type="range" id="fontWeight" class="custom-slider" value="500" min="100" max="900" step="25">
+                    <span id="fontWeightValue" class="slider-value-display">500</span>
+                </div>
+            </div>
+
+            <!-- Color Selection Canvas -->
+            <div class="panel-section color-selection">
+                <div class="color-canvas-container" style="position: relative;">
+                    <canvas id="colorCanvas" width="700" height="200"></canvas>
+                    <div id="colorCirclesContainer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                </div>
+                <button id="addColor">Renk Ekle</button>
+            </div>
+        </div>
+
+    <div class="preview">
+        <div class="zoom-icon">
+            <img src="zoom-in.png" alt="Büyüt" width="24" height="24">
+        </div>
+        
+        <p id="previewText" class="preview-text">Merhaba, bir şeyler yazın!</p> 
+        <div id="gradientControl" class="gradient-control" style="display: none;">
+            <div id="gradientLine" class="gradient-line"></div>
+            <div id="startCircle" class="gradient-circle start-circle"></div>
+            <div id="endCircle" class="gradient-circle end-circle"></div>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button id="updatePreview">Önizlemeyi Güncelle</button>
+        <button id="showCode">CSS Kodunu Göster</button>
+        <button id="copyCode">CSS Kodunu Kopyala</button>
+        <button id="downloadImage">Görseli İndir</button>
+        <button id="copyImage">Görseli Kopyala</button>
+    </div>
+
+    <div id="codeOutput" class="code-output"></div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+// Dark Mode Toggle Butonunu Al
+const darkModeToggle = document.getElementById('darkModeToggle');
+const darkModeIcon = document.getElementById('darkModeIcon');
+
+// Dark Mode'u Açıp Kapatma Fonksiyonu
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+
+    // İkonu Güncelle
+    if (body.classList.contains('dark-mode')) {
+        darkModeIcon.src = 'night.png';
+        darkModeIcon.alt = 'Dark Mode';
+    } else {
+        darkModeIcon.src = 'day.png';
+        darkModeIcon.alt = 'Light Mode';
+    }
+
+    // Local Storage'a Kaydet
+    localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+}
+
+// Sayfa Yüklendiğinde Dark Mode'u Kontrol Et
+window.onload = () => {
+    const darkMode = localStorage.getItem('darkMode') === 'true';
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+        darkModeIcon.src = 'night.png';
+        darkModeIcon.alt = 'Dark Mode';
+        // Karanlık modda varsayılan arka plan rengini ayarla
+        document.getElementById('backgroundColor').value = '#000000'; // Siyah
+        previewText.style.backgroundColor = '#000000';
+    } else {
+        darkModeIcon.src = 'day.png';
+        darkModeIcon.alt = 'Light Mode';
+    }
+};
+
+// Butona Tıklandığında Dark Mode'u Açıp Kapat
+darkModeToggle.addEventListener('click', () => {
+    toggleDarkMode();
+    // Karanlık mod değiştiğinde arka plan rengini ayarla
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    const backgroundColorInput = document.getElementById('backgroundColor');
+    if (isDarkMode) {
+        backgroundColorInput.value = '#000000'; // Siyah
+        previewText.style.backgroundColor = '#000000';
+    } else {
+        backgroundColorInput.value = '#ffffff'; // Beyaz
+        previewText.style.backgroundColor = '#ffffff';
+    }
+});
+    </script>
+
+<script>
+function handleBackNavigation(event) {
+    event.preventDefault();
+    
+    // URL'den kaynak sayfayı al
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('source');
+    
+    // Referrer kontrolü
+    const referrer = document.referrer;
+    const currentPath = window.location.pathname;
+    
+    // Eğer URL'de source parametresi varsa onu kullan
+    if (source === 'blog2') {
+        window.location.href = '../blog2.html';
+    } else if (source === 'index') {
+        window.location.href = '../index.html';
+    } 
+    // Yoksa referrer'a bak
+    else if (referrer.includes('blog2.html')) {
+        window.location.href = '../blog2.html';
+    } else if (referrer.includes('index.html')) {
+        window.location.href = '../index.html';
+    } 
+    // Varsayılan olarak referrer'a git, referrer yoksa index'e
+    else {
+        window.location.href = referrer || '../index.html';
+    }
+}
+</script>
+
+    <script src="addcolor.js"></script>
+
+      <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Gerekli DOM referansları
+    const downloadImageBtn     = document.getElementById('downloadImage');
+    const backgroundColorInput = document.getElementById('backgroundColor');
+    const gradSvg              = document.getElementById('gradText');   // <svg id="gradText"> …
+
+    // Hata Yakalama: Eğer öğeler bulunamazsa, konsola hata bas ve işlemi durdur
+    if (!downloadImageBtn) {
+      console.error('⚠️ #downloadImage butonu bulunamadı. ID’yi ve script yerleşimini kontrol edin.');
+      return;
+    }
+    if (!backgroundColorInput) {
+      console.error('⚠️ #backgroundColor input’u bulunamadı. ID’yi kontrol edin.');
+      return;
+    }
+    if (!gradSvg) {
+      console.error('⚠️ #gradText SVG öğesi bulunamadı. HTML’de <svg id="gradText"> olduğundan emin olun.');
+      return;
+    }
+
+    // “Görseli İndir” butonuna tıklandığında çalışacak fonksiyon
+    downloadImageBtn.addEventListener('click', async () => {
+      try {
+        // 1) SVG’yi string haline çevir
+        const svgString = new XMLSerializer().serializeToString(gradSvg);
+
+        // 2) O string’den blob oluştur
+        const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+        const url     = URL.createObjectURL(svgBlob);
+
+        // 3) Fontların yüklenmesini bekle (örneğin Inter google font’u varsa)
+        await document.fonts.ready;
+
+        // 4) Oluşan SVG blob’unu bir Image objesine yükle
+        const img = new Image();
+        img.decoding = 'sync'; // mümkün olduğunca hızlı yükleme
+        img.onload = () => {
+          // 5) Yüklendiğinde: <img> nesnenin genişlik ve yükseklik değerini al
+          const W = img.width;
+          const H = img.height;
+
+          // 6) Yeni bir canvas oluştur ve boyutları ayarla
+          const canvas = document.createElement('canvas');
+          canvas.width  = W;
+          canvas.height = H;
+          const ctx = canvas.getContext('2d');
+
+          // 7) Önce arka plan rengini boya
+          ctx.fillStyle = backgroundColorInput.value || '#ffffff';
+          ctx.fillRect(0, 0, W, H);
+
+          // 8) Sonra SVG’den gelen görseli canvas’a çiz
+          ctx.drawImage(img, 0, 0);
+
+          // 9) Son olarak canvas’ı PNG blob’a çevir ve indir
+          canvas.toBlob(blob => {
+            const pngURL = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = pngURL;
+            a.download = 'gradyan-metin.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(pngURL);
+            URL.revokeObjectURL(url);
+          }, 'image/png');
+        };
+
+        img.onerror = e => {
+          console.error('⚠️ SVG → <img> yükleme hatası:', e);
+          URL.revokeObjectURL(url);
+          alert('Görsel oluşturma sırasında hata oluştu. Konsolu kontrol edin.');
+        };
+
+        img.src = url; // burada SVG blob’u <img> içerisine yüklüyoruz
+      }
+      catch (err) {
+        console.error('⚠️ İndirme işlemi sırasında beklenmeyen hata:', err);
+      }
+    });
+  });
+      </script>
+</body>
+</html>

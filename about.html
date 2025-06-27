@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menü Çubuğu -->
+    <div class="navbar">
+        <!-- Tema değiştirme butonu -->
+        <div class="toggle-mode" onclick="toggleMode()">
+            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+        </div>
+        <!-- Site başlığı -->
+        <div class="mobile-site-title">emre kaan</div>
+             <!-- Dil İkonu (Sağ Tarafta) -->
+        <div class="language-toggle" onclick="changeLanguage()">
+            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+        </div>       
+        <!-- Hamburger ikonu (sadece mobilde görünecek) -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+        </div>
+        <div class="menu">
+            <a href="index.html" class="menu-link">ana sayfa</a>
+            <a href="about.html" class="menu-link active">hakkımda</a>
+            <a href="blog2.html" class="menu-link">içerik</a>
+            <a href="contact1.html" class="menu-link">iletişim</a>
+        </div>
+    </div>
+
+    
+    <!-- About Content -->
+    <div class="about-container">
+        <!-- Profil Bölümü -->
+        <div class="profile-section card">
+            <div class="profile-content">
+                <img src="agreat Arka Planı Silindi.png" alt="Profil Fotoğrafı" class="profile-pic">
+                <div class="text-content">
+                    <h1 class="gradient-text">selam,<br> emre kaan burada</h1>
+                    <p>
+                        Bu site, zihnimde dolaşan fikirleri, projeleri ve hayalleri paylaşmak için var. Bilgisayar mühendisliği öğrencisiyim, ancak teknik bilginin ötesinde beni en çok heyecanlandıran şey sanatın kendisi. Sanatın tekniği yönlendirmesi gerektiğine inanıyorum; tersi değil. Burada bazen düşüncelerimi, bazen de sanatı ve teknolojiyi nasıl harmanladığımı göreceksiniz.
+                        Güzellik ve estetiğin sadece bir ekleme değil, bir başlangıç noktası olduğuna inanıyorum. Sosyal medyada paylaştığım içerikleri buraya da taşımayı düşünüyorum. Umarım burada bir şeyler size de ilham verir.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hikayem Bölümü -->
+<!--         <div class="about-story card">
+            <h2 class="section-title">nasıl başladı?</h2>
+          
+            <div class="story-cards">
+                <div class="story-cards slider">
+                    <div class="story-card">
+                        <div class="story-year">🗓️ 2020 – Günümüz</div>
+                        <p>Bilgisayar Mühendisliği öğrencisi ve içerik üreticisi olarak, teknoloji ve sanatı birleştiren projelere odaklanıyorum.</p>
+                    </div>
+                
+                    <div class="story-card">
+                        <div class="story-year">🗓️ 2019</div>
+                        <p>IconTech serisini başlattım ve teknoloji tarihindeki önemli isimleri sanatsal bir yaklaşımla anlatmaya başladım.</p>
+                    </div>
+                
+                    <div class="story-card">
+                        <div class="story-year">🗓️ 2018</div>
+                        <p>Dijital sanat ve teknoloji alanında ilk çalışmalarımı yapmaya başladım.</p>
+                    </div>
+                
+                    <div class="story-card">
+                        <div class="story-year">🗓️ 2014</div>
+                        <p>Dijital sanat ve teknoloji alanında ilk denemelerimi gerçekleştirdim.</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="about-story card">
+            <h2 class="section-title">nasıl başladı?</h2>
+          
+            <!-- Slider sarmalayıcı: kaydırma + dot göstergesi -->
+            <div class="story-slider">
+              <!-- Yatay kaydırılacak container -->
+              <div class="story-cards slider">
+                <div class="story-card">
+                  <div class="story-year"> 2020 – Günümüz</div>
+                  <p>Bilgisayar Mühendisliği öğrencisi ve içerik üreticisi olarak, teknoloji ve sanatı birleştiren projelere odaklanıyorum.</p>
+                </div>
+          
+                <div class="story-card">
+                  <div class="story-year"> 2019</div>
+                  <p>IconTech serisini başlattım ve teknoloji tarihindeki önemli isimleri sanatsal bir yaklaşımla anlatmaya başladım.</p>
+                </div>
+          
+                <div class="story-card">
+                  <div class="story-year"> 2018</div>
+                  <p>Dijital sanat ve teknoloji alanında ilk çalışmalarımı yapmaya başladım.</p>
+                </div>
+          
+                <div class="story-card">
+                  <div class="story-year"> 2014</div>
+                  <p>Dijital sanat ve teknoloji alanında ilk denemelerimi gerçekleştirdim.</p>
+                </div>
+              </div>
+          
+              <!-- Dot göstergeleri buraya JS ile eklenecek -->
+              <div class="slider-indicators"></div>
+            </div>
+        </div>
+          
+          
+
+        <!-- Uzmanlık Alanları Bölümü -->
+        <div class="about-skills card">
+            <h2 class="section-title">nelerle ilgileniyorum</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Yazılım Geliştirme</div>
+                <div class="skill-item">Dijital Sanat</div>
+                <div class="skill-item">İçerik Üretimi</div>
+                <div class="skill-item">UX/UI Tasarım</div>
+                <div class="skill-item">Teknoloji Tarihi</div>
+                <div class="skill-item">Görsel Tasarım</div>
+            </div>
+        </div>
+
+        <!-- Vizyon Bölümü -->
+        <div class="about-vision card">
+            <h2 class="section-title">benim yolum</h2>
+            <p>
+                Teknoloji ve sanatın kesişim noktasında, her iki alanın da birbirini nasıl güçlendirebileceğini keşfediyorum. IconTech serisi ve diğer projelerimle, teknolojinin sadece teknik değil, aynı zamanda estetik ve kültürel boyutlarını da keşfetmeyi amaçlıyorum.
+            </p>
+        </div>
+
+        <!-- İletişim Bölümü -->
+        <div class="about-contact card">
+            <h2 class="section-title">iletişim</h2>
+            <p>projeler, işbirlikleri veya sadece fikir alışverişi için benimle iletişime geçebilirsiniz.</p>
+            <div class="contact-links">
+                <a href="mailto:your-email@example.com" class="contact-link">mail</a>
+                <a href="https://linkedin.com/in/jackorn" class="contact-link" target="_blank">instagram-kişisel</a>                
+                <a href="https://instagram.com/technovision101" class="contact-link" target="_blank">instagram-içerik</a>
+                <a href="https://linkedin.com/in/jackorn" class="contact-link" target="_blank">linkedin</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            
+            // Toggle dark mode
+            body.classList.toggle('dark-mode');
+
+            // Save dark mode state to localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Dark Mode';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Light Mode';
+            }
+        }
+
+        // Check dark mode state on page load
+        window.onload = function() {
+            const modeIcon = document.getElementById('mode-icon');
+            const darkMode = localStorage.getItem('darkMode');
+
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Dark Mode';
+            } else {
+                document.body.classList.remove('dark-mode');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Light Mode';
+            }
+
+            // Check language state on page load
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            document.documentElement.lang = savedLanguage;
+
+            const languageIcon = document.getElementById('language-icon');
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+        };
+
+        function changeLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'tr' ? 'en' : 'tr';
+
+            // Save language preference
+            localStorage.setItem('language', newLang);
+
+            // Redirect to the appropriate page
+            if (newLang === 'tr') {
+                window.location.href = 'about.html';
+            } else {
+                window.location.href = 'about-en.html';
+            }
+        }
+    </script>
+
+
+    <script>
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        const icon = document.querySelector('.menu-icon img');
+        
+        // Fade out
+        icon.style.opacity = 0;
+        
+        // Toggle menu ve src güncellemesini fade-out animasyonu tamamlandıktan sonra yapıyoruz
+        setTimeout(() => {
+            menu.classList.toggle('active');
+        
+            if (menu.classList.contains('active')) {
+                icon.src = 'close-icon.png'; // "X" ikonunuzun dosya adını kullanın
+                icon.alt = 'Menüyü Kapat';
+            } else {
+                icon.src = 'menu-icon.png';
+                icon.alt = 'Menü';
+            }
+            
+            // Fade in
+            icon.style.opacity = 1;
+        }, 150); // 150ms delay, ihtiyaca göre ayarlanabilir
+    }
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const menu = document.querySelector('.menu');
+        const menuIcon = document.querySelector('.menu-icon');
+        if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                const icon = menuIcon.querySelector('img');
+                icon.src = 'menu-icon.png';
+                icon.alt = 'Menü';
+            }
+        }
+    });
+    </script>
+
+<!-- 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.querySelector('.slider');
+        const cards = document.querySelectorAll('.story-card');
+        const dotsBox = document.querySelector('.slider-indicators');
+        
+        // Nokta göstergeleri oluştur
+        cards.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'dot';
+            if (i === 0) dot.classList.add('active');
+            dotsBox.appendChild(dot);
+        });
+        
+        const dots = [...dotsBox.children];
+        
+        let scrollTimeout;
+        slider.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            
+            // Slider'ın merkez noktasını hesapla
+            const centerX = slider.scrollLeft + slider.offsetWidth / 2;
+            
+            cards.forEach((card) => {
+                const cardLeft = card.offsetLeft;
+                const cardWidth = card.offsetWidth;
+                const cardCenter = cardLeft + cardWidth / 2;
+                const distance = Math.abs(centerX - cardCenter);
+                const maxDistance = cardWidth * 0.8;
+                
+                if (distance < maxDistance) {
+                    const proximity = 1 - (distance / maxDistance);
+                    const scale = 0.8 + (0.2 * proximity);
+                    const opacity = 0.6 + (0.4 * proximity);
+                    const translateZ = -30 + (30 * proximity);
+                    card.style.transform = `scale(${scale}) translateZ(${translateZ}px)`;
+                    card.style.opacity = opacity;
+                } else {
+                    card.style.transform = 'scale(0.8) translateZ(-30px)';
+                    card.style.opacity = '0.6';
+                }
+            });
+            
+            scrollTimeout = setTimeout(() => {
+                const sliderRect = slider.getBoundingClientRect();
+                const sliderCenter = sliderRect.left + sliderRect.width / 2;
+                
+                let minDistance = Infinity;
+                let closestCard = null;
+                let closestIndex = -1;
+                
+                cards.forEach((card, index) => {
+                    const cardRect = card.getBoundingClientRect();
+                    const cardCenter = cardRect.left + cardRect.width / 2;
+                    const distance = Math.abs(sliderCenter - cardCenter);
+                    
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestCard = card;
+                        closestIndex = index;
+                    }
+                });
+                
+                // Tüm kartlardan sınıfları kaldır
+                cards.forEach(card => {
+                    card.classList.remove('in-view', 'near-view');
+                });
+                
+                // En yakın karta 'in-view' ekle
+                closestCard.classList.add('in-view');
+                
+                // Komşulara 'near-view' ekle
+                if (closestIndex > 0) {
+                    cards[closestIndex - 1].classList.add('near-view');
+                }
+                if (closestIndex < cards.length - 1) {
+                    cards[closestIndex + 1].classList.add('near-view');
+                }
+                
+                // Noktaları güncelle
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === closestIndex);
+                });
+                
+                // inside the scrollTimeout callback – replace the “inline‑style reset” part
+                cards.forEach(card => {
+                    card.style.transition = 'none';   // turn the animation off
+                    card.style.transform  = '';       // clear the inline styles
+                    card.style.opacity    = '';
+                    // re‑enable the transition on the very next frame
+                    requestAnimationFrame(() => card.style.transition = '');
+                });
+
+            }, 150);
+        });
+        
+        // İlk kartı başlangıçta aktif et
+        cards[0].classList.add('in-view');
+        if (cards.length > 1) {
+            cards[1].classList.add('near-view');
+        }
+        
+        // Noktalara tıklama işlevi
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                cards[idx].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
+                });
+            });
+        });
+    });
+    </script>
+ -->
+   <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.about-story .slider');
+            const cards = document.querySelectorAll('.about-story .story-card');
+            const dotsBox = document.querySelector('.slider-indicators');
+
+            if (!slider || cards.length === 0 || !dotsBox) {
+                console.error('Slider, kartlar veya dot gösterge kutusu bulunamadı!');
+                return;
+            }
+
+            // Dot'ları oluştur
+            cards.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                dotsBox.appendChild(dot);
+            });
+
+            const dots = Array.from(dotsBox.children);
+            let scrollEndTimer = null;
+
+            // DEĞIŞIKLIK: Başlangıç durumunu ayarlar - ilk kartı aktif yap
+            function initializeCardStates() {
+                // Slider'ı başa kaydır
+                slider.scrollLeft = 0;
+                
+                // İlk kartı aktif yap
+                updateFinalCardStatesAndDots(0);
+                
+                console.log('Slider başlangıç pozisyonu:', slider.scrollLeft);
+            }
+
+            // Scroll tamamen bittiğinde çağrılacak ana fonksiyon
+            function processScrollEnd() {
+                const sliderRect = slider.getBoundingClientRect();
+                const viewPortCenter = sliderRect.left + sliderRect.width / 2;
+                let minDistance = Infinity;
+                let closestIndex = -1;
+
+                cards.forEach((card, index) => {
+                    const cardRect = card.getBoundingClientRect();
+                    const cardCenterInView = cardRect.left + cardRect.width / 2;
+                    const distanceToViewCenter = Math.abs(viewPortCenter - cardCenterInView);
+
+                    if (distanceToViewCenter < minDistance) {
+                        minDistance = distanceToViewCenter;
+                        closestIndex = index;
+                    }
+                });
+
+                if (closestIndex !== -1) {
+                    // Kartı tam ortaya hizala
+                    cards[closestIndex].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center'
+                    });
+
+                    updateFinalCardStatesAndDots(closestIndex);
+                }
+            }
+
+            // Kart sınıflarını, noktaları günceller ve inline stilleri temizler
+            function updateFinalCardStatesAndDots(activeIndex) {
+                cards.forEach((card, index) => {
+                    const isClosest = (index === activeIndex);
+                    const isNearPrev = (activeIndex > 0 && index === activeIndex - 1);
+                    const isNearNext = (activeIndex < cards.length - 1 && index === activeIndex + 1);
+                    const isNear = isNearPrev || isNearNext;
+
+                    // Sınıfları ayarla
+                    card.classList.toggle('in-view', isClosest);
+                    card.classList.toggle('near-view', isNear && !isClosest);
+                });
+
+                // Noktaları güncelle
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === activeIndex);
+                });
+
+                // Inline stilleri temizle
+                cards.forEach(card => {
+                    card.style.transform = '';
+                    card.style.opacity = '';
+                });
+            }
+
+            // Scroll sırasında canlı ölçeklendirme yapar
+            function handleLiveScrollScaling() {
+                const sliderScrollLeft = slider.scrollLeft;
+                const sliderWidth = slider.offsetWidth;
+                const sliderContentCenterX = sliderScrollLeft + sliderWidth / 2;
+
+                cards.forEach((card, index) => {
+                    const cardWidth = card.offsetWidth;
+                    const cardOffsetLeft = card.offsetLeft;
+                    const cardContentCenterX = cardOffsetLeft + cardWidth / 2;
+                    const distance = Math.abs(sliderContentCenterX - cardContentCenterX);
+                    const interactionZoneWidth = cardWidth * 1.5;
+                    
+                    let proximity = 0;
+                    if (distance < interactionZoneWidth) {
+                        proximity = 1 - (distance / interactionZoneWidth);
+                    }
+                    
+                    proximity = Math.max(0, Math.min(proximity, 1));
+
+                    const baseScale = 0.8, targetScale = 1.0;
+                    const baseOpacity = 0.6, targetOpacity = 1.0;
+                    const baseTranslateZ = -30, targetTranslateZ = 0;
+
+                    const scale = baseScale + (targetScale - baseScale) * proximity;
+                    const opacity = baseOpacity + (targetOpacity - baseOpacity) * proximity;
+                    const translateZ = baseTranslateZ + (targetTranslateZ - baseTranslateZ) * proximity;
+
+                    card.style.transform = `scale(${scale}) translateZ(${translateZ}px)`;
+                    card.style.opacity = String(opacity);
+                });
+            }
+
+            // Scroll olay dinleyicisi
+            slider.addEventListener('scroll', function() {
+                handleLiveScrollScaling();
+                
+                clearTimeout(scrollEndTimer);
+                if (typeof slider.onscrollend === 'undefined') {
+                    scrollEndTimer = setTimeout(processScrollEnd, 260);
+                }
+            }, { passive: true });
+
+            // scrollend olayı varsa
+            if (typeof slider.onscrollend !== 'undefined') {
+                slider.addEventListener('scrollend', function() {
+                    processScrollEnd();
+                });
+            }
+
+            // Noktalara tıklama olayı
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => {
+                    cards[idx].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center'
+                    });
+                });
+            });
+
+            // DEĞIŞIKLIK: Başlangıç durumunu doğru şekilde ayarla
+            setTimeout(() => {
+                initializeCardStates();
+            }, 100); // DOM tam yüklendikten sonra çalışması için kısa bir gecikme
+        });
+    </script>
+
+    <script>
+    // Intersection Observer oluştur
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Elementlere kademeli gecikme ekle
+                const delay = entry.target.dataset.delay || 0;
+                entry.target.style.animationDelay = `${delay}ms`;
+                entry.target.classList.add('slide-up-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '30px'
+    });
+
+    // Animasyon uygulanacak elementleri seç
+    const elements = document.querySelectorAll(`
+        .profile-section .gradient-text,
+        .profile-section .text-content p,
+        .about-story .section-title,
+        .about-skills .section-title,
+        .about-skills .skill-item,
+        .about-vision .section-title,
+        .about-vision p,
+        .about-contact .section-title,
+        .about-contact p,
+        .about-contact .contact-link
+    `);
+
+    // Her elemente gecikme değeri ata ve observer'a ekle
+    elements.forEach((element, index) => {
+        // Elementlerin türüne göre farklı gecikmeler
+        let baseDelay = 40; // Temel gecikme
+        if (element.classList.contains('section-title')) {
+            element.dataset.delay = index * 40; // Başlıklar için
+        } else if (element.classList.contains('skill-item')) {
+            element.dataset.delay = 80 + (index * 40); // Skill itemları için
+        } else {
+            element.dataset.delay = 80 + (index * 40); // Diğer elementler için
+        }
+        observer.observe(element);
+    });
+    // Her elemente gecikme değeri ata ve observer'a ekle
+    elements.forEach((element, index) => {
+        // About contact bölümü için daha az gecikme
+        if (element.closest('.about-contact')) {
+            if (element.classList.contains('section-title')) {
+                element.dataset.delay = '1'; // Contact başlığı için minimal gecikme
+            } else {
+                element.dataset.delay = `${index * 4}`; // Contact içeriği için daha kısa gecikmeler
+            }
+        } 
+        // Diğer bölümler için mevcut gecikmeler
+        else if (element.classList.contains('section-title')) {
+            element.dataset.delay = index * 40;
+        } else if (element.classList.contains('skill-item')) {
+            element.dataset.delay = 80 + (index * 40);
+        } else {
+            element.dataset.delay = 80 + (index * 40);
+        }
+        observer.observe(element);
+    });
+    elements.forEach((element, index) => {
+        // About contact bölümü için daha az gecikme
+        if (element.closest('.about-vision')) {
+            if (element.classList.contains('section-title')) {
+                element.dataset.delay = '16'; // Contact başlığı için minimal gecikme
+            } else {
+                element.dataset.delay = `${40 + (index * 16)}`; // Contact içeriği için daha kısa gecikmeler
+            }
+        } 
+        // Diğer bölümler için mevcut gecikmeler
+        else if (element.classList.contains('section-title')) {
+            element.dataset.delay = index * 40;
+        } else if (element.classList.contains('skill-item')) {
+            element.dataset.delay = 80 + (index * 40);
+        } else {
+            element.dataset.delay = 80 + (index * 40);
+        }
+        observer.observe(element);
+    });
+    </script>
+
+  
+</body>
+</html>

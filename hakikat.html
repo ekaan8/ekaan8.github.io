@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teknolojinin gelişimi</title>
+    <link rel="stylesheet" href="metod.css?v=20240603">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar">
+        <!-- Tema değiştirme butonu -->
+        <div class="toggle-mode" onclick="toggleMode()">
+            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+        </div>
+        <!-- Site başlığı -->
+        <div class="mobile-site-title">emre kaan</div>
+        <!-- Dil İkonu (Sağ Tarafta) -->
+        <div class="language-toggle" onclick="changeLanguage()">
+            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+        </div>       
+        <!-- Hamburger ikonu (sadece mobilde görünecek) -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+        </div>
+        <div class="menu">
+            <a href="index.html" class="menu-link">ana sayfa</a>
+            <a href="about.html" class="menu-link">hakkımda</a>
+            <a href="blog2.html" class="menu-link">içerik</a>
+            <a href="contact1.html" class="menu-link">iletişim</a>
+        </div>
+    </div>
+
+    <div class="back-button">
+        <!-- <a href="index.html"> -->
+        <a href="javascript:history.back()">
+            <img src="iback.png" alt="Geri Dön" />
+        </a>
+    </div>
+    
+    <div class="container-metod">
+        <div class="header-container">
+            <h1>gerçeğin izinde</h1>
+        </div>
+        
+        <div class="text-container">
+            <p>
+                Eski çağda olduğu gibi bu yeni çağda da hakikatin bilgisine ulaşarak aydınlanmanın yaşanacağına inanıyorum, her ne kadar zor olsa da. Bilginin hızlıca üretilip derhal tüketildiği fakat özümsenmediği bu çağ, sanıyorum eski çağların kendine has o mistik ve efsunlu kokusuna sahip değil. Yine de, bugün yıldızlara artık daha yakın, Güneş gezgini antik gezegenlerde varlığımızı daha hissettirir haldeyiz. Bazı şeyler değişse de yine de değişmeyen özelliklerimiz var: Yıldızlar hala göğün süsleri, kibar incileri. Aydınlanmanın, hakikatin ışıltısını anlamanın cazibesi ise ne zaman geleceğinin belli olmaması. Kişi, duvarları kitap dolu mekanlarda arayışını sürdürse de, Doğu’ya yolculuğa çıksa da hakikate erişemeyebilir. Buna karşın boş ve sakin bir halde önündeki çeşmeden su içen bir serçeyi seyrettiği anda hakikate ulaşabilir. Gerçek, o an için Tanrı vergisine dönüşür, ancak şunu da unutmamalı ki o vergiye ulaşmak için de kişi pek çok yoldan, yolculuklardan geçmiştir.
+            </p> 
+        
+            <div class="bottom-navigation">
+                <div class="nav-button left">
+                    <a href="ilke.html">
+                        <img src="iback.png" alt="Önceki Sayfa" />
+                    </a>
+                    
+                    <span class="nav-text">sanat inancımız</span>
+                </div>
+                <div class="nav-button right">
+                    <span class="nav-text">next.html</span>
+                    <a href="next-page.html">
+                        <img src="inext.png" alt="Sonraki Sayfa" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            
+            // Mod değiştirme
+            body.classList.toggle('dark-mode');
+
+            // Karanlık mod durumu LocalStorage'a kaydediliyor
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+        }
+
+        // Sayfa yüklendiğinde karanlık mod durumunu kontrol et
+        window.onload = function() {
+            const modeIcon = document.getElementById('mode-icon');
+            const darkMode = localStorage.getItem('darkMode');
+
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Dark Mode';
+            } else {
+                document.body.classList.remove('dark-mode');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Light Mode';
+            }
+
+            // Check language state on page load
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            document.documentElement.lang = savedLanguage;
+
+            const languageIcon = document.getElementById('language-icon');
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+        };
+    </script>
+
+
+    <script>
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            const icon = document.querySelector('.menu-icon img');
+            
+            // Fade out
+            icon.style.opacity = 0;
+            
+            // Toggle menu ve src güncellemesini fade-out animasyonu tamamlandıktan sonra yapıyoruz
+            setTimeout(() => {
+                menu.classList.toggle('active');
+            
+                if (menu.classList.contains('active')) {
+                    icon.src = 'close-icon.png';
+                    icon.alt = 'Menüyü Kapat';
+                } else {
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+                
+                // Fade in
+                icon.style.opacity = 1;
+            }, 150);
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.querySelector('.menu');
+            const menuIcon = document.querySelector('.menu-icon');
+            if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    const icon = menuIcon.querySelector('img');
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

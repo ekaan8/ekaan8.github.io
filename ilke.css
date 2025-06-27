@@ -1,0 +1,677 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: rgb(245, 245, 247);
+    color: rgb(29, 29, 32);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar Styles */
+.navbar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 0.8px 1px rgba(18, 18, 18, 0.089);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%; /* Changed from auto to 100% */
+    padding: 0; /* Remove padding-left */
+}
+
+/*
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s;
+    line-height: 60px;
+}
+*/
+
+/* Container Styles */
+.container-ilke {
+    width: 100%;
+    padding-top: 100px;
+    margin: 0 auto;
+    text-align: center;
+    color: rgb(8, 8, 8);
+}
+
+
+/* Text Container Styles */
+.text-container {
+    max-width: 90%;
+    margin: 0 auto 20px;
+    text-align: left;
+    line-height: 1.8;
+    font-size: 1.4rem;
+    padding: 40px 40px 10px;
+    background-color: rgba(250, 250, 250, 0.9);
+    border-radius: 48px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+.text-container p {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+
+
+/* ===========  2) Masaüstü için tek blok  =========== */
+@media (min-width: 769px) {
+
+    /* — 2‑a) Dış sarmal — */
+    .container-ilke {
+      /* Eşit kenar boşlukları ve ortalama */
+      width: min(90%, 1200px);          /* Ekran çok genişse 1200 px’e sabitlenir */
+      margin-inline: auto;              /* Sol‑sağ otomatik → ortada */
+      
+      /* Kenar tamponu: pencere daralsa bile
+         kutu + başlık pencereye asla yapışmaz */
+      padding-inline: clamp(32px, 4vw, 64px);
+      
+      /* Üstte biraz nefes aldırmak için: */
+      padding-top: 100px;
+      padding-bottom: clamp(32px, 4vw, 64px); 
+      text-align: left;                 /* Başlığı sola yasla */
+    }
+  
+    /* — 2‑b) Başlık (h1) — */
+    .container-ilke h1 {
+      font-size: 3.1rem;
+      font-weight: 620;
+      margin: 0 0 32px 0;               /* Sol boşluk yok; kutuyla aynı hizada */
+      line-height: 1.6;
+      /* Sadece masaüstünde altın degrade */
+      background: linear-gradient(
+                  180deg,
+                  #BF953F 0%,
+                  #B38728 40%,
+                  #d7d299 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    /* — 2‑c) Beyaz içerik kutusu — */
+    .container-ilke .text-container {
+      width: 100%;                      /* Dış sarmal kadar geniş */
+      margin: 0;                        /* Ekstra kayma yok  */
+  
+      /* İç boşluk & görünüm */
+      padding: 48px 48px 56px;
+      background: #fff;
+      border-radius: 32px;
+      box-shadow: 0 0 16px rgba(0,0,0,.06);
+      
+      /* Masaüstü hizası garanti */
+      box-sizing: border-box;
+    }
+  }
+  
+  
+
+
+
+/* Image Styles */
+.image-wrapper {
+    text-align: center;
+    margin: 40px 0;
+}
+.image-wrapper1 {
+    flex: 0 0 auto;
+    margin: 0 auto; /* Yatayda ortala */
+    width: 60%; /* Görselin genişliğini ayarlayın */
+}
+
+.ilke-image {
+    max-width: 100%;
+    width: 60%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.golden-ratio-text {
+    font-size: 14px;
+    color: #678;
+    margin-top: 10px;
+    font-style: italic;
+    display: block;
+}
+
+/* Flex Container for Shell Image */
+.flex-container {
+    display: flex;
+    flex-direction: column; /* Dikey hizalama */
+    align-items: center; /* Yatayda ortala */
+    gap: 30px;
+    margin: 40px 0;
+    width: 100%;
+}
+
+
+
+.flex-text {
+    flex: 1;
+    margin: 0 auto; /* Yatayda ortala */
+    padding: 0;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    max-width: 80%; /* Metnin genişliğini ayarlayın */
+    text-align: left; /* Metni sola hizala */
+}
+
+
+
+.ilke-image1 {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+body.dark-mode .menu a {
+    color: #ffffff;  /* Menü yazılarını beyaz yap */
+}
+
+body.dark-mode .navbar {
+    background-color: rgba(30, 30, 30, 0.72); /* Opaklık ekleyin */
+    backdrop-filter: blur(10px); /* Blur efekti ekleyin */
+    -webkit-backdrop-filter: blur(10px); /* Safari desteği */
+    box-shadow: 0 0.8px 1px rgba(240, 240, 240, 0.271);
+}
+
+body.dark-mode .container-ilke h1 {
+    color: rgb(248, 238, 218);
+}
+
+body.dark-mode .text-container {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #e1e1e1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #555;
+}
+
+body.dark-mode .golden-ratio-text {
+    color: #bbbbbb;
+}
+
+body.dark-mode .ilke-image,
+body.dark-mode .ilke-image1 {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Toggle Mode Button */
+.toggle-mode {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.toggle-mode img {
+    width: 36px;
+    height: 36px;
+    transition: transform 0.3s ease;
+}
+
+/* Dil İkonu */
+.language-toggle {
+    position: absolute;
+    right: 24px; /* Navbar'ın sağından mesafe */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.language-toggle img {
+    width: 28px; /* İkon boyutu */
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+body.dark-mode .language-toggle img {
+    filter: invert(1);
+}
+
+.language-toggle:hover img {
+    transform: scale(1.1); /* Hover efekti */
+}
+
+/*back button*/
+.back-button {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    z-index: 900;
+}
+
+.back-button img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+    filter: brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(1800%) hue-rotate(210deg) brightness(94%) contrast(101%);
+}
+
+.back-button img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Dark mode support */
+body.dark-mode .back-button img {
+    filter: brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(1800%) hue-rotate(210deg) brightness(94%) contrast(101%);
+    opacity: 0.9;
+}
+
+/*alt geri-ileri buton*/
+.bottom-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 0 0px;
+}
+
+.nav-button {
+    position: relative;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.nav-text {
+    font-size: 1.0rem;
+    color: #130055;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center; /* Center align with icon */
+    height: 48px; /* Match icon height */
+    line-height: 1; /* Match icon height */
+    font-weight: 600;
+    transform: translateY(-5px);
+
+}
+.nav-button:hover .nav-text {
+    opacity: 1;
+}
+
+body.dark-mode .nav-text {
+    color: rgb(53,121,246);
+}
+.nav-button img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+    filter: brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(1800%) hue-rotate(210deg) brightness(94%) contrast(101%);
+}
+
+.nav-button img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+body.dark-mode .nav-button img {
+    filter: brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(1800%) hue-rotate(210deg) brightness(94%) contrast(101%);
+    opacity: 0.9;
+}
+
+
+/**************MENU***************/
+.menu-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -18px;
+    width: 100%;
+    height: 2px;
+    background-color: #6c6c6c;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.menu-link:hover::after,
+.menu-link.active::after {
+    transform: scaleX(1);
+}
+
+
+/* Menu icon and mobile title default state */
+.menu-icon {
+    display: none;
+}
+
+.mobile-site-title {
+    display: none;
+}
+
+
+/*MOBIL VERSION*/
+@media (max-width: 768px) {
+    /* Navbar and Menu Layout */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 1000;
+        box-shadow: 0 0.8px 1px rgba(18, 18, 18, 0.089);
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile site title */
+    .mobile-site-title {
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #333;
+        text-align: left;
+        z-index: 1;
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    
+    /* Toggle mode button */
+    .toggle-mode {
+        display: block;
+        position: absolute;
+        right: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        margin: 0;
+        left: auto;
+    }
+    
+    /* Language toggle */
+    .language-toggle {
+        display: block;
+        position: absolute;
+        right: 108px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+    }
+
+    .language-toggle img {
+        width: 28px;
+        height: 28px;
+        transition: transform 0.3s ease;
+    }
+    
+    /* Menu icon */
+    .menu-icon {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+    
+    /* Menu dropdown */
+    .menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 0;
+        text-align: left;
+    }
+    
+    .menu.active {
+        display: flex;
+    }
+    
+    /* Menu links */
+    .menu-link {
+        font-size: 2rem;
+        color: #555;
+        padding-left: 20px;
+        width: auto;
+        text-align: left;
+        display: inline-block;
+        position: relative;
+    }
+
+    .menu-link::after {
+        content: '';
+        position: absolute;
+        left: 20px;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background-color: #6c6c6c;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .menu-link:hover::after,
+    .menu-link.active::after {
+        transform: scaleX(1);
+        width: calc(100% - 20px);
+    }
+
+    /* Dark mode adjustments */
+    body.dark-mode .mobile-site-title {
+        color: #ffffff;
+    }
+    
+    body.dark-mode .menu-icon img {
+        filter: invert(1);
+    }
+
+    /* Dark mode menu adjustments */
+    body.dark-mode .navbar .menu {
+        background: rgba(30, 30, 30, 0.95); /* Dark mode saydamlık ayarı */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    body.dark-mode .toggle-mode img {
+        content: url('night.png');
+        width: 36px; /* Match light mode size */
+        height: 36px; /* Match light mode size */
+        object-fit: contain;
+    }
+}
+body.dark-mode .toggle-mode img {
+    content: url('night.png');
+}
+
+
+@media (max-width: 768px) {
+    /* Flex konteyner dikeye alınıyor */
+    .flex-container {
+      flex-direction: column;
+      align-items: center; /* Görsel ve metin ortalanır */
+      gap: 20px;           /* Görsel–yazı arası boşluk */
+    }
+  
+    /* Her iki görsel kapsayıcıyı ortala ve max genişlik ver */
+    .image-wrapper,
+    .image-wrapper1 {
+      width: 92%;
+      max-width: 92%;
+      margin: 20px auto;    /* Üst-alt 20px, sol-sağ otomatik */
+      text-align: center;   /* Opsiyonel: içindeki text varsa ortalar */
+    }
+  
+    /* İçlerindeki img etiketlerini block-level yapıp ortala */
+    .image-wrapper .ilke-image,
+    .image-wrapper1 .ilke-image1 {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;       /* Sol-sağ otomatik */
+    }
+  
+    /* Yazı da tam genişlik; üst boşluk ve iç boşluk ayarla */
+    .flex-text {
+      width: 100%;
+      max-width: 100%;
+      margin-top: 0;
+      padding: 0 16px;       /* Kenarlardan boşluk */
+      box-sizing: border-box;
+    }
+  
+    /* Diğer gerekli mobil ayarların devamı… */
+    .text-container {
+      background-color: transparent !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+    }
+    body.dark-mode .text-container {
+      border: none !important;
+      box-shadow: none !important;
+    }
+}
+  
+
+/* ── Mobil düzeltmeleri ────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* 0) Container soldan ortalanmasın, başlık yine solda başlasın */
+  .container-ilke {
+    text-align: left;           /* global text-align:center’i iptal eder */
+    padding-top: 100px;         /* gerekirse orijinal değerinize uyun */
+  }
+
+  /* 1) Başlığı eski mobil stiliyle geri yükle */
+  .container-ilke h1 {
+    font-size: 2.5rem;
+    display: inline-block;        /* Kendi genişliğine otursun */
+    position: relative;           /* ::after için referans */
+    margin-left: 5%;              /* Eskiden yaptığınız sol boşluk */
+    margin-bottom: 8px;           /* Çizgiyle arasını ayarlar */
+    text-align: left;             /* Sola yaslı */
+    line-height: 1.6;
+    /* (Eğer önceki base’da farklı görünüme sahipse gradient’i de yeniden koyun) */
+    background: linear-gradient(
+      to bottom,
+      #BF953F 0%,
+      #B38728 40%,
+      #d7d299 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+    /* 1) Başlık ile metin arasına ince çizgi  */
+    .container-ilke h1::after {
+        content: '';
+        position: absolute;           /* Başlık göreli referanslı */
+        left: 0;                      /* Başlığın solundan başlasın */
+        bottom: -12px;                    /* Başlığın hemen altına */
+        width: 100%;                  /* Başlığın kendi genişliği kadar */
+        height: 1px;
+        background: rgba(0,0,0,0.15);
+    }
+    /* Karanlık mod rengi */
+    body.dark-mode .container-ilke h1::after{
+        background: rgba(255,255,255,0.30);
+    }
+
+    /* 2) Back butonunu başlık–metin hizasına çek */
+    .back-button{
+        left: 5%;   /* h1’in margin-left: 5% değerine tam denk gelir */
+    }
+}
+
+
+/* ── Masaüstü düzenlemeleri ───────────────────────────────────── */
+@media (min-width: 769px) {
+
+    /* 1) Ortak “sabit oranlı” kolon—sayfanın %85’i, fakat 1400 px’i geçmez */
+    .container-ilke{
+        width: 85vw;              /* oransal genişlik */
+        max-width: 1400px;        /* çok geniş monitörde okunabilir kalsın */
+        margin: 0 auto;           /* ortala */
+        padding-top: 120px;       /* başlıkla üst bar arası */
+        position: relative;       /* back-button hizalamasına yardımcı */
+    }
+
+    /* 2) Başlık hizası: konteynerin soluna yaslı, extra margin gereksiz  */
+    .container-ilke h1{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* 3) Metin kutucuğu her zaman konteyneri doldursun, iç oran sabit kalsın */
+    .text-container{
+        width: 90%;              /* artık %90 değil → oransal sapma bitti   */
+        max-width: 100%;
+    }
+
+    /* 4) Back butonu konteynerle aynı sol boşluğu paylaşsın */
+    .back-button{
+        left: calc((100vw - 85vw) / 2);  /* sayfa kenarı ile kolon arasındaki boşluk */
+    }
+}
+
+/* Çok geniş (≥ 1700 px) monitörlerde back-button fazla açılmasın */
+@media (min-width: 1700px){
+    .back-button{
+        left: calc((100vw - 1400px) / 2);
+    }
+}
+
+

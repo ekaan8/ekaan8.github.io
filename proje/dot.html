@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nokta Görsel Dönüştürücü</title>
+    <link rel="stylesheet" href="dot.css?v=20250527">
+</head>
+<body>
+    <div class="container">
+        <div class="back-button">
+            <img src="iback.png" alt="Geri" onclick="goBack()">
+        </div>
+        
+        <div class="buttons-container">
+        <!-- KARANLIK MOD TOGGLE -->
+        <button id="themeToggle" class="theme-toggle"> </button>
+        <!-- DİL DEĞİŞTİRME BUTONU -->
+        <button id="langToggle" class="lang-toggle"></button>
+        </div>
+
+        <h1>Nokta Görsel Dönüştürücü</h1>
+        <p class="description">Görsellerinizi nokta-tabanlı sanat eserine dönüştürün.<br> Yükleyeceğiniz görselin nokta sayısını ve boyutunu ayarlayarak benzersiz sonuçlar elde edin.</p>
+
+        <!-- Görsel Yükleme Alanı -->
+        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+        <label for="imageInput" id="fileSelectBtn">Dosya Seç</label>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="dotCount">Nokta Sayısı:</label>
+                <div class="range-container">
+                    <input type="range" id="dotCount" min="50" max="400" value="225">
+                    <span class="range-value" id="dotCountValue">225</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="dotSize">Nokta Boyutu:</label>
+                <div class="range-container">
+                    <input type="range" id="dotSize" min="2" max="30" value="16">
+                    <span class="range-value" id="dotSizeValue">16</span>
+                </div>
+            </div>
+
+            <div class="control-group palette-selector-container">
+                <label>Palette:</label> 
+                <div id="paletteSelector" class="palette-selector">
+                    <button class="palette-btn active" data-palette="original">Original</button>
+                    <button class="palette-btn" data-palette="retro">Retro</button>
+                    <button class="palette-btn" data-palette="pastel">Pastel</button>
+                    <button class="palette-btn" data-palette="bw">Dark</button>
+                    <button class="palette-btn" data-palette="warm">Warm</button>
+                    <button class="palette-btn" data-palette="cool">Cool</button>
+                    <button class="palette-btn" data-palette="earth">Earth</button>
+                    <button class="palette-btn" data-palette="cyberpunk">Punk</button>
+                    <button class="palette-btn" data-palette="sunset">Sunset</button>
+                    <button class="palette-btn" data-palette="ocean">Ocean</button>
+                    <button class="palette-btn" data-palette="galaxy">Galaxy</button>
+                    <button class="palette-btn" data-palette="golden">Gold</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Dönüştürme Butonu -->
+        <button id="convertBtn">Dönüştür</button>
+
+        <!-- Görsel Gösterim Alanı -->
+        <div class="image-container">
+    <h2>Orijinal Görsel</h2>
+    <div class="zoomable-image">
+        <input type="checkbox" id="zoom1" class="zoom-checkbox">
+        <label for="zoom1">
+            <img id="originalImage" alt="Orijinal Görsel" style="display: none;">
+        </label>
+    </div>
+
+    <h2>Dönüştürülmüş Görsel</h2>
+    <div class="zoomable-image">
+        <input type="checkbox" id="zoom2" class="zoom-checkbox">
+        <label for="zoom2">
+            <canvas id="canvas" style="display: none;"></canvas>
+        </label>
+    </div>
+
+                    <!-- İndir ve Kopyala Butonları -->
+            <div class="download-buttons">
+                <button id="downloadBtn" style="display: none;">İndir</button>
+                <button id="copyBtn" style="display: none;">Resmi Kopyala</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+    // 1. Read the saved language (default to 'en' if absent)
+    const savedLang = localStorage.getItem('language') || 'en';
+
+    // 2. If we're on the Turkish page but savedLang is 'en', redirect to the English page.
+    //    If we're on the English page but savedLang is 'tr', redirect to the Turkish page.
+    //    Replace the filenames below with your actual paths if they're different.
+    if (document.documentElement.lang === 'tr' && savedLang === 'en') {
+        window.location.replace('dot-en.html');
+    }
+    else if (document.documentElement.lang === 'en' && savedLang === 'tr') {
+        window.location.replace('dot.html');
+    }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space-Time Fabric Visualization - Enhanced</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .info {
+            margin-bottom: 20px;
+            max-width: 700px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .spacetime-container {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            margin: 20px auto;
+            perspective: 1000px;
+            overflow: hidden;
+            cursor: grab;
+            border: 1px solid #333;
+        }
+        
+        .spacetime-container:active {
+            cursor: grabbing;
+        }
+        
+        .spacetime-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateX(60deg);
+        }
+        
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            transform-style: preserve-3d;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .planet-name {
+            position: absolute;
+            color: white;
+            text-align: center;
+            font-size: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+            text-shadow: 0 0 4px #000;
+        }
+        
+        .planet-info {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid #444;
+            padding: 15px;
+            border-radius: 5px;
+            position: fixed;
+            width: 300px;
+            top: 20px;
+            right: 20px;
+            z-index: 20;
+        }
+        
+        .planet-info h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+        
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        button {
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        button:hover {
+            background-color: #444;
+        }
+        
+        .zoom-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 5px;
+            z-index: 20;
+        }
+        
+        .zoom-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid #444;
+        }
+        
+        .mini-map {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid #444;
+            border-radius: 4px;
+            overflow: hidden;
+            z-index: 20;
+        }
+        
+        .mini-map-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .mini-map-planet {
+            position: absolute;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .mini-map-viewport {
+            position: absolute;
+            border: 1px solid #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Solar System Space-Time Fabric</h1>
+        
+        <div class="info">
+            <p>This visualization demonstrates how planets bend the fabric of space-time according to their mass. 
+               The heavier the planet, the more it curves the space-time around it, as described by Einstein's General Relativity.
+               You can drag the view around to see all planets and use the zoom controls to adjust your perspective.</p>
+        </div>
+        
+        <div class="spacetime-container" id="spacetime">
+            <div class="spacetime-grid" id="grid">
+                <canvas id="gridCanvas"></canvas>
+            </div>
+            
+            <div class="zoom-controls">
+                <button class="zoom-btn" id="zoomIn">+</button>
+                <button class="zoom-btn" id="zoomOut">-</button>
+            </div>
+            
+            <div class="mini-map" id="miniMap">
+                <div class="mini-map-content" id="miniMapContent">
+                    <div class="mini-map-viewport" id="miniMapViewport"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="planet-info" id="planetInfo">
+            <h3>Planet Information</h3>
+            <p id="planetName">Select a planet to see information</p>
+            <p id="planetMass"></p>
+            <p id="planetDiameter"></p>
+            <p id="planetDistanceFromSun"></p>
+        </div>
+        
+        <div class="controls">
+            <button id="resetBtn">Reset View</button>
+            <button id="centerView">Center View</button>
+            <button id="toggleAnimation">Pause Animation</button>
+            <button id="toggleGravityView">Toggle Gravity Well View</button>
+            <button id="showAllPlanets">Show All Planets</button>
+            <button id="showNearPlanets">Show Inner Planets</button>
+        </div>
+    </div>
+
+    <script>
+        const spacetimeContainer = document.getElementById('spacetime');
+        const gridContainer = document.getElementById('grid');
+        const planetInfo = document.getElementById('planetInfo');
+        const planetNameElement = document.getElementById('planetName');
+        const planetMassElement = document.getElementById('planetMass');
+        const planetDiameterElement = document.getElementById('planetDiameter');
+        const planetDistanceElement = document.getElementById('planetDistanceFromSun');
+        const resetBtn = document.getElementById('resetBtn');
+        const centerViewBtn = document.getElementById('centerView');
+        const toggleAnimationBtn = document.getElementById('toggleAnimation');
+        const toggleGravityViewBtn = document.getElementById('toggleGravityView');
+        const showAllPlanetsBtn = document.getElementById('showAllPlanets');
+        const showNearPlanetsBtn = document.getElementById('showNearPlanets');
+        const zoomInBtn = document.getElementById('zoomIn');
+        const zoomOutBtn = document.getElementById('zoomOut');
+        const miniMap = document.getElementById('miniMap');
+        const miniMapContent = document.getElementById('miniMapContent');
+        const miniMapViewport = document.getElementById('miniMapViewport');
+        const canvas = document.getElementById('gridCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let animationActive = true;
+        let animationId = null;
+        let gravityWellView = false;
+        let showAllPlanets = true;
+        
+        // View parameters
+        let viewOffsetX = 0;
+        let viewOffsetY = 0;
+        let zoomLevel = 1;
+        let dragging = false;
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+        
+        // Universe size (much larger than visible area)
+        const universeWidth = 2000;
+        const universeHeight = 2000;
+        
+        // Canvas size setup
+        function setupCanvas() {
+            canvas.width = universeWidth;
+            canvas.height = universeHeight;
+            updateViewport();
+        }
+        
+        // Update grid position based on view parameters
+        function updateViewport() {
+            // Constrain view offset to prevent going off the universe
+            viewOffsetX = Math.max(Math.min(viewOffsetX, universeWidth - spacetimeContainer.offsetWidth / zoomLevel), 0);
+            viewOffsetY = Math.max(Math.min(viewOffsetY, universeHeight - spacetimeContainer.offsetHeight / zoomLevel), 0);
+            
+            gridContainer.style.width = `${universeWidth}px`;
+            gridContainer.style.height = `${universeHeight}px`;
+            gridContainer.style.transform = `rotateX(60deg) scale(${zoomLevel}) translate(${-viewOffsetX}px, ${-viewOffsetY}px)`;
+            
+            // Update mini-map viewport
+            const viewportWidth = (spacetimeContainer.offsetWidth / universeWidth) * miniMapContent.offsetWidth / zoomLevel;
+            const viewportHeight = (spacetimeContainer.offsetHeight / universeHeight) * miniMapContent.offsetHeight / zoomLevel;
+            const viewportLeft = (viewOffsetX / universeWidth) * miniMapContent.offsetWidth;
+            const viewportTop = (viewOffsetY / universeHeight) * miniMapContent.offsetHeight;
+            
+            miniMapViewport.style.width = `${viewportWidth}px`;
+            miniMapViewport.style.height = `${viewportHeight}px`;
+            miniMapViewport.style.left = `${viewportLeft}px`;
+            miniMapViewport.style.top = `${viewportTop}px`;
+            
+            updatePlanetPositions();
+        }
+        
+        window.addEventListener('resize', setupCanvas);
+        
+        // Solar system data (relative values for visualization)
+        const planets = [
+            { 
+                name: 'Sun', 
+                mass: 100, // Reference mass
+                diameter: 60, 
+                color: '#FDB813', 
+                x: universeWidth / 2, 
+                y: universeHeight / 2, 
+                distance: 0,
+                orbitSpeed: 0,
+                angle: 0,
+                info: 'The Sun contains 99.8% of the mass in our solar system.'
+            },
+            { 
+                name: 'Mercury', 
+                mass: 0.055, 
+                diameter: 8, 
+                color: '#B5B8B1', 
+                distance: 80,
+                orbitSpeed: 0.8,
+                angle: Math.random() * Math.PI * 2,
+                info: 'The smallest and innermost planet in the Solar System.'
+            },
+            { 
+                name: 'Venus', 
+                mass: 0.815, 
+                diameter: 12, 
+                color: '#E8CDA0', 
+                distance: 120,
+                orbitSpeed: 0.6,
+                angle: Math.random() * Math.PI * 2,
+                info: 'Often called Earth\'s sister planet due to similar size and mass.'
+            },
+            { 
+                name: 'Earth', 
+                mass: 1, 
+                diameter: 12.5, 
+                color: '#4B94E3', 
+                distance: 150,
+                orbitSpeed: 0.5,
+                angle: Math.random() * Math.PI * 2,
+                info: 'Our home planet and the only known planet with life.'
+            },
+            { 
+                name: 'Mars', 
+                mass: 0.107, 
+                diameter: 10, 
+                color: '#E27B58', 
+                distance: 200,
+                orbitSpeed: 0.4,
+                angle: Math.random() * Math.PI * 2,
+                info: 'Known as the Red Planet due to iron oxide on its surface.'
+            },
+            { 
+                name: 'Jupiter', 
+                mass: 31.8, 
+                diameter: 25, 
+                color: '#E0A95B', 
+                distance: 300,
+                orbitSpeed: 0.2,
+                angle: Math.random() * Math.PI * 2,
+                info: 'The largest planet in our solar system, a gas giant.'
+            },
+            { 
+                name: 'Saturn', 
+                mass: 9.5, 
+                diameter: 22, 
+                color: '#C5AB6E', 
+                distance: 400,
+                orbitSpeed: 0.15,
+                angle: Math.random() * Math.PI * 2,
+                info: 'Famous for its extensive ring system.'
+            },
+            { 
+                name: 'Uranus', 
+                mass: 4.0, 
+                diameter: 18, 
+                color: '#9ABAD0', 
+                distance: 500,
+                orbitSpeed: 0.1,
+                angle: Math.random() * Math.PI * 2,
+                info: 'An ice giant that rotates on its side.'
+            },
+            { 
+                name: 'Neptune', 
+                mass: 3.9, 
+                diameter: 17, 
+                color: '#3D85C6', 
+                distance: 580,
+                orbitSpeed: 0.08,
+                angle: Math.random() * Math.PI * 2,
+                info: 'The windiest planet with speeds up to 2,100 km/h.'
+            },
+            { 
+                name: 'Pluto', 
+                mass: 0.002, 
+                diameter: 6, 
+                color: '#9CA3AF', 
+                distance: 650,
+                orbitSpeed: 0.06,
+                angle: Math.random() * Math.PI * 2,
+                info: 'A dwarf planet in the Kuiper belt.'
+            }
+        ];
+        
+// Draw the grid with smoother, symmetric curvature
+        function drawGrid() {
+                const width = canvas.width;
+                const height = canvas.height;
+
+                // Clear the canvas
+                ctx.clearRect(0, 0, width, height);
+
+                // Grid configuration
+                const rows = 50;
+                const cols = 50;
+                const cellWidth = width / cols;
+                const cellHeight = height / rows;
+
+                // Set gradient background
+                const gradient = ctx.createLinearGradient(0, 0, 0, height);
+                gradient.addColorStop(0, 'rgba(0, 0, 20, 0.4)');
+                gradient.addColorStop(1, 'rgba(0, 0, 0, 0.2)');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, width, height);
+
+                // Draw horizontal lines with smooth distortion
+                for (let i = 0; i <= rows; i++) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = 'rgba(120, 160, 255, 0.6)';
+                    ctx.lineWidth = 1.5;
+
+                    for (let j = 0; j <= cols; j++) {
+                        const x = j * cellWidth;
+                        const y = i * cellHeight;
+                        const distortion = getDistortion(x, y);
+
+                        // Smoothly apply distortion
+                        if (j === 0) {
+                            ctx.moveTo(x, y + distortion);
+                        } else {
+                            ctx.lineTo(x, y + distortion);
+                        }
+                    }
+                    ctx.stroke();
+                }
+
+                // Draw vertical lines with smooth distortion
+                for (let j = 0; j <= cols; j++) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = 'rgba(100, 180, 255, 0.5)';
+                    ctx.lineWidth = 1.5;
+
+                    for (let i = 0; i <= rows; i++) {
+                        const x = j * cellWidth;
+                        const y = i * cellHeight;
+                        const distortion = getDistortion(x, y);
+
+                        // Smoothly apply distortion (reduced factor for vertical consistency)
+                        if (i === 0) {
+                            ctx.moveTo(x + distortion, y);
+                        } else {
+                            ctx.lineTo(x + distortion, y);
+                        }
+                    }
+                    ctx.stroke();
+                }
+
+                // Draw gravity wells if enabled
+                if (gravityWellView) {
+                    drawGravityWells();
+                }
+            }
+        
+        // Draw 3D-like gravity wells for planets
+        function drawGravityWells() {
+                planets.forEach(planet => {
+                    const planetX = planet.x;
+                    const planetY = planet.y;
+                    const maxRadius = Math.sqrt(planet.mass) * 30; // Scale radius with mass
+                    const rings = 20;
+
+                    for (let i = rings; i > 0; i--) {
+                        const radius = (i / rings) * maxRadius;
+                        const alpha = (1 - i / rings) * 0.6;
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(${hexToRgb(planet.color)}, ${alpha})`;
+                        ctx.lineWidth = 1.5;
+                        ctx.arc(planetX, planetY, radius, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                });
+            }
+        
+        // Helper to convert hex color to rgb for opacity
+        function hexToRgb(hex) {
+            // Remove # if present
+            hex = hex.replace('#', '');
+            
+            // Parse the hex values
+            const r = parseInt(hex.substring(0, 2), 16);
+            const g = parseInt(hex.substring(2, 4), 16);
+            const b = parseInt(hex.substring(4, 6), 16);
+            
+            return `${r}, ${g}, ${b}`;
+        }
+        
+        function getDistortion(x, y) {
+            let totalDistortion = 0;
+
+            planets.forEach(planet => {
+                const dx = x - planet.x;
+                const dy = y - planet.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                // Inverse-square law with smoothing
+                const minDistance = 15; // Avoid division by zero
+                const effectiveDistance = Math.max(distance, minDistance);
+                const distortion = (planet.mass * 500) / (effectiveDistance ** 2); // Adjusted scaling
+
+                totalDistortion += distortion;
+            });
+
+            return totalDistortion * 0.8; // Scale down for smoother visualization
+        }
+        
+        // Create and position planets
+        function createPlanets() {
+            // Clear existing planets
+            const existingPlanets = document.querySelectorAll('.planet');
+            existingPlanets.forEach(p => p.remove());
+            
+            // Clear mini-map planets
+            const existingMiniPlanets = document.querySelectorAll('.mini-map-planet');
+            existingMiniPlanets.forEach(p => p.remove());
+            
+            planets.forEach(planet => {
+                // Calculate actual x,y coordinates if it's an orbiting planet
+                if (planet.name !== 'Sun') {
+                    planet.x = universeWidth / 2 + planet.distance * Math.cos(planet.angle);
+                    planet.y = universeHeight / 2 + planet.distance * Math.sin(planet.angle);
+                }
+                
+                // Skip outer planets when showing only inner planets
+                if (!showAllPlanets && planet.name !== 'Sun' && planet.distance > 200) {
+                    return;
+                }
+                
+                // Create planet element
+                const planetElement = document.createElement('div');
+                planetElement.className = 'planet';
+                planetElement.style.width = `${planet.diameter * zoomLevel}px`;
+                planetElement.style.height = `${planet.diameter * zoomLevel}px`;
+                planetElement.style.backgroundColor = planet.color;
+                
+                // Position relative to the container
+                const planetViewportX = (planet.x - viewOffsetX) * zoomLevel;
+                const planetViewportY = (planet.y - viewOffsetY) * zoomLevel;
+                
+                planetElement.style.left = `${planetViewportX}px`;
+                planetElement.style.top = `${planetViewportY}px`;
+                planetElement.dataset.name = planet.name;
+                
+                // Add glow effect proportional to mass
+                const glowIntensity = Math.min(30, planet.mass / 3);
+                planetElement.style.boxShadow = `0 0 ${glowIntensity * zoomLevel}px ${planet.color}`;
+                
+                // Create planet name label
+                const nameLabel = document.createElement('div');
+                nameLabel.className = 'planet-name';
+                nameLabel.textContent = planet.name;
+                nameLabel.style.top = `${planet.diameter * zoomLevel + 5}px`;
+                nameLabel.style.width = `${Math.max(planet.diameter * 2, 60) * zoomLevel}px`;
+                nameLabel.style.left = `-${Math.max(planet.diameter, 30) - planet.diameter / 2}px`;
+                nameLabel.style.fontSize = `${12 * zoomLevel}px`;
+                
+                planetElement.appendChild(nameLabel);
+                gridContainer.appendChild(planetElement);
+                
+                // Add click event for planet info
+                planetElement.addEventListener('click', () => {
+                    displayPlanetInfo(planet);
+                });
+                
+                // Add to mini-map
+                const miniPlanet = document.createElement('div');
+                miniPlanet.className = 'mini-map-planet';
+                miniPlanet.style.width = `${Math.max(3, planet.diameter / 20)}px`;
+                miniPlanet.style.height = `${Math.max(3, planet.diameter / 20)}px`;
+                miniPlanet.style.backgroundColor = planet.color;
+                
+                // Position in mini-map
+                const miniX = (planet.x / universeWidth) * miniMapContent.offsetWidth;
+                const miniY = (planet.y / universeHeight) * miniMapContent.offsetHeight;
+                miniPlanet.style.left = `${miniX}px`;
+                miniPlanet.style.top = `${miniY}px`;
+                
+                miniMapContent.appendChild(miniPlanet);
+            });
+        }
+        
+        // Update planet positions without recreating them
+        function updatePlanetPositions() {
+            const planetElements = document.querySelectorAll('.planet');
+            
+            planetElements.forEach(planetElement => {
+                const planetName = planetElement.dataset.name;
+                const planet = planets.find(p => p.name === planetName);
+                
+                if (planet) {
+                    // Position relative to the container
+                    const planetViewportX = (planet.x - viewOffsetX) * zoomLevel;
+                    const planetViewportY = (planet.y - viewOffsetY) * zoomLevel;
+                    
+                    planetElement.style.left = `${planetViewportX}px`;
+                    planetElement.style.top = `${planetViewportY}px`;
+                    planetElement.style.width = `${planet.diameter * zoomLevel}px`;
+                    planetElement.style.height = `${planet.diameter * zoomLevel}px`;
+                    
+                    // Update glow
+                    const glowIntensity = Math.min(30, planet.mass / 3);
+                    planetElement.style.boxShadow = `0 0 ${glowIntensity * zoomLevel}px ${planet.color}`;
+
+                    // Update name label
+                    const nameLabel = planetElement.querySelector('.planet-name');
+                    if (nameLabel) {
+                        nameLabel.style.top = `${planet.diameter * zoomLevel + 5}px`;
+                        nameLabel.style.width = `${Math.max(planet.diameter * 2, 60) * zoomLevel}px`;
+                        nameLabel.style.fontSize = `${12 * zoomLevel}px`;
+                    }
+                }
+            });
+            
+            // Update mini-map planets
+            const miniPlanets = document.querySelectorAll('.mini-map-planet');
+            
+            if (miniPlanets.length !== planets.length) {
+                // If planet count doesn't match, recreate all planets
+                createPlanets();
+                return;
+            }
+            
+            planets.forEach((planet, index) => {
+                if (index < miniPlanets.length) {
+                    const miniX = (planet.x / universeWidth) * miniMapContent.offsetWidth;
+                    const miniY = (planet.y / universeHeight) * miniMapContent.offsetHeight;
+                    miniPlanets[index].style.left = `${miniX}px`;
+                    miniPlanets[index].style.top = `${miniY}px`;
+                }
+            });
+        }
+        
+        // Display planet information
+        function displayPlanetInfo(planet) {
+            planetNameElement.textContent = planet.name;
+            planetMassElement.textContent = `Mass: ${planet.name === 'Sun' ? '1.989 × 10^30 kg' : (planet.mass.toFixed(3) + ' Earth masses')}`;
+            planetDiameterElement.textContent = `Diameter: ${planet.name === 'Sun' ? '1.3927 million km' : (planet.diameter * 1000 + ' km (scaled)')}`;
+            planetDistanceElement.textContent = `Distance from Sun: ${planet.distance === 0 ? 'N/A' : (planet.distance + ' million km (scaled)')}`;           
+            // Add description
+            const descElement = document.getElementById('planetDescription');
+            if (descElement) {
+                descElement.textContent = planet.info;
+            } else {
+                const desc = document.createElement('p');
+                desc.id = 'planetDescription';
+                desc.textContent = planet.info;
+                planetInfo.appendChild(desc);
+            }
+        }
+        
+        // Animate the planets
+        function animatePlanets() {
+            if (!animationActive) return;
+            
+            planets.forEach(planet => {
+                if (planet.name !== 'Sun') {
+                    planet.angle += planet.orbitSpeed * 0.01;
+                    if (planet.angle > Math.PI * 2) {
+                        planet.angle -= Math.PI * 2;
+                    }
+                }
+            });
+            
+            createPlanets();
+            drawGrid();
+            
+            animationId = requestAnimationFrame(animatePlanets);
+        }
+        
+        // Handle mouse drag events for panning
+        spacetimeContainer.addEventListener('mousedown', (e) => {
+            dragging = true;
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+            spacetimeContainer.style.cursor = 'grabbing';
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (dragging) {
+                const deltaX = (e.clientX - lastMouseX) / zoomLevel;
+                const deltaY = (e.clientY - lastMouseY) / zoomLevel;
+                
+                viewOffsetX -= deltaX;
+                viewOffsetY -= deltaY;
+                
+                lastMouseX = e.clientX;
+                lastMouseY = e.clientY;
+                
+                updateViewport();
+            }
+        });
+        
+        document.addEventListener('mouseup', () => {
+            dragging = false;
+            spacetimeContainer.style.cursor = 'grab';
+        });
+        
+        // Allow mini-map dragging to update viewport
+        miniMap.addEventListener('mousedown', (e) => {
+            // Calculate position relative to mini-map
+            const rect = miniMapContent.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+            
+            // Convert to universe coordinates
+            const universeX = (clickX / miniMapContent.offsetWidth) * universeWidth;
+            const universeY = (clickY / miniMapContent.offsetHeight) * universeHeight;
+            
+            // Center the view on this point
+            viewOffsetX = universeX - (spacetimeContainer.offsetWidth / zoomLevel / 2);
+            viewOffsetY = universeY - (spacetimeContainer.offsetHeight / zoomLevel / 2);
+            
+            updateViewport();
+        });
+        
+        // Handle mouse wheel for zooming
+        spacetimeContainer.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            
+            const mouseX = e.clientX - spacetimeContainer.getBoundingClientRect().left;
+            const mouseY = e.clientY - spacetimeContainer.getBoundingClientRect().top;
+            
+            // Mouse position in universe coordinates
+            const mouseUniverseX = viewOffsetX + mouseX / zoomLevel;
+            const mouseUniverseY = viewOffsetY + mouseY / zoomLevel;
+            
+            // Adjust zoom level
+            if (e.deltaY < 0) {
+                zoomLevel *= 1.1; // Zoom in
+            } else {
+                zoomLevel /= 1.1; // Zoom out
+            }
+            
+            // Clamp zoom level to reasonable values
+            zoomLevel = Math.max(0.2, Math.min(2, zoomLevel));
+            
+            // Adjust view offset to keep mouse position steady
+            viewOffsetX = mouseUniverseX - mouseX / zoomLevel;
+            viewOffsetY = mouseUniverseY - mouseY / zoomLevel;
+            
+            updateViewport();
+        });
+        
+    // Initialize the visualization
+    function init() {
+        setupCanvas();
+        createPlanets();
+        drawGrid();
+        animationId = requestAnimationFrame(animatePlanets);
+        
+        // Set initial view to center the Sun (and solar system) in the universe
+        const sun = planets.find(p => p.name === 'Sun');
+        if (sun) {
+            // Ensure Sun is at the center of the viewport
+            viewOffsetX = sun.x - (spacetimeContainer.offsetWidth / (2 * zoomLevel));
+            viewOffsetY = sun.y - (spacetimeContainer.offsetHeight / (2 * zoomLevel));
+            
+            // Ensure offsets are within bounds
+            viewOffsetX = Math.max(0, Math.min(viewOffsetX, universeWidth - spacetimeContainer.offsetWidth / zoomLevel));
+            viewOffsetY = Math.max(0, Math.min(viewOffsetY, universeHeight - spacetimeContainer.offsetHeight / zoomLevel));
+        } else {
+            // Fallback: center on the middle of the universe if Sun isn’t found
+            viewOffsetX = (universeWidth - spacetimeContainer.offsetWidth / zoomLevel) / 2;
+            viewOffsetY = (universeHeight - spacetimeContainer.offsetHeight / zoomLevel) / 2;
+        }
+        updateViewport();
+        
+        // Set reset button action
+        resetBtn.addEventListener('click', () => {
+            planets.forEach(planet => {
+                if (planet.name !== 'Sun') {
+                    planet.angle = Math.random() * Math.PI * 2;
+                }
+            });
+            createPlanets(); // Recreate planets with new random angles
+            drawGrid(); // Redraw the grid to reflect changes
+            
+            // Re-center on the Sun after reset
+            if (sun) {
+                viewOffsetX = sun.x - (spacetimeContainer.offsetWidth / (2 * zoomLevel));
+                viewOffsetY = sun.y - (spacetimeContainer.offsetHeight / (2 * zoomLevel));
+                viewOffsetX = Math.max(0, Math.min(viewOffsetX, universeWidth - spacetimeContainer.offsetWidth / zoomLevel));
+                viewOffsetY = Math.max(0, Math.min(viewOffsetY, universeHeight - spacetimeContainer.offsetHeight / zoomLevel));
+                updateViewport();
+            }
+        });
+        
+        // Set center view button action
+        centerViewBtn.addEventListener('click', () => {
+            // Center the view on the Sun
+            if (sun) {
+                viewOffsetX = sun.x - (spacetimeContainer.offsetWidth / (2 * zoomLevel));
+                viewOffsetY = sun.y - (spacetimeContainer.offsetHeight / (2 * zoomLevel));
+                viewOffsetX = Math.max(0, Math.min(viewOffsetX, universeWidth - spacetimeContainer.offsetWidth / zoomLevel));
+                viewOffsetY = Math.max(0, Math.min(viewOffsetY, universeHeight - spacetimeContainer.offsetHeight / zoomLevel));
+                updateViewport(); // Update the viewport to reflect the new offset
+            }
+        })
+        
+        // Set toggle animation button action
+        toggleAnimationBtn.addEventListener('click', () => {
+            animationActive = !animationActive;
+            if (animationActive) {
+                toggleAnimationBtn.textContent = 'Pause Animation';
+                animationId = requestAnimationFrame(animatePlanets);
+            } else {
+                toggleAnimationBtn.textContent = 'Resume Animation';
+                cancelAnimationFrame(animationId);
+            }
+        });
+        
+        // Set toggle gravity view button action
+        toggleGravityViewBtn.addEventListener('click', () => {
+            gravityWellView = !gravityWellView;
+            drawGrid(); // Redraw the grid to show/hide gravity wells
+        });
+        
+        // Set show all planets button action
+        showAllPlanetsBtn.addEventListener('click', () => {
+            showAllPlanets = true;
+            createPlanets(); // Recreate planets to include all
+            drawGrid(); // Redraw the grid
+        });
+        
+        // Set show near planets button action
+        showNearPlanetsBtn.addEventListener('click', () => {
+            showAllPlanets = false;
+            createPlanets(); // Recreate planets to show only inner ones
+            drawGrid(); // Redraw the grid
+        });
+        
+        // Set zoom controls
+        zoomInBtn.addEventListener('click', () => {
+            zoomLevel *= 1.1; // Increase zoom level by 10%
+            zoomLevel = Math.min(zoomLevel, 2); // Cap at max zoom
+            updateViewport(); // Update the viewport with new zoom
+        });
+        
+        zoomOutBtn.addEventListener('click', () => {
+            zoomLevel /= 1.1; // Decrease zoom level by 10%
+            zoomLevel = Math.max(zoomLevel, 0.2); // Cap at min zoom
+            updateViewport(); // Update the viewport with new zoom
+        });
+    }
+    
+    // Call init to start the visualization
+    init();
+</script>
+</body>
+</html>

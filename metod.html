@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teknolojinin gelişimi</title>
+    <link rel="stylesheet" href="metod.css?v=20240521">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar">
+        <!-- Tema değiştirme butonu -->
+        <div class="toggle-mode" onclick="toggleMode()">
+            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+        </div>
+        <!-- Site başlığı -->
+        <div class="mobile-site-title">emre kaan</div>
+        <!-- Dil İkonu (Sağ Tarafta) -->
+        <div class="language-toggle" onclick="changeLanguage()">
+            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+        </div>       
+        <!-- Hamburger ikonu (sadece mobilde görünecek) -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+        </div>
+        <div class="menu">
+            <a href="index.html" class="menu-link">ana sayfa</a>
+            <a href="about.html" class="menu-link">hakkımda</a>
+            <a href="blog2.html" class="menu-link">içerik</a>
+            <a href="contact1.html" class="menu-link">iletişim</a>
+        </div>
+    </div>
+
+    <div class="back-button">
+        <!-- <a href="index.html"> -->
+        <a href="javascript:history.back()">
+            <img src="iback.png" alt="Geri Dön" />
+        </a>
+    </div>
+    
+    <div class="container-metod">
+        <div class="header-container">
+            <h1>teknolojinin gelişimi</h1>
+        </div>
+        
+        <div class="text-container">
+            <p>
+                Mevcut bir ürünün geleceğini hayal etmek bir şeydir, ancak sıfırdan tamamen yeni bir şey üretmek başlı başına bir devrimdir. Çoğu zaman en büyük icatlarımızın saf yaratıcılıkla ortaya çıktığına inanırız, ancak bunlar genellikle doğada zaten mevcut olan unsurların bileşimidir. <br>Gerçek sihir, parçalarının toplamını aşma ve dünyayı ömür boyu sürecek şekilde yeniden şekillendirme yeteneklerinde yatar. Bu tür dönüşümleri tahmin etmek hiç de kolay değildir. İnovasyonun bir başka boyutu da bu çığır açan yaratımların iç evrimidir. Bir kez var olduklarında, yörüngeleri daha öngörülebilir görünebilir, ancak dünyayı gerçekten sarsan şey doğumlarıdır. Bunu örneklemek için Henry Ford ve otomobilin hikayesini ele alalım.
+
+<br> ilk otomobilini tanıttığında, mükemmel olmaktan çok uzaktı. Saatte 20 mil gibi mütevazı bir hıza sahip olan Quadricycle, bir atın hızlı dörtnala koşuşuyla boy ölçüşemezdi. Yine de bir araçtan çok daha fazlasıydı; insan potansiyelinin mekanik yeniliklerle ortaya çıkarılabileceği bir gelecek vizyonuydu. Eleştirmenler güldü, çünkü kim güvenilir atını böyle yavaş bir mekanizma için terk ederdi ki? Ancak Ford bugünün ötesini görerek hız ve verimliliğin ulaşımı yeniden tanımlayacağı bir dünya hayal etti.
+
+<br>Bugün, yapay zeka ile başka bir devrimin eşiğinde duruyoruz. Yapay zeka şu anda bir kitabın 10 sayfasını yönetebiliyor olsa da, bir gün 1000 sayfa üretme potansiyeli hiç de uzak değil. Basitlikten karmaşıklığa uzanan yolculuk, vizyon ve azmin gücünün bir kanıtıdır.
+
+İnovasyon sadece yaratmakla ilgili değildir; imkansıza inanmak ve dönüşen bir dünya tasavvur etmeye cesaret etmekle ilgilidir. İnsanlığın kontrol etmeyi öğrendiği ilk ateş kıvılcımı gibi, yapay zeka ve diğer gelişmekte olan teknolojiler de yeni yolları aydınlatma gücüne sahiptir. Gelecek sabit değildir; şimdiki zamanın ötesini hayal etmeye cesaret edenler tarafından şekillendirilir.
+
+Bu nedenle, bilinmeyeni kucaklayalım, çünkü bir sonraki büyük atılımı keşfedilmemiş düşünce ve yaratım bölgelerinde bulacağız. Dünya bir sonraki devrimci fikrini bekliyor; bırakın onu hayata geçirecek olan biz olalım.
+
+            </p> 
+        
+            <div class="bottom-navigation">
+                <div class="nav-button left">
+                    <a href="ilke.html">
+                        <img src="iback.png" alt="Önceki Sayfa" />
+                    </a>
+                    
+                    <span class="nav-text">sanat inancımız</span>
+                </div>
+                <div class="nav-button right">
+                    <span class="nav-text">turing problemi</span>
+                    <a href="bant.html">
+                        <img src="inext.png" alt="Sonraki Sayfa" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            
+            // Mod değiştirme
+            body.classList.toggle('dark-mode');
+
+            // Karanlık mod durumu LocalStorage'a kaydediliyor
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+        }
+
+        // Sayfa yüklendiğinde karanlık mod durumunu kontrol et
+        window.onload = function() {
+            const modeIcon = document.getElementById('mode-icon');
+            const darkMode = localStorage.getItem('darkMode');
+
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                document.body.classList.remove('dark-mode');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+        }
+    </script>
+
+    <script>
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            const icon = document.querySelector('.menu-icon img');
+            
+            // Fade out
+            icon.style.opacity = 0;
+            
+            // Toggle menu ve src güncellemesini fade-out animasyonu tamamlandıktan sonra yapıyoruz
+            setTimeout(() => {
+                menu.classList.toggle('active');
+            
+                if (menu.classList.contains('active')) {
+                    icon.src = 'close-icon.png';
+                    icon.alt = 'Menüyü Kapat';
+                } else {
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+                
+                // Fade in
+                icon.style.opacity = 1;
+            }, 150);
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.querySelector('.menu');
+            const menuIcon = document.querySelector('.menu-icon');
+            if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    const icon = menuIcon.querySelector('img');
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

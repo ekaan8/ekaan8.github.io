@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>our belief in art</title>
+    <link rel="stylesheet" href="ilke.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu">
+            <a href="index.html">home</a>
+            <a href="about.html">about</a>
+            <a href="blog1.html">blog</a>
+            <a href="contact.html">contact</a>
+            <div class="toggle-mode" onclick="toggleMode()">
+                <img id="mode-icon" src="sun.png" alt="Aydınlık Mod" />
+            </div>
+                        <!-- Dil İkonu (Sağ Tarafta) -->
+            <div class="language-toggle" onclick="changeLanguage()">
+                <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="back-button">
+        <a href="javascript:history.back()">
+            <img src="iback.png" alt="Geri Dön" />
+        </a>
+    </div>
+    
+    <div class="container-ilke">
+        <div class="header-container">
+            <h1>our belief in art</h1>
+        </div>
+        
+        <div class="text-container">
+            <p>
+                Art is created to explore, not to dominate. In our understanding of art, soft transitions, calm textures and transparent views are at the forefront, rather than sharp and jagged lines. In the beginning, in search of perfect designs and aesthetic peaks, borders were defined by clear and visible areas. Just like the borders separating countries, the transitions from one area to another were rapid and marked.
+
+                Colors were bright but lacked vibrancy. People seemed to have uninterrupted control over the devices in their hands. But there was a coldness and a freezing of the environment; over time you came to believe that everything was frozen objects, pre-created by technique.
+
+                As time progressed, a more free-spirited belief was born in opposition to this understanding. Hard and sharp lines gave way to soft transitions and calm curves. Getting rid of frozen images brought with it the warmth of golden proportions. Transparent windows, boxes and bars appeared all around. Borders and curves that are indistinguishable to the human eye did not at first glance seem to reflect the desire to achieve.
+
+                But other sources of inspiration were hidden in them. Impeccable design and technique, when left to explore, produced magnificent works of art. Even further, these works were so mesmerizing that they were ready to be discovered. Rigid and frozen looks and temporary attempts at dominance gave way to a more relaxed and natural feeling.
+
+            </p> 
+            <!-- Görseli buraya ekliyoruz -->
+            <div class="image-wrapper">
+                <img src="gold.png" alt="Vizyonumuz" class="ilke-image">
+                <p class="golden-ratio-text">golden ratio = 1,618</p>
+            </div>
+            
+            <p>  
+                Our principle embraces an artistic approach that moves away from minimalism illuminated by simplicity. We don't want sharp transitions, lines and corners. We don't believe that there are proportions and transitions that are pleasing to the eye; the boundaries change in an instant and tire the eye. Whereas simple but vivid colors, like the gradual color changes at sunset, are a real source of pleasure for us. Our eyes do not tire, we explore transitions and borders.
+
+                True dynamism and vitality come after personal discovery. We care about all these things and don't see them as simple tasks. It is possible to create magnificent products in harmony with each other by integrating technique into art. Focusing only on technique and trying to fit beauty and aesthetics into it is nothing but an empty attempt to dominate.
+
+                Instead, it is our belief to first create a work of art, to imagine and produce simple but eye-catching products that follow each other in perfect proportions, and then to build the technique accordingly. Our eyes love simplicity. This love extends to the desert and the sea. We also love places like the forest, where there are no borders, ready to be explored or lost in. But we hate staying within four walls or using elevators, because they are far from a place to explore or a place where we can reach a deep tranquility.
+            <p/>
+            
+<!--             <div class="image-wrapper1">
+                <img src="goldenratio.jpg" alt="shell" class="ilke-image1">
+            </div>  -->
+
+            <div class="flex-container">
+                <div class="image-wrapper1">
+                    <img src="goldenratio.jpg" alt="shell" class="ilke-image1">
+                </div>
+                <p class="flex-text">
+                    <br>This is the essence of our principles: To avoid what the eye avoids and build where it likes to find. This is how great things happen, because behind them there is a steady gaze and deep emotion. 
+                    Our art is a journey of discovery beyond domination. With soft transitions and calm textures, we break free from frozen images and embrace the warmth of golden proportions. True dynamism and vitality follow personal discovery. Bringing technique to art reveals not only aesthetics, but also the beauty deep within the soul. That's why we create simple yet eye-catching works and believe in the power of discovery and feeling.
+                </p>
+                </div>
+                <p class="signature">Emre Kaan Şahin</p>
+            </div>
+            
+<!--             <p>
+                İlkelerimizin özü bu: Gözün uzak durduğundan uzak durmak ve onun bulmayı sevdiği yerleri inşa etmek. Muhteşem şeyler böyle ortaya çıkıyor, çünkü arkalarında sağlam bakışlar ve derin duygular var. 
+                Sanatımız, hakimiyetin ötesinde bir keşif yolculuğudur. Yumuşak geçişler ve sakin dokularla, donmuş görüntülerden sıyrılarak altın oranların sıcaklığını kucaklıyoruz. Gerçek dinamizm ve canlılık, kişisel keşiflerin ardından gelir. Tekniği sanata yedirmek, sadece estetiği değil, aynı zamanda ruhun derinliklerindeki güzellikleri ortaya çıkarır. İşte bu yüzden, sade fakat göz alıcı eserler yaratıyor, keşfetmenin ve hissetmenin gücüne inanıyoruz.
+            </p> -->
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            
+            // Mod değiştirme
+            body.classList.toggle('dark-mode');
+    
+            // Karanlık mod durumu LocalStorage'a kaydediliyor
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                modeIcon.src = 'moon-4-xxl.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                modeIcon.src = 'sun.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+        }
+    
+        // Sayfa yüklendiğinde karanlık mod ve dil durumunu kontrol et
+        window.onload = function() {
+            const modeIcon = document.getElementById('mode-icon');
+            const darkMode = localStorage.getItem('darkMode');
+    
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                modeIcon.src = 'moon-4-xxl.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                document.body.classList.remove('dark-mode');
+                modeIcon.src = 'sun.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+    
+            // Dil durumunu kontrol et
+            const savedLanguage = localStorage.getItem('language') || 'tr';
+            document.documentElement.lang = savedLanguage;
+    
+            const languageIcon = document.getElementById('language-icon');
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+        };
+    
+        function changeLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'tr' ? 'en' : 'tr';
+    
+            // Dil tercihini kaydet
+            localStorage.setItem('language', newLang);
+    
+            // İlgili sayfaya yönlendir
+            if (newLang === 'en') {
+                window.location.href = 'ilke-en.html';
+            } else {
+                window.location.href = 'ilke.html';
+            }
+        }
+    </script>
+</body>
+</html>

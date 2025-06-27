@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>turing problemi</title>
+    <link rel="stylesheet" href="metod.css?v=20240602">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar">
+        <!-- Tema değiştirme butonu -->
+        <div class="toggle-mode" onclick="toggleMode()">
+            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+        </div>
+        <!-- Site başlığı -->
+        <div class="mobile-site-title">emre kaan</div>
+        <!-- Dil İkonu (Sağ Tarafta) -->
+        <div class="language-toggle" onclick="changeLanguage()">
+            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+        </div>       
+        <!-- Hamburger ikonu (sadece mobilde görünecek) -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+        </div>
+        <div class="menu">
+            <a href="index.html" class="menu-link">ana sayfa</a>
+            <a href="about.html" class="menu-link">hakkımda</a>
+            <a href="blog2.html" class="menu-link">içerik</a>
+            <a href="contact1.html" class="menu-link">iletişim</a>
+        </div>
+    </div>
+
+    <div class="back-button">
+        <!-- <a href="index.html"> -->
+        <a href="javascript:history.back()">
+            <img src="iback.png" alt="Geri Dön" />
+        </a>
+    </div>
+    
+    <div class="container-metod">
+        <div class="header-container">
+            <h1>turing problemi</h1>
+        </div>
+        
+        <div class="text-container">
+            <p>
+            alan turing, bundan onlarca yıl önce, sonsuz bir şerit üzerinde çalışan basit bir makinenin evrendeki bütün hesaplamaları yapabileceğini hayal etti. turing'in vizyonu, bugün kullandığımız bilgisayarların temelini oluşturdu ve bizlere sınırsız görünen bir potansiyeli hediye etti. ancak aynı turing, karşımıza büyük bir soru çıkardı: makineler her zaman ne zaman duracağını bilebilir mi? işte tam bu noktada karşımıza "halting problem" çıkıyor. bir makineye sonsuz süre tanırsak, ona çözemeyeceği bir problem kalmaz mı gerçekten? bu sorunun yanıtı, ironik şekilde, hem evet hem de hayırdır. çünkü makine, ne zaman durması gerektiğini asla tam olarak kestiremez. insan ise bu sorunu sezgileri ve içgüdüleriyle çözebiliyor gibi görünür. belki de insan ve yapay zekâ arasındaki temel farklardan biri budur. düşünelim: bir insan yeni bir işe koyulurken, genellikle sürecin ne kadar süreceğine dair bir tahminde bulunur. yazmaya başladığımız bir hikâyenin uzunluğunu, çizeceğimiz bir resmin boyutlarını önceden kestirebiliriz. buna karşın yapay zekâ her adımında durumu tekrar tekrar değerlendirir, sonsuz parametreyi hesaplayarak bir sonraki adımını belirler. belki de bu yüzden yapay zekâ, sonsuz bir belirsizlik içinde hareket eden, fakat her an doğru kararı vermeye çalışan bir maraton koşucusudur. yapay zekânın büyüleyici yanı, belki de onun her adımı yeniden değerlendirme gücüdür. fakat yine de durmak için, durması gerektiğini bilmek için insan müdahalesine ihtiyaç duyar. break komutları, return komutları gibi durma talimatlarını biz dikte ederiz. i̇şte burada kritik bir eşik var: yapay zekâ gelecekte, durmaya kendi karar verebilir mi? bu karar mekanizmasını kendi içinde yaratabilir mi? ben, bunun mümkün olduğuna inanıyorum. eğer makineler, durma kararını vermeyi öğrenebilirse, belki de gerçek yapay genel zekâ (agi) doğmuş olacak. agi'nin varlığı, bilgisayarların sadece çözüm üretmekle kalmayıp, ne zaman durmaları gerektiğini de anlayabildikleri bir dünya yaratabilir. bu, insanoğlu ve makineler arasındaki ilişkinin sonsuza dek değiştiği an olabilir. belki turing, o sonsuz bant şeridi ile bize bir mesaj bıraktı: "eğer yeterince beklenirse, evrendeki bütün problemler çözülebilir." bu inanç, benim de inancım. bilgisayarların gücüne, insanların yaratıcılığına ve makinelerin bir gün kendi kararlarını alabileceğine inanıyorum. çünkü nihayetinde, teknolojiyi insan yapan şey belki de hayal kurabilmek ve "burada durmalıyım" diyebilmektir.
+            </p> 
+        
+            <div class="bottom-navigation">
+                <div class="nav-button left">
+                    <a href="ilke.html">
+                        <img src="iback.png" alt="Önceki Sayfa" />
+                    </a>
+                    
+                    <span class="nav-text">sanat inancımız</span>
+                </div>
+                <div class="nav-button right">
+                    <span class="nav-text">turing problemi</span>
+                    <a href="bant.html">
+                        <img src="inext.png" alt="Sonraki Sayfa" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            
+            // Mod değiştirme
+            body.classList.toggle('dark-mode');
+
+            // Karanlık mod durumu LocalStorage'a kaydediliyor
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+        }
+
+        // Sayfa yüklendiğinde karanlık mod durumunu kontrol et
+        window.onload = function() {
+            const modeIcon = document.getElementById('mode-icon');
+            const darkMode = localStorage.getItem('darkMode');
+
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                document.body.classList.remove('dark-mode');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+        }
+    </script>
+
+    <script>
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            const icon = document.querySelector('.menu-icon img');
+            
+            // Fade out
+            icon.style.opacity = 0;
+            
+            // Toggle menu ve src güncellemesini fade-out animasyonu tamamlandıktan sonra yapıyoruz
+            setTimeout(() => {
+                menu.classList.toggle('active');
+            
+                if (menu.classList.contains('active')) {
+                    icon.src = 'close-icon.png';
+                    icon.alt = 'Menüyü Kapat';
+                } else {
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+                
+                // Fade in
+                icon.style.opacity = 1;
+            }, 150);
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.querySelector('.menu');
+            const menuIcon = document.querySelector('.menu-icon');
+            if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    const icon = menuIcon.querySelector('img');
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

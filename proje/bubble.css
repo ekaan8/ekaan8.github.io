@@ -1,0 +1,64 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-top: 0;
+}
+
+.visualization-area {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    /* Canvas boyutu JS'te ayarlanacak, ancak burada bir placeholder görünümü verebiliriz */
+    display: flex; /* Canvas'ı ortalamak için */
+    justify-content: center;
+}
+
+canvas {
+    display: block; /* Canvas altındaki boşluğu kaldırır */
+    background-color: #eee; /* Canvas arka planı */
+}
+
+.controls button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#generateArrayBtn {
+    background-color: #5cb85c; /* Yeşil */
+    color: white;
+}
+
+#generateArrayBtn:hover {
+    background-color: #4cae4c;
+}
+
+#nextStepBtn {
+    background-color: #0275d8; /* Mavi */
+    color: white;
+}
+
+#nextStepBtn:hover {
+    background-color: #025aa5;
+}

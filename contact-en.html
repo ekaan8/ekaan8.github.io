@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="contact1.css?v=20250425">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <!-- Tema değiştirme butonu -->
+        <div class="toggle-mode" onclick="toggleMode()">
+            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+        </div>
+        <!-- Site başlığı -->
+        <div class="mobile-site-title">emre kaan</div>
+        <!-- Dil İkonu (Sağ Tarafta) -->
+        <div class="language-toggle" onclick="changeLanguage()">
+            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+        </div>
+        <!-- Hamburger ikonu (sadece mobilde görünecek) -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+        </div>
+        <div class="menu">
+            <a href="index-en.html" class="menu-link">home</a>
+            <a href="about-en.html" class="menu-link">about</a>
+            <a href="blog-en.html" class="menu-link">blog</a>
+            <a href="contact-en.html" class="menu-link active">contact</a>
+        </div>
+    </div>
+
+    <div class="container contact-container">
+        <div class="left-section">
+            <h1>let's get in touch</h1>
+            <p>communicate,
+                exchange ideas,
+                <br>talk about something</p>
+
+            <div class="contact-grid">
+                <!-- LinkedIn -->
+                <div class="contact-item">
+                    <a href="https://www.linkedin.com/in/kaan" target="_blank">
+                        <img src="in-ci.png" alt="linkedIn">
+                        <span>linkedin</span>
+                    </a>
+                </div>
+
+                <!-- Instagram (Kişisel) -->
+                <div class="contact-item">
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="ig-ci.png" alt="kişisel">
+                        <span>personal</span>
+                    </a>
+                </div>
+
+                <!-- Instagram (İçerik Üretici) -->
+                <div class="contact-item">
+                    <a href="https://www.instagram.com/technovision101" target="_blank">
+                        <img src="ig-ci.png" alt="içerik">
+                        <span>content</span>
+                    </a>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-item">
+                    <a href="mailto:kaan@example.com">
+                        <img src="mail-ci.png" alt="E-posta">
+                        <span>e-mail</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="right-section">
+            <div class="email-form">
+                <h2>reach me via mail</h2>
+                <!-- EmailJS ile gerçek mail gönderimi için form ID'sini ekledik -->
+                <form id="contact-form">
+                    <input type="text"   name="name"    placeholder="your name" required>
+                    <input type="email"  name="email"   placeholder="your e-mail address" required>
+                    <textarea name="message" placeholder="write your message here..." required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+      <!-- >>> Snackbar kutusu burada -->
+    <div id="snackbar"></div>
+
+    <!-- Mevcut scriptler -->
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+        }
+        window.onload = function() {
+            const modeIcon = document.getElementById('mode-icon');
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                document.body.classList.remove('dark-mode');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+            const savedLanguage = localStorage.getItem('language') || 'tr';
+            document.documentElement.lang = savedLanguage;
+            const languageIcon = document.getElementById('language-icon');
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+        };
+        function changeLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'tr' ? 'en' : 'tr';
+            localStorage.setItem('language', newLang);
+            if (newLang === 'en') {
+                window.location.href = 'contact-en.html';
+            } else {
+                window.location.href = 'contact1.html';
+            }
+        }
+    </script>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            const icon = document.querySelector('.menu-icon img');
+            icon.style.opacity = 0;
+            setTimeout(() => {
+                menu.classList.toggle('active');
+                if (menu.classList.contains('active')) {
+                    icon.src = 'close-icon.png';
+                    icon.alt = 'Menüyü Kapat';
+                } else {
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+                icon.style.opacity = 1;
+            }, 150);
+        }
+        document.addEventListener('click', (e) => {
+            const menu = document.querySelector('.menu');
+            const menuIcon = document.querySelector('.menu-icon');
+            if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    const icon = menuIcon.querySelector('img');
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+            }
+        });
+    </script>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // 1) EmailJS'i başlatın (Dashboard'dan aldığınız Public Key)
+        emailjs.init('zTavGzeBvKDh8Dwmg');
+    
+        let canSubmit = true;  // Başlangıçta formu göndermeye izin ver
+        let lastSubmitTime = 0;  // Son gönderim zamanını takip et
+    
+        // Snackbar fonksiyonu
+        function showSnackbar(text, isError = false) {
+            const sb = document.getElementById('snackbar');
+            sb.textContent = text;
+            sb.style.backgroundColor = isError
+                ? 'rgba(200, 50, 50, 0.9)'   // hata rengi
+                : 'rgba(50, 50, 50, 0.9)';    // başarı rengi
+            sb.classList.add('show');
+            setTimeout(() => sb.classList.remove('show'), 3000);
+        }
+    
+        // Form submit’i yakala
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            // Şu anki zamanı al
+            const currentTime = new Date().getTime();
+    
+            // Eğer son gönderim üzerinden 2 dakika geçmediyse
+            if (!canSubmit) {
+                const remainingTime = Math.ceil((currentTime - lastSubmitTime) / 1000); // Kalan süreyi saniye cinsinden hesapla
+                if (remainingTime < 120) { // 120 saniye = 2 dakika
+                    const remainingSeconds = 120 - remainingTime;
+                    showSnackbar(`Please wait ${remainingSeconds} .`, true);  // Kalan süreyi göster
+                    return;  // Yeni gönderimi engelle
+                }
+            }
+    
+            canSubmit = false;  // Soğuma süresi başladı
+            lastSubmitTime = currentTime;  // Son gönderim zamanını kaydet
+    
+            // 2 dakika bekleme süresi sonra aktif olacak
+            setTimeout(() => {
+                canSubmit = true;
+            }, 120000);  // 2 dakika (120000 ms)
+    
+            // EmailJS işlemi (önceden tanımlı olduğu gibi)
+            emailjs.sendForm('service_314d7ps', 'template_exg1dps', this)
+                .then(() => {
+                    showSnackbar('your message was sent successfully!');
+                    this.reset();
+                })
+                .catch(err => {
+                    console.error(err);
+                    showSnackbar('an error occurred during shipping.', true);
+                });
+        });
+    </script>
+    
+</body>
+</html>
+

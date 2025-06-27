@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space-Time Fabric Visualization</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .info {
+            margin-bottom: 20px;
+            max-width: 500px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .spacetime-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            margin: 20px auto;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+        
+        .spacetime-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateX(60deg);
+        }
+        
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            transform-style: preserve-3d;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .planet-name {
+            position: absolute;
+            color: white;
+            text-align: center;
+            font-size: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+            text-shadow: 0 0 4px #000;
+        }
+        
+        .planet-info {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid #444;
+            padding: 15px;
+            border-radius: 5px;
+            position: fixed;
+            width: 300px;
+            top: 20px;
+            right: 20px;
+            z-index: 20;
+        }
+        
+        .planet-info h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+        
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        button {
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+            padding: 8px 15px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Solar System Space-Time Fabric</h1>
+        
+        <div class="info">
+            <p>This visualization demonstrates how planets bend the fabric of space-time according to their mass. 
+               The heavier the planet, the more it curves the space-time around it, as described by Einstein's General Relativity.</p>
+        </div>
+        
+        <div class="spacetime-container" id="spacetime">
+            <div class="spacetime-grid" id="grid">
+                <canvas id="gridCanvas"></canvas>
+            </div>
+        </div>
+        
+        <div class="planet-info" id="planetInfo">
+            <h3>Planet Information</h3>
+            <p id="planetName">Select a planet to see information</p>
+            <p id="planetMass"></p>
+            <p id="planetDiameter"></p>
+            <p id="planetDistanceFromSun"></p>
+        </div>
+        
+        <div class="controls">
+            <button id="resetBtn">Reset View</button>
+            <button id="toggleAnimation">Pause Animation</button>
+            <button id="toggleGravityView">Toggle Gravity Well View</button>
+        </div>
+    </div>
+
+    <script>
+        const spacetimeContainer = document.getElementById('spacetime');
+        const gridContainer = document.getElementById('grid');
+        const planetInfo = document.getElementById('planetInfo');
+        const planetNameElement = document.getElementById('planetName');
+        const planetMassElement = document.getElementById('planetMass');
+        const planetDiameterElement = document.getElementById('planetDiameter');
+        const planetDistanceElement = document.getElementById('planetDistanceFromSun');
+        const resetBtn = document.getElementById('resetBtn');
+        const toggleAnimationBtn = document.getElementById('toggleAnimation');
+        const toggleGravityViewBtn = document.getElementById('toggleGravityView');
+        const canvas = document.getElementById('gridCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let animationActive = true;
+        let animationId = null;
+        let gravityWellView = false;
+        
+        // Canvas size setup
+        function setupCanvas() {
+            canvas.width = spacetimeContainer.offsetWidth;
+            canvas.height = spacetimeContainer.offsetHeight;
+        }
+        
+        window.addEventListener('resize', setupCanvas);
+        
+        // Solar system data (relative values for visualization)
+        const planets = [
+            { 
+                name: 'Sun', 
+                mass: 100, // Reference mass
+                diameter: 60, 
+                color: '#FDB813', 
+                x: 50, 
+                y: 50, 
+                distance: 0,
+                orbitSpeed: 0,
+                angle: 0,
+                info: 'The Sun contains 99.8% of the mass in our solar system.'
+            },
+            { 
+                name: 'Mercury', 
+                mass: 0.055, 
+                diameter: 8, 
+                color: '#B5B8B1', 
+                distance: 15,
+                orbitSpeed: 0.8,
+                angle: Math.random() * Math.PI * 2,
+                info: 'The smallest and innermost planet in the Solar System.'
+            },
+            { 
+                name: 'Venus', 
+                mass: 0.815, 
+                diameter: 12, 
+                color: '#E8CDA0', 
+                distance: 22,
+                orbitSpeed: 0.6,
+                angle: Math.random() * Math.PI * 2,
+                info: 'Often called Earth\'s sister planet due to similar size and mass.'
+            },
+            { 
+                name: 'Earth', 
+                mass: 1, 
+                diameter: 12.5, 
+                color: '#4B94E3', 
+                distance: 30,
+                orbitSpeed: 0.5,
+                angle: Math.random() * Math.PI * 2,
+                info: 'Our home planet and the only known planet with life.'
+            },
+            { 
+                name: 'Mars', 
+                mass: 0.107, 
+                diameter: 10, 
+                color: '#E27B58', 
+                distance: 38,
+                orbitSpeed: 0.4,
+                angle: Math.random() * Math.PI * 2,
+                info: 'Known as the Red Planet due to iron oxide on its surface.'
+            },
+            { 
+                name: 'Jupiter', 
+                mass: 31.8, 
+                diameter: 25, 
+                color: '#E0A95B', 
+                distance: 60,
+                orbitSpeed: 0.2,
+                angle: Math.random() * Math.PI * 2,
+                info: 'The largest planet in our solar system, a gas giant.'
+            },
+            { 
+                name: 'Saturn', 
+                mass: 9.5, 
+                diameter: 22, 
+                color: '#C5AB6E', 
+                distance: 82,
+                orbitSpeed: 0.15,
+                angle: Math.random() * Math.PI * 2,
+                info: 'Famous for its extensive ring system.'
+            },
+            { 
+                name: 'Uranus', 
+                mass: 4.0, 
+                diameter: 18, 
+                color: '#9ABAD0', 
+                distance: 100,
+                orbitSpeed: 0.1,
+                angle: Math.random() * Math.PI * 2,
+                info: 'An ice giant that rotates on its side.'
+            },
+            { 
+                name: 'Neptune', 
+                mass: 3.9, 
+                diameter: 17, 
+                color: '#3D85C6', 
+                distance: 115,
+                orbitSpeed: 0.08,
+                angle: Math.random() * Math.PI * 2,
+                info: 'The windiest planet with speeds up to 2,100 km/h.'
+            }
+        ];
+        
+        // Draw the grid with curvature based on planet positions
+        function drawGrid() {
+            const width = canvas.width;
+            const height = canvas.height;
+            
+            // Clear the canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Grid configuration
+            const rows = 25;
+            const cols = 25;
+            const cellWidth = width / cols;
+            const cellHeight = height / rows;
+            
+            // Set gradient background for better contrast with grid lines
+            const gradient = ctx.createLinearGradient(0, 0, 0, height);
+            gradient.addColorStop(0, 'rgba(0, 0, 20, 0.4)');
+            gradient.addColorStop(1, 'rgba(0, 0, 0, 0.2)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+            
+            // Draw grid lines with curvature
+            
+            // Draw horizontal lines
+            for (let i = 0; i <= rows; i++) {
+                ctx.beginPath();
+                // More visible line color - increased opacity and brightness
+                ctx.strokeStyle = 'rgba(120, 160, 255, 0.6)';
+                // Thicker lines for better visibility
+                ctx.lineWidth = 1.5;
+                
+                for (let j = 0; j <= cols; j++) {
+                    const x = j * cellWidth;
+                    const y = i * cellHeight;
+                    
+                    // Calculate distortion
+                    const cellX = (j / cols) * 100;
+                    const cellY = (i / rows) * 100;
+                    
+                    // Get distortion based on planet positions
+                    const distortion = getDistortion(cellX, cellY);
+                    
+                    // Apply distortion to grid
+                    if (j === 0) {
+                        ctx.moveTo(x, y + distortion);
+                    } else {
+                        ctx.lineTo(x, y + distortion);
+                    }
+                }
+                
+                ctx.stroke();
+            }
+            
+            // Draw vertical lines
+            for (let j = 0; j <= cols; j++) {
+                ctx.beginPath();
+                // Using a slightly different color for vertical lines to create a visual distinction
+                ctx.strokeStyle = 'rgba(100, 180, 255, 0.5)';
+                ctx.lineWidth = 1.5;
+                
+                for (let i = 0; i <= rows; i++) {
+                    const x = j * cellWidth;
+                    const y = i * cellHeight;
+                    
+                    // Calculate distortion
+                    const cellX = (j / cols) * 100;
+                    const cellY = (i / rows) * 100;
+                    
+                    // Get distortion based on planet positions
+                    const distortion = getDistortion(cellX, cellY);
+                    
+                    // Apply distortion to grid
+                    if (i === 0) {
+                        ctx.moveTo(x + distortion * 0.3, y);
+                    } else {
+                        ctx.lineTo(x + distortion * 0.3, y);
+                    }
+                }
+                
+                ctx.stroke();
+            }
+            
+            // If in gravity well view, draw gravity wells
+            if (gravityWellView) {
+                drawGravityWells();
+            }
+        }
+        
+        // Draw 3D-like gravity wells for planets
+        function drawGravityWells() {
+            planets.forEach(planet => {
+                const planetX = (planet.x / 100) * canvas.width;
+                const planetY = (planet.y / 100) * canvas.height;
+                const maxRadius = Math.sqrt(planet.mass) * 30;
+                const rings = 20;
+                
+                for (let i = rings; i > 0; i--) {
+                    const radius = (i / rings) * maxRadius;
+                    // Increased alpha for more visible well contours
+                    const alpha = (1 - i / rings) * 0.6;
+                    const ringColor = planet.color;
+                    
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(${hexToRgb(ringColor)}, ${alpha})`;
+                    // Thicker lines for better visibility
+                    ctx.lineWidth = 1.5;
+                    ctx.arc(planetX, planetY, radius, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            });
+        }
+        
+        // Helper to convert hex color to rgb for opacity
+        function hexToRgb(hex) {
+            // Remove # if present
+            hex = hex.replace('#', '');
+            
+            // Parse the hex values
+            const r = parseInt(hex.substring(0, 2), 16);
+            const g = parseInt(hex.substring(2, 4), 16);
+            const b = parseInt(hex.substring(4, 6), 16);
+            
+            return `${r}, ${g}, ${b}`;
+        }
+        
+        // Calculate distortion for a specific point
+        function getDistortion(x, y) {
+            let distortion = 0;
+            
+            planets.forEach(planet => {
+                const dx = x - planet.x;
+                const dy = y - planet.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                // Distortion formula based on planet mass and distance
+                // Using inverse square to simulate gravity-like effect
+                const distortionFactor = planet.mass / Math.max(distance * distance, 1);
+                
+                // Scale the effect to make it more visible
+                // Increased factor for more pronounced distortion
+                distortion += distortionFactor * 70;
+            });
+            
+            return distortion;
+        }
+        
+        // Create and position planets
+        function createPlanets() {
+            // Clear existing planets
+            const existingPlanets = document.querySelectorAll('.planet');
+            existingPlanets.forEach(p => p.remove());
+            
+            planets.forEach(planet => {
+                // Calculate actual x,y coordinates if it's an orbiting planet
+                if (planet.name !== 'Sun') {
+                    planet.x = 50 + planet.distance * Math.cos(planet.angle);
+                    planet.y = 50 + planet.distance * Math.sin(planet.angle);
+                }
+                
+                const planetElement = document.createElement('div');
+                planetElement.className = 'planet';
+                planetElement.style.width = `${planet.diameter}px`;
+                planetElement.style.height = `${planet.diameter}px`;
+                planetElement.style.backgroundColor = planet.color;
+                planetElement.style.left = `${planet.x}%`;
+                planetElement.style.top = `${planet.y}%`;
+                planetElement.dataset.name = planet.name;
+                
+                // Add glow effect proportional to mass
+                const glowIntensity = Math.min(30, planet.mass / 3);
+                planetElement.style.boxShadow = `0 0 ${glowIntensity}px ${planet.color}`;
+                
+                // Create planet name label
+                const nameLabel = document.createElement('div');
+                nameLabel.className = 'planet-name';
+                nameLabel.textContent = planet.name;
+                nameLabel.style.top = `${planet.diameter + 5}px`;
+                nameLabel.style.width = `${Math.max(planet.diameter * 2, 60)}px`;
+                nameLabel.style.left = `-${Math.max(planet.diameter, 30) - planet.diameter/2}px`;
+                
+                planetElement.appendChild(nameLabel);
+                spacetimeContainer.appendChild(planetElement);
+                
+                // Add click event for planet info
+                planetElement.addEventListener('click', () => {
+                    displayPlanetInfo(planet);
+                });
+            });
+        }
+        
+        // Display planet information
+        function displayPlanetInfo(planet) {
+            planetNameElement.textContent = planet.name;
+            planetMassElement.textContent = `Mass: ${planet.name === 'Sun' ? '1.989 × 10^30 kg' : (planet.mass.toFixed(3) + ' Earth masses')}`;
+            planetDiameterElement.textContent = `Diameter: ${planet.name === 'Sun' ? '1.3927 million km' : (planet.diameter * 1000 + ' km (scaled)')}`;
+            planetDistanceElement.textContent = `Distance from Sun: ${planet.distance === 0 ? 'N/A' : (planet.distance * 2 + ' million km (scaled)')}`;
+            
+            // Add description
+            const descElement = document.getElementById('planetDescription');
+            if (descElement) {
+                descElement.textContent = planet.info;
+            } else {
+                const desc = document.createElement('p');
+                desc.id = 'planetDescription';
+                desc.textContent = planet.info;
+                planetInfo.appendChild(desc);
+            }
+        }
+        
+        // Animate the planets
+        function animatePlanets() {
+            if (!animationActive) return;
+            
+            planets.forEach(planet => {
+                if (planet.name !== 'Sun') {
+                    planet.angle += planet.orbitSpeed * 0.01;
+                    if (planet.angle > Math.PI * 2) {
+                        planet.angle -= Math.PI * 2;
+                    }
+                }
+            });
+            
+            createPlanets();
+            drawGrid();
+            
+            animationId = requestAnimationFrame(animatePlanets);
+        }
+        
+        // Initialize the visualization
+        function init() {
+            setupCanvas();
+            createPlanets();
+            drawGrid();
+            animationId = requestAnimationFrame(animatePlanets);
+            
+            // Set reset button action
+            resetBtn.addEventListener('click', () => {
+                planets.forEach(planet => {
+                    if (planet.name !== 'Sun') {
+                        planet.angle = Math.random() * Math.PI * 2;
+                    }
+                });
+            });
+            
+            // Toggle animation button
+            toggleAnimationBtn.addEventListener('click', () => {
+                animationActive = !animationActive;
+                toggleAnimationBtn.textContent = animationActive ? 'Pause Animation' : 'Resume Animation';
+                
+                if (animationActive) {
+                    animationId = requestAnimationFrame(animatePlanets);
+                } else if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+            });
+            
+            // Toggle gravity well view
+            toggleGravityViewBtn.addEventListener('click', () => {
+                gravityWellView = !gravityWellView;
+                drawGrid();
+            });
+        }
+        
+        // Start the visualization when the page loads
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dot Image Converter</title>
+  <link rel="stylesheet" href="dot.css?v=20250515" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Back Button -->
+    <div class="back-button">
+      <img src="iback.png" alt="Back" onclick="goBack()" />
+    </div>
+
+        <div class="buttons-container">
+        <!-- KARANLIK MOD TOGGLE -->
+        <button id="themeToggle" class="theme-toggle"> </button>
+        <!-- DİL DEĞİŞTİRME BUTONU -->
+        <button id="langToggle" class="lang-toggle"></button>
+        </div>
+    <!-- Page Title -->
+    <h1>Dot Image Converter</h1>
+    <p class="description">
+      Turn your images into dot-based artworks. Adjust the number and size of
+      the dots to create unique results.
+    </p>
+
+    <!-- File Selector -->
+    <input
+      type="file"
+      id="imageInput"
+      accept="image/*"
+      style="display: none;"
+    />
+    <label for="imageInput" id="fileSelectBtn">Select File</label>
+
+    <!-- Controls -->
+    <div class="controls">
+      <div class="control-group">
+        <label for="dotCount">Dot Count:</label>
+        <div class="range-container">
+          <input type="range" id="dotCount" min="50" max="200" value="125" />
+          <span class="range-value" id="dotCountValue">125</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label for="dotSize">Dot Size:</label>
+        <div class="range-container">
+          <input type="range" id="dotSize" min="2" max="30" value="16" />
+          <span class="range-value" id="dotSizeValue">16</span>
+        </div>
+      </div>
+
+
+            <div class="control-group palette-selector-container">
+                <label>Palette:</label> 
+                <div id="paletteSelector" class="palette-selector">
+                    <button class="palette-btn active" data-palette="original">Original</button>
+                    <button class="palette-btn" data-palette="retro">Retro</button>
+                    <button class="palette-btn" data-palette="pastel">Pastel</button>
+                    <button class="palette-btn" data-palette="bw">Dark</button>
+                    <button class="palette-btn" data-palette="warm">Warm</button>
+                    <button class="palette-btn" data-palette="cool">Cool</button>
+                    <button class="palette-btn" data-palette="earth">Earth</button>
+                    <button class="palette-btn" data-palette="cyberpunk">Punk</button>
+                    <button class="palette-btn" data-palette="sunset">Sunset</button>
+                    <button class="palette-btn" data-palette="ocean">Ocean</button>
+                    <button class="palette-btn" data-palette="galaxy">Galaxy</button>
+                    <button class="palette-btn" data-palette="golden">Gold</button>
+                </div>
+            </div>
+
+
+
+    </div>
+
+    <!-- Convert Button -->
+    <button id="convertBtn">Convert</button>
+
+    <!-- Image Display Area -->
+    <div class="image-container">
+      <h2>Original Image</h2>
+      <img
+        id="originalImage"
+        alt="Original"
+        style="display: none;"
+      />
+
+      <h2>Converted Image</h2>
+      <canvas id="canvas" style="display: none;"></canvas>
+
+      <!-- Download / Copy Buttons -->
+      <div class="download-buttons">
+        <button id="downloadBtn" style="display: none;">Download</button>
+        <button id="copyBtn" style="display: none;">Copy Image</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1. Read the saved language (default to 'en' if absent)
+    const savedLang = localStorage.getItem('language') || 'en';
+
+    // 2. If we're on the Turkish page but savedLang is 'en', redirect to the English page.
+    //    If we're on the English page but savedLang is 'tr', redirect to the Turkish page.
+    //    Replace the filenames below with your actual paths if they're different.
+    if (document.documentElement.lang === 'tr' && savedLang === 'en') {
+        window.location.replace('dot-en.html');
+    }
+    else if (document.documentElement.lang === 'en' && savedLang === 'tr') {
+        window.location.replace('dot.html');
+    }
+    </script>
+  <script src="script.js"></script>
+</body>
+</html>

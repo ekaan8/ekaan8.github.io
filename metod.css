@@ -1,0 +1,747 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: rgb(245, 245, 247);
+    color: rgb(29, 29, 32);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+body {
+    overflow-x: hidden; /* Yatay kaydırmayı engelle */
+}
+
+* {
+    box-sizing: border-box; /* Padding dahil genişlik hesaplama */
+}
+/* Navbar Styles */
+.navbar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0.8px 1px rgba(18, 18, 18, 0.089);
+    z-index: 1000;
+}
+
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%; /* Changed from auto to 100% */
+    padding: 0; /* Remove padding-left */
+}
+
+
+
+/* Container Styles */
+.container-metod {
+    width: 85vw;            /* Yatayda %85; çok geniş ekranlarda max-width'e kadar gider */
+    max-width: 1400px;      /* En fazla 1400px */
+    margin: 0 auto;         /* Ortalamak için */
+    padding-top: 120px;     /* Üstten boşluk */
+    position: relative;     /* (Gerekliyse absolute içi elemanlar konumlandırması için) */
+    /* Eğer içeriğin fazla taşmasını istemiyorsanız: */
+    box-sizing: border-box; 
+    color: rgb(8, 8, 8);
+}
+
+.container-metod h1 {
+    font-size: 3.1rem;
+    margin-bottom: 20px;
+    text-align: center; /* Başlığı ortala */
+    margin: 0 auto; /* Sol ve sağdan otomatik boşluk ekle */
+    width: fit-content;
+    font-weight: 620;
+    background: linear-gradient(to bottom,  #69a1b4 0%, #3a6e80, #154e87 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+body.dark-mode .container-metod h1 {
+    background: linear-gradient(to bottom, #332b5d 0%, #5f5fa8 40%, #434db9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Text Container Styles */
+.text-container {
+    max-width: 90%;
+    margin: 0 auto 20px;
+    text-align: left;
+    line-height: 1.8;
+    font-size: 1.4rem;
+    padding: 40px 40px 10px;
+    background-color: rgba(250, 250, 250, 0.9);
+    border-radius: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar {
+    background-color: rgba(30, 30, 30, 0.9);
+    box-shadow: none;
+}
+
+body.dark-mode .menu a {
+    color: #ffffff;
+}
+
+body.dark-mode .container-metod h1 {
+    color: rgb(248, 238, 218);
+}
+
+body.dark-mode .text-container {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #e1e1e1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #555;
+}
+
+/* Toggle Mode Button */
+.toggle-mode {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.toggle-mode img {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+body.dark-mode .toggle-mode img {
+    content: url('moon-4-xxl.png');
+}
+
+
+/* Language Toggle */
+.language-toggle {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.language-toggle img {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+
+.language-toggle:hover img {
+    transform: scale(1.1);
+}
+
+body.dark-mode .language-toggle img {
+    filter: invert(1);
+}
+
+/*back button*/
+.back-button {
+    position: absolute;
+    left: 50%; /* Sayfanın ortasına yerleştir */
+    transform: translateX(-10%); /* Ortalamayı tam olarak sağla */
+    top: 80px; 
+    z-index: 900;
+}
+
+.back-button img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+    filter: brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(1800%) hue-rotate(210deg) brightness(94%) contrast(101%);
+}
+
+.back-button img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Dark mode support */
+body.dark-mode .back-button img {
+    filter: brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(1800%) hue-rotate(210deg) brightness(94%) contrast(101%);
+    opacity: 0.9;
+}
+
+/*alt geri-ileri buton*/
+.bottom-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 0 0px;
+}
+
+.nav-button {
+    position: relative;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.nav-text {
+    font-size: 1.0rem;
+    color: #130055;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center; /* Center align with icon */
+    height: 48px; /* Match icon height */
+    line-height: 1; /* Match icon height */
+    font-weight: 600;
+    transform: translateY(-5px);
+
+}
+.nav-button:hover .nav-text {
+    opacity: 1;
+}
+
+body.dark-mode .nav-text {
+    color: rgb(53,121,246);
+}
+.nav-button img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+    filter: brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(1800%) hue-rotate(210deg) brightness(94%) contrast(101%);
+}
+
+.nav-button img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+body.dark-mode .nav-button img {
+    filter: brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(1800%) hue-rotate(210deg) brightness(94%) contrast(101%);
+    opacity: 0.9;
+}
+
+
+.menu-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+body.dark-mode .menu-link {
+    color: #ffffff;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0px; /* Adjust this value */
+    width: 100%;
+    height: 2px;
+    background-color: #6c6c6c;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+.menu-link:hover::after,
+.menu-link.active::after {
+    transform: scaleX(1);
+}
+body.dark-mode .menu-link {
+    color: #ffffff;
+}
+
+body.dark-mode .menu-link::after {
+    background-color: #ffffff;
+}
+
+
+/**************MENU***************/
+.menu-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -18px;
+    width: 100%;
+    height: 2px;
+    background-color: #6c6c6c;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.menu-link:hover::after,
+.menu-link.active::after {
+    transform: scaleX(1);
+}
+
+
+/* Menu icon and mobile title default state */
+.menu-icon {
+    display: none;
+}
+
+.mobile-site-title {
+    display: none;
+}
+
+
+/*MOBIL VERSION*/
+@media (max-width: 768px) {
+    /* Navbar and Menu Layout */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 1000;
+        box-shadow: 0 0.8px 1px rgba(18, 18, 18, 0.089);
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile site title */
+    .mobile-site-title {
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #333;
+        text-align: left;
+        z-index: 1;
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    
+    /* Toggle mode button */
+    .toggle-mode {
+        display: block;
+        position: absolute;
+        right: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        margin: 0;
+        left: auto;
+    }
+    
+    /* Language toggle */
+    .language-toggle {
+        display: block;
+        position: absolute;
+        right: 108px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+    }
+
+    .language-toggle img {
+        width: 28px;
+        height: 28px;
+        transition: transform 0.3s ease;
+    }
+    
+    /* Menu icon */
+    .menu-icon {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+    
+    /* Menu dropdown */
+    .menu {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 0;
+        z-index: 1000;
+    }
+    
+    .menu.active {
+        display: flex;
+    }
+    
+    /* Menu links */
+    .menu-link {
+        font-size: 2rem;
+        color: #555;
+        padding-left: 20px;
+        width: auto;
+        text-align: left;
+        display: inline-block;
+        position: relative;
+    }
+
+    .menu-link::after {
+        content: '';
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+        width: 0;
+        height: 2px;
+        background-color: #6c6c6c;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .menu-link:hover::after,
+    .menu-link.active::after {
+        transform: scaleX(1);
+        width: calc(100% - 20px);
+    }
+
+    /* Dark mode adjustments */
+    body.dark-mode .mobile-site-title {
+        color: #ffffff;
+    }
+    
+    body.dark-mode .menu-icon img {
+        filter: invert(1);
+    }
+
+    body.dark-mode .navbar .menu {
+        background: rgba(30, 30, 30, 0.95);
+    }
+
+    body.dark-mode .toggle-mode img {
+        content: url('night.png');
+        width: 36px; /* Match light mode size */
+        height: 36px; /* Match light mode size */
+        object-fit: contain;
+    }
+}
+body.dark-mode .toggle-mode img {
+    content: url('night.png');
+}
+
+
+@media (max-width: 768px) {  
+    /* Flex konteyner dikeye alınıyor */
+    .flex-container {
+      flex-direction: column;
+      align-items: center; /* Görsel ortalanır */
+      gap: 20px;           /* Görsel–yazı arası boşluk */
+    }
+  
+    /* Görsel tam genişlik */
+    .image-wrapper1,
+    .image-wrapper1 .ilke-image1 {
+      width: 98%;
+      max-width: 98%;
+    }
+  
+    /* Yazı da tam genişlik; üst boşluk ver */
+    .flex-text {
+      width: 100%;
+      max-width: 100%;
+      margin-top: 0; /* gerekiyorsa ayarla */
+      padding: 0 16px; /* kenarlardan biraz boşluk */
+      box-sizing: border-box;
+    }
+      /* Her iki görsel kapsayıcıyı tam genişlik yap */
+    .image-wrapper,
+    .image-wrapper1 {
+        width: 100%;
+        max-width: 100%;
+        margin: 20px 0; /* İstersen dikey boşluk ayarla */
+    }
+
+    /* İçlerindeki img etiketlerini de tam genişlik yap */
+    .image-wrapper .ilke-image,
+    .image-wrapper1 .ilke-image1 {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+      /* Text-container kutucuğunu kaldır */
+    .text-container {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+    }
+    /* Karanlık modda text-container'ın border'ını kaldır */
+    body.dark-mode .text-container {
+        border: none !important;
+        box-shadow: none !important; /* emin olmak için */
+    }
+}
+/* ── Mobil düzeltmeleri ────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  .container-metod .header-container h1 {
+    position: relative;
+    display: inline-block; /* Başlık kadar genişlik */
+    padding-bottom: 0.28em;
+  }
+  .container-metod .header-container h1::after {
+    content: "";
+    display: block;
+    height: 1px;
+    margin-top: 8px;
+    background: rgba(0,0,0,0.15);
+    width: 100%; /* Sadece başlık kadar */
+    position: static; /* Absolute değil */
+  }
+    /* Karanlık mod rengi */
+  body.dark-mode .container-metod h1::after{
+        background: rgba(255,255,255,0.30);
+  }
+}
+
+@media (min-width: 769px) {
+  .back-button {
+    left: calc((100vw - 85vw) / 2);
+    top: 80px;
+  }
+  .container-metod .header-container {
+    margin-left: 0;
+  }
+}
+
+/* ─── Title underline tam başlık genişliği kadar ─── */
+.container-metod .header-container h1 {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 0.28em; /* kuyruğa yer açmak için */
+}
+  
+
+  
+
+@media (min-width: 769px) {
+    /* Container styling with consistent width */
+  
+    /* Create a wrapper for the header that aligns with container */
+    .header-container {
+      width: 100%;
+      position: relative;
+    }
+
+}
+@media (min-width: 769px) {
+    /* 1) Ortak "sabit oranlı" container */
+    .container-metod {
+        width: 85vw;              /* oransal genişlik */
+        max-width: 1400px;        /* çok geniş monitörde okunabilir kalsın */
+        margin: 0 auto;           /* ortala */
+        padding-top: 120px;       /* başlıkla üst bar arası */
+        position: relative;       /* back-button hizalamasına yardımcı */
+    }
+
+    /* 2) Başlık hizası: konteynerin soluna yaslı */
+    .container-metod h1 {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+    }
+
+    /* 3) Back butonu container ile aynı sol boşluğu paylaşsın */
+    .back-button {
+        position: absolute;
+        left: calc((100vw - 85vw) / 2);  /* sayfa kenarı ile container arasındaki boşluk */
+        top: 80px;
+    }
+
+    /* 4) Text container genişliği */
+    .text-container {
+        width: 90%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+/* Çok geniş (≥ 1700 px) monitörlerde back-button fazla açılmasın */
+@media (min-width: 1700px){
+    .back-button{
+        left: calc((100vw - 1400px) / 2);
+    }
+}
+
+
+
+@media (max-width: 768px) {
+
+    .container-metod {
+        width: 100%; /* Tam genişlik */
+        padding-left: 5%; /* Kenarlardan boşluk */
+        padding-right: 5%; /* Kenarlardan boşluk */
+        box-sizing: border-box; /* Padding dahil genişlik hesaplama */
+        overflow-x: hidden; /* Yatay kaydırmayı engelle */
+    }
+
+    .back-button {
+        position: absolute; /* Keep absolute positioning */
+        top: 80px; /* Adjust top position */
+        left: 20px; /* Adjust left position */
+        margin-bottom: 0; /* Remove bottom margin */
+        text-align: left; /* Align the button to the left */
+        display: block; /* Make it a block-level element */
+        left: 5%; /* Align with the header */
+    }
+
+    .back-button a {
+        display: inline-block; /* Keep the link inline */
+    }
+
+    .header-container {
+        text-align: left; /* Keep text alignment to the left */
+        margin-left: 20px; /* Align with back button */
+        margin-top: 10px; /* Position below back button */
+    }
+
+    .container-metod h1 {
+        font-size: 2.5rem; /* Adjust font size for mobile */
+        text-align: left; /* Keep text alignment to the left */
+        margin-left: 0px; /* Align with back button */
+    }
+    body.dark-mode .container-metod h1 {
+        font-size: 2.5rem; /* Adjust font size for mobile */
+        text-align: left; /* Keep text alignment to the left */
+        margin-left: 0px; /* Align with back button */
+        background: linear-gradient(to bottom, #332b5d 0%, #5f5fa8 40%, #434db9 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+      /* hem desktop hem mobile için geçerli pseudo-element */
+    .container-metod .header-container h1::after {
+        content: "";
+        position: absolute;
+        left: 0;                 /* başlığın solundan başlasın */
+        bottom: -8px;            /* başlığın hemen altına; ihtiyaç halinde -6px / -10px yapın */
+        width: 100%;             /* başlık genişliği kadar */
+        height: 1px;
+        background: rgba(0,0,0,0.15);
+    }
+  body.dark-mode .container-metod .header-container h1::after {
+    background: rgba(255,255,255,0.30);
+  }
+}
+
+@media (max-width: 768px) {
+    .container-metod {
+        width: 96%;
+        padding-top: 120px;
+        text-align: left;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .back-button {
+        position: absolute;
+        top: 80px;
+        left:6.8%;
+        margin-bottom: 0;
+    }
+
+    .header-container {
+        margin-left: 0; /* Kaldırıldı çünkü container'da padding var */
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .container-metod h1 {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+        width: 100%;
+    }
+
+    .text-container {
+        margin-left: 0;
+        padding-left: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* ...existing code... */
+
+    .container-metod .header-container {
+        position: relative;
+        width: auto; /* width: 100% yerine auto kullan */
+        display: inline-block; /* Başlık container'ı içeriği kadar yer kaplasın */
+    }
+
+    .container-metod .header-container h1 {
+        position: relative;
+        display: inline-block; /* Başlık içeriği kadar yer kaplasın */
+        margin: 0;
+        padding-bottom: 0.28em;
+    }
+
+    .container-metod .header-container h1::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%; /* Başlık genişliği kadar */
+        height: 1px;
+        background: rgba(0, 0, 0, 0.15);
+    }
+
+    body.dark-mode .container-metod .header-container h1::after {
+        background: rgba(255, 255, 255, 0.30);
+    }
+}
+
+@media (min-width: 769px){
+  .text-container{
+    width: 100%;          /* tam genişlik */
+    max-width: 100%;
+    margin: 0;            /* artık auto'ya gerek yok */
+    padding: 40px;        /* eski iç padding kalabilir */
+  }
+}

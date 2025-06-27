@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about</title>
+    <link rel="stylesheet" href="about.css?v=20250421">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menü Çubuğu -->
+    <div class="navbar">
+        <!-- Tema değiştirme butonu -->
+        <div class="toggle-mode" onclick="toggleMode()">
+            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+        </div>
+        <!-- Site başlığı -->
+        <div class="mobile-site-title">emre kaan</div>
+             <!-- Dil İkonu (Sağ Tarafta) -->
+        <div class="language-toggle" onclick="changeLanguage()">
+            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+        </div>       
+        <!-- Hamburger ikonu (sadece mobilde görünecek) -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+        </div>
+        <div class="menu">
+            <a href="index-en.html" class="menu-link">home</a>
+            <a href="about-en.html" class="menu-link active">about</a>
+            <a href="blog-en.html" class="menu-link">blog</a>
+            <a href="contact-en.html" class="menu-link">contact</a>
+        </div>
+    </div>
+
+    
+    <!-- About Content -->
+    <div class="about-container">
+        <!-- Profil Bölümü -->
+        <div class="profile-section card">
+            <div class="profile-content">
+                <img src="agreat Arka Planı Silindi.png" alt="Profil Fotoğrafı" class="profile-pic">
+                <div class="text-content">
+                    <h1 class="gradient-text">hi, emre kaan is here</h1>
+                    <p>
+                        This site exists to share the ideas, projects and dreams that are floating around in my mind. I am a computer engineering student, but beyond technical knowledge, what excites me the most is art itself. I believe that art should drive technique, not the other way around. Here you will see sometimes my thoughts and sometimes how I blend art and technology.
+                        I believe that beauty and aesthetics are not just an addition, but a starting point. I'm planning to share the content I share on social media here. I hope something here will inspire you too.    
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hikayem Bölümü -->
+        <div class="about-story card">
+            <h2 class="section-title">how it started?</h2>
+          
+            <div class="story-cards">
+              <div class="story-card">
+                <div class="story-year">🗓️ 2020 – Günümüz</div>
+                <p>Bilgisayar Mühendisliği öğrencisi ve içerik üreticisi olarak, teknoloji ve sanatı birleştiren projelere odaklanıyorum.</p>
+              </div>
+          
+              <div class="story-card">
+                <div class="story-year">🗓️ 2019</div>
+                <p>IconTech serisini başlattım ve teknoloji tarihindeki önemli isimleri sanatsal bir yaklaşımla anlatmaya başladım.</p>
+              </div>
+          
+              <div class="story-card">
+                <div class="story-year">🗓️ 2018</div>
+                <p>Dijital sanat ve teknoloji alanında ilk çalışmalarımı yapmaya başladım.</p>
+              </div>
+          
+              <div class="story-card">
+                <div class="story-year">🗓️ 2014</div>
+                <p>Dijital sanat ve teknoloji alanında ilk denemelerimi gerçekleştirdim.</p>
+              </div>
+            </div>
+        </div>
+
+        <!-- Uzmanlık Alanları Bölümü -->
+        <div class="about-skills card">
+            <h2 class="section-title">what i'm into</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Yazılım Geliştirme</div>
+                <div class="skill-item">Dijital Sanat</div>
+                <div class="skill-item">İçerik Üretimi</div>
+                <div class="skill-item">UX/UI Tasarım</div>
+                <div class="skill-item">Teknoloji Tarihi</div>
+                <div class="skill-item">Görsel Tasarım</div>
+            </div>
+        </div>
+
+        <!-- Vizyon Bölümü -->
+        <div class="about-vision card">
+            <h2 class="section-title">my route</h2>
+            <p>
+                Teknoloji ve sanatın kesişim noktasında, her iki alanın da birbirini nasıl güçlendirebileceğini keşfediyorum. IconTech serisi ve diğer projelerimle, teknolojinin sadece teknik değil, aynı zamanda estetik ve kültürel boyutlarını da keşfetmeyi amaçlıyorum.
+            </p>
+        </div>
+
+        <!-- İletişim Bölümü -->
+        <div class="about-contact card">
+            <h2 class="section-title">contact</h2>
+            <p>you can contact me for projects, collaborations or just to exchange ideas.</p>
+            <div class="contact-links">
+                <a href="mailto:your-email@example.com" class="contact-link">mail</a>
+                <a href="https://linkedin.com/in/jackorn" class="contact-link" target="_blank">instagram-personal</a>                
+                <a href="https://instagram.com/technovision101" class="contact-link" target="_blank">instagram-content</a>
+                <a href="https://linkedin.com/in/jackorn" class="contact-link" target="_blank">linkedin</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            
+            // Toggle dark mode
+            body.classList.toggle('dark-mode');
+
+            // Save dark mode state to localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Dark Mode';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Light Mode';
+            }
+        }
+
+        // Check dark mode state on page load
+        window.onload = function() {
+            const modeIcon = document.getElementById('mode-icon');
+            const darkMode = localStorage.getItem('darkMode');
+
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Dark Mode';
+            } else {
+                document.body.classList.remove('dark-mode');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Light Mode';
+            }
+
+            // Check language state on page load
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            document.documentElement.lang = savedLanguage;
+
+            const languageIcon = document.getElementById('language-icon');
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+        };
+
+        function changeLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'tr' ? 'en' : 'tr';
+
+            // Save language preference
+            localStorage.setItem('language', newLang);
+
+            // Redirect to the appropriate page
+            if (newLang === 'tr') {
+                window.location.href = 'about.html';
+            } else {
+                window.location.href = 'about-en.html';
+            }
+        }
+    </script>
+
+
+<script>
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        const icon = document.querySelector('.menu-icon img');
+        
+        // Fade out
+        icon.style.opacity = 0;
+        
+        // Toggle menu ve src güncellemesini fade-out animasyonu tamamlandıktan sonra yapıyoruz
+        setTimeout(() => {
+            menu.classList.toggle('active');
+        
+            if (menu.classList.contains('active')) {
+                icon.src = 'close-icon.png'; // "X" ikonunuzun dosya adını kullanın
+                icon.alt = 'Menüyü Kapat';
+            } else {
+                icon.src = 'menu-icon.png';
+                icon.alt = 'Menü';
+            }
+            
+            // Fade in
+            icon.style.opacity = 1;
+        }, 150); // 150ms delay, ihtiyaca göre ayarlanabilir
+    }
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const menu = document.querySelector('.menu');
+        const menuIcon = document.querySelector('.menu-icon');
+        if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                const icon = menuIcon.querySelector('img');
+                icon.src = 'menu-icon.png';
+                icon.alt = 'Menü';
+            }
+        }
+    });
+    </script>
+</body>
+</html>
