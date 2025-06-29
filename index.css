@@ -2262,6 +2262,7 @@ body.dark-mode .marcia-wrapper::before {
         /* Aşağıdaki iki satırdan sadece sonuncusu geçerli olur */
         transform: translateY(50%); /* Dikeyde ortalama */
         transform: translateX(-2%); /* Sadece X ekseninde kaydırır */
+        animation-delay: 0s !important;
     }
 
 }
