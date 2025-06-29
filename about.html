@@ -249,123 +249,180 @@
     });
     </script>
 
-<!-- 
+
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const slider = document.querySelector('.slider');
-        const cards = document.querySelectorAll('.story-card');
-        const dotsBox = document.querySelector('.slider-indicators');
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobil cihazlarda sayfa yüklendiğinde en üste scroll yap
+    if (window.innerWidth <= 768) {
+        // Sayfa tamamen yüklendikten sonra en üste scroll yap
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'instant'
+            });
+        }, 100);
         
-        // Nokta göstergeleri oluştur
-        cards.forEach((_, i) => {
-            const dot = document.createElement('span');
-            dot.className = 'dot';
-            if (i === 0) dot.classList.add('active');
-            dotsBox.appendChild(dot);
+        // Sayfa yüklenme sonrası da kontrol et
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'instant'
+                });
+            }, 50);
+        });
+    }
+    
+    const slider = document.querySelector('.slider');
+    const cards = document.querySelectorAll('.story-card');
+    const dotsBox = document.querySelector('.slider-indicators');
+    
+    // Nokta göstergeleri oluştur
+    cards.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        if (i === 0) dot.classList.add('active');
+        dotsBox.appendChild(dot);
+    });
+    
+    const dots = [...dotsBox.children];
+    
+    let scrollTimeout;
+    let isAutoScrolling = false; // Otomatik scroll kontrolü için flag
+    let pageJustLoaded = true; // Sayfa yeni yüklenme kontrolü
+    
+    slider.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        
+        // Slider'ın merkez noktasını hesapla
+        const centerX = slider.scrollLeft + slider.offsetWidth / 2;
+        
+        cards.forEach((card) => {
+            const cardLeft = card.offsetLeft;
+            const cardWidth = card.offsetWidth;
+            const cardCenter = cardLeft + cardWidth / 2;
+            const distance = Math.abs(centerX - cardCenter);
+            const maxDistance = cardWidth * 0.8;
+            
+            if (distance < maxDistance) {
+                const proximity = 1 - (distance / maxDistance);
+                const scale = 0.8 + (0.2 * proximity);
+                const opacity = 0.6 + (0.4 * proximity);
+                const translateZ = -30 + (30 * proximity);
+                card.style.transform = `scale(${scale}) translateZ(${translateZ}px)`;
+                card.style.opacity = opacity;
+            } else {
+                card.style.transform = 'scale(0.8) translateZ(-30px)';
+                card.style.opacity = '0.6';
+            }
         });
         
-        const dots = [...dotsBox.children];
-        
-        let scrollTimeout;
-        slider.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            const sliderRect = slider.getBoundingClientRect();
+            const sliderCenter = sliderRect.left + sliderRect.width / 2;
             
-            // Slider'ın merkez noktasını hesapla
-            const centerX = slider.scrollLeft + slider.offsetWidth / 2;
+            let minDistance = Infinity;
+            let closestCard = null;
+            let closestIndex = -1;
             
-            cards.forEach((card) => {
-                const cardLeft = card.offsetLeft;
-                const cardWidth = card.offsetWidth;
-                const cardCenter = cardLeft + cardWidth / 2;
-                const distance = Math.abs(centerX - cardCenter);
-                const maxDistance = cardWidth * 0.8;
+            cards.forEach((card, index) => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + cardRect.width / 2;
+                const distance = Math.abs(sliderCenter - cardCenter);
                 
-                if (distance < maxDistance) {
-                    const proximity = 1 - (distance / maxDistance);
-                    const scale = 0.8 + (0.2 * proximity);
-                    const opacity = 0.6 + (0.4 * proximity);
-                    const translateZ = -30 + (30 * proximity);
-                    card.style.transform = `scale(${scale}) translateZ(${translateZ}px)`;
-                    card.style.opacity = opacity;
-                } else {
-                    card.style.transform = 'scale(0.8) translateZ(-30px)';
-                    card.style.opacity = '0.6';
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestCard = card;
+                    closestIndex = index;
                 }
             });
-            
-            scrollTimeout = setTimeout(() => {
-                const sliderRect = slider.getBoundingClientRect();
-                const sliderCenter = sliderRect.left + sliderRect.width / 2;
-                
-                let minDistance = Infinity;
-                let closestCard = null;
-                let closestIndex = -1;
-                
-                cards.forEach((card, index) => {
-                    const cardRect = card.getBoundingClientRect();
-                    const cardCenter = cardRect.left + cardRect.width / 2;
-                    const distance = Math.abs(sliderCenter - cardCenter);
-                    
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        closestCard = card;
-                        closestIndex = index;
-                    }
-                });
-                
-                // Tüm kartlardan sınıfları kaldır
-                cards.forEach(card => {
-                    card.classList.remove('in-view', 'near-view');
-                });
-                
-                // En yakın karta 'in-view' ekle
-                closestCard.classList.add('in-view');
-                
-                // Komşulara 'near-view' ekle
-                if (closestIndex > 0) {
-                    cards[closestIndex - 1].classList.add('near-view');
-                }
-                if (closestIndex < cards.length - 1) {
-                    cards[closestIndex + 1].classList.add('near-view');
-                }
-                
-                // Noktaları güncelle
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === closestIndex);
-                });
-                
-                // inside the scrollTimeout callback – replace the “inline‑style reset” part
-                cards.forEach(card => {
-                    card.style.transition = 'none';   // turn the animation off
-                    card.style.transform  = '';       // clear the inline styles
-                    card.style.opacity    = '';
-                    // re‑enable the transition on the very next frame
-                    requestAnimationFrame(() => card.style.transition = '');
-                });
 
-            }, 150);
-        });
-        
-        // İlk kartı başlangıçta aktif et
-        cards[0].classList.add('in-view');
-        if (cards.length > 1) {
-            cards[1].classList.add('near-view');
-        }
-        
-        // Noktalara tıklama işlevi
-        dots.forEach((dot, idx) => {
-            dot.addEventListener('click', () => {
-                cards[idx].scrollIntoView({
+            // Sadece kullanıcı manuel scroll yaptıysa otomatik scroll yap
+            // Sayfa ilk yüklendiğinde otomatik scroll yapma
+            if (closestCard && !isAutoScrolling && !pageJustLoaded) {
+                isAutoScrolling = true;
+                closestCard.scrollIntoView({
                     behavior: 'smooth',
                     block: 'nearest',
                     inline: 'center'
                 });
+                
+                // Otomatik scroll tamamlandıktan sonra flag'i sıfırla
+                setTimeout(() => {
+                    isAutoScrolling = false;
+                }, 500);
+            }
+            
+            // Tüm kartlardan sınıfları kaldır
+            cards.forEach(card => {
+                card.classList.remove('in-view', 'near-view');
             });
+            
+            // En yakın karta 'in-view' ekle
+            if (closestCard) {
+                closestCard.classList.add('in-view');
+            }
+            
+            // Komşulara 'near-view' ekle
+            if (closestIndex > 0) {
+                cards[closestIndex - 1].classList.add('near-view');
+            }
+            if (closestIndex < cards.length - 1) {
+                cards[closestIndex + 1].classList.add('near-view');
+            }
+            
+            // Noktaları güncelle
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === closestIndex);
+            });
+            
+            // Inline stilleri temizle
+            cards.forEach(card => {
+                card.style.transition = 'none';
+                card.style.transform = '';
+                card.style.opacity = '';
+                requestAnimationFrame(() => card.style.transition = '');
+            });
+
+        }, 150);
+    });
+    
+    // İlk kartı başlangıçta aktif et (scroll yapmadan)
+    cards[0].classList.add('in-view');
+    if (cards.length > 1) {
+        cards[1].classList.add('near-view');
+    }
+    
+    // Sayfa tamamen yüklendikten sonra pageJustLoaded flag'ini kaldır
+    setTimeout(() => {
+        pageJustLoaded = false;
+    }, 1000);
+    
+    // Noktalara tıklama işlevi
+    dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+            isAutoScrolling = true;
+            cards[idx].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
+            
+            // Tıklama sonrası otomatik scroll flag'ini sıfırla
+            setTimeout(() => {
+                isAutoScrolling = false;
+            }, 500);
         });
     });
+});
     </script>
- -->
-   <script>
+
+   
+
+
+<!--     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const slider = document.querySelector('.about-story .slider');
             const cards = document.querySelectorAll('.about-story .story-card');
@@ -386,7 +443,7 @@
             const dots = Array.from(dotsBox.children);
             let scrollEndTimer = null;
 
-            // DEĞIŞIKLIK: Başlangıç durumunu ayarlar - ilk kartı aktif yap
+            /* DEĞIŞIKLIK: Başlangıç durumunu ayarlar - ilk kartı aktif yap
             function initializeCardStates() {
                 // Slider'ı başa kaydır
                 slider.scrollLeft = 0;
@@ -395,6 +452,10 @@
                 updateFinalCardStatesAndDots(0);
                 
                 console.log('Slider başlangıç pozisyonu:', slider.scrollLeft);
+            }*/
+            function initializeCardStates() {
+                // SADECE kart durumlarını güncelle, kaydırma yapma
+                updateFinalCardStatesAndDots(0);
             }
 
             // Scroll tamamen bittiğinde çağrılacak ana fonksiyon
@@ -518,7 +579,7 @@
                 initializeCardStates();
             }, 100); // DOM tam yüklendikten sonra çalışması için kısa bir gecikme
         });
-    </script>
+    </script> -->
 
     <script>
     // Intersection Observer oluştur
@@ -604,6 +665,7 @@
         observer.observe(element);
     });
     </script>
+
 
   
 </body>
