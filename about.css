@@ -552,6 +552,11 @@ body.dark-mode .about-vision .section-title {
 body.dark-mode .about-vision p {
     color: #f8f9fa;
 }
+@media (max-width: 768px) {
+  .about-vision p {
+    font-size: 1.34rem !important;
+  }
+}
 
 /* About Contact Card */
 .about-contact.card {
