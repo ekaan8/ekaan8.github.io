@@ -1416,6 +1416,132 @@ body.dark-mode .navbar {
 
 
 
+
+
+
+
+
+
+/* Mevcut stiller */
+/* Mevcut stiller */
+.text-content {
+    width: 100%;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+.text-content p {
+    max-width: 100%;
+    word-break: break-word;
+    /* Font ve renk gibi diğer özellikler burada kalacak */
+}
+
+/* Yeni stiller */
+.text-wrapper {
+    position: relative;
+    max-height: 400px; /* Başlangıçta görünen metin bloğunun maksimum yüksekliği */
+    overflow: hidden; /* Bu yükseklik aşıldığında içeriği gizle */
+    transition: max-height 0.5s ease-out; /* Yumuşak geçiş için */
+}
+
+.partial-text {
+    /* Buradaki max-height ve overflow kaldırıldı */
+    margin-bottom: 20px; /* Partial text ile blurred overlay arasında boşluk */
+}
+
+
+
+.blurred-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px; /* Bulanık alanın yüksekliği, butonu ve bulanıklığı kapsayacak */
+    background: linear-gradient(to top, #f7f7f7 0%, rgba(255,255,255,0) 100%); /* Beyazdan şeffafa geçişli degrad */
+    backdrop-filter: blur(5px); /* Bulanıklık efekti */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* İçeriği alta hizala */
+    align-items: center;
+    padding-bottom: 20px; /* Buton için alttan boşluk */
+    box-sizing: border-box;
+    pointer-events: none; /* Buton hariç tıklama olaylarını engeller */
+    /* Z-index ekleyerek metnin üstünde görünmesini sağlayalım */
+    z-index: 10; 
+}
+body.dark-mode .blurred-overlay {
+    background: linear-gradient(to top, #2f2f2f 0%, rgba(30, 30, 30, 0) 100%); 
+    backdrop-filter: blur(5px);
+}
+
+.blurred-overlay p {
+    font-size: 1rem;
+    color: #797979;
+    margin-bottom: 10px;
+    pointer-events: auto;
+    text-align: center; /* Ortalamak için */
+}
+
+.blurred-overlay button {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.778); /* Butonun içi beyaz */
+    border: 1px solid #767676; /* 2px kalınlığında siyah kenarlık */
+    color: rgb(0, 0, 0); /* Yazı rengi siyah */
+    padding: 10px 20px;
+    border-radius: 100px; /* Kenar yarıçapı */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Hover geçişleri eklendi */
+}
+
+body.dark-mode .blurred-overlay button{
+    background: rgba(0, 0, 0, 0.864); /* Karanlık modda daha az opaklık */
+    border-color: #bbbbbb; /* Karanlık modda kenarlık rengi */
+    color: #bbbbbb; /* Karanlık modda yazı rengi beyaz */
+}
+.blurred-overlay button:hover {
+    background-color: #f0f0f0; /* Hafif griye dönebilir veya tamamen siyah olabilir */
+}
+body.dark-mode .blurred-overlay button:hover{
+    background-color: #4e4e4e;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Mobil için responsive ayarlar */
+@media (max-width: 768px) {
+    .text-content p {
+        font-size: 1.34rem;
+        text-align: left;
+        width: 100%;
+    }
+
+    .text-wrapper {
+        max-height: 300px; /* Mobil için daha az görünen metin bloğu */
+    }
+
+    .blurred-overlay {
+        height: 100px; /* Mobil için bulanık alan yüksekliği */
+    }
+
+    .blurred-overlay button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 ::selection {
     background-color: #94c8d8; 
     color: #2b3759;

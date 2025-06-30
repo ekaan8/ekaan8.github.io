@@ -8,6 +8,269 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+   <style>
+
+        .text-content {
+            width: 100%;
+            font-weight: 500;
+            font-size: 1.8rem;
+            margin: 0 auto;
+        }
+
+        .text-content p {
+            max-width: 100%;
+            word-break: break-word;
+            color: #333;
+        }
+
+
+        .text-wrapper {
+            position: relative;
+            max-height: 400px;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .partial-text {
+            margin-bottom: 20px;
+        }
+
+        .blurred-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to top, #f7f7f7 0%, rgba(255,255,255,0) 100%);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 20px;
+            box-sizing: border-box;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .blurred-overlay button {
+            pointer-events: auto;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #767676;
+            color: rgb(0, 0, 0);
+            padding: 12px 24px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .blurred-overlay button:hover {
+            background-color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .modal-content {
+            pointer-events: auto;
+        }
+        .modal-overlay {
+            pointer-events: auto;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.793);            
+            backdrop-filter: blur(50px); 
+        }
+
+        body.dark-mode .modal-overlay {
+                background: rgba(0, 0, 0, 0.85) !important;
+                backdrop-filter: blur(50px) !important;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            width: 95vw;
+            max-width: 1200px;
+            height: 95vh;
+            background: rgba(193, 193, 193, 0.98); /* Daha opak beyaz */
+            backdrop-filter: none;
+            border-radius: 24px;
+            padding: 10px;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); /* Daha belirgin gölge */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            transform: scale(0.95) translateY(50px);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .modal-content {
+            background: rgba(30, 30, 30, 0.95);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(151, 151, 151, 0.4);
+            transform: scale(0.95) translateY(50px);
+        }
+
+        body.modal-open {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+
+        .modal-content p {
+            color: #444;
+            font-size: 1.34rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .close-hint {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #999;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .text-content {
+                font-size: 1.34rem
+                
+            }
+            
+            .text-wrapper {
+                max-height: 300px;
+            }
+            
+            .blurred-overlay {
+                height: 100px;
+            }
+            
+            .blurred-overlay button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+                margin: 10px;
+                max-height: 90vh;
+            }
+            
+            .gradient-text {
+                font-size: 2rem;
+            }
+        }
+
+
+        body.dark-mode .text-content p {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .blurred-overlay {
+            background: linear-gradient(to top, #2f2f2f 0%, rgba(30, 30, 30, 0) 100%);
+        }
+
+        body.dark-mode .blurred-overlay button {
+            background: rgba(0, 0, 0, 0.864);
+            border-color: #bbbbbb;
+            color: #bbbbbb;
+        }
+
+        body.dark-mode .blurred-overlay button:hover {
+            background-color: #4e4e4e;
+        }
+
+
+
+        body.dark-mode .modal-content p {
+            color: #d0d0d0;
+        }
+
+
+
+        /* 2) Modal içeriğinin boyutunu içeriğe göre esnek yap */
+        .modal-content {
+            width: 90vw;                         /* %90 ekran genişliği */
+            max-width: 1000px;                   /* maksimum genişlik */
+            height: auto;                       /* içeriğe göre yükseklik */
+            max-height: 88vh;                   /* ekranın %80’inden fazla uzun olmasın */
+            overflow-y: auto;                   /* içerik taşarsa modal içinde scroll */
+        }
+
+        /* 3) Text‑wrapper’ı tıklanınca içeriğe göre açmak için */
+        .text-wrapper.expanded {
+            max-height: none;                   /* tüm içeriği göster */
+            overflow: visible;                  /* kaydırmayı sayfaya bırak */
+        }
+
+        /* 4) Blur-overlay’u gizlemek için */
+        .text-wrapper.expanded .blurred-overlay {
+            display: none;                      /* buton ve blur’u kaldır */
+        }
+
+        /* DÜZELTİLMİŞ CSS */
+        .modal-overlay {
+        background: rgba(0, 0, 0, 0.793);
+        }
+
+        body.dark-mode .modal-overlay {
+        background: rgba(0, 0, 0, 0.85) !important;
+        }
+
+        .modal-content {
+        transform: scale(0.95) translateY(50px); /* Tüm temalar için geçerli */
+        background: rgba(193, 193, 193, 0.98);
+        }
+
+        body.dark-mode .modal-content {
+        background: rgba(30, 30, 30, 0.95);
+        transform: scale(0.95) translateY(50px); /* AYNI TRANSFORM DEĞERİ */
+        }
+
+        .modal-overlay.active .modal-content {
+        transform: scale(1) translateY(0); /* Tüm temalarda aynı animasyon */
+        }
+        .modal-overlay {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-content {
+  transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+    </style>
 </head>
 <body>
     <!-- Menü Çubuğu -->
@@ -57,32 +320,54 @@
                     </p>
                 </div>  --> 
 
-                    <div class="text-content">
-                        <h1 class="gradient-text">tekrar merhaba,<br> yeniden buradayız</h1>
-                        <div class="text-wrapper"> 
-                            <div class="partial-text">
-                                <p>
-                                    ben jack orn 
-                                    bu siteyi bir araçtan çok, sade ve doğal bir deneyim olarak tasarladım. her kutucuk, her boşluk, her gölge—hepsi birbiriyle uyum içinde. kodlarını da, tasarımını da bizzat kendim yaptım. temeli atmak kısa sürdü, ama asıl zamanımı alan şey uyumdu. çünkü bence bir tasarım, görünmeyen detaylarında yaşar.
-                                    <br>kutucukların birbirleriyle olan mesafeleri, köşe yumuşaklıkları, yazı tiplerinin büyüklüğü, renklerin geçişleri, cam hissi veren saydamlıklar, gölgelerin ışıkla harmonisi… hepsi üzerine uzun uzun düşündüğüm, hatta bazen tek bir piksel için renk kodlarını detaylıca aradığım güzel bir serüven oldu. sayısal değerlerde neredeyse tamamen altın oranı kullanmaya özen gösterdim, kutucukların mesafeleri ve yarıçapları, oranlarında hep aynı dili kullanan bir yapı var. 
-                                    çünkü göze iyi gelen şeyin tesadüf olmadığını biliyorum.
-                                    <br>ben minimalizmi sevmem, ama sadelikten hoşlanırım. minimalizm bazen insan doğasına ters düşer. ama sadelik, doğaya yakın olan, içgüdüsel olarak huzur veren bir şeydir. bu yüzden tasarımımda sert çizgilerden, metalik soğukluklardan uzak durdum. onların yerine yumuşaklık, saydam geçişler ve keşfetme duygusu koydum.
-                                </p>
-                            </div>
-                            <div class="full-text hidden">
-                                <p>
-                                    bu siteyi oluştururken kendimi anlatmadım. onun yerine, ortaya koyduğum tasarımın kendisinin beni anlatmasına izin verdim. çünkü her detay, her seçim benim düşünce tarzımı ve hayata bakışımı yansıtıyor.
-                                    kod, benim için her zaman yazılabilen bir şey oldu. gerçek mesele, hatırlanacak bir şeyler ortaya koyabilmek. çünkü büyük işler sadece teknolojiyle değil, onunla düşünebilen insanlarla mümkün oluyor. bugün oluşturduğumuz bu araç belki sadece bizim için büyük olabilir ancak sahip olduğu altından temeller daima büyük ilkeleri esas alıyor.
-                                    <br>charles babbage bir devrim başlattı, ama ada lovelace, bu devrime ruh kattı. o, hesap makinelerini sadece sayılarla sınırlamadı, onları bir gün müzik, metin ve görselleri de ifade edebilecek bir dile çevirdi. işte bu vizyon, bugün elimizde tuttuğumuz tüm teknolojilerin temelinde yatıyor.
-                                    ben de bu vizyonu paylaşmaya çalışıyorum. bir tasarımın sadece gözle değil, duyguyla da okunması gerektiğine inanıyorum. bu uzun yazıyı da bundan yazdım, yoksa aracın ve tekniğin tanıtımını kısa tutmak gerekir, ancak burada vermek istediğim farklı bir şey var.
-                                </p>
-                            </div>
-                            <div class="blurred-overlay">
-                                
-                                <button id="readMoreBtn">Devamını Oku</button>
-                            </div>
-                        </div>
-                    </div>
+    <div class="text-content">
+        <h1 class="gradient-text">tekrar merhaba,<br> yeniden buradayız</h1>
+        
+        <div class="text-wrapper">
+            <div class="partial-text">
+                <p>
+                    ben jack orn
+                    bu siteyi bir araçtan çok, sade ve doğal bir deneyim olarak tasarladım. her kutucuk, her boşluk, her gölge—hepsi birbiriyle uyum içinde. kodlarını da, tasarımını da bizzat kendim yaptım. temeli atmak kısa sürdü, ama asıl zamanımı alan şey uyumdu. çünkü bence bir tasarım, görünmeyen detaylarında yaşar.
+                    <br>kutucukların birbirleriyle olan mesafeleri, köşe yumuşaklıkları, yazı tiplerinin büyüklüğü, renklerin geçişleri, cam hissi veren saydamlıklar, gölgelerin ışıkla harmonisi… hepsi üzerine uzun uzun düşündüğüm, hatta bazen tek bir piksel için renk kodlarını detaylıca aradığım güzel bir serüven oldu. sayısal değerlerde neredeyse tamamen altın oranı kullanmaya özen gösterdim, kutucukların mesafeleri ve yarıçapları, oranlarında hep aynı dili kullanan bir yapı var.
+                    çünkü göze iyi gelen şeyin tesadüf olmadığını biliyorum.
+                    <br>ben minimalizmi sevmem, ama sadelikten hoşlanırım. minimalizm bazen insan doğasına ters düşer. ama sadelik, doğaya yakın olan, içgüdüsel olarak huzur veren bir şeydir. bu yüzden tasarımımda sert çizgilerden, metalik soğukluklardan uzak durdum. onların yerine yumuşaklık, saydam geçişler ve keşfetme duygusu koydum.
+                </p>
+            </div>
+            
+            <div class="blurred-overlay">
+                <button id="readMoreBtn">Devamını Oku</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content" id="modalContent">
+            <div class="close-hint">dışarıya tıklayarak kapat</div>
+            
+            <div id="fullTextContent">
+                <p>
+                    ben jack orn
+                    bu siteyi bir araçtan çok, sade ve doğal bir deneyim olarak tasarladım. her kutucuk, her boşluk, her gölge—hepsi birbiriyle uyum içinde. kodlarını da, tasarımını da bizzat kendim yaptım. temeli atmak kısa sürdü, ama asıl zamanımı alan şey uyumdu. çünkü bence bir tasarım, görünmeyen detaylarında yaşar.
+                </p>
+                <p>
+                    kutucukların birbirleriyle olan mesafeleri, köşe yumuşaklıkları, yazı tiplerinin büyüklüğü, renklerin geçişleri, cam hissi veren saydamlıklar, gölgelerin ışıkla harmonisi… hepsi üzerine uzun uzun düşündüğüm, hatta bazen tek bir piksel için renk kodlarını detaylıca aradığım güzel bir serüven oldu. sayısal değerlerde neredeyse tamamen altın oranı kullanmaya özen gösterdim, kutucukların mesafeleri ve yarıçapları, oranlarında hep aynı dili kullanan bir yapı var.
+                    çünkü göze iyi gelen şeyin tesadüf olmadığını biliyorum.
+                </p>
+                <p>
+                    ben minimalizmi sevmem, ama sadelikten hoşlanırım. minimalizm bazen insan doğasına ters düşer. ama sadelik, doğaya yakın olan, içgüdüsel olarak huzur veren bir şeydir. bu yüzden tasarımımda sert çizgilerden, metalik soğukluklardan uzak durdum. onların yerine yumuşaklık, saydam geçişler ve keşfetme duygusu koydum.
+                </p>
+                <p>
+                    bu siteyi oluştururken kendimi anlatmadım. onun yerine, ortaya koyduğum tasarımın kendisinin beni anlatmasına izin verdim. çünkü her detay, her seçim benim düşünce tarzımı ve hayata bakışımı yansıtıyor.
+                    kod, benim için her zaman yazılabilen bir şey oldu. gerçek mesele, hatırlanacak bir şeyler ortaya koyabilmek. çünkü büyük işler sadece teknolojiyle değil, onunla düşünebilen insanlarla mümkün oluyor. bugün oluşturduğumuz bu araç belki sadece bizim için büyük olabilir ancak sahip olduğu altından temeller daima büyük ilkeleri esas alıyor.
+                </p>
+                <p>
+                    charles babbage bir devrim başlattı, ama ada lovelace, bu devrime ruh kattı. o, hesap makinelerini sadece sayılarla sınırlamadı, onları bir gün müzik, metin ve görselleri de ifade edebilecek bir dile çevirdi. işte bu vizyon, bugün elimizde tuttuğumuz tüm teknolojilerin temelinde yatıyor.
+                    ben de bu vizyonu paylaşmaya çalışıyorum. bir tasarımın sadece gözle değil, duyguyla da okunması gerektiğine inanıyorum. bu uzun yazıyı da bundan yazdım, yoksa aracın ve tekniğin tanıtımını kısa tutmak gerekir, ancak burada vermek istediğim farklı bir şey var.
+                </p>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -261,8 +546,8 @@
     </script>
 
 
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
+    <script>    
+    document.addEventListener('DOMContentLoaded', function() {
     // Mobil cihazlarda sayfa yüklendiğinde en üste scroll yap
     if (window.innerWidth <= 768) {
         // Sayfa tamamen yüklendikten sonra en üste scroll yap
@@ -676,26 +961,52 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const readMoreBtn = document.getElementById('readMoreBtn');
-        const textWrapper = document.querySelector('.text-wrapper');
-        const fullText = document.querySelector('.full-text');
-        const blurredOverlay = document.querySelector('.blurred-overlay');
+        document.addEventListener('DOMContentLoaded', function () {
+            const readMoreBtn = document.getElementById('readMoreBtn');
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalContent = document.getElementById('modalContent');
 
-        if (readMoreBtn && textWrapper && fullText && blurredOverlay) {
-            readMoreBtn.addEventListener('click', function() {
-                // full-text'i görünür yap
-                fullText.classList.remove('hidden');
-                
-                // text-wrapper'ın max-height'ini çok büyük bir değere ayarla
-                textWrapper.style.maxHeight = 'none';
-                
-                // Bulanık örtüyü gizle
-                blurredOverlay.classList.add('hidden');
-            });
-        }
-    });
+            function closeModal() {
+                modalOverlay.classList.remove('active');
+                document.body.classList.remove('modal-open'); // Body scroll'ı geri aç
+            }
+
+            if (readMoreBtn && modalOverlay && modalContent) {
+                readMoreBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    modalOverlay.classList.add('active');
+                    document.body.classList.add('modal-open'); // Body scroll'ı engelle
+                });
+
+                // Dış alana tıklama - sadece modal-overlay'e tıklandığında kapat
+                modalOverlay.addEventListener('click', function (e) {
+                    if (e.target === modalOverlay) {
+                        closeModal();
+                    }
+                });
+
+                function handleThemeChange() {
+                if (modalOverlay.classList.contains('active')) {
+                    closeModal();
+                }
+                }
+
+                // Örnek tema değiştirme fonksiyonu (mevcut sisteminize entegre edin)
+                function toggleDarkMode() {
+                document.body.classList.toggle('dark-mode');
+                handleThemeChange(); // Temayı değiştirirken modalı kapat
+                }
+
+                // Escape tuşu ile kapatma
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                        closeModal();
+                    }
+                });
+            }
+        });
     </script>
+
   
 </body>
 </html>

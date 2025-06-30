@@ -2565,6 +2565,31 @@ body.dark-mode ::selection {
     color: #36364c /* Karanlık modda seçim arka plan rengi */
 }
 
+/* blog2.css dosyanıza ekleyin */
+.img-close {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-size: 1.1rem;
+    color: #fff;
+    background: none;
+    padding: 6px 16px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 12002;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    line-height: 1.2;
+}
+.img-close:hover {
+    transform: scale(1.06);
+}
+@media (max-width: 768px) {
+  .img-modal-content {
+    margin-top: 56px; /* Çarpı/yazı için boşluk bırakır */
+  }
+}
+
 
 
 /* En alt kısım için padding/margin ayarı */
