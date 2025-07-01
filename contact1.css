@@ -329,27 +329,19 @@ body.dark-mode .language-toggle img {
     font-weight: 700;
     font-size: 6rem;
     background: linear-gradient(
-        90deg,
-        /* 0% noktasında mor’dan mavi’ye doğru başlayacak */
-        #6a11cb 0%,
-        /* 25% noktasında tamamen mavi’ye varıyoruz */
-        #2575fc 25%,
-        /* 50% noktasında tekrar tamamen mor’a dönüyoruz */
-        #5a0eac 50%,
-        /* 75% noktasında tekrar tamamen mavi’ye çıkıyoruz */
-        #1d59c2 75%,
-        /* 100% noktasında yine mor’a doğru bitecek (ama 75–100 arası mavi→mor gradyan) */
-        #6f1bca 100%
+        135deg,
+        #c9488e 0%,
+        #b86fc6 20%,
+        #4a88bb 40%,
+        #6ec6ff 60%,
+        #df818c 80%,
+        #c9488e 100%
     );
-
-    /* Yatayda iki kat genişletilmiş bir arkaplan; böylece animasyonda
-       renkler sol-sağ kayarken “düz renk” görünmez, her zaman geçişli kalır. */
-    background-size: 200% 100%;
+    background-size: 500% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* İstediğiniz süre ve timing-function’ı ayarlayabilirsiniz */
-    animation: gradientAlways 6.2s ease-in-out infinite;
+    animation: gradientAlways 6.8s ease-in-out infinite;
     position: relative; /* Add relative positioning */
     z-index: 1; /* Ensure it's above any potential overlapping elements */
     line-height: 1.24; /* Adjust line height */
@@ -367,11 +359,13 @@ body.dark-mode .language-toggle img {
     }
 }
 body.dark-mode .left-section h1 {
-        background: linear-gradient(99deg, #6a11cb, #2575fc, #6d48b0, #888ff0, #65a0ff); /* Mavi-mor karışımı gradyan */
+        background: linear-gradient(90deg, #c9488e,
+        #4a88bb,
+        #df818c 100%); /* Mavi-mor karışımı gradyan */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        background-size: 200% 200%; /* Daha geniş gradyan alanı */
-        animation: gradient-shift 6.8s ease infinite; /* Gradyan hareketi için animasyon */
+        background-size: 500% 100%; /* Daha geniş gradyan alanı */
+        animation: gradient-shift 4.8s ease infinite; /* Gradyan hareketi için animasyon */
 }
 @keyframes gradient-shift {
             0% {

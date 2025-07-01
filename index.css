@@ -1912,13 +1912,6 @@ body.dark-mode .marcia-wrapper {
     border-radius: 32px;
 }
 
-.profile-section img:hover {
-    box-shadow: 
-        -50px -50px 80px rgba(255, 255, 255, 0.3), /* Hover'da daha belirgin üst ve sol gölge */
-        15px 15px 30px rgba(0, 0, 0, 0.6), /* Hover'da daha belirgin alt ve sağ gölge */
-        inset 0 0 30px rgba(255, 255, 255, 0.4), /* Hover'da daha belirgin iç beyaz gölge */
-        inset 0 0 20px rgba(0, 0, 0, 0.5); /* Hover'da daha belirgin iç siyah gölge */
-}
 
 
 @media screen and (min-width: 768px) {
