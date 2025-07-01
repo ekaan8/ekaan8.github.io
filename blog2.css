@@ -190,41 +190,27 @@ body.dark-mode .insta-text {
 
 
 
-
-
-/* .instagram-about h2 {
-    font-size: 3.2rem;
-    margin-bottom: 20px;
-    margin-left: 0; 
-    padding-left: 4.2%; 
-    display: flex;
-    align-items: center;
-    margin-top: 1px;
-    width: 100%; 
-    box-sizing: border-box; 
-
-    flex-wrap: nowrap;
-} */
  .instagram-about h2{
     font-size:3.2rem;   
     margin:0 0 20px;
     padding-left:4.2%;
-    display:flex;
-    align-items:center;
-    flex-wrap:wrap;        /* >>> ÖNEMLİ: taşmayı engeller, gerekirse alt satıra atar */
-    gap:1rem;              /* başlık-etiket arasına rahat boşluk */
-    box-sizing:border-box;
+    display: block !important;
+    position: relative;
+    align-items: center;
+    flex-wrap: wrap;        
+    gap: 1rem;              
+    box-sizing: border-box;
 }
 
 
 .instagram-about .instagram-text {
-    /*background: linear-gradient(to bottom, #97628b 0%, #a6317d 40%, #c3145d 100%);*/
-    background: linear-gradient(to right, #7c3aed, #ec4899);
+    background: linear-gradient(to right, #93afeb, #4e82f0, #306f8e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: block;
 }
 body.dark-mode .instagram-about .instagram-text {
-    background: linear-gradient(to right, #935fed, #ec4899);
+    background: linear-gradient(to right, #935fed, #b2487e, #ffbbdd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -233,24 +219,32 @@ body.dark-mode .instagram-about .instagram-text {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;    
     font-size: 2.2rem;;
-    padding: 5px 12px; /* Kutucuk içi boşluk */
-    border-radius: 100px; /* Yuvarlak kutucuk */
-    margin-left: 2rem; /* Yazılar arası boşluk */
-    font-weight: 400; /* Yazı kalınlığı */
-    display: inline-block; /* Kutucuğun boyutunu yazıya göre ayarla */
-    transform: translateY(2px); /* İnce ayar için */
+    padding: 8px 28px !important; 
+    border-radius: 100px; 
+    font-weight: 400; 
+    display: inline-block !important;
+    margin-left: 0 !important;
+    margin-top: 20px !important;
+    transform: translateY(2px); 
     line-height: 1.2;
     opacity: 0;
     transform: translateY(20px) scale(0.95);
     filter: blur(10px);
     animation: fadeInBlur 1.2s ease-out forwards;
     box-shadow: 
-        0 0 4px #ff69b4, /* Açık pembe */
-        0 0 8px #ff1493, /* Orta pembe */
-        0 0 12px #ec4899; /* Koyu pembe */
-
-    margin:0;              /* boşluk artık gap’ten geliyor           */
+        0 0 4px #306f8e, /* Açık pembe */
+        0 0 8px #4e82f0, /* Orta pembe */
+        0 0 12px #93afeb; /* Koyu pembe */
+    text-align: center;
     white-space:nowrap; 
+    width: auto !important;
+    max-width: 100%;
+}
+.tag-link {
+    text-decoration: none;
+}
+.tag-link:hover {
+    text-shadow: 0 0 4px #c1c1c1;
 }
 
 body.dark-mode .instagram-about .tag {
@@ -417,7 +411,7 @@ body.dark-mode .content-about {
 }
 
 .content-about h2 {
-    background: linear-gradient(to right, #7c3aed, #ec4899);
+    background: linear-gradient(to right, #9fc6d3, #20789b);
     /*background: linear-gradient(to bottom, #9b1b60 0%, #a6317d 40%, #c3145d 100%); /* Canlı renkler */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -894,15 +888,6 @@ body.dark-mode .post-card-about a {
             padding-left: 4.2%;
         }
           
-/*           .instagram-about .tag {
-            margin-left: 0px;
-            margin-top: 12px;
-            height: 90%;
-            width: 90%;
-            font-size: 2.0rem;
-            width: auto !important;
-            min-width: 0 !important;
-          } */
           .website {
             text-align: left;
             padding: 40px 20px 20px;
@@ -1158,37 +1143,7 @@ body.dark-mode .post-card-about a {
       }
 }
 
-@media (max-width: 480px) {
-    .post-group {
-        grid-template-columns: repeat(2, 1fr);
-    }
 
-    .insta-text p {
-        font-size: clamp(1.6rem, 5vw, 2.2rem);
-    }
-    .instagram-about h2 {
-        padding-left: 4.2%; /* Eklendi */
-    }
-    .insta-text {
-        padding-left: 4.2%; /* Eklendi */
-        max-width: 95%; /* Daha iyi responsive görünüm */
-    }
-}
-@media (max-width: 480px) {
-    .post-card-about a {
-        flex-direction: column;
-    }
-    
-    .post-card-image {
-        width: 100%;
-        height: 200px;
-    }
-    
-    .post-card-content {
-        width: 100%;
-    }
-
-}
 
 
 
@@ -1254,7 +1209,7 @@ body.dark-mode .website {
 }
 
 .website .website-h {
-    background: linear-gradient(135deg, #170f89, #4a55d0);
+    background: linear-gradient(135deg, #97ace8, #4a55d0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600;
@@ -1384,14 +1339,46 @@ body.dark-mode .website p a:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
+.jackorn-link {
+    display: inline-block;
+    padding: 6px 22px;
+    border-radius: 100px;
+    font-size: 2.1rem;
+    font-weight: 500;
+    background: none;
+    text-decoration: none;
+    box-shadow:
+        0 0 4px #4072ee,
+        0 0 8px #3680f6,
+        0 0 12px #9f9f9f;
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+}
+.jackorn-link:hover {
+    box-shadow:
+        0 0 1px #4072ee,
+        0 0 3px #3680f6,
+        0 0 6px #9f9f9f;
+}
 /* Dark Mode */
 body.dark-mode .jackorn {
     background: linear-gradient(90deg, rgb(208, 208, 208), rgb(140, 140, 140));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
+body.dark-mode .jackorn-link {
+    box-shadow:
+        0 0 4px #ff69b4,
+        0 0 8px #ff1493,
+        0 0 12px #ec4899;
+}
+body.dark-mode .jackorn-link:hover {
+    box-shadow:
+        0 0 1px #ff69b4,
+        0 0 3px #ff1493,
+        0 0 6px #ec4899;
+}
 
 /* Mobil uyumluluk (isteğe göre boyutu ayarla) */
 @media (max-width: 768px) {
@@ -1435,10 +1422,15 @@ body.dark-mode .dot-image-about {
     width: 100%;
     box-sizing: border-box;
 }
-/* Başlık için stil güncellemesi */
+
 .dot-image-header {
     font-size: 3.2rem;
     font-weight: 600;
+    background: linear-gradient(to right, #0072af, #52d9f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+body.dark-mode .dot-image-header {
     background: linear-gradient(to right, #935fed, #ec4899);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1636,7 +1628,6 @@ body.dark-mode .dot-redirect-button {
   .instagram-about h2 {
     display: block;
   }
-  /* .tag elementini blok yapıp, başlığın hemen altında bırakın */
   .instagram-about .tag {
     display: inline-block;    /* satır içi blok: genişlik içeriğe göre */
     width: auto;              /* kesinlikle full width yok */
@@ -1924,46 +1915,46 @@ body.dark-mode .gradient-text-about {
 }
 
 .gradient-text-header {
-    font-size: 3.2rem;  /* 3rem -> 3.2rem */
-    font-weight: 600;   /* Tek bir kez tanımlandı */
-    margin-bottom: 1.5rem;
-    display: block;
-    padding-left: 4.2%;
-      background: linear-gradient(
-        to top,
-        #8A2BE2,   /* mor */
-        #FF4500,   /* kırmızımsı turuncu */
-        #FF69B4,   /* pembe */
-        #FFD700    /* altın */
-      );
-      background-size: 300% 300%;
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: block;
+  padding-left: 4.2%;
+
+  /* Soft analogous palette */
+  background: linear-gradient(
+    90deg,
+    #ff9a9e,  /* soft rose */
+    #fad0c4,  /* peachy blush */
+    #fbc2eb,  /* lavender pink */
+    #a6c1ee,  /* sky lilac */
+    #84fab0,  /* minty green */
+    #8fd3f4,  /* baby blue */
+    #ff9a9e   /* loop back to rose */
+  );
+
+  /* Very wide for smooth drift */
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  /* Use ease‑in‑out for gentle acceleration, alternate to avoid jumps */
+  animation: gradient-move 5.71s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-move {
+  /* From far left to far right */
+  0%   { background-position: 0%   50%; }
+  100% { background-position: 100% 50%; }
 }
 
 
-body.dark-mode .gradient-text-header {
-    background: linear-gradient(
-        to top,
-        #C8A2C8,
-        #FF69B4,    /* pembe */    /* lila */
-        #9400D3     /* mor */
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-}
-@media (max-width: 768px) {
-    .gradient-text-header {
-        font-size: 3.2rem;  /* Mobilde daha küçük boyut */
-    }
-}
 /* Mobil görünüm için düzenleme */
 @media (max-width: 768px) {
     .gradient-text-header {
+        font-size: 3.2rem;
         padding-left: 2px !important; /* Instagram mobil hizası ile aynı */
     }
 
@@ -2603,6 +2594,20 @@ body.dark-mode ::selection {
   }
 }
 
+@media (max-width: 768px) {
+    .gradient-text-about {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    .gradient-text-header {
+        padding-left: 1.2rem !important;
+    }
+    .gradient-text-content,
+    .gradient-text-content p {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
 
 
 /* En alt kısım için padding/margin ayarı */
