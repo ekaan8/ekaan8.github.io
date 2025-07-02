@@ -245,15 +245,7 @@ body.dark-mode .profile-section.card {
     object-fit: cover;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-/*
-.text-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    font-weight: 600;
-    max-width: 70%;
-    font-size: 24px;
-}*/
+
 .text-content {
     width: 100%;
     font-weight: 500;
@@ -266,7 +258,7 @@ body.dark-mode .profile-section.card {
 }
 
 .gradient-text {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     background: linear-gradient(to right, #b10066, #9b00b1, #5e00d7);
     -webkit-background-clip: text;
@@ -744,7 +736,7 @@ body.dark-mode .about-contact .contact-link:hover {
     }
 
     .gradient-text {
-        font-size: 3.8rem;
+        font-size: 3.0rem;
         margin-top: 0.12rem;
     }
 
