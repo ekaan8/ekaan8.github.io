@@ -219,7 +219,7 @@ body.dark-mode .instagram-about .instagram-text {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;    
     font-size: 2.2rem;;
-    padding: 8px 28px !important; 
+    padding: 8px 28px; 
     border-radius: 100px; 
     font-weight: 400; 
     display: inline-block !important;
@@ -232,12 +232,12 @@ body.dark-mode .instagram-about .instagram-text {
     filter: blur(10px);
     animation: fadeInBlur 1.2s ease-out forwards;
     box-shadow: 
-        0 0 4px #306f8e, /* Açık pembe */
-        0 0 8px #4e82f0, /* Orta pembe */
-        0 0 12px #93afeb; /* Koyu pembe */
+        0 0 4px #306f8e, 
+        0 0 8px #4e82f0, 
+        0 0 12px #93afeb; 
     text-align: center;
     white-space:nowrap; 
-    width: auto !important;
+    width: auto;
     max-width: 100%;
 }
 .tag-link {
@@ -1628,23 +1628,7 @@ body.dark-mode .dot-redirect-button {
     content:none;     /* çizgiyi iptal et */
 }
 
-@media (max-width: 768px) {
-  /* Başlık blok şeklinde olsun, böylece alt elemanlar alt satıra geçsin */
-  .instagram-about h2 {
-    display: block;
-  }
-  .instagram-about .tag {
-    display: inline-block;    /* satır içi blok: genişlik içeriğe göre */
-    width: auto;              /* kesinlikle full width yok */
-    max-width: 100%;          /* yine de taşmayı engeller */
-    margin-top: .8rem;
-    padding: 5px 12px;        /* istediğiniz iç boşluk */
-    padding-left: 10px;       /* başlık hizasına devam */
-    white-space: nowrap;      /* metin tek satır kalsın */
-    text-align: left;
-    font-size: 2.2rem;;
-  }
-}
+
 
   
 
@@ -2817,3 +2801,18 @@ body.dark-mode ::selection {
                 max-width: 161px;
             }
         }
+    @media (max-width: 600px) {
+        .instagram-about h2 {
+            display: block;
+        }
+        .instagram-about .tag {
+            display: inline-block !important;
+            width: auto !important;
+            max-width: 90vw !important;
+            margin-top: .6rem;
+            padding: 2px 10px !important;   /* Sağ ve sol padding azaltıldı */
+            white-space: nowrap;
+            text-align: left;
+            font-size: 2.4rem !important;   /* Daha kompakt görünüm için küçültüldü */
+        }
+    }

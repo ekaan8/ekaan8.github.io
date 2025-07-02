@@ -260,7 +260,7 @@ body.dark-mode .profile-section.card {
 .gradient-text {
     font-size: 3rem;
     font-weight: bold;
-    background: linear-gradient(to right, #b10066, #9b00b1, #5e00d7);
+    background: linear-gradient(to right, #3d45b8, #2fa2c9, #33e8e8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
@@ -396,11 +396,9 @@ body.dark-mode .timeline-item::before {
     padding-bottom: 0.15em; /* kuyrukların karta değmesini önler */
 }
 body.dark-mode .about-story .section-title {
-    /*background: linear-gradient(to bottom, rgb(173, 216, 255),
-                         rgb(66, 150, 255), rgb(29, 86, 201));  */
-    background: linear-gradient(to bottom, #9d71e8, #ec6aab, #f7b733);                 
-    -webkit-background-clip: text; /* Yalnızca metin üzerinde gradyan efektini uygular */
-    color: transparent; /* Metnin kendisinin rengini şeffaf yapar */
+    background: linear-gradient(to right, #9d71e8, #ec6aab, #f199f1);                
+    -webkit-background-clip: text; 
+    color: transparent; 
 }
 
 
@@ -472,10 +470,9 @@ body.dark-mode .about-skills .skill-item:hover {
     margin-left: 2%;
 }
 body.dark-mode .about-skills .section-title {
-    /*color: rgb(53, 121, 246);*/
-    background: linear-gradient(to bottom, #9d71e8, #ec6aab, #f7b733); 
-    -webkit-background-clip: text; /* Yalnızca metin üzerinde gradyan efektini uygular */
-    color: transparent; /* Metnin kendisinin rengini şeffaf yapar */
+    background: linear-gradient(to right, #9d71e8, #ec6aab, #f199f1); 
+    -webkit-background-clip: text; 
+    color: transparent; 
 }
 
 /* Neumorphism for skill‑item */
@@ -507,9 +504,13 @@ body.dark-mode .about-skills .skill-item {
     background: linear-gradient(145deg, #ffffff, #f5f5f5);
     border-radius: 32px;
     padding: 2.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 0 0 #4bb3e77a;
     color: white;
 }
+body.dark-mode .about-vision.card {
+    box-shadow: 0 1px 0 0 #a94be77a;
+}
+
 
 .about-vision .section-title {
     /*color: #1e3c72;*/
@@ -526,9 +527,8 @@ body.dark-mode .about-skills .skill-item {
     margin-left: 2%;
 }
 body.dark-mode .about-vision .section-title {
-    /*color: rgb(53, 121, 246);*/
-    background: linear-gradient(to bottom, #9d71e8, #ec6aab, #f7b733);
- 
+
+    background: linear-gradient(to right, #9d71e8, #ec6aab, #f199f1);
     -webkit-background-clip: text; /* Yalnızca metin üzerinde gradyan efektini uygular */
     color: transparent; /* Metnin kendisinin rengini şeffaf yapar */
 }
@@ -736,7 +736,7 @@ body.dark-mode .about-contact .contact-link:hover {
     }
 
     .gradient-text {
-        font-size: 3.0rem;
+        font-size: 2.8rem !important;
         margin-top: 0.12rem;
     }
 
@@ -795,7 +795,7 @@ body.dark-mode .about-contact .contact-link:hover {
     }
 
     .gradient-text {
-        font-size: 3rem;
+        font-size: 2.0rem !important;
     }
     .about-contact {
         padding: 15px;
@@ -1414,8 +1414,7 @@ body.dark-mode .navbar {
 
 
 
-/* Mevcut stiller */
-/* Mevcut stiller */
+
 .text-content {
     width: 100%;
     font-weight: 500;
@@ -1431,9 +1430,9 @@ body.dark-mode .navbar {
 /* Yeni stiller */
 .text-wrapper {
     position: relative;
-    max-height: 400px; /* Başlangıçta görünen metin bloğunun maksimum yüksekliği */
-    overflow: hidden; /* Bu yükseklik aşıldığında içeriği gizle */
-    transition: max-height 0.5s ease-out; /* Yumuşak geçiş için */
+    max-height: 380px; 
+    overflow: hidden; 
+    transition: max-height 0.5s ease-out; 
 }
 
 .partial-text {
@@ -1448,7 +1447,7 @@ body.dark-mode .navbar {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 120px; /* Bulanık alanın yüksekliği, butonu ve bulanıklığı kapsayacak */
+    height: 60px; /* Bulanık alanın yüksekliği, butonu ve bulanıklığı kapsayacak */
     background: linear-gradient(to top, #f7f7f7 0%, rgba(255,255,255,0) 100%); /* Beyazdan şeffafa geçişli degrad */
     backdrop-filter: blur(5px); /* Bulanıklık efekti */
     display: flex;
@@ -1458,12 +1457,23 @@ body.dark-mode .navbar {
     padding-bottom: 20px; /* Buton için alttan boşluk */
     box-sizing: border-box;
     pointer-events: none; /* Buton hariç tıklama olaylarını engeller */
-    /* Z-index ekleyerek metnin üstünde görünmesini sağlayalım */
     z-index: 10; 
 }
 body.dark-mode .blurred-overlay {
     background: linear-gradient(to top, #2f2f2f 0%, rgba(30, 30, 30, 0) 100%); 
     backdrop-filter: blur(5px);
+}
+@media (max-width: 768px) {
+    .blurred-overlay {
+        height: 68px;
+        backdrop-filter: blur(1px);         /* Masaüstüne göre daha yumuşak */
+        -webkit-backdrop-filter: blur(1.5px); /* Safari için */
+    }
+    body.dark-mode .blurred-overlay {
+        background: linear-gradient(to top, #2f2f2f 0%, rgba(30, 30, 30, 0) 100%); 
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1.5px);
+    }
 }
 
 .blurred-overlay p {
@@ -1511,11 +1521,11 @@ body.dark-mode .blurred-overlay button:hover{
     }
 
     .text-wrapper {
-        max-height: 300px; /* Mobil için daha az görünen metin bloğu */
+        max-height: 400px; /* Mobil için daha az görünen metin bloğu */
     }
 
     .blurred-overlay {
-        height: 100px; /* Mobil için bulanık alan yüksekliği */
+        height: 80px; /* Mobil için bulanık alan yüksekliği */
     }
 
     .blurred-overlay button {
@@ -1529,7 +1539,14 @@ body.dark-mode .blurred-overlay button:hover{
 
 
 
-
+@media (max-width: 600px) {
+    .about-story.card p,
+    .about-skills.card p,
+    .about-vision.card p,
+    .about-contact.card p {
+        font-size: 1.48rem;
+    }
+}
 
 
 
