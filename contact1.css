@@ -277,7 +277,7 @@ body.dark-mode .email-form textarea::placeholder {
     background-color: #0077B3;
     color: white;
     border: none;
-    padding: 16px 48px;
+    padding: 16px 32px;
     font-size: 18px;
     border-radius: 100px;
     cursor: pointer;
@@ -462,37 +462,8 @@ body.dark-mode .left-section p {
         position: relative; /* Add relative positioning */
         z-index: 1; /* Ensure it's above any potential overlapping elements */
         line-height: 1.3; /* Adjust line height */
-        background: linear-gradient(
-        90deg,
-        /* 0% noktasında mor’dan mavi’ye doğru başlayacak */
-        #6a11cb 0%,
-        /* 25% noktasında tamamen mavi’ye varıyoruz */
-        #2575fc 25%,
-        /* 50% noktasında tekrar tamamen mor’a dönüyoruz */
-        #6a11cb 50%,
-        /* 75% noktasında tekrar tamamen mavi’ye çıkıyoruz */
-        #2575fc 75%,
-        /* 100% noktasında yine mor’a doğru bitecek (ama 75–100 arası mavi→mor gradyan) */
-        #6a11cb 100%
-    );
-    background-size: 200% 100%; /* Yatayda iki kat genişletilmiş gradient alanı */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    }
 
-    /* Animasyon tanımı */
-    animation: gradientShift 4s ease-in-out infinite;
-    }
-    @keyframes gradientShift {
-        0% {
-            background-position: 0% 0%;
-        }
-        50% {
-            background-position: 100% 0%;
-        }
-        100% {
-            background-position: 0% 0%;
-        }
-    }
 
 
 
@@ -607,14 +578,10 @@ body.dark-mode .left-section p {
     .left-section p {
         font-size: 1.7rem;
         margin-top: 1rem;
-        margin-bottom: 1rem; /* Reduced from 2.5rem */
+        margin-bottom: 1rem; 
         text-align: center;
         width: 100%;
     }
-
-
-
-
 
     .contact-grid {
         flex-direction: row; /* Keep items in a row */
@@ -689,21 +656,12 @@ body.dark-mode .left-section p {
     .menu-link::after {
         bottom: -4px;
     }
-    
-/*       .mobile-site-title {
-          display: block; 
-          font-size: 1.2rem;
-          font-weight: 500;
-          color: #333;
-          text-align: left;
-      } */
-      body.dark-mode .mobile-site-title {
+
+    body.dark-mode .mobile-site-title {
           color: #ffffff;
-      }
+    }
 }
 @media (max-width: 768px) {
-    /* ... other mobile styles ... */
-
     .navbar {
         position: fixed; /* Change from relative to fixed */
         top: 0;
@@ -774,24 +732,24 @@ body.dark-mode .left-section p {
 }
 
 @media (min-width: 900px) and (max-width: 1150px) {
-    /* Paragrafı biraz daha kompakt yapalım */
+    
     .left-section p {
-      margin-top: 2.4rem;    /* eskiden 2rem’dı */
-      font-size: 2.0rem;     /* eskiden 2.5rem’dı */
-      line-height: 1.3;    /* isteğe bağlı ince ayar */
+      margin-top: 2.4rem;    
+      font-size: 2.0rem;    
+      line-height: 1.3;    
     }
   
-    /* İletişim ikonları ızgarasını yukarı çekelim */
+    
     .contact-grid {
-      margin-top: 16px;    /* eskiden 40px’dı */
+      margin-top: 16px;   
     }
 }
 @media (min-width: 1150px) and (max-width: 1235px) {
-    /* Paragrafı biraz daha kompakt yapalım */
+    
     .left-section p {
-      margin-top: 2.4rem;    /* eskiden 2rem’dı */
-      font-size: 2.3rem;     /* eskiden 2.5rem’dı */
-      line-height: 1.3;    /* isteğe bağlı ince ayar */
+      margin-top: 2.4rem;    
+      font-size: 2.3rem;     
+      line-height: 1.3;    
     }
 }
   
@@ -810,11 +768,12 @@ body.dark-mode .left-section p {
     z-index: 10000;
     opacity: 0;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: none;
 }
-
 #snackbar.show {
-    visibility: visible;
+    display: block;
     opacity: 1;
+    visibility: visible;
 }
 
 /* Başarı mesajı (Aydınlık mod) */
@@ -831,14 +790,14 @@ body.dark-mode #snackbar {
     border: #444444 1px solid;
 }
 
-/* Hata mesajı (Aydınlık mod) */
+
 body:not(.dark-mode) #snackbar.error {
     background-color: rgb(255, 99, 99); /* Kırmızı arka plan */
     color: white; /* Beyaz yazı */
     border: #bfbfbf 1px solid;
 }
 
-/* Hata mesajı (Karanlık mod) */
+
 body.dark-mode #snackbar.error {
     background-color: rgb(220, 50, 50); /* Koyu kırmızı arka plan */
     color: white; /* Beyaz yazı */
@@ -862,33 +821,27 @@ body.dark-mode ::selection {
 
 
 @media (max-width: 600px) {
-    /* ...existing code... */
-    
+
     .contact-grid {
         flex-direction: row;
-        justify-content: space-between; /* Changed from center to space-between */
+        flex-wrap: wrap;              /* Satır kaydırmaya izin ver */
+        justify-content: center;      /* Ortala */
         align-items: center;
         margin: 1.0rem auto;
-        width: 82.9%; /* Changed from 82.9% to full width */
-        padding: 0 50px 1rem 10px; /* Added horizontal padding */
-        gap: 0.5rem; /* Reduced gap */
-        flex-wrap: nowrap; /* Prevent wrapping */
-        overflow-x: auto; /* Enable horizontal scroll if needed */
-        -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+        width: 100%;
+        padding: 0 0 1.2rem 0;        /* Yatay paddingleri kaldır */
+        gap: 0.5rem;
+        overflow-x: visible;          /* Kaydırmayı kapat */
         border-bottom: 1px solid #d4d4d4;
-        margin-bottom: -1.6rem;
-        scrollbar-width: none; /* Hide scrollbar for Firefox */
-        -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+        margin-bottom: -2.6rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
-
-    /* Hide scrollbar for Chrome/Safari */
     .contact-grid::-webkit-scrollbar {
         display: none;
     }
-
     .contact-item {
-        flex: 0 0 auto; /* Don't grow or shrink */
-        min-width: 4rem; /* Minimum width */
+        min-width: 4rem;
         max-width: 4.8rem;
         display: flex;
         flex-direction: column;
@@ -906,4 +859,15 @@ body.dark-mode ::selection {
         font-size: 0.9rem; /* Smaller text */
         margin-top: 0.2rem;
     }
+    .left-section p {
+        text-align: center;
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
+ 

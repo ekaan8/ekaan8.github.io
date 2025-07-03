@@ -145,15 +145,6 @@ body.dark-mode .language-toggle img {
 }
 
 
-/* Genel sayfa yapısı için wrapper */
-/*
-.about-container {
-    padding-top: 80px; 
-    min-height: 100vh;
-    position: relative;
-}*/
-/* Update the about-container class */
-
 .about-container {
     padding-top: 80px;
     min-height: 100vh;
@@ -163,30 +154,16 @@ body.dark-mode .language-toggle img {
 
 
 
-
-
-/* Profile Section */
-/* Profile Section için düzeltilmiş margin */
 .profile-section {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 100px; 
-    padding-top: 2.8rem; /* Ek üst boşluk */
+    padding-top: 2.8rem; 
     border-radius: 32px;
     padding: 2.5rem;
 }
 
-
-/*
-.about-contact  {
-    background: linear-gradient(145deg, #1e3c72, #2a5298);
-    border-radius: 32px;
-    padding: 2.5rem;
-    color: white;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-}
-*/
 
 /* Card için düzeltilmiş margin */
 .card {
@@ -204,11 +181,6 @@ body.dark-mode .language-toggle img {
 
 
 body.dark-mode .card {
-    /* Karanlık modda kullanılacak gradient; renkleri ihtiyacınıza göre ayarlayın */
-    /*background: linear-gradient(145deg, #424242, #2c2c2c);*/
-    /*background: linear-gradient(60deg, #4a4a4a, #2e2e2e);
-    background: linear-gradient(60deg, #2e2e2ecd, #4a4a4ac8);
-    box-shadow: 0 4px 8px rgba(164, 164, 164, 0.1);*/
 
     border-top:    1px solid rgba(255, 255, 255, 0.3);
     border-left: 1px solid rgba(255, 255, 255, 0.3);
@@ -544,11 +516,7 @@ body.dark-mode .about-vision .section-title {
 body.dark-mode .about-vision p {
     color: #f8f9fa;
 }
-@media (max-width: 768px) {
-  .about-vision p {
-    font-size: 1.34rem !important;
-  }
-}
+
 
 /* About Contact Card */
 .about-contact.card {
@@ -1345,9 +1313,6 @@ body.dark-mode .navbar {
 }
 
 
-
-/*kart deneme*/
-/* --- Story Card Animasyonunu Basitleştir --- */
 /* Kartlar için sadece soldan sağa fade-in animasyonu */
 @keyframes slideInLeft {
     from {
@@ -1410,11 +1375,6 @@ body.dark-mode .navbar {
 
 
 
-
-
-
-
-
 .text-content {
     width: 100%;
     font-weight: 500;
@@ -1424,7 +1384,6 @@ body.dark-mode .navbar {
 .text-content p {
     max-width: 100%;
     word-break: break-word;
-    /* Font ve renk gibi diğer özellikler burada kalacak */
 }
 
 /* Yeni stiller */
@@ -1436,7 +1395,6 @@ body.dark-mode .navbar {
 }
 
 .partial-text {
-    /* Buradaki max-height ve overflow kaldırıldı */
     margin-bottom: 20px; /* Partial text ile blurred overlay arasında boşluk */
 }
 
@@ -1447,9 +1405,10 @@ body.dark-mode .navbar {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60px; /* Bulanık alanın yüksekliği, butonu ve bulanıklığı kapsayacak */
+    height: 68px; /* Bulanık alanın yüksekliği, butonu ve bulanıklığı kapsayacak */
     background: linear-gradient(to top, #f7f7f7 0%, rgba(255,255,255,0) 100%); /* Beyazdan şeffafa geçişli degrad */
-    backdrop-filter: blur(5px); /* Bulanıklık efekti */
+    backdrop-filter: blur(1px); /* Daha güçlü blur */
+    -webkit-backdrop-filter: blur(1px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* İçeriği alta hizala */
@@ -1481,16 +1440,16 @@ body.dark-mode .blurred-overlay {
     color: #797979;
     margin-bottom: 10px;
     pointer-events: auto;
-    text-align: center; /* Ortalamak için */
+    text-align: center; 
 }
 
 .blurred-overlay button {
     pointer-events: auto;
-    background: rgba(255, 255, 255, 0.778); /* Butonun içi beyaz */
+    background: rgba(255, 255, 255, 0.808); /* Butonun içi beyaz */
     border: 1px solid #767676; /* 2px kalınlığında siyah kenarlık */
     color: rgb(0, 0, 0); /* Yazı rengi siyah */
     padding: 10px 20px;
-    border-radius: 100px; /* Kenar yarıçapı */
+    border-radius: 100px; 
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Hover geçişleri eklendi */
@@ -1512,20 +1471,20 @@ body.dark-mode .blurred-overlay button:hover{
     display: none !important;
 }
 
-/* Mobil için responsive ayarlar */
+
 @media (max-width: 768px) {
     .text-content p {
-        font-size: 1.34rem;
+        font-size: 1.32rem;
         text-align: left;
         width: 100%;
     }
 
     .text-wrapper {
-        max-height: 400px; /* Mobil için daha az görünen metin bloğu */
+        max-height: 400px; 
     }
 
     .blurred-overlay {
-        height: 80px; /* Mobil için bulanık alan yüksekliği */
+        height: 78px; 
     }
 
     .blurred-overlay button {
@@ -1533,9 +1492,6 @@ body.dark-mode .blurred-overlay button:hover{
         font-size: 0.9rem;
     }
 }
-
-
-
 
 
 
@@ -1547,9 +1503,6 @@ body.dark-mode .blurred-overlay button:hover{
         font-size: 1.48rem;
     }
 }
-
-
-
 
 ::selection {
     background-color: #94c8d8; 
