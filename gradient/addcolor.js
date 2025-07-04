@@ -249,9 +249,18 @@ document.addEventListener('DOMContentLoaded', function() {
     gradientDirection.addEventListener('change', function() {
         customGradientEnabled = this.value === 'custom';
         gradientControl.style.display = customGradientEnabled ? 'block' : 'none';
+
+        // Her durumda çember renklerini güncelle
+        startCircle.style.backgroundColor = colorStops[0].color;
+        endCircle.style.backgroundColor = colorStops[colorStops.length - 1].color;
+
+        // Eski ara çemberleri temizle
+        intermediatePreviewCircles.forEach(circle => circle.remove());
+        intermediatePreviewCircles = [];
+
         if (customGradientEnabled) {
             initializeGradientControl();
-            intermediatePreviewCircles = [];
+            // Ara çemberleri güncel colorStops'a göre oluştur
             for (let i = 1; i < colorStops.length - 1; i++) {
                 const newCircle = document.createElement('div');
                 newCircle.className = 'gradient-circle intermediate-circle';
@@ -263,10 +272,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 intermediatePreviewCircles.push(newCircle);
             }
             updateCustomGradient();
-        } else {
-            intermediatePreviewCircles.forEach(circle => circle.remove());
-            intermediatePreviewCircles = [];
         }
+        updatePreviewCircles(); // Tüm çember renklerini güncelle
         updatePreview();
     });
 
@@ -499,8 +506,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 gradientCSS = `linear-gradient(${cssAngle}deg, ${gradientStops})`;
             }
         } else {
-            const allColors = colorStops.map(stop => stop.color);
-            gradientCSS = `linear-gradient(${gradientDirection.value}, ${allColors.join(', ')})`;
+            const gradientStops = colorStops
+                .sort((a, b) => a.position - b.position)
+                .map(stop => `${stop.color} ${stop.position * 100}%`)
+                .join(', ');
+            gradientCSS = `linear-gradient(${gradientDirection.value}, ${gradientStops})`;
         }
         
         const css = `.gradyan-metin {
@@ -558,22 +568,21 @@ document.addEventListener('DOMContentLoaded', function() {
             link.click();
         });
     });  */ 
-    downloadImageBtn.addEventListener('click', function() {
-    // Kullanıcıdan ayarları al
+
+    downloadImageBtn.addEventListener('click', async function() {
     const text = userText.value || 'Metin girin';
     const fontSizeVal = parseInt(fontSize.value, 10);
     const fontFamilyVal = fontFamily.value;
     const fontWeightVal = fontWeight.value;
     const lineHeightVal = lineHeight.value;
     const textAlignVal = textAlign.value;
-    const width = 900;   // İstediğiniz genişlik
-    const height = 300;  // İstediğiniz yükseklik
-    const gradientColors = colorStops.map(stop => stop.color);
-    const gradientDirectionVal = gradientDirection.value;
+    const width = 1200;
+    const height = 300;
+    const gradientDirectionVal = gradientDirection.value === 'custom' ? 'to right' : gradientDirection.value;
     const bgColor = backgroundColor.value;
 
-    // Canvas'a çiz
-    const canvas = drawGradientTextToCanvas({
+    // Canvas'a çiz (tüm renk duraklarını kullanarak)
+    const canvas = await drawGradientTextToCanvas({
         text,
         fontSize: fontSizeVal,
         fontFamily: fontFamilyVal,
@@ -582,7 +591,7 @@ document.addEventListener('DOMContentLoaded', function() {
         textAlign: textAlignVal,
         width,
         height,
-        gradientColors,
+        colorStops: [...colorStops], // Tüm renk duraklarını kopyala
         gradientDirection: gradientDirectionVal,
         backgroundColor: bgColor
     });
@@ -592,7 +601,44 @@ document.addEventListener('DOMContentLoaded', function() {
     link.download = 'gradyan-metin.png';
     link.href = canvas.toDataURL('image/png');
     link.click();
+});
+
+copyImageBtn.addEventListener('click', async function() {
+    const text = userText.value || 'Metin girin';
+    const fontSizeVal = parseInt(fontSize.value, 10);
+    const fontFamilyVal = fontFamily.value;
+    const fontWeightVal = fontWeight.value;
+    const lineHeightVal = lineHeight.value;
+    const textAlignVal = textAlign.value;
+    const width = 900;
+    const height = 300;
+    const gradientDirectionVal = gradientDirection.value === 'custom' ? 'to right' : gradientDirection.value;
+    const bgColor = backgroundColor.value;
+
+    // Canvas'a çiz (tüm renk duraklarını kullanarak)
+    const canvas = await drawGradientTextToCanvas({
+        text,
+        fontSize: fontSizeVal,
+        fontFamily: fontFamilyVal,
+        fontWeight: fontWeightVal,
+        lineHeight: lineHeightVal,
+        textAlign: textAlignVal,
+        width,
+        height,
+        colorStops: [...colorStops], // Tüm renk duraklarını kopyala
+        gradientDirection: gradientDirectionVal,
+        backgroundColor: bgColor
     });
+
+    // PNG olarak panoya kopyala
+    canvas.toBlob(blob => {
+        navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(() => {
+            const originalText = copyImageBtn.textContent;
+            copyImageBtn.textContent = 'Kopyalandı!';
+            setTimeout(() => copyImageBtn.textContent = originalText, 1500);
+        }).catch(err => console.error('Görsel kopyalama başarısız: ', err));
+    });
+});
 
 
 
@@ -623,44 +669,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }); */
-        copyImageBtn.addEventListener('click', function() {
-            // Kullanıcıdan ayarları al
-            const text = userText.value || 'Metin girin';
-            const fontSizeVal = parseInt(fontSize.value, 10);
-            const fontFamilyVal = fontFamily.value;
-            const fontWeightVal = fontWeight.value;
-            const lineHeightVal = lineHeight.value;
-            const textAlignVal = textAlign.value;
-            const width = 900;
-            const height = 300;
-            const gradientColors = colorStops.map(stop => stop.color);
-            const gradientDirectionVal = gradientDirection.value;
-            const bgColor = backgroundColor.value;
 
-            // Canvas'a çiz
-            const canvas = drawGradientTextToCanvas({
-                text,
-                fontSize: fontSizeVal,
-                fontFamily: fontFamilyVal,
-                fontWeight: fontWeightVal,
-                lineHeight: lineHeightVal,
-                textAlign: textAlignVal,
-                width,
-                height,
-                gradientColors,
-                gradientDirection: gradientDirectionVal,
-                backgroundColor: bgColor
-            });
-
-            // PNG olarak panoya kopyala
-            canvas.toBlob(blob => {
-                navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(() => {
-                    const originalText = copyImageBtn.textContent;
-                    copyImageBtn.textContent = 'Kopyalandı!';
-                    setTimeout(() => copyImageBtn.textContent = originalText, 1500);
-                }).catch(err => console.error('Görsel kopyalama başarısız: ', err));
-            });
-        });
 
 
     // Initialize
@@ -974,6 +983,8 @@ function createSpectrumCircles() {
         });
         
         spectrumContainer.appendChild(circle);
+
+        
     });
 }
 
@@ -1156,6 +1167,7 @@ function updateSelectedColor() {
     // Spectrumu güncelle
     drawSpectrumCanvas();
     
+    updatePreviewCircles();
     // Önizlemeyi güncelle
     updatePreview();
 }
@@ -1177,6 +1189,7 @@ function updateSelectedColorFromHex(hexColor) {
     // Spectrumu güncelle
     drawSpectrumCanvas();
     
+    updatePreviewCircles();
     // Önizlemeyi güncelle
     updatePreview();
 }
@@ -1269,6 +1282,53 @@ placeColorCircles = function() {
 };
 
 
+
+function showColorDetailBox(circleEl, color) {
+    // Kutucuğu oluştur veya seç
+    let detailBox = document.getElementById('colorDetailBox');
+    if (!detailBox) {
+        detailBox = document.createElement('div');
+        detailBox.id = 'colorDetailBox';
+        detailBox.style.position = 'absolute';
+        detailBox.style.zIndex = 1000;
+        detailBox.style.padding = '8px 14px';
+        detailBox.style.borderRadius = '12px';
+        detailBox.style.background = '#fff';
+        detailBox.style.boxShadow = '0 2px 12px rgba(0,0,0,0.18)';
+        detailBox.style.fontSize = '14px';
+        detailBox.style.pointerEvents = 'none';
+        document.body.appendChild(detailBox);
+    }
+    detailBox.textContent = color;
+
+    // Çemberin ve spektrumun konumunu al
+    const circleRect = circleEl.getBoundingClientRect();
+    const spectrumRect = document.querySelector('.spectrum-container').getBoundingClientRect();
+
+    // Kutucuğun boyutunu tahmini olarak al
+    const boxWidth = 90, boxHeight = 38;
+
+    // Pozisyonu hesapla: çemberin ortasına hizala, spektrumun üstünde tut
+    let left = circleRect.left + (circleRect.width / 2) - (boxWidth / 2);
+    let top = circleRect.top - boxHeight - 8;
+
+    // Sayfa ve spektrum kutusu içinde taşmayı engelle
+    left = Math.max(spectrumRect.left + 4, Math.min(left, spectrumRect.right - boxWidth - 4));
+    top = Math.max(spectrumRect.top + 4, top);
+
+    // Pozisyonu uygula
+    detailBox.style.left = `${left}px`;
+    detailBox.style.top = `${top}px`;
+    detailBox.style.width = `${boxWidth}px`;
+    detailBox.style.height = `${boxHeight}px`;
+    detailBox.style.display = 'block';
+}
+
+function hideColorDetailBox() {
+    const detailBox = document.getElementById('colorDetailBox');
+    if (detailBox) detailBox.style.display = 'none';
+}
+
 /* utils --------------------------------------------------------- */
 function hexToRgb(hex) {               // #rrggbb → {r,g,b}
     const i = parseInt(hex.slice(1), 16);
@@ -1283,52 +1343,58 @@ function drawGradientTextToCanvas({
     textAlign,
     width,
     height,
-    gradientColors,
+    colorStops,
     gradientDirection,
     backgroundColor
 }) {
-    const canvas = document.createElement('canvas');
-    canvas.width = width;
-    canvas.height = height;
-    const ctx = canvas.getContext('2d');
+    return new Promise((resolve) => {
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
 
-    // Arka plan
-    ctx.fillStyle = backgroundColor;
-    ctx.fillRect(0, 0, width, height);
+        // Arka plan
+        ctx.fillStyle = backgroundColor;
+        ctx.fillRect(0, 0, width, height);
 
-    // Yazı ayarları
-    ctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
-    ctx.textAlign = textAlign;
-    ctx.textBaseline = 'middle';
+        // Yazı stillerini ayarla
+        ctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+        ctx.textAlign = textAlign;
+        ctx.textBaseline = 'middle';
 
-    // Gradyan
-    let grad;
-    if (gradientDirection === 'to right') {
-        grad = ctx.createLinearGradient(0, height/2, width, height/2);
-    } else if (gradientDirection === 'to left') {
-        grad = ctx.createLinearGradient(width, height/2, 0, height/2);
-    } else if (gradientDirection === 'to bottom') {
-        grad = ctx.createLinearGradient(width/2, 0, width/2, height);
-    } else if (gradientDirection === 'to top') {
-        grad = ctx.createLinearGradient(width/2, height, width/2, 0);
-    } else {
-        grad = ctx.createLinearGradient(0, height/2, width, height/2);
-    }
-    const colorStep = 1 / (gradientColors.length - 1);
-    gradientColors.forEach((color, i) => {
-        grad.addColorStop(i * colorStep, color);
+        // Tüm renk duraklarını kullanarak gradyan oluştur
+        let grad;
+        if (gradientDirection === 'to right') {
+            grad = ctx.createLinearGradient(0, 0, width, 0);
+        } else if (gradientDirection === 'to left') {
+            grad = ctx.createLinearGradient(width, 0, 0, 0);
+        } else if (gradientDirection === 'to bottom') {
+            grad = ctx.createLinearGradient(0, 0, 0, height);
+        } else if (gradientDirection === 'to top') {
+            grad = ctx.createLinearGradient(0, height, 0, 0);
+        } else {
+            grad = ctx.createLinearGradient(0, 0, width, 0);
+        }
+
+        // Tüm renk duraklarını ekle (pozisyonlarıyla birlikte)
+        colorStops
+            .sort((a, b) => a.position - b.position)
+            .forEach(stop => {
+                grad.addColorStop(stop.position, stop.color);
+            });
+
+        ctx.fillStyle = grad;
+
+        // Metni çiz
+        let x;
+        if (textAlign === 'center') x = width / 2;
+        else if (textAlign === 'right') x = width - 20;
+        else x = 20;
+        
+        ctx.fillText(text, x, height / 2);
+
+        resolve(canvas);
     });
-
-    ctx.fillStyle = grad;
-
-    // Yazıyı çiz
-    let x;
-    if (textAlign === 'center') x = width / 2;
-    else if (textAlign === 'right') x = width - 20;
-    else x = 20;
-    ctx.fillText(text, x, height / 2);
-
-    return canvas;
 }
 
 /* Proximity-blend texture --------------------------------------- */

@@ -595,12 +595,8 @@ body.dark-mode .slider-value-display {
 
     /* Advanced glass effect with multiple shadows */
     box-shadow:
-      /* Outer glow and reflections */
-      -40px -40px 60px rgba(255, 255, 255, 0.8),
-      10px 10px 20px rgba(13, 39, 80, 0.1),
-      /* Inner glow for depth */
-      inset 0 0 20px rgba(255, 255, 255, 0.5),
-      inset 0 0 10px rgba(13, 39, 80, 0.05);
+      2px 2px 12px rgba(13,39,80,0.10),   /* Hafif koyu gölge */
+      inset 0 0 8px rgba(255,255,255,0.10); /* Çok hafif iç beyaz */
   }
 
   .button-group button::before {
@@ -835,8 +831,8 @@ body.dark-mode .preview {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 110px;               /* Minimum kutu genişliği */
-    max-width: 180px;               /* Gerekirse daha fazla artırılabilir */
+    min-width: 110px;               
+    max-width: 180px;               
     height: 68px;
     padding: 0 18px;
     border-radius: 38px;
