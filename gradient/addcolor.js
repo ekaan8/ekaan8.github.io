@@ -1334,7 +1334,8 @@ function hexToRgb(hex) {               // #rrggbb → {r,g,b}
     const i = parseInt(hex.slice(1), 16);
     return { r:(i>>16)&255, g:(i>>8)&255, b:i&255 };
 }
-function drawGradientTextToCanvas({
+
+function drawGradientTextToCanvas({    
     text,
     fontSize,
     fontFamily,
