@@ -210,9 +210,10 @@ body.dark-mode .insta-text {
     display: block;
 }
 body.dark-mode .instagram-about .instagram-text {
-    background: linear-gradient(to right, #935fed, #b2487e, #ffbbdd);
+    background: linear-gradient(135deg, #935fed, #ec4899);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: block;
 }
 .instagram-about .tag {
     background: linear-gradient(90deg, #242424, #6b6b6b);
@@ -249,7 +250,6 @@ body.dark-mode .instagram-about .instagram-text {
 
 body.dark-mode .instagram-about .tag {
     color: #bab6b6;
-    /*background: linear-gradient(to bottom, #818181 0%, #434242 40%, #3e3e3e 100%);*/
     background: linear-gradient(90deg, #7a7a7a, #e4e4e4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
@@ -293,7 +293,7 @@ body.dark-mode .instagram-about p a {
     color: #ededed;
 }
 body.dark-mode .instagram-about p a:hover {
-    color: #8a2be2;
+    color: #c7508c;
 }
 
 
@@ -1870,7 +1870,7 @@ body.dark-mode .dot-redirect-button {
     color: #858485;
   }
   body.dark-mode .insta-text a:hover {
-    color: #8a2be2;
+    color: #c7508c;
   }
 
 
@@ -1961,9 +1961,9 @@ body.dark-mode .gradient-text-about {
 }
 
 .gradient-text-content p {
-    font-size: 24px;        /* insta-text ile aynı */
-    font-weight: 600;       /* insta-text ile aynı */
-    color: #7d7d7d;        /* insta-text ile aynı */
+    font-size: 24px;        
+    font-weight: 600;      
+    color: #7d7d7d;       
     line-height: 1.6;
     margin-bottom: 1rem;
 }
