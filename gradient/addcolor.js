@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     
-     downloadImageBtn.addEventListener('click', function() {
+/*     downloadImageBtn.addEventListener('click', function() {
         html2canvas(previewContainer, {
             backgroundColor: backgroundColor.value,
             scale: 2,
@@ -557,12 +557,51 @@ document.addEventListener('DOMContentLoaded', function() {
             link.href = canvas.toDataURL('image/png');
             link.click();
         });
-    });  
+    });  */ 
+    downloadImageBtn.addEventListener('click', function() {
+    // Kullanıcıdan ayarları al
+    const text = userText.value || 'Metin girin';
+    const fontSizeVal = parseInt(fontSize.value, 10);
+    const fontFamilyVal = fontFamily.value;
+    const fontWeightVal = fontWeight.value;
+    const lineHeightVal = lineHeight.value;
+    const textAlignVal = textAlign.value;
+    const width = 900;   // İstediğiniz genişlik
+    const height = 300;  // İstediğiniz yükseklik
+    const gradientColors = colorStops.map(stop => stop.color);
+    const gradientDirectionVal = gradientDirection.value;
+    const bgColor = backgroundColor.value;
+
+    // Canvas'a çiz
+    const canvas = drawGradientTextToCanvas({
+        text,
+        fontSize: fontSizeVal,
+        fontFamily: fontFamilyVal,
+        fontWeight: fontWeightVal,
+        lineHeight: lineHeightVal,
+        textAlign: textAlignVal,
+        width,
+        height,
+        gradientColors,
+        gradientDirection: gradientDirectionVal,
+        backgroundColor: bgColor
+    });
+
+    // PNG olarak indir
+    const link = document.createElement('a');
+    link.download = 'gradyan-metin.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    });
 
 
 
 
-    copyImageBtn.addEventListener('click', function() {
+    
+
+
+
+/*     copyImageBtn.addEventListener('click', function() {
         html2canvas(previewContainer, {
             backgroundColor: backgroundColor.value,
             scale: 2,
@@ -583,7 +622,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).catch(err => console.error('Görsel kopyalama başarısız: ', err));
             });
         });
-    });
+    }); */
+        copyImageBtn.addEventListener('click', function() {
+            // Kullanıcıdan ayarları al
+            const text = userText.value || 'Metin girin';
+            const fontSizeVal = parseInt(fontSize.value, 10);
+            const fontFamilyVal = fontFamily.value;
+            const fontWeightVal = fontWeight.value;
+            const lineHeightVal = lineHeight.value;
+            const textAlignVal = textAlign.value;
+            const width = 900;
+            const height = 300;
+            const gradientColors = colorStops.map(stop => stop.color);
+            const gradientDirectionVal = gradientDirection.value;
+            const bgColor = backgroundColor.value;
+
+            // Canvas'a çiz
+            const canvas = drawGradientTextToCanvas({
+                text,
+                fontSize: fontSizeVal,
+                fontFamily: fontFamilyVal,
+                fontWeight: fontWeightVal,
+                lineHeight: lineHeightVal,
+                textAlign: textAlignVal,
+                width,
+                height,
+                gradientColors,
+                gradientDirection: gradientDirectionVal,
+                backgroundColor: bgColor
+            });
+
+            // PNG olarak panoya kopyala
+            canvas.toBlob(blob => {
+                navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(() => {
+                    const originalText = copyImageBtn.textContent;
+                    copyImageBtn.textContent = 'Kopyalandı!';
+                    setTimeout(() => copyImageBtn.textContent = originalText, 1500);
+                }).catch(err => console.error('Görsel kopyalama başarısız: ', err));
+            });
+        });
+
 
     // Initialize
     drawColorGradient();
@@ -1196,6 +1274,62 @@ function hexToRgb(hex) {               // #rrggbb → {r,g,b}
     const i = parseInt(hex.slice(1), 16);
     return { r:(i>>16)&255, g:(i>>8)&255, b:i&255 };
 }
+function drawGradientTextToCanvas({
+    text,
+    fontSize,
+    fontFamily,
+    fontWeight,
+    lineHeight,
+    textAlign,
+    width,
+    height,
+    gradientColors,
+    gradientDirection,
+    backgroundColor
+}) {
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext('2d');
+
+    // Arka plan
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, width, height);
+
+    // Yazı ayarları
+    ctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+    ctx.textAlign = textAlign;
+    ctx.textBaseline = 'middle';
+
+    // Gradyan
+    let grad;
+    if (gradientDirection === 'to right') {
+        grad = ctx.createLinearGradient(0, height/2, width, height/2);
+    } else if (gradientDirection === 'to left') {
+        grad = ctx.createLinearGradient(width, height/2, 0, height/2);
+    } else if (gradientDirection === 'to bottom') {
+        grad = ctx.createLinearGradient(width/2, 0, width/2, height);
+    } else if (gradientDirection === 'to top') {
+        grad = ctx.createLinearGradient(width/2, height, width/2, 0);
+    } else {
+        grad = ctx.createLinearGradient(0, height/2, width, height/2);
+    }
+    const colorStep = 1 / (gradientColors.length - 1);
+    gradientColors.forEach((color, i) => {
+        grad.addColorStop(i * colorStep, color);
+    });
+
+    ctx.fillStyle = grad;
+
+    // Yazıyı çiz
+    let x;
+    if (textAlign === 'center') x = width / 2;
+    else if (textAlign === 'right') x = width - 20;
+    else x = 20;
+    ctx.fillText(text, x, height / 2);
+
+    return canvas;
+}
 
 /* Proximity-blend texture --------------------------------------- */
 function generateDistanceGradient(circles, W, H, scale = 0.3) {
@@ -1313,4 +1447,8 @@ function togglePanel(panel) {
         panel.style.display = 'none';
     }
 }
+
+
+
+
 });

@@ -122,11 +122,11 @@
     </div>
 
     <div class="button-group">
-        <button id="updatePreview">Önizlemeyi Güncelle</button>
-        <button id="showCode">CSS Kodunu Göster</button>
-        <button id="copyCode">CSS Kodunu Kopyala</button>
-        <button id="downloadImage">Görseli İndir</button>
-        <button id="copyImage">Görseli Kopyala</button>
+        <button id="updatePreview">önizlemeyi güncelle</button>
+        <button id="showCode">css kodunu göster</button>
+        <button id="copyCode">css kodunu kopyala</button>
+        <button id="downloadImage">görseli indir</button>
+        <button id="copyImage">görseli kopyala</button>
     </div>
 
     <div id="codeOutput" class="code-output"></div>
@@ -189,36 +189,36 @@ darkModeToggle.addEventListener('click', () => {
 });
     </script>
 
-<script>
-function handleBackNavigation(event) {
-    event.preventDefault();
-    
-    // URL'den kaynak sayfayı al
-    const urlParams = new URLSearchParams(window.location.search);
-    const source = urlParams.get('source');
-    
-    // Referrer kontrolü
-    const referrer = document.referrer;
-    const currentPath = window.location.pathname;
-    
-    // Eğer URL'de source parametresi varsa onu kullan
-    if (source === 'blog2') {
-        window.location.href = '../blog2.html';
-    } else if (source === 'index') {
-        window.location.href = '../index.html';
-    } 
-    // Yoksa referrer'a bak
-    else if (referrer.includes('blog2.html')) {
-        window.location.href = '../blog2.html';
-    } else if (referrer.includes('index.html')) {
-        window.location.href = '../index.html';
-    } 
-    // Varsayılan olarak referrer'a git, referrer yoksa index'e
-    else {
-        window.location.href = referrer || '../index.html';
+    <script>
+    function handleBackNavigation(event) {
+        event.preventDefault();
+        
+        // URL'den kaynak sayfayı al
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('source');
+        
+        // Referrer kontrolü
+        const referrer = document.referrer;
+        const currentPath = window.location.pathname;
+        
+        // Eğer URL'de source parametresi varsa onu kullan
+        if (source === 'blog2') {
+            window.location.href = '../blog2.html';
+        } else if (source === 'index') {
+            window.location.href = '../index.html';
+        } 
+        // Yoksa referrer'a bak
+        else if (referrer.includes('blog2.html')) {
+            window.location.href = '../blog2.html';
+        } else if (referrer.includes('index.html')) {
+            window.location.href = '../index.html';
+        } 
+        // Varsayılan olarak referrer'a git, referrer yoksa index'e
+        else {
+            window.location.href = referrer || '../index.html';
+        }
     }
-}
-</script>
+    </script>
 
     <script src="addcolor.js"></script>
 

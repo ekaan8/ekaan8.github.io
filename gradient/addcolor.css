@@ -816,3 +816,66 @@ body.dark-mode .preview {
         min-width: 0; /* Minimum genişliği kaldır */
     }
 }
+
+
+@media (max-width: 800px){
+/* Her zaman yatayda tut */
+.button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;   /* Alt alta geçmeyi engelle */
+    justify-content: center;
+    gap: 12px;              
+    align-items: stretch;
+    margin: 24px 0;
+}
+
+/* Her buton için kutucuk ve responsive davranış */
+.button-group button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;               /* Minimum kutu genişliği */
+    max-width: 180px;               /* Gerekirse daha fazla artırılabilir */
+    height: 68px;
+    padding: 0 18px;
+    border-radius: 38px;
+    background: rgba(232, 234, 233, 0.85);
+    color: #4f4f4f;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    box-shadow:
+      -20px -20px 40px rgba(255,255,255,0.25),
+      6px 6px 16px rgba(13,39,80,0.08),
+      inset 0 0 10px rgba(255,255,255,0.2),
+      inset 0 0 8px rgba(13,39,80,0.03);
+    transition: background 0.2s, box-shadow 0.2s;
+    white-space: normal;          
+    text-align: left;
+    line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+}
+/* Mobil ve küçük ekranlarda da yatayda kalmaya zorla */
+@media (max-width: 700px) {
+  .button-group {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 10px;
+    overflow-x: auto; /* Taşarsa yatay kaydırma */
+    padding-bottom: 8px;
+  }
+  .button-group button {
+    min-width: 100px;
+    max-width: 140px;
+    font-size: 0.98rem;
+    height: 54px;
+    padding: 0 10px;
+  }
+  .button-group button{
+    font-size: 0.8rem;
+  }
+}

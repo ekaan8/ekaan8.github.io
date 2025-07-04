@@ -171,8 +171,10 @@ body.dark-mode .nav-text {
 }
 
 .nav-button img:hover {
-    transform: scale(1.1);
     opacity: 1;
+}
+body.dark-mode .nav-button img:hover {
+    opacity: 0.5;
 }
 
 body.dark-mode .nav-button img {
@@ -755,8 +757,7 @@ body.dark-mode .content .item-name {
 
 
 
-/* -------------------------------------------------- */
-/* Slider navigation (mevcut tasarımınızdan türetilmiş) */
+
 .slider-navigation {
   position: absolute;               /* ekranda sabit dursun */
   bottom: 1rem;
@@ -766,13 +767,11 @@ body.dark-mode .content .item-name {
   align-items: center;
   gap: 1rem;
   background: rgba(230,230,230,0.7);
-  backdrop-filter: blur(5px);
   border: 1px solid #c0c0c0;
   padding: 10px 10px;
   border-radius: 100px;
   z-index: 10;
-
-    opacity: 0;
+  opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
@@ -786,14 +785,14 @@ body.dark-mode .slider-navigation{
   opacity: 1;
   pointer-events: auto;
 }
-/* ok tuşlarınız zaten .nav-button altında tanımlı */
+
 
 .page-indicator{
   font-size: 1rem;
   display: flex;
   align-items: center;
   gap: .25rem;
-  color: #444;
+  color: #003882;
 }
 .dark-mode .page-indicator{ color:#eee; }
 
@@ -816,13 +815,11 @@ body.dark-mode .slider-navigation{
   .page-indicator input{ width:2.5rem; font-size:.9rem; }
 }
 
-/* 1. Nav-button img’lerinin görünmesi için filter’ı iptal edin */
+
 .slider-navigation .nav-button img {
-  /* varsa önceki invert ayarlarını sıfırla */
   filter: none !important;
-  /* boyutları da net tanımla */
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
 }
 
@@ -848,9 +845,7 @@ body.dark-mode .slider-navigation{
   -moz-appearance: textfield;
 }
 
-/* İstersen kutucuğu biraz stilize edebilirsin */
 .slider-navigation .page-indicator input {
-  /* örnek: kenarlığı yumuşat, arkaplan hafif, vs. */
 
   padding: .2rem .4rem;
 }
@@ -871,32 +866,14 @@ body.dark-mode .slider-navigation{
   text-align: center;
   font-size: 1rem;
   font-weight: 600;
-  color: #333;
+  color: #183a7e;
   font-size: 1.2rem;
 }
 body.dark-mode .page-indicator #currentPage {
-  color: #eee;
+  color: #bb913e;
 }
 
-/* Dropdown liste 
-.page-list {
-  position: absolute;
-  bottom: calc(100% + 1rem);  
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;                     
-  padding: 0.25rem 0;
-  list-style: none;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  width: 4rem;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease;
-  z-index: 20;
-} */
+
 
 /* kapalı hali tamamen gizle */
 .page-list {
@@ -912,7 +889,7 @@ body.dark-mode .page-indicator #currentPage {
   transform: translateX(-50%);
   padding: 0.25rem 0;
   list-style: none;
-  background: #7d7d7d90;
+  background: #7d7d7dae;
   border: 1px solid #c1c1c1;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -925,7 +902,7 @@ body.dark-mode .page-indicator #currentPage {
 
 /* Dropdown açıkken */
 .page-indicator.open .page-list {
-  max-height: 10rem;   /* yeterli yükseklik, scroll eklenir */
+  max-height: 10rem;   
   overflow-y: auto;
 }
 
@@ -943,22 +920,20 @@ body.dark-mode .page-indicator #currentPage {
 .slider-navigation {
   display: flex;
   align-items: center;
-  gap: 0.75rem;        /* buton–indicator arası mesafe */
-  padding: 8px 8px;    /* kenarlardan sıkışık */
+  gap: 0.75rem;        
+  padding: 8px 8px;    
 }
 
 
 /* Slider navigation karanlık mod ayarları */
 body.dark-mode .slider-navigation {
     border-top:    1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(48, 48, 49, 0.68);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(48, 48, 48, 0.68);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 body.dark-mode .page-indicator {
-    color: #ffffff;  /* Sayfa numarası beyaz */
+    color: #e6af40;  /* Sayfa numarası beyaz */
 }
 
 body.dark-mode .page-indicator input {
@@ -1036,7 +1011,6 @@ body.dark-mode .page-indicator::before {
         padding: 8px 12px; /* Padding'i küçült */
     }
 
-    /* Eğer daha da aşağıya inmesi gerekirse */
     .container-ilke {
         padding-bottom: 8rem; /* Container alt boşluğunu artır ki navigation gizlenmesin */
     }
@@ -1162,14 +1136,14 @@ body.dark-mode .container-ilke dd {
 }
 
 
-
-
 @media (max-width: 600px) {
   .container-ilke .script-text {
     max-width: 100%;
     margin: 4.2rem 1rem 1.0rem;  /* 1rem space on both sides */
   }
 }
+
+
 
 ::selection {
     background-color: #94c8d8; /* Seçim arka plan rengi */
