@@ -91,29 +91,50 @@
 
 
         <div class="about-story card">
-            <h2 class="section-title">how it started</h2>
+            <h2 class="section-title">how it began</h2>
           
             <div class="story-slider">
               <div class="story-cards slider">
-                <div class="story-card">
-                  <div class="story-year"> 2020 – Günümüz</div>
-                  <p>Bilgisayar Mühendisliği öğrencisi ve içerik üreticisi olarak, teknoloji ve sanatı birleştiren projelere odaklanıyorum.</p>
-                </div>
-          
-                <div class="story-card">
-                  <div class="story-year"> 2019</div>
-                  <p>IconTech serisini başlattım ve teknoloji tarihindeki önemli isimleri sanatsal bir yaklaşımla anlatmaya başladım.</p>
-                </div>
-          
-                <div class="story-card">
-                  <div class="story-year"> 2018</div>
-                  <p>Dijital sanat ve teknoloji alanında ilk çalışmalarımı yapmaya başladım.</p>
-                </div>
-          
-                <div class="story-card">
-                  <div class="story-year"> 2014</div>
-                  <p>Dijital sanat ve teknoloji alanında ilk denemelerimi gerçekleştirdim.</p>
-                </div>
+                    <div class="story-card">
+                    <div class="story-year">late university ~</div>
+                    <p>
+                        i developed my own website, and while at first i thought i was just adding things i already had inside me, i realized throughout the process that i was actually rebuilding my ideas.
+                        i will keep improving my site because as artificial intelligence is trained on all available data, the number of new sites it can learn from is steadily decreasing, leading to a slow and clunky process.
+                        we need to do something to prevent the dead internet theory from becoming reality.
+                    </p>
+                    </div>
+            
+                    <div class="story-card">
+                    <div class="story-year">late university</div>
+                    <p>
+                        with technovision and icontech, i found my true passion in computer science.
+                        i always believed code can be written anytime.
+                        our main goal is to create meaningful work; code is just a tool for that.
+                        there’s something beyond code. 
+                        to create something amazing, code is necessary and a respected tool, but it’s not the beginning of the journey.                        
+                    </p>
+                    </div>
+            
+                    <div class="story-card">
+                    <div class="story-year"> late high school </div>
+                    <p>
+                        i wrote my first c programs and did some small tasks with hardware.
+                        more than the hardware itself, i was fascinated by the ideas it carried. i loved the notion that software, given enough time and knowledge, could solve even the most complex problems.
+                        that’s why i have always embraced the belief that we can create better systems.</p>
+                    </div>
+            
+                    <div class="story-card">
+                    <div class="story-year"> early high school </div>
+                    <p>
+                        i immersed myself in geographic explorations, which inspired in me a desire to discover rather than control.
+                        during this time, the idea of finding the best through various systems and tools—and the ideal of staying open-minded instead of fixed—took shape.
+                    </p>
+                    </div>
+
+                    <div class="story-card">
+                    <div class="story-year"> early 2000's</div>
+                    <p>there’s something new on the ground...</p>
+                    </div>
               </div>
           
               <div class="slider-indicators"></div>
@@ -126,12 +147,12 @@
         <div class="about-skills card">
             <h2 class="section-title">what i’m interested in</h2>
             <div class="skills-grid">
-                <div class="skill-item">Yazılım Geliştirme</div>
-                <div class="skill-item">Dijital Sanat</div>
-                <div class="skill-item">İçerik Üretimi</div>
-                <div class="skill-item">UX/UI Tasarım</div>
-                <div class="skill-item">Teknoloji Tarihi</div>
-                <div class="skill-item">Görsel Tasarım</div>
+                <div class="skill-item">software development (c++, java, flutter, html-css) and performance optimization</div>
+                <div class="skill-item">streamlining hardware resources and enhancing efficiency</div>
+                <div class="skill-item">technical and creative content production, digital design</div>
+                <div class="skill-item">user-centered interface design (ux/ui)</div>
+                <div class="skill-item">arm architecture and silicon chip technologies</div>
+                <div class="skill-item">developing web-based tools and interactive applications</div>
             </div>
         </div>
 
@@ -139,13 +160,19 @@
         <div class="about-vision card">
             <h2 class="section-title">my path</h2>
             <p>
-                Teknoloji ve sanatın kesişim noktasında, her iki alanın da birbirini nasıl güçlendirebileceğini keşfediyorum. IconTech serisi ve diğer projelerimle, teknolojinin sadece teknik değil, aynı zamanda estetik ve kültürel boyutlarını da keşfetmeyi amaçlıyorum.
+            technology isn't just about code; it's a tool for bringing a vision to life. 
+            our journey begins at an intersection where innovation and aesthetics merge, where technology transforms into art.
+            <br>through projects like icontech, my goal isn't merely to offer solutions or pure information, but also to realize 
+            that seemingly unchangeable structures are, in fact, dynamic.
+            <br><br>we can always be faster, stronger, and more technical, and these aspects certainly deserve respect, but they can always be achieved by someone. 
+            for me, the real challenge lies in thinking differently about what's right in front of us. 
+            we won't create something from nothing, but we will look at existing things with new eyes—that's where our creativity truly lies.
             </p>
         </div>
 
         <!-- İletişim Bölümü -->
         <div class="about-contact card">
-            <h2 class="section-title">iletişim</h2>
+            <h2 class="section-title">contact</h2>
             <p>feel free to get in touch — whether it’s for projects, collaborations, or simply to exchange ideas.</p>
             <div class="contact-links">
                 <a href="mailto:e.sahin2022@gtu.edu.tr" class="contact-link">mail</a>
@@ -225,12 +252,11 @@
         // Fade out
         icon.style.opacity = 0;
         
-        // Toggle menu ve src güncellemesini fade-out animasyonu tamamlandıktan sonra yapıyoruz
         setTimeout(() => {
             menu.classList.toggle('active');
         
             if (menu.classList.contains('active')) {
-                icon.src = 'close-icon.png'; // "X" ikonunuzun dosya adını kullanın
+                icon.src = 'close-icon.png'; 
                 icon.alt = 'Menüyü Kapat';
             } else {
                 icon.src = 'menu-icon.png';
@@ -239,7 +265,7 @@
             
             // Fade in
             icon.style.opacity = 1;
-        }, 150); // 150ms delay, ihtiyaca göre ayarlanabilir
+        }, 150); 
     }
     
     // Close menu when clicking outside
