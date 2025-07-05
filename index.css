@@ -503,7 +503,7 @@ body.dark-mode .content-section .section-desc {
 }
 .post-card-content p {
     margin: 0;
-    font-size: 16px;
+    font-size: 1.4rem !important;
     font-weight: 500;
     color: #555;
     line-height: 1.6;
@@ -582,26 +582,25 @@ body.dark-mode .post-card-content p {
       margin: 0;
     }
     .post-card-content p {
-      font-size: 1.0rem;  /* ~14px */
+      font-size: 1.0rem !important;  
       line-height: 1.4;
       margin: 0;
-      white-space: normal;      /* satır kaydırmayı geri aç */
+      white-space: normal;      
       overflow: visible;
       text-overflow: clip;
       color: #555;
     }
   
-    /* 6) Kartlar arasındaki çizgiyi başlık hizasına indirme (opsiyonel) */
+    
     .post-card::after {
-      left: calc(0rem);   /* resim + gap kadar boşluk bırak */
+      left: calc(0rem);  
     }
-      /* Paragraflar artık birden fazla satıra sığacak */
   .post-card-content p,
   .post-card p {
     white-space: normal !important;
     overflow: visible !important;
     text-overflow: clip !important;
-    display: block;            /* bloğa çevir, flex içi de olsa */
+    display: block;           
   }
 }
   
@@ -1394,7 +1393,7 @@ body.dark-mode .marcia-wrapper {
 
 @media (max-width: 768px) {
   .marcia-wrapper {
-    padding: 0rem 0rem;   /* Mobilde kenarlardan boşluk */
+    padding: 0rem 0rem;   
     width: 94.8%;
     max-width: 100%;
     box-sizing: border-box;
@@ -1411,7 +1410,6 @@ body.dark-mode .marcia-wrapper {
     margin-bottom: 1rem;
     border-radius: 28px;
   }
-
 
 
    .marcia-wrapper .marcia-content {
@@ -1492,15 +1490,15 @@ body.dark-mode .marcia-wrapper {
 }
 @media (min-width: 768px) and (max-width: 900px) {
   .marcia-wrapper .marcia-content p {
-    font-size: 1.28rem; /* Daha küçük bir font boyutu */
-    line-height: 1.4; /* Satır yüksekliğini biraz artır */
+    font-size: 1.28rem; 
+    line-height: 1.4; 
     max-width: 100%;
   }
 }
 
 .marcia-wrapper .marcia a {
   display: block;
-  width: 32%;           /* img ile aynı genişlik */
+  width: 32%;           
   min-width: 120px;
   max-width: 100%;
   margin: 0;

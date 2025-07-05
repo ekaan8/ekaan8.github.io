@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>our belief in art</title>
-    <link rel="stylesheet" href="ilke.css">
+    <title>sanat inancımız</title>
+    <link rel="stylesheet" href="ilke.css?v=20240520">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="navbar">
+        <!-- Tema değiştirme butonu -->
+        <div class="toggle-mode" onclick="toggleMode()">
+            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+        </div>
+        <!-- Site başlığı -->
+        <div class="mobile-site-title">emre kaan</div>
+        <!-- Dil İkonu (Sağ Tarafta) -->
+        <div class="language-toggle" onclick="changeLanguage()">
+            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+        </div>       
+        <!-- Hamburger ikonu (sadece mobilde görünecek) -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+        </div>
         <div class="menu">
-            <a href="index.html">home</a>
-            <a href="about.html">about</a>
-            <a href="blog1.html">blog</a>
-            <a href="contact.html">contact</a>
-            <div class="toggle-mode" onclick="toggleMode()">
-                <img id="mode-icon" src="sun.png" alt="Aydınlık Mod" />
-            </div>
-                        <!-- Dil İkonu (Sağ Tarafta) -->
-            <div class="language-toggle" onclick="changeLanguage()">
-                <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
-            </div>
+            <a href="index-en.html" class="menu-link">home</a>
+            <a href="about-en.html" class="menu-link">about</a>
+            <a href="blog-en.html" class="menu-link">blog</a>
+            <a href="contact-en.html" class="menu-link">contact</a>
         </div>
     </div>
-    
-    
+
     <div class="back-button">
         <a href="javascript:history.back()">
-            <img src="iback.png" alt="Geri Dön" />
+            <img src="iback.png" alt="back-button" />
         </a>
     </div>
     
@@ -37,49 +46,52 @@
         
         <div class="text-container">
             <p>
-                Art is created to explore, not to dominate. In our understanding of art, soft transitions, calm textures and transparent views are at the forefront, rather than sharp and jagged lines. In the beginning, in search of perfect designs and aesthetic peaks, borders were defined by clear and visible areas. Just like the borders separating countries, the transitions from one area to another were rapid and marked.
-
-                Colors were bright but lacked vibrancy. People seemed to have uninterrupted control over the devices in their hands. But there was a coldness and a freezing of the environment; over time you came to believe that everything was frozen objects, pre-created by technique.
-
-                As time progressed, a more free-spirited belief was born in opposition to this understanding. Hard and sharp lines gave way to soft transitions and calm curves. Getting rid of frozen images brought with it the warmth of golden proportions. Transparent windows, boxes and bars appeared all around. Borders and curves that are indistinguishable to the human eye did not at first glance seem to reflect the desire to achieve.
-
-                But other sources of inspiration were hidden in them. Impeccable design and technique, when left to explore, produced magnificent works of art. Even further, these works were so mesmerizing that they were ready to be discovered. Rigid and frozen looks and temporary attempts at dominance gave way to a more relaxed and natural feeling.
-
+                art is created not to dominate, but to discover. in our understanding of art, it’s not sharp lines or harsh edges that take center stage, but rather soft transitions, calm textures, and transparent appearances. in the beginning, the pursuit of flawless design and aesthetic peaks defined clear, visible boundaries — like the borders between nations. transitions from one area to another brought abrupt and noticeable changes.
+                the colors were bright, yet lacked vitality. people seemed to be in full control of their devices, yet the atmosphere felt cold and frozen. over time, it began to seem as though everything was just a collection of pre-fabricated objects, shaped solely by technique.
+                as time passed, a freer-spirited belief emerged in response to this view. harsh lines gave way to gentle transitions and quiet curves. freeing ourselves from frozen visuals welcomed the warmth of golden proportions. transparent windows, soft boxes, and subtle bars started to appear. boundaries and curves, no longer clearly defined to the eye, didn’t immediately evoke a desire to possess.
+                yet these forms held hidden sources of inspiration. when perfect design and technique stepped aside for self-discovery, stunning works began to emerge. eventually, these creations grew so captivating that they invited exploration. rigid and frozen appearances gave way to more relaxed and natural feelings, replacing the urge for temporary control.
             </p> 
-            <!-- Görseli buraya ekliyoruz -->
+            
             <div class="image-wrapper">
                 <img src="gold.png" alt="Vizyonumuz" class="ilke-image">
                 <p class="golden-ratio-text">golden ratio = 1,618</p>
             </div>
             
             <p>  
-                Our principle embraces an artistic approach that moves away from minimalism illuminated by simplicity. We don't want sharp transitions, lines and corners. We don't believe that there are proportions and transitions that are pleasing to the eye; the boundaries change in an instant and tire the eye. Whereas simple but vivid colors, like the gradual color changes at sunset, are a real source of pleasure for us. Our eyes do not tire, we explore transitions and borders.
-
-                True dynamism and vitality come after personal discovery. We care about all these things and don't see them as simple tasks. It is possible to create magnificent products in harmony with each other by integrating technique into art. Focusing only on technique and trying to fit beauty and aesthetics into it is nothing but an empty attempt to dominate.
-
-                Instead, it is our belief to first create a work of art, to imagine and produce simple but eye-catching products that follow each other in perfect proportions, and then to build the technique accordingly. Our eyes love simplicity. This love extends to the desert and the sea. We also love places like the forest, where there are no borders, ready to be explored or lost in. But we hate staying within four walls or using elevators, because they are far from a place to explore or a place where we can reach a deep tranquility.
-            <p/>
-            
-<!--             <div class="image-wrapper1">
+                our principle embraces an artistic understanding that moves away from minimalism illuminated by simplicity. we avoid sharp transitions, lines, and corners. we don’t believe they offer pleasing proportions or harmonious flow; their abrupt boundaries strain the eye. instead, we take true delight in simple yet vivid colors, like the gradual shifts in a sunset. our eyes don’t tire — they explore the transitions and boundaries.
+                true dynamism and vitality come after personal discoveries. we care deeply about all of this — it’s never just a matter of simple tasks. creating harmonious, stunning results only happens when technique is absorbed by art. focusing solely on technique and trying to squeeze beauty and aesthetics into it is nothing more than an empty struggle for control.
+                instead, we believe in first creating a work of art — imagining and crafting simple yet striking outcomes that follow one another in perfect proportion — and only then building the technique to serve it. our eyes love simplicity. this affection includes the desert and the sea. we also love places without boundaries, like forests — places ready to be discovered or lost in. but we despise staying within four walls or using elevators; they keep us away from places to explore or from reaching a deeper tranquility.    
+            </p>
+            <div class="image-wrapper1">
                 <img src="goldenratio.jpg" alt="shell" class="ilke-image1">
-            </div>  -->
-
-            <div class="flex-container">
-                <div class="image-wrapper1">
-                    <img src="goldenratio.jpg" alt="shell" class="ilke-image1">
-                </div>
-                <p class="flex-text">
-                    <br>This is the essence of our principles: To avoid what the eye avoids and build where it likes to find. This is how great things happen, because behind them there is a steady gaze and deep emotion. 
-                    Our art is a journey of discovery beyond domination. With soft transitions and calm textures, we break free from frozen images and embrace the warmth of golden proportions. True dynamism and vitality follow personal discovery. Bringing technique to art reveals not only aesthetics, but also the beauty deep within the soul. That's why we create simple yet eye-catching works and believe in the power of discovery and feeling.
-                </p>
-                </div>
-                <p class="signature">Emre Kaan Şahin</p>
             </div>
-            
-<!--             <p>
-                İlkelerimizin özü bu: Gözün uzak durduğundan uzak durmak ve onun bulmayı sevdiği yerleri inşa etmek. Muhteşem şeyler böyle ortaya çıkıyor, çünkü arkalarında sağlam bakışlar ve derin duygular var. 
-                Sanatımız, hakimiyetin ötesinde bir keşif yolculuğudur. Yumuşak geçişler ve sakin dokularla, donmuş görüntülerden sıyrılarak altın oranların sıcaklığını kucaklıyoruz. Gerçek dinamizm ve canlılık, kişisel keşiflerin ardından gelir. Tekniği sanata yedirmek, sadece estetiği değil, aynı zamanda ruhun derinliklerindeki güzellikleri ortaya çıkarır. İşte bu yüzden, sade fakat göz alıcı eserler yaratıyor, keşfetmenin ve hissetmenin gücüne inanıyoruz.
-            </p> -->
+            <p>
+                <br>this is the essence of our principles: to avoid what the eye avoids, and to build what it loves to discover. that’s how remarkable things come to life — through solid vision and deep emotion behind them.
+                our art is a journey of discovery beyond control. with soft transitions and calm textures, we move away from frozen visuals and embrace the warmth of golden proportions. true dynamism and vitality follow personal discoveries. blending technique into art reveals not just aesthetics, but the beauty hidden deep within the soul. that's why we create works that are simple yet striking — because we believe in the power of discovery and feeling.
+            </p>
+
+
+            <div class="bottom-navigation">
+                    <div class="nav-button left">
+                        <a href="metod.html">
+                            <img src="iback.png" alt="previous page" />
+                        </a>
+                        <span class="nav-text">development of technology</span>
+                    </div>
+                    
+                    <div class="nav-divider">                      
+                        <div class="vertical-line"></div>
+                    </div>
+                    
+                    <div class="nav-button right">
+                        <span class="nav-text">on the trail of truth</span>
+                        <a href="hakikat.html">
+                            <img src="inext.png" alt="next page" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -94,11 +106,11 @@
             // Karanlık mod durumu LocalStorage'a kaydediliyor
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
-                modeIcon.src = 'moon-4-xxl.png';
+                modeIcon.src = 'night.png';
                 modeIcon.alt = 'Karanlık Mod';
             } else {
                 localStorage.setItem('darkMode', 'disabled');
-                modeIcon.src = 'sun.png';
+                modeIcon.src = 'day.png';
                 modeIcon.alt = 'Aydınlık Mod';
             }
         }
@@ -110,11 +122,11 @@
     
             if (darkMode === 'enabled') {
                 document.body.classList.add('dark-mode');
-                modeIcon.src = 'moon-4-xxl.png';
+                modeIcon.src = 'night.png';
                 modeIcon.alt = 'Karanlık Mod';
             } else {
                 document.body.classList.remove('dark-mode');
-                modeIcon.src = 'sun.png';
+                modeIcon.src = 'day.png';
                 modeIcon.alt = 'Aydınlık Mod';
             }
     
@@ -140,6 +152,47 @@
                 window.location.href = 'ilke.html';
             }
         }
+    </script>
+
+    <script>
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            const icon = document.querySelector('.menu-icon img');
+            
+            // Fade out
+            icon.style.opacity = 0;
+            
+            // Toggle menu ve src güncellemesini fade-out animasyonu tamamlandıktan sonra yapıyoruz
+            setTimeout(() => {
+                menu.classList.toggle('active');
+            
+                if (menu.classList.contains('active')) {
+                    icon.src = 'close-icon.png';
+                    icon.alt = 'Menüyü Kapat';
+                } else {
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+                
+                // Fade in
+                icon.style.opacity = 1;
+            }, 150);
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.querySelector('.menu');
+            const menuIcon = document.querySelector('.menu-icon');
+            if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    const icon = menuIcon.querySelector('img');
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+            }
+        });
     </script>
 </body>
 </html>

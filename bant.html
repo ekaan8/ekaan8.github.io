@@ -106,6 +106,27 @@
                 modeIcon.src = 'day.png';
                 modeIcon.alt = 'Aydınlık Mod';
             }
+
+            const savedLanguage = localStorage.getItem('language') || 'tr';
+            document.documentElement.lang = savedLanguage;
+    
+            const languageIcon = document.getElementById('language-icon');
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+        }
+
+        function changeLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'tr' ? 'en' : 'tr';
+    
+            // Dil tercihini kaydet
+            localStorage.setItem('language', newLang);
+    
+            // İlgili sayfaya yönlendir
+            if (newLang === 'en') {
+                window.location.href = 'bant-en.html';
+            } else {
+                window.location.href = 'bant.html';
+            }
         }
     </script>
 
