@@ -684,15 +684,7 @@ body.dark-mode .about-contact .contact-link:hover {
         height: 20px;
         margin-right: 8px;
     }
-   /* .card {
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-    .card {
-        width: calc(100% - 30px);
-        margin-left: auto;
-        margin-right: auto;
-    }*/
+
     .card {
         width: auto;
         max-width: 100%;
@@ -1624,8 +1616,8 @@ body.dark-mode .blurred-overlay button:hover{
     }
 
     .profile-content .profile-pic {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 400px;
         margin-bottom: 0;
     }
 
@@ -1652,6 +1644,35 @@ body.dark-mode .blurred-overlay button:hover{
     .partial-text p {
         margin: 0;
         text-align: justify;
+    }
+}
+
+/* Desktop düzeni (min 769px) */
+@media (min-width: 769px) {
+    .header-image-container {
+        display: flex;
+        justify-content: center;
+        gap: 2rem; /* Resim ve başlık arası boşluk */
+    }
+    
+    .gradient-text {
+        flex-grow: 1; /* Kalan alanı doldurarak hizalama sağlıyor */
+        text-align: left; /* Soldan başlayarak metin hizalama */
+    }
+    .gradient-text span {
+        display: block; /* Her kelime için yeni satır */
+    }
+}
+
+/* Mobil düzeltme */
+@media (max-width: 768px) {
+    .header-image-container {
+        display: block;
+    }
+    
+    .profile-pic {
+        display: block;
+        margin: 0 auto; 
     }
 }
 
