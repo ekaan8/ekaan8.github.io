@@ -1518,14 +1518,7 @@ body.dark-mode .blurred-overlay button:hover{
     }
 }
 
-::selection {
-    background-color: #94c8d8; 
-    color: #2b3759;
-}
-body.dark-mode ::selection {
-    background-color: #dd8ea6b8;
-    color: #36364c 
-}
+
 
 @media (max-width: 768px) {
     .about-story .story-card {
@@ -1545,4 +1538,128 @@ body.dark-mode ::selection {
         font-size: 1.2rem; /* Metin boyutunu küçülterek yer tasarrufu */
         line-height: 1.5;
     }
+}
+
+@media (max-width: 768px) {
+    /* Maximize the slider container's width */
+    .story-slider {
+        padding: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Set the slider width for 5 slides */
+    .story-cards.slider {
+        width: 100%; /* 5 slides * 100% each */
+    }
+
+    /* Make each story card take the full visible width */
+    .story-card {
+        width: 100%; /* 100% / 5 slides */
+        padding: 10px 10px; /* Add padding for text readability */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    /* Style the year title */
+    .story-year {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+
+    /* Style the paragraph text */
+    .story-card p {
+        font-size: 1.2rem;
+        line-height: 1.4;
+        margin: 0; /* Remove default margins */
+    }
+}
+
+
+/* ======= MOBİL SLIDER DÜZELTMELERİ (max-width:768px) ======= */
+@media (max-width: 768px) {
+
+    /* 1. Kaydırılabilir alan */
+    .about-story .slider {
+        display: flex;
+        gap: 8px;                /* Kartlar arası boşluk */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 0 1vw;           /* Eşit sağ-sol boşluk → kart tam merkezde */
+        -ms-overflow-style: none; /* Scrollbar gizle */
+        scrollbar-width: none;
+    }
+    .about-story .slider::-webkit-scrollbar { display: none; }
+
+    /* 2. Kart */
+    .about-story .story-card {
+        scroll-snap-align: center;
+        padding: 10px;
+        scroll-snap-stop: always;
+        flex: 0 0 90vw;
+    }
+
+    .story-slider {          
+        position: relative;  
+        padding-bottom: 50px;
+    }
+    .slider-indicators {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 20;
+    }
+
+}
+
+
+@media (min-width: 769px) {
+    .profile-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .profile-content .profile-pic {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 0;
+    }
+
+    .profile-content .text-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .profile-content .gradient-text {
+        text-align: center;
+        max-width: 620px;
+    }
+
+    .text-wrapper {
+        width: 100%;
+        max-width: 800px;
+        text-align: left;
+    }
+
+    .partial-text p {
+        margin: 0;
+        text-align: justify;
+    }
+}
+
+::selection {
+    background-color: #94c8d8; 
+    color: #2b3759;
+}
+body.dark-mode ::selection {
+    background-color: #dd8ea6b8;
+    color: #36364c 
 }
