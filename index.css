@@ -2256,4 +2256,7 @@ body.dark-mode .marcia-wrapper::before {
         animation-delay: 0s !important;
     }
 
+    .marcia img {
+        max-height: 620px;
+    }
 }

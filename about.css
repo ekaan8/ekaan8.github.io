@@ -481,7 +481,7 @@ body.dark-mode .about-skills .skill-item {
         to bottom,
         #ffffff 0%,
         #f8f8f8 60%,
-        #e5f3fb 100%
+        #c9d6ff 100%
     );
     border-radius: 32px;
     padding: 2.5rem;
@@ -534,7 +534,6 @@ body.dark-mode .about-vision p {
 
 /* About Contact Card */
 .about-contact.card {
-    /*background: linear-gradient(145deg, #1e3c72, #2a5298);*/
     background: linear-gradient(to right, #113ccb, #2575fc);
     border-radius: 32px;
     padding: 2.5rem;
@@ -559,16 +558,27 @@ body.dark-mode .about-contact.card {
 }
 
 .about-contact .section-title {
-    color: white;
-    
+    /*color: white;*/
+    background: linear-gradient(to top, #fff, #6d8fe4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+
     font-size: clamp(2.9rem, 6vw, 5rem);
     line-height: 1.2;
-    /* 2. kelimelerin kutunun dışına taşmaması için */
     overflow-wrap: break-word;
     white-space: normal;
     margin-bottom: 1.5rem;
     margin-top: 0.1rem;
     margin-left: 2%;
+}
+body.dark-mode .about-contact .section-title {
+    background: linear-gradient(to top, #fff, #6d35d4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
 }
 
 .about-contact p {
@@ -602,12 +612,11 @@ body.dark-mode .about-contact p {
     transition: all 0.3s ease;
     font-weight: 500;
     margin-left: 2%;
-    /* Add flexbox centering */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center; /* Fallback for text centering */
-
+    border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
         10px 10px 10px rgba(1, 20, 221, 0.4), /* Alt ve sağ gölge */
         inset 0 0 10px rgba(105, 178, 255, 0.2), /* İç beyaz gölge */
@@ -615,14 +624,15 @@ body.dark-mode .about-contact p {
 }
 
 body.dark-mode .about-contact .contact-link {
-    background: #c84df5; /* Daha canlı bir mor */
-    box-shadow: 5px 5px 15px rgba(230, 68, 201, 0.3); /* Basit ve etkili gölge */
+    background: #b828ec; /* Daha canlı bir mor */
+    box-shadow: 5px 5px 10px rgba(230, 68, 201, 0.3); /* Basit ve etkili gölge */
     transition: all 0.3s ease; /* Pürüzsüz geçiş */
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 body.dark-mode .about-contact .contact-link:hover {
     background: #d67bff; /* Hover’da açık ton */
     transform: scale(1.05); /* Hafif büyüme */
-    box-shadow: 5px 5px 20px rgba(230, 68, 201, 0.5); /* Daha belirgin gölge */
+    box-shadow: 5px 5px 20px rgba(150, 44, 130, 0.5); /* Daha belirgin gölge */
 }
 
 .about-contact .contact-link:hover {
@@ -1631,7 +1641,7 @@ body.dark-mode .blurred-overlay button:hover{
     }
 
     .profile-content .gradient-text {
-        text-align: center;
+        text-align: left;
         max-width: 620px;
     }
 
@@ -1651,16 +1661,18 @@ body.dark-mode .blurred-overlay button:hover{
 @media (min-width: 769px) {
     .header-image-container {
         display: flex;
-        justify-content: center;
-        gap: 2rem; /* Resim ve başlık arası boşluk */
+        justify-content: flex-start;  /* Aligns content to the left */
+        gap: 2rem;                   /* Maintains spacing between image and text */
     }
     
     .gradient-text {
-        flex-grow: 1; /* Kalan alanı doldurarak hizalama sağlıyor */
-        text-align: left; /* Soldan başlayarak metin hizalama */
+        flex-grow: 1;                /* Allows text to fill remaining space */
+        text-align: left;            /* Ensures text is left-aligned within its space */
+        margin-top: 78px;            /* Moves the text slightly lower */
     }
+    
     .gradient-text span {
-        display: block; /* Her kelime için yeni satır */
+        display: block;              /* Each span on a new line */
     }
 }
 
@@ -1675,6 +1687,44 @@ body.dark-mode .blurred-overlay button:hover{
         margin: 0 auto; 
     }
 }
+
+
+.contact-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #2b4c7e;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.contact-link:hover {
+    background: #1a365d;
+}
+
+.contact-link i {
+    margin-right: 0.5rem;
+}
+.contact-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 0.5rem;
+    filter: brightness(3); 
+}
+
+.contact-icon img {
+    filter: invert(65%) sepia(15%) saturate(300%) hue-rotate(180deg) brightness(1.2) contrast(1.2);
+}
+
+
 
 ::selection {
     background-color: #94c8d8; 
