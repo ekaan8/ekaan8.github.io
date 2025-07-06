@@ -349,7 +349,7 @@ body.dark-mode .language-toggle img {
     animation: gradientAlways 6.8s ease-in-out infinite;
     position: relative; /* Add relative positioning */
     z-index: 1; /* Ensure it's above any potential overlapping elements */
-    line-height: 1.24; /* Adjust line height */
+    line-height: 1.16; /* Adjust line height */
     align-items: flex-start;
 }
 @keyframes gradientAlways {
