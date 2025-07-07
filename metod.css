@@ -53,9 +53,9 @@ body {
     margin: 0 auto;         /* Ortalamak için */
     padding-top: 120px;     /* Üstten boşluk */
     position: relative;     /* (Gerekliyse absolute içi elemanlar konumlandırması için) */
-    /* Eğer içeriğin fazla taşmasını istemiyorsanız: */
     box-sizing: border-box; 
     color: rgb(8, 8, 8);
+    padding-bottom: 38px;
 }
 
 .container-metod h1 {
@@ -707,11 +707,10 @@ body.dark-mode .toggle-mode img {
 
 
 @media (max-width: 768px) {
-    /* ...existing code... */
 
     .container-metod .header-container {
         position: relative;
-        width: auto; /* width: 100% yerine auto kullan */
+        width: auto; 
         display: inline-block; /* Başlık container'ı içeriği kadar yer kaplasın */
     }
 

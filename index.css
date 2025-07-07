@@ -1056,8 +1056,7 @@ body.dark-mode .toggle-mode img {
     flex-direction: column; /* İçeriği dikey olarak sırala */
 }
 
-/* Right box image styles */
-/* Right box image styles */
+
 .feature-box-right .feature-images {
     width: 100%;
     height: 100%; /* Yüksekliği %100 yap */
@@ -1109,13 +1108,15 @@ body.dark-mode .toggle-mode img {
 .feature-box-right .feature-button {
     background: linear-gradient(135deg, #935fed55, #ec489a54);
     color: #ffffffca;
-    /* isteğe bağlı: border, box-shadow, vs */
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
+}
   
 
-.feature-button:hover {
-    transform: translateY(-2px);
+.feature-box-left .feature-button:hover{
+        background: #4848485f;
+}
+.feature-box-right .feature-button:hover{
+    background: linear-gradient(135deg, #b395e655, #e87eb354);
 }
 
 /* Dark mode styles */

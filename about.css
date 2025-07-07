@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
 }
-/* Common Styles from index.css and contact.css */
+
 body, html {
     margin: 0;
     padding: 0;
@@ -558,7 +558,6 @@ body.dark-mode .about-contact.card {
 }
 
 .about-contact .section-title {
-    /*color: white;*/
     background: linear-gradient(to top, #fff, #6d8fe4);
     -webkit-background-clip: text;
     background-clip: text;
@@ -566,7 +565,7 @@ body.dark-mode .about-contact.card {
     text-fill-color: transparent;
 
     font-size: clamp(2.9rem, 6vw, 5rem);
-    line-height: 1.2;
+    line-height: 1.4;
     overflow-wrap: break-word;
     white-space: normal;
     margin-bottom: 1.5rem;
