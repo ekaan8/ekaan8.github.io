@@ -134,9 +134,9 @@ select {
     margin-bottom: 20px;
     border: 1px solid #eee;
     position: relative;
-    overflow: hidden;
-
-        position: relative;
+    overflow: auto;
+    position: relative;
+    resize: vertical;
 }
 
 .zoom-icon {
@@ -148,11 +148,11 @@ select {
     background: none;
     padding: 8px;
     border-radius: 50%;
-    display: none; /* Varsayılan olarak gizli */
+    display: none; 
 }
 
 body.dark-mode .zoom-icon {
-    background: rgba(0, 0, 0, 0.5);
+    background: none;
 }
 
 .preview.fullscreen {
@@ -202,6 +202,7 @@ body.dark-mode .zoom-icon {
     position: relative;
     z-index: 1;
 }
+
 
 button {
     background: rgba(38, 50, 56, 0.8);
@@ -663,13 +664,11 @@ body.dark-mode select:focus {
     box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.2);
 }
 body.dark-mode .preview {
-    background-color: #212121;
     border-color: #424242;
 }
 
 body.dark-mode button {
     background-color: #37474f;
-    color: #e0e0e0;
 }
 
 body.dark-mode button:hover {
@@ -718,19 +717,17 @@ body.dark-mode #addColor {
 
 @media (min-width: 800px) and (max-width: 1470px) {
     body.dark-mode .button-group button {
-        background: rgba(38, 50, 56, 0.6);
         color: #cfd8dc;
         box-shadow:
-            -40px -40px 60px rgba(255, 255, 255, 0.1),
+            -10px -10px 20px rgba(255, 255, 255, 0.1),
             10px 10px 20px rgba(0, 0, 0, 0.4),
             inset 0 0 20px rgba(255, 255, 255, 0.2),
             inset 0 0 10px rgba(0, 0, 0, 0.3);
     }
 
     body.dark-mode .button-group button:hover {
-        background: rgba(38, 50, 56, 0.8);
         box-shadow:
-            -45px -45px 70px rgba(255, 255, 255, 0.2),
+            -10px -10px 20px rgba(255, 255, 255, 0.2),
             12px 12px 25px rgba(0, 0, 0, 0.5),
             inset 0 0 25px rgba(255, 255, 255, 0.3),
             inset 0 0 15px rgba(0, 0, 0, 0.4);
@@ -745,7 +742,7 @@ body.dark-mode textarea {
 }
 
 body.dark-mode .preview {
-    background-color: #212121 !important; /* Koyu gri önizleme arka planı */
+    background-color: transparent; /* Koyu gri önizleme arka planı */
     border-color: #424242 !important; /* Daha koyu gri çerçeve */
 }
 
@@ -834,10 +831,10 @@ body.dark-mode .preview {
     min-width: 110px;               
     max-width: 180px;               
     height: 68px;
-    padding: 0 18px;
+    padding: 10px 28px;
     border-radius: 38px;
     background: rgba(232, 234, 233, 0.85);
-    color: #4f4f4f;
+    color: #484848;
     font-size: 0.9rem;
     font-weight: 500;
     border: none;
@@ -846,13 +843,16 @@ body.dark-mode .preview {
       6px 6px 16px rgba(13,39,80,0.08),
       inset 0 0 10px rgba(255,255,255,0.2),
       inset 0 0 8px rgba(13,39,80,0.03);
-    transition: background 0.2s, box-shadow 0.2s;
     white-space: normal;          
-    text-align: left;
+    text-align: center;
     line-height: 1.2;
     word-break: break-word;
     overflow-wrap: break-word;
 }
+body.dark-mode .button-group button{
+    color:#e2e2e2
+}
+
 
 }
 /* Mobil ve küçük ekranlarda da yatayda kalmaya zorla */
@@ -875,3 +875,9 @@ body.dark-mode .preview {
     font-size: 0.8rem;
   }
 }
+
+
+
+
+
+
