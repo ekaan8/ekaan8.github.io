@@ -1629,6 +1629,8 @@ body.dark-mode .dot-redirect-button {
     .post-card-about::after{
       left:0;
     }
+
+
 }
 /* content-about – son kartın alt çizgisini kaldır */
 .post-grid-about .post-card-about:last-child::after {
@@ -1652,6 +1654,9 @@ body.dark-mode .dot-redirect-button {
       height: auto;           /* orantılı */
       display: block;         /* alt satır boşluğunu sil */
     }
+    .content-about {
+        margin-bottom: 36px; /* veya margin-bottom: 64px; */
+      }
   }
   
   /* ≤ 480 px → tek sütun (alt alta) */
