@@ -1723,6 +1723,15 @@ body.dark-mode .blurred-overlay button:hover{
     filter: invert(65%) sepia(15%) saturate(300%) hue-rotate(180deg) brightness(1.2) contrast(1.2);
 }
 
+@media (max-width: 768px) {
+    .about-vision.card p {
+      font-size: 1.2rem;   /* veya 1rem, deneyerek en iyi görünümü seçebilirsiniz */
+      line-height: 1.5;     /* satır aralığı */
+      word-break: normal;
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+  }
 
 
 ::selection {
