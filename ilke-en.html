@@ -71,8 +71,8 @@
             </p>
 
             <div class="share-section">
-                <a class="share-btn" href="https://wa.me/?text=<?=encodeURIComponent(document.location.href)?>" target="_blank" title="Share on WhatsApp">
-                  <img src="whatsapp-brands.svg" alt="WhatsApp" />
+                <a class="share-btn" href="https://wa.me/?text=" target="_blank" onclick="this.href='https://wa.me/?text='+encodeURIComponent(document.location.href)" title="WhatsApp'ta Paylaş">
+                    <img src="whatsapp-brands.svg" alt="WhatsApp" />
                 </a>
                 <a class="share-btn" href="https://x.com/intent/tweet?url=" target="_blank" onclick="this.href+=''+encodeURIComponent(document.location.href)" title="Share on X">
                   <img src="x-twitter.svg" alt="X" />
