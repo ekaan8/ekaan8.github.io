@@ -742,6 +742,36 @@ body.dark-mode .toggle-mode img {
 }
 
 
+.share-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 32px 0 16px 0;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  .share-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+  .share-btn img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: transform 0.5s;
+  }
+  .share-btn:hover img {
+    transform: scale(1.1);
+  }
+@media (max-width: 768px) {
+    .share-section {
+        gap: 32px;
+      }
+}
 
 ::selection {
     background-color: #94c8d8; 

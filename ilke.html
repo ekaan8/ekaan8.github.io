@@ -76,6 +76,20 @@
                     Sanatımız, hakimiyetin ötesinde bir keşif yolculuğudur. Yumuşak geçişler ve sakin dokularla, donmuş görüntülerden sıyrılarak altın oranların sıcaklığını kucaklıyoruz. Gerçek dinamizm ve canlılık, kişisel keşiflerin ardından gelir. Tekniği sanata yedirmek, sadece estetiği değil, aynı zamanda ruhun derinliklerindeki güzellikleri ortaya çıkarır. İşte bu yüzden, sade fakat göz alıcı eserler yaratıyor, keşfetmenin ve hissetmenin gücüne inanıyoruz.
             </p>
 
+            <div class="share-section">
+                <a class="share-btn" href="https://wa.me/?text=<?=encodeURIComponent(document.location.href)?>" target="_blank" title="WhatsApp'ta Paylaş">
+                  <img src="whatsapp-brands.svg" alt="WhatsApp" />
+                </a>
+                <a class="share-btn" href="https://x.com/intent/tweet?url=" target="_blank" onclick="this.href+=''+encodeURIComponent(document.location.href)" title="X'te Paylaş">
+                  <img src="x-twitter.svg" alt="X" />
+                </a>
+                <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" onclick="this.href+=''+encodeURIComponent(document.location.href)" title="Facebook'ta Paylaş">
+                  <img src="facebook-brands.svg"Facebook" />
+                </a>
+                <button class="share-btn" onclick="copyPageUrl()" title="Linki Kopyala">
+                  <img src="link-solid.svg" alt="Linki Kopyala" />
+                </button>
+            </div>
 
             <div class="bottom-navigation">
                     <div class="nav-button left">
@@ -199,6 +213,16 @@
                 }
             }
         });
+    </script>
+
+    <script>
+        function copyPageUrl() {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+            alert('Link kopyalandı!');
+        }, function(err) {
+            alert('Kopyalama başarısız oldu');
+        });
+        }
     </script>
 </body>
 </html>

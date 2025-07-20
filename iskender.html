@@ -78,7 +78,20 @@
                 steve jobs ve ekibi müzik piyasasını ipod ile baştan aşağı değiştirip kendilerini bu alanda bir numara yaptılar. bütün piyasa bundan etkilendi ve eğer müzik üreticisiyseniz apple ile anlaşma yapmanız sizin için daha karlıydı. böyle bir ortamda steve jobs kendi fenerini söndürmek zorunda kaldı çünkü gelmesini tahmin ettiği gelecek geçmişten daha büyüktü. böyle bir zamanda ne yapmak gerekir? rakipler bulup rakiplerden daha büyük fenerler mi üretmek gerekir yoksa ortama, gelmesi muhtemel olan geleceğe göre etrafı aydınlatacak bir şeyler mi tasarlamak? ben şahsen ikincisini destekliyorum. steve jobs da sanırım ikincisini uygulamış olmalı ki bugün wozniak ile kurduğu şirket pek çok ülkeden daha büyük. ancak bunu yapmak için kendi ürünü ipod’u öldürmek zorunda kaldı ve onun yerine iphone üretildi. eğer burada sınırlara, her zamanki metotlara veya rakiplere takılıp kalsaydı ne olurdu? belki ipod piyasasını zorla yaşatmaya çalışarak geleceğini fethetmeye çalışırdı. ancak doğru olacak biçimde geleceği keşfetmeyi, yani onu oluşturmayı seçti. bugün iskender’i, caesar’ı ve steve jobs gibi insanları yaşatan şeylerden birisi de bence bu. gerçekten rakipleri yok ve yapmak istedikleri işleri gerçekten o işlere duydukları tutkular ile yaptılar. zamanları, sınırları, rakipleri ortadan kaldırdılar ve bizlere de fethedilmesi değil keşfedilmesi gereken bir dünya bıraktılar.
             </p>
 
-            
+            <div class="share-section">
+                <a class="share-btn" href="https://wa.me/?text=<?=encodeURIComponent(document.location.href)?>" target="_blank" title="WhatsApp'ta Paylaş">
+                  <img src="whatsapp-brands.svg" alt="WhatsApp" />
+                </a>
+                <a class="share-btn" href="https://x.com/intent/tweet?url=" target="_blank" onclick="this.href+=''+encodeURIComponent(document.location.href)" title="X'te Paylaş">
+                  <img src="x-twitter.svg" alt="X" />
+                </a>
+                <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" onclick="this.href+=''+encodeURIComponent(document.location.href)" title="Facebook'ta Paylaş">
+                  <img src="facebook-brands.svg"Facebook" />
+                </a>
+                <button class="share-btn" onclick="copyPageUrl()" title="Linki Kopyala">
+                  <img src="link-solid.svg" alt="Linki Kopyala" />
+                </button>
+            </div>
 
             <div class="bottom-navigation">
                     <div class="nav-button left">
@@ -203,6 +216,16 @@
                 }
             }
         });
+    </script>
+
+    <script>
+        function copyPageUrl() {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+            alert('Link kopyalandı!');
+        }, function(err) {
+            alert('Kopyalama başarısız oldu');
+    });
+    }
     </script>
 </body>
 </html>

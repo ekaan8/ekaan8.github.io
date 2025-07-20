@@ -477,7 +477,7 @@ body.dark-mode .content-section .section-desc {
     object-fit: cover;
     border-radius: 16px;
     flex-shrink: 0;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 /* 2) Hover sadece görseli büyütsün */
 .post-card:hover .post-card-image {
@@ -2261,3 +2261,23 @@ body.dark-mode .marcia-wrapper::before {
         max-height: 620px;
     }
 }
+
+.post-card {
+    margin: 4px 0; /* Üst ve alt boşluk eşit */
+    /* Diğer stiller */
+}
+.post-card:first-child {
+    margin-top: 32px; /* Üstte de eşit boşluk */
+}
+.post-card:last-child {
+    margin-bottom: 32px; /* Altta da eşit boşluk */
+}
+
+@media (min-width: 900px) and (max-width: 970px) {
+    .hero-heading svg {
+      width: 88vw !important;   /* Genişliği küçült */
+      max-width: 500px !important; /* İsteğe bağlı: daha fazla kısıtlama */
+      margin: 0 auto !important;   /* Ortala */
+      display: block !important;
+    }
+  }

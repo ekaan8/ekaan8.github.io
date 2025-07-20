@@ -61,6 +61,21 @@
                 maybe turing, with that infinite tape, left us a message: “if you wait long enough, every problem in the universe can be solved.” this is a belief i share. i believe in the power of computers, in human creativity, and in the idea that machines might one day make their own decisions. 
                 because ultimately, what makes technology human might be its capacity to dream — and to say, “this is where i stop.”
             </p> 
+
+            <div class="share-section">
+                <a class="share-btn" href="https://wa.me/?text=<?=encodeURIComponent(document.location.href)?>" target="_blank" title="Share on WhatsApp">
+                  <img src="whatsapp-brands.svg" alt="WhatsApp" />
+                </a>
+                <a class="share-btn" href="https://x.com/intent/tweet?url=" target="_blank" onclick="this.href+=''+encodeURIComponent(document.location.href)" title="Share on X">
+                  <img src="x-twitter.svg" alt="X" />
+                </a>
+                <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" onclick="this.href+=''+encodeURIComponent(document.location.href)" title="Share on Facebook">
+                  <img src="facebook-brands.svg"Facebook" />
+                </a>
+                <button class="share-btn" onclick="copyPageUrl()" title="Copy Link">
+                  <img src="link-solid.svg" alt="Copy Link" />
+                </button>
+            </div>
         
             <div class="bottom-navigation">
                 <div class="nav-button left">
@@ -182,5 +197,14 @@
         });
     </script>
     
+    <script>
+        function copyPageUrl() {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+            alert('Link copied!');
+        }, function(err) {
+            alert('Copy failed!');
+        });
+        }
+    </script>
 </body>
 </html>
