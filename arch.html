@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gelecek arm mimarisinde</title>
+    <link rel="stylesheet" href="ilke.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <!-- Tema değiştirme butonu -->
+        <div class="toggle-mode" onclick="toggleMode()">
+            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+        </div>
+        <!-- Site başlığı -->
+        <div class="mobile-site-title">emre kaan</div>
+        <!-- Dil İkonu (Sağ Tarafta) -->
+        <div class="language-toggle" onclick="changeLanguage()">
+            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+        </div>       
+        <!-- Hamburger ikonu (sadece mobilde görünecek) -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+        </div>
+        <div class="menu">
+            <a href="index.html" class="menu-link">ana sayfa</a>
+            <a href="about.html" class="menu-link">hakkımda</a>
+            <a href="blog2.html" class="menu-link">içerik</a>
+            <a href="contact1.html" class="menu-link">iletişim</a>
+        </div>
+    </div>
+
+    <div class="back-button">
+        <a href="javascript:history.back()">
+            <img src="iback.png" alt="Geri Dön" />
+        </a>
+    </div>
+    
+    <div class="container-ilke">
+        <div class="header-container">
+            <h1>gelecek arm mimarisinde</h1>
+        </div>
+        
+        <div class="text-container">
+            <p>
+                insan bilgisayar ilişkisinin temelinde yatan mimarilere olan küresel yaklaşımımızı değiştirebiliriz. 
+                mobil alanda arm mimarisi hakim durumda, sunucularda da önemli bir payı var ama bilgisyarlar için hala düşük, 
+                neredeyse mobilin tam tersi konumda yer alıyor. ben bilgisayar (telefonlar tabletler ve diğer ürünler de dahil) 
+                mimarisini tasarlarken önceliği bilgisyara vermemiz gerektiği inancındayım. bence burada genel performansın 
+                insanı tatmin etme süreci ikinci plana alınmalı çünkü insanın bu araçlara uyumu sonradan her zaman geliştirilebilir. 
+                bunu bir aracı üretirken hız sorununu ele alma tarzımız olarak düşünebiliriz. 
+            </p> 
+            <div class="image-wrapper">
+                <img src="arm1.png" alt="Vizyonumuz" class="ilke-image">
+                <p class="golden-ratio-text">arm mimarisi ve kullanım alanları</p>
+            </div>
+            
+            <p>  
+                temelde hız önemli bir etki ama sonradan mutlaka artırılabilir ve bu doğal bir sürecin hızla ivmelenen tarafında bulunuyor. 
+                eğer gemilerimize güveniyorsak bu sorun bizler için aşılması kolay bir deniz. bunu daha iyi anlamak için şu örneği vermeyi seviyorum: 
+                ilk bilgisayarların yaratımı sürecinde çok farklı modeller vardı. bazıları elektronik sistemli iken bazıları mekanik ağırlıklıydı. 
+                hızlı olan ve yavaş olanlar vardı, yeniden komutlanabilir ve programlamaya açık olmayanlar vardı. 
+                fakat nihayetinde ilerleme gösteren komutlanabilir bilgisayarlar oldu (eckert-mauchly bilgisayarı ENIAC gibi). 
+                çünkü temelde bilgisayarların önceliği esas alındı, belki komutlanabilir bilgisayarlar rakiplerinden yavaştı ama hız sorunu her zaman aşılabilir, 
+                sonuçta ışık hızını geçmeye çalışmıyoruz. araçlarda, mekanik sistemlerde, çarklarda hız için daima yeni bir şeyler bulabiliriz çünkü bu tahmin edilebilir bir vizyonu sunar, 
+                yaratıcı sıçramaya ihtiyacımız bu alanlarda çok da gerekli değil.
+            </p>
+            <div class="image-wrapper1">
+                <img src="intel1.jpg" alt="shell" class="ilke-image1">
+            </div>
+            <p>
+                <br>
+                    bu konunun ileri risc mimarisi kullanan arm sistemiyle ilgisi şu: bilgisayarlarda hala üstün çoğunluk intel tabanlı x86 mimarisinde 
+                    ancak bu bilgisayarı yoran ve enerji açlığı çeken bir sistem. temelleri böyle atıldığı için sonradan değiştirilemiyor da, 
+                    ne kadar hızlanırsa hızlansın daha çok enerji, daha çok sıcaklık, bunu düşürmek için daha maliyetli soğutma sistemleri, 
+                    taşınması hatta dokunması daha zor kullanıcı ürünleri, konfordan daha uzak ortamlar yaratıyor.
+                    performans yönünden şu an bile arm mimarisi her alanda x86 gibi çalışmıyor, zaten x86 için en önemli avantaj bu. 
+                    ancak bizim zaten fark etmemiz gereken bence şu: performans da hız gibi temel metrikler üzerinden ilerliyor,
+                     onun gelişimi için her zaman yaratıcı sıçrama ve ilerleme anlarına ihtiyacımız yok çünkü ilerlemek onların zaten doğasında var. 
+                     ama bir kere ilk sistemi çok sonraları bazı uyumsuzluklar gösterecek şekilde tasarladığımızda ne sistemi değiştirebiliyoruz 
+                     ne de onu optimize etmeye çalışırken harcadığımız inanılmaz kaynakları azaltabiliyoruz. 
+                     <br>ben risc mimarisinin kurtarıcı olacağına inanıyorum, hemen hemen çoğu alanda. hala yüksek performans için x86 temel bir kurtarıcı olabilir 
+                     ancak onu artık çok özel alanlara doğru kaydırmanın zamanı gelmedi mi? bence NASA gibi karmaşık görselleştirme sistemleri ve simülasyon programları ile
+                      büyük film stüdyolarının yüksek işlem gücü gerektiren film işleme süreçleri gibi örnekler için x86 mimarisi özel olarak kullanılmaya önemli ölçüde 
+                      devam edilebilir. ancak dünyanın çoğu için bu sistemleri risc mimarisi kullanan cihazlara kaydırmak gerekiyor. 
+                      buna en önemli karşı cevap arm mimarisinin hala oyunları oynatamaycak şekilde ileri performansı gösteremediği söylenir ancak bu bence aşılabilecek bir sorun. 
+            </p>
+
+            <div class="image-wrapper1">
+                <img src="risc2.png" alt="shell" class="ilke-image1">
+            </div>
+            <p>
+                <br>
+                arm mimarisinin temel önceliği, düşük güç tüketimiyle yüksek verim sağlarken, donanım ve yazılım arasındaki etkileşimi sadeleştirmek. 
+                burada makine kodlarının daha basit ve verimli işlenerek çekirdek (kernel) düzeyindeki işlemlerin optimize edilmesini sağlıyor. 
+                kernel’in verimli çalışması zaten bizim isteyeceğimiz bir şey çünkü üzerinde çalışan işletim sisteminin genel kararlılığı 
+                ve performansını artırıyor. bundan sonrası zaten doğrudan kullanıcıya yansıyacak bir süreç. öncelikler bilgisayarları ve 
+                cihazları temel aldığı için bence gelişmeye daha açık, belki uzun bir yoldan geçmek gerekir ancak hedefe ulaşması neredeyse kesin 
+                çünkü ben bu gelişme metodunu doğal görüyorum. bir kere yaratıcı ilham ve ileriye sıçrama aşamasını hallettikten sonra 
+                diğer gelişmeler çok hızlı olmaya müsait. 
+            </p>
+
+            <div class="image-wrapper1">
+                <img src="forecast1.jpg" alt="shell" class="ilke-image2">
+            </div>
+            <p>
+                <br>
+                arm mimarisinin şu an yeterli olarak kullanılmadığı alanlar birincil kullanıcı için oyunlar ve biraz ileride modelleme veya simülasyon gibi yazılımlar. ancak bu sorunların tamamı sadece mimarinin yetersizliğinden değil yazılım ve tasarım uyumsuzluklarından kaynaklanıyor. uyumsuzluklar ise çözülmeye çok müsait çünkü temel gereklilik artık iş gücü değil sadece zaman. daha önce de belirttiğim gibi artık sorun olarak önümüze hız, zaman gibi şeyler çıkıyorsa bunlar bir yerlerde mutlaka aşılabilir, yeter ki temel sağlam ve öngörülebilir olsun. ben de arm mimarisi için temeli çok sağlam ve öngörülebilir buluyorum çünkü komut mimarisi sade, net ve hızlı. 
+                daha ileride oyunlar için, çok kullanılan programların uyumsuzluk sorunu için bence artık büyük adımlar atılmalı. küresel ölçekte risc mimarisi kullanan bilgisyarların oranı birincil kullanıcılar için daha da artmalı. 
+            </p>
+
+
+            <div class="gri-container">
+                <div class="metin-alani">
+                    <p>
+                        bu alanda technovision hesabımda bir gönderi oluşturmuştum. orada risc mimarisine ait bilgileri sade biçimde güzel bir tasarım ile anlatıyorum, onlara da göz atabilirsiniz.
+                    </p>
+                </div>
+
+                <div class="gorsel-alani">
+                    <a href="https://www.instagram.com/technovision101/p/DDRymcsocub/" target="_blank">
+                        <img src="Group 4.png" alt="RISC Mimarisi" class="ilke-image3">
+                    </a>
+                </div>
+            </div>
+
+            <div class="share-section">
+                <a class="share-btn" href="https://wa.me/?text=" target="_blank" onclick="this.href='https://wa.me/?text='+encodeURIComponent(document.location.href)" title="WhatsApp'ta Paylaş">
+                    <img src="whatsapp-brands.svg" alt="WhatsApp" />
+                </a>
+                <a class="share-btn" href="https://x.com/intent/tweet?url=" target="_blank" onclick="this.href+=''+encodeURIComponent(document.location.href)" title="X'te Paylaş">
+                  <img src="x-twitter.svg" alt="X" />
+                </a>
+                <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" onclick="this.href+=''+encodeURIComponent(document.location.href)" title="Facebook'ta Paylaş">
+                  <img src="facebook-brands.svg"Facebook" />
+                </a>
+                <button class="share-btn" onclick="copyPageUrl()" title="Linki Kopyala">
+                  <img src="link-solid.svg" alt="Linki Kopyala" />
+                </button>
+            </div>
+
+            <div class="bottom-navigation">
+                    <div class="nav-button left">
+                        <a href="computer.html">
+                            <img src="iback.png" alt="Önceki Sayfa" />
+                        </a>
+                        
+                        <span class="nav-text">ilk bilgisayarı kim icat etti</span>
+                    </div>
+
+                    <div class="nav-divider">                      
+                        <div class="vertical-line"></div>
+                    </div>
+
+                    <div class="nav-button right">
+                        <span class="nav-text">teknolojinin gelişimi</span>
+                        <a href="metod.html">
+                            <img src="inext.png" alt="Sonraki Sayfa" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+            
+            // Mod değiştirme
+            body.classList.toggle('dark-mode');
+    
+            // Karanlık mod durumu LocalStorage'a kaydediliyor
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+        }
+    
+        // Sayfa yüklendiğinde karanlık mod ve dil durumunu kontrol et
+        window.onload = function() {
+            const modeIcon = document.getElementById('mode-icon');
+            const darkMode = localStorage.getItem('darkMode');
+    
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                modeIcon.src = 'night.png';
+                modeIcon.alt = 'Karanlık Mod';
+            } else {
+                document.body.classList.remove('dark-mode');
+                modeIcon.src = 'day.png';
+                modeIcon.alt = 'Aydınlık Mod';
+            }
+    
+            // Dil durumunu kontrol et
+            const savedLanguage = localStorage.getItem('language') || 'tr';
+            document.documentElement.lang = savedLanguage;
+    
+            const languageIcon = document.getElementById('language-icon');
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+        };
+    
+        function changeLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'tr' ? 'en' : 'tr';
+    
+            // Dil tercihini kaydet
+            localStorage.setItem('language', newLang);
+    
+            // İlgili sayfaya yönlendir
+            if (newLang === 'en') {
+                window.location.href = 'arch-en.html';
+            } else {
+                window.location.href = 'arch.html';
+            }
+        }
+    </script>
+
+    <script>
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            const icon = document.querySelector('.menu-icon img');
+            
+            // Fade out
+            icon.style.opacity = 0;
+            
+            // Toggle menu ve src güncellemesini fade-out animasyonu tamamlandıktan sonra yapıyoruz
+            setTimeout(() => {
+                menu.classList.toggle('active');
+            
+                if (menu.classList.contains('active')) {
+                    icon.src = 'close-icon.png';
+                    icon.alt = 'Menüyü Kapat';
+                } else {
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+                
+                // Fade in
+                icon.style.opacity = 1;
+            }, 150);
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.querySelector('.menu');
+            const menuIcon = document.querySelector('.menu-icon');
+            if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    const icon = menuIcon.querySelector('img');
+                    icon.src = 'menu-icon.png';
+                    icon.alt = 'Menü';
+                }
+            }
+        });
+    </script>
+
+    <script>
+        function copyPageUrl() {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+            alert('Link kopyalandı!');
+        }, function(err) {
+            alert('Kopyalama başarısız oldu');
+    });
+    }
+    </script>
+</body>
+</html>

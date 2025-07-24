@@ -191,6 +191,70 @@ body, html {
     border-radius: 32px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+.ilke-image2 {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gri-container {
+    display: flex;                  /* Flexbox modelini etkinleştirir */
+    align-items: center;            /* İçerikleri dikeyde ortalar */
+    gap: 24px;                      /* Metin ve görsel arasına boşluk koyar */
+    background-color: #cdcdcd;      /* Açık gri arka plan rengi */
+    padding: 20px;                  /* Kapsayıcı içine iç boşluk ekler */
+    border-radius: 16px;            /* Kenarları yuvarlatır */
+}
+body.dark-mode .gri-container{
+    background-color: #333;
+    border: 1px solid #686868;
+}
+
+.metin-alani {
+    flex: 1; 
+    text-align: left; 
+}
+
+.gorsel-alani {
+    flex: 1; 
+    text-align: center;
+}
+
+.ilke-image3 {
+    width: 90%;
+    max-width: 90%; /* Kendi kapsayıcısını aşmasını engeller */
+    height: auto;
+    border-radius: 12px;
+    display: block; 
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    filter: brightness(1.5) contrast(0.8);
+    transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1), 
+                filter 1.6s ease;
+}
+
+.ilke-image3:hover {
+    transform: scale(1.05);
+    filter: brightness(1.6) contrast(1); /* İsteğe bağlı: Hover'da biraz daha parlak olabilir */
+}
+@media (max-width: 768px) {
+    .gri-container {
+    flex-direction: column; /* Hizalamayı dikey yapar (alt alta) */
+    }
+    .gorsel-alani {
+    display: flex; /* Flexbox ekler */
+    justify-content: center; /* Yatayda ortalar */
+    align-items: center; /* Dikeyde ortalar */
+    width: 100%; /* Tam genişlik */
+    }
+    .ilke-image3 {
+    margin: 0 auto; /* Ek güvence için görsel ortalama */
+    }
+    .ilke-image3{
+        border-radius: 16px;
+    }
+}
 
 /* Dark Mode Styles */
 body.dark-mode {
