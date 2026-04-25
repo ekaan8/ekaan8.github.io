@@ -13,17 +13,17 @@
     <div class="navbar">
         <!-- Tema değiştirme butonu -->
         <div class="toggle-mode" onclick="toggleMode()">
-            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+            <img id="mode-icon" src="day.webp" alt="Aydınlık Mod">
         </div>
         <!-- Site başlığı -->
         <div class="mobile-site-title">emre kaan</div>
         <!-- Dil İkonu (Sağ Tarafta) -->
         <div class="language-toggle" onclick="changeLanguage()">
-            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+            <img id="language-icon" src="language-icon.webp" alt="Dil Değiştir" />
         </div>       
         <!-- Hamburger ikonu (sadece mobilde görünecek) -->
         <div class="menu-icon" onclick="toggleMenu()">
-            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+            <img src="menu-icon.webp" alt="Menü" style="width: 24px;">
         </div>
         <div class="menu">
             <a href="index-en.html" class="menu-link">home</a>
@@ -35,7 +35,7 @@
 
     <div class="back-button">
         <a href="javascript:history.back()">
-            <img src="iback.png" alt="Geri Dön" />
+            <img src="iback.webp" alt="Geri Dön" />
         </a>
     </div>
     
@@ -55,7 +55,7 @@ should be secondary, because human adaptation to these tools can always be devel
 we can think of this as our approach to addressing speed issues when building a tool.
             </p> 
             <div class="image-wrapper">
-                <img src="arm1.png" alt="Vizyonumuz" class="ilke-image">
+                <img src="arm1.webp" alt="Vizyonumuz" class="ilke-image">
                 <p class="golden-ratio-text">arm architecture and areas of use</p>
             </div>
             
@@ -70,7 +70,7 @@ but speed can always be overcome—we’re not trying to exceed the speed of lig
 we can always discover something new for speed because it offers a predictable vision. in these areas, we don’t really need creative leaps.
             </p>
             <div class="image-wrapper1">
-                <img src="intel1.jpg" alt="shell" class="ilke-image1">
+                <img src="intel1.webp" alt="shell" class="ilke-image1">
             </div>
             <p>
                 <br>
@@ -84,7 +84,7 @@ the most common counterargument is that arm architecture still can’t deliver t
             </p>
 
             <div class="image-wrapper1">
-                <img src="risc2.png" alt="shell" class="ilke-image1">
+                <img src="risc2.webp" alt="shell" class="ilke-image1">
             </div>
             <p>
                 <br>
@@ -93,7 +93,7 @@ the most common counterargument is that arm architecture still can’t deliver t
             </p>
 
             <div class="image-wrapper1">
-                <img src="forecast1.jpg" alt="shell" class="ilke-image2">
+                <img src="forecast1.webp" alt="shell" class="ilke-image2">
             </div>
             <p>
                 <br>
@@ -111,7 +111,7 @@ the most common counterargument is that arm architecture still can’t deliver t
 
                 <div class="gorsel-alani">
                     <a href="https://www.instagram.com/technovision101/p/DDRymcsocub/" target="_blank">
-                        <img src="Group 4.png" alt="RISC Mimarisi" class="ilke-image3">
+                        <img src="Group 4.webp" alt="RISC Mimarisi" class="ilke-image3">
                     </a>
                 </div>
             </div>
@@ -134,7 +134,7 @@ the most common counterargument is that arm architecture still can’t deliver t
             <div class="bottom-navigation">
                     <div class="nav-button left">
                         <a href="computer-en.html">
-                            <img src="iback.png" alt="Önceki Sayfa" />
+                            <img src="iback.webp" alt="Önceki Sayfa" />
                         </a>
                         
                         <span class="nav-text">who invented the first computer?</span>
@@ -147,7 +147,7 @@ the most common counterargument is that arm architecture still can’t deliver t
                     <div class="nav-button right">
                         <span class="nav-text">development of technology</span>
                         <a href="metod-en.html">
-                            <img src="inext.png" alt="Sonraki Sayfa" />
+                            <img src="inext.webp" alt="Sonraki Sayfa" />
                         </a>
                     </div>
                 </div>
@@ -167,11 +167,11 @@ the most common counterargument is that arm architecture still can’t deliver t
             // Karanlık mod durumu LocalStorage'a kaydediliyor
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
-                modeIcon.src = 'night.png';
+                modeIcon.src = 'night.webp';
                 modeIcon.alt = 'Karanlık Mod';
             } else {
                 localStorage.setItem('darkMode', 'disabled');
-                modeIcon.src = 'day.png';
+                modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Aydınlık Mod';
             }
         }
@@ -183,11 +183,11 @@ the most common counterargument is that arm architecture still can’t deliver t
     
             if (darkMode === 'enabled') {
                 document.body.classList.add('dark-mode');
-                modeIcon.src = 'night.png';
+                modeIcon.src = 'night.webp';
                 modeIcon.alt = 'Karanlık Mod';
             } else {
                 document.body.classList.remove('dark-mode');
-                modeIcon.src = 'day.png';
+                modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Aydınlık Mod';
             }
     
@@ -196,7 +196,7 @@ the most common counterargument is that arm architecture still can’t deliver t
             document.documentElement.lang = savedLanguage;
     
             const languageIcon = document.getElementById('language-icon');
-            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.webp' : 'language-icon.webp';
         };
     
         function changeLanguage() {
@@ -229,10 +229,10 @@ the most common counterargument is that arm architecture still can’t deliver t
                 menu.classList.toggle('active');
             
                 if (menu.classList.contains('active')) {
-                    icon.src = 'close-icon.png';
+                    icon.src = 'close-icon.webp';
                     icon.alt = 'Menüyü Kapat';
                 } else {
-                    icon.src = 'menu-icon.png';
+                    icon.src = 'menu-icon.webp';
                     icon.alt = 'Menü';
                 }
                 
@@ -249,7 +249,7 @@ the most common counterargument is that arm architecture still can’t deliver t
                 if (menu.classList.contains('active')) {
                     menu.classList.remove('active');
                     const icon = menuIcon.querySelector('img');
-                    icon.src = 'menu-icon.png';
+                    icon.src = 'menu-icon.webp';
                     icon.alt = 'Menü';
                 }
             }

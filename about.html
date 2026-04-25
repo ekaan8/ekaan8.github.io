@@ -14,17 +14,17 @@
     <div class="navbar">
         <!-- Tema değiştirme butonu -->
         <div class="toggle-mode" onclick="toggleMode()">
-            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+            <img id="mode-icon" src="day.webp" alt="Aydınlık Mod">
         </div>
         <!-- Site başlığı -->
         <div class="mobile-site-title">emre kaan</div>
              <!-- Dil İkonu (Sağ Tarafta) -->
         <div class="language-toggle" onclick="changeLanguage()">
-            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+            <img id="language-icon" src="language-icon.webp" alt="Dil Değiştir" />
         </div>       
         <!-- Hamburger ikonu (sadece mobilde görünecek) -->
         <div class="menu-icon" onclick="toggleMenu()">
-            <img src="menu-icon.png" alt="Menü" style="width: 24px; height: 24px;">
+            <img src="menu-icon.webp" alt="Menü" style="width: 24px; height: 24px;">
         </div>
         <div class="menu">
             <a href="index.html" class="menu-link">ana sayfa</a>
@@ -41,7 +41,7 @@
         <div class="profile-section card">
             <div class="profile-content">
                 <div class="header-image-container">
-                    <img src="ekaan8.jpeg" alt="Profil Fotoğrafı" class="profile-pic">
+                    <img src="ekaan8.webp" alt="Profil Fotoğrafı" class="profile-pic">
                     <h1 class="gradient-text">
                         <span>tekrar</span>
                         <span>merhaba,<br></span>
@@ -186,11 +186,11 @@
             // Save dark mode state to localStorage
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
-                modeIcon.src = 'night.png';
+                modeIcon.src = 'night.webp';
                 modeIcon.alt = 'Dark Mode';
             } else {
                 localStorage.setItem('darkMode', 'disabled');
-                modeIcon.src = 'day.png';
+                modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Light Mode';
             }
         }
@@ -202,11 +202,11 @@
 
             if (darkMode === 'enabled') {
                 document.body.classList.add('dark-mode');
-                modeIcon.src = 'night.png';
+                modeIcon.src = 'night.webp';
                 modeIcon.alt = 'Dark Mode';
             } else {
                 document.body.classList.remove('dark-mode');
-                modeIcon.src = 'day.png';
+                modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Light Mode';
             }
 
@@ -215,7 +215,7 @@
             document.documentElement.lang = savedLanguage;
 
             const languageIcon = document.getElementById('language-icon');
-            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.webp' : 'language-icon.webp';
         };
 
         function changeLanguage() {
@@ -248,10 +248,10 @@
             menu.classList.toggle('active');
         
             if (menu.classList.contains('active')) {
-                icon.src = 'close-icon.png'; 
+                icon.src = 'close-icon.webp'; 
                 icon.alt = 'Menüyü Kapat';
             } else {
-                icon.src = 'menu-icon.png';
+                icon.src = 'menu-icon.webp';
                 icon.alt = 'Menü';
             }
             
@@ -268,7 +268,7 @@
             if (menu.classList.contains('active')) {
                 menu.classList.remove('active');
                 const icon = menuIcon.querySelector('img');
-                icon.src = 'menu-icon.png';
+                icon.src = 'menu-icon.webp';
                 icon.alt = 'Menü';
             }
         }

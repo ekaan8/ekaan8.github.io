@@ -18,17 +18,17 @@
         <div class="navbar">
             <!-- Tema değiştirme butonu -->
             <div class="toggle-mode" onclick="toggleMode()">
-                <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+                <img id="mode-icon" src="day.webp" alt="Aydınlık Mod">
             </div>
             <!-- Site başlığı -->
             <div class="mobile-site-title">emre kaan</div>
                 <!-- Dil İkonu (Sağ Tarafta) -->
             <div class="language-toggle" onclick="changeLanguage()">
-                <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+                <img id="language-icon" src="language-icon.webp" alt="Dil Değiştir" />
             </div>       
             <!-- Hamburger ikonu (sadece mobilde görünecek) -->
             <div class="menu-icon" onclick="toggleMenu()">
-                <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+                <img src="menu-icon.webp" alt="Menü" style="width: 24px;">
             </div>
             <div class="menu">
                 <a href="index-en.html" class="menu-link active">home</a>
@@ -40,7 +40,7 @@
 
         <div class="container">
             <div class="profile-section">
-                <img src="imerhaba.jpeg" alt="Profil Fotoğrafı" class="profile-pic">
+                <img src="imerhaba.webp" alt="Profil Fotoğrafı" class="profile-pic">
                 <div class="intro-content"> 
                 <h1 class="hero-heading">
                 <svg
@@ -125,22 +125,22 @@
         <div class="instagram-grid">
             <div class="instagram-post">
                 <a href="https://www.instagram.com/technovision101/p/C6jRPKEqbiZ/" target="_blank">
-                    <img src="tv101/ada.png" alt="Instagram Post 1">
+                    <img src="tv101/ada.webp" alt="Instagram Post 1">
                 </a>
             </div>
             <div class="instagram-post">
                 <a href="https://www.instagram.com/technovision101/p/DDRymcsocub/" target="_blank">
-                    <img src="tv101/riscarc.jpg" alt="Instagram Post 2">
+                    <img src="tv101/riscarc.webp" alt="Instagram Post 2">
                 </a>
             </div>
             <div class="instagram-post">
                 <a href="https://www.instagram.com/technovision101/p/C-zqv1HgdqQ/" target="_blank">
-                    <img src="tv101/linux.png" alt="Instagram Post 3">
+                    <img src="tv101/linux.webp" alt="Instagram Post 3">
                 </a>
             </div>
             <div class="instagram-post">
                 <a href="https://www.instagram.com/technovision101/p/DMsFbwwKHkf/" target="_blank">
-                    <img src="xparc-2.jpg" alt="Instagram Post 4">
+                    <img src="xparc-2.webp" alt="Instagram Post 4">
                 </a>
             </div>
         </div>
@@ -155,8 +155,8 @@
         <!-- Sol Kutucuk -->
         <div class="feature-box-left">
             <div class="feature-images">
-                <img src="caliif.jpg" alt="dot image 1" class="feature-image">
-                <img src="califdotia.jpg" alt="dot image 2" class="feature-image">
+                <img src="caliif.webp" alt="dot image 1" class="feature-image">
+                <img src="califdotia.webp" alt="dot image 2" class="feature-image">
             </div>
             <div class="feature-content">
                 <h2>dot-based image</h2>
@@ -168,7 +168,7 @@
         <!-- Sağ Kutucuk -->
         <div class="feature-box-right">
             <div class="feature-images">
-                <img src="ilpink.jpg" alt="gradient" class="feature-image">
+                <img src="ilpink.webp" alt="gradient" class="feature-image">
             </div>
             <div class="feature-content">
                 <h2></h2>
@@ -180,7 +180,7 @@
     <div class="marcia-wrapper">
         <div class="marcia">
                 <a href="marcia.html" target="_blank" rel="noopener">
-                    <img src="marcia2.jpg" alt="Marcia">
+                    <img src="marcia2.webp" alt="Marcia">
 
                 </a>
             <div class="marcia-content">
@@ -202,7 +202,7 @@
         <div class="post-grid">
             <div class="post-card">
                 <a href="ilke-en.html">
-                    <img src="artstyle.jpg" class="post-card-image" alt="our belief in art">
+                    <img src="artstyle.webp" class="post-card-image" alt="our belief in art">
                     <div class="post-card-content">
                         <h3>our belief in art</h3>
                         <p>we care about discovering natural beauty that is pleasing to the eye.</p>
@@ -211,7 +211,7 @@
             </div>
             <div class="post-card">
                 <a href="metod-en.html">
-                    <img src="techevo2.jpg" class="post-card-image" alt="Teknolojinin Gelişimi">
+                    <img src="techevo2.webp" class="post-card-image" alt="Teknolojinin Gelişimi">
                     <div class="post-card-content">
                         <h3>development of technology</h3>
                         <p>what takes a thousand years to happen can sometimes unfold in just a few days.</p>
@@ -220,7 +220,7 @@
             </div>
             <div class="post-card">
                 <a href="computer-en.html">
-                    <img src="eck-mac-color.jpg" class="post-card-image" alt="İlham Veren Projeler">
+                    <img src="eck-mac-color.webp" class="post-card-image" alt="İlham Veren Projeler">
                     <div class="post-card-content">
                         <h3>who invented the first computer?</h3>
                         <p>the real difference between atanasoff and eckert-mauchly goes beyond ideas and lies in live models</p>
@@ -242,11 +242,11 @@
             // Karanlık mod durumu LocalStorage'a kaydediliyor
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
-                modeIcon.src = 'night.png';
+                modeIcon.src = 'night.webp';
                 modeIcon.alt = 'Karanlık Mod';
             } else {
                 localStorage.setItem('darkMode', 'disabled');
-                modeIcon.src = 'day.png';
+                modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Aydınlık Mod';
             }
         }
@@ -258,11 +258,11 @@
     
             if (darkMode === 'enabled') {
                 document.body.classList.add('dark-mode');
-                modeIcon.src = 'night.png';
+                modeIcon.src = 'night.webp';
                 modeIcon.alt = 'Karanlık Mod';
             } else {
                 document.body.classList.remove('dark-mode');
-                modeIcon.src = 'day.png';
+                modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Aydınlık Mod';
             }
     
@@ -271,7 +271,7 @@
             document.documentElement.lang = savedLanguage;
     
             const languageIcon = document.getElementById('language-icon');
-            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.webp' : 'language-icon.webp';
         };
     
         function changeLanguage() {
@@ -304,10 +304,10 @@
             menu.classList.toggle('active');
         
             if (menu.classList.contains('active')) {
-                icon.src = 'close-icon.png'; // "X" ikonunuzun dosya adını kullanın
+                icon.src = 'close-icon.webp'; // "X" ikonunuzun dosya adını kullanın
                 icon.alt = 'Menüyü Kapat';
             } else {
-                icon.src = 'menu-icon.png';
+                icon.src = 'menu-icon.webp';
                 icon.alt = 'Menü';
             }
             
@@ -324,7 +324,7 @@
             if (menu.classList.contains('active')) {
                 menu.classList.remove('active');
                 const icon = menuIcon.querySelector('img');
-                icon.src = 'menu-icon.png';
+                icon.src = 'menu-icon.webp';
                 icon.alt = 'Menü';
             }
         }

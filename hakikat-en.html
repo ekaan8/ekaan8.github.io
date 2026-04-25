@@ -14,17 +14,17 @@
     <div class="navbar">
         <!-- Tema değiştirme butonu -->
         <div class="toggle-mode" onclick="toggleMode()">
-            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+            <img id="mode-icon" src="day.webp" alt="Aydınlık Mod">
         </div>
         <!-- Site başlığı -->
         <div class="mobile-site-title">emre kaan</div>
         <!-- Dil İkonu (Sağ Tarafta) -->
         <div class="language-toggle" onclick="changeLanguage()">
-            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+            <img id="language-icon" src="language-icon.webp" alt="Dil Değiştir" />
         </div>       
         <!-- Hamburger ikonu (sadece mobilde görünecek) -->
         <div class="menu-icon" onclick="toggleMenu()">
-            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+            <img src="menu-icon.webp" alt="Menü" style="width: 24px;">
         </div>
         <div class="menu">
             <a href="index-en.html" class="menu-link">home</a>
@@ -37,7 +37,7 @@
     <div class="back-button">
         <!-- <a href="index.html"> -->
         <a href="javascript:history.back()">
-            <img src="iback.png" alt="Geri Dön" />
+            <img src="iback.webp" alt="Geri Dön" />
         </a>
     </div>
     
@@ -76,7 +76,7 @@
             <div class="bottom-navigation">
                 <div class="nav-button left">
                     <a href="ilke-en.html">
-                        <img src="iback.png" alt="previous page" />
+                        <img src="iback.webp" alt="previous page" />
                     </a>   
                     <span class="nav-text">our belif in art</span>
                 </div>
@@ -88,7 +88,7 @@
                 <div class="nav-button right">
                     <span class="nav-text">turing problem</span>
                     <a href="bant-en.html">
-                        <img src="inext.png" alt="next page" />
+                        <img src="inext.webp" alt="next page" />
                     </a>
                 </div>
             </div>
@@ -105,11 +105,11 @@
             // Karanlık mod durumu LocalStorage'a kaydediliyor
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
-                modeIcon.src = 'night.png';
+                modeIcon.src = 'night.webp';
                 modeIcon.alt = 'Karanlık Mod';
             } else {
                 localStorage.setItem('darkMode', 'disabled');
-                modeIcon.src = 'day.png';
+                modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Aydınlık Mod';
             }
         }
@@ -121,11 +121,11 @@
 
             if (darkMode === 'enabled') {
                 document.body.classList.add('dark-mode');
-                modeIcon.src = 'night.png';
+                modeIcon.src = 'night.webp';
                 modeIcon.alt = 'Karanlık Mod';
             } else {
                 document.body.classList.remove('dark-mode');
-                modeIcon.src = 'day.png';
+                modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Aydınlık Mod';
             }
 
@@ -133,7 +133,7 @@
             document.documentElement.lang = savedLanguage;
     
             const languageIcon = document.getElementById('language-icon');
-            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.webp' : 'language-icon.webp';
         }
 
         function changeLanguage() {
@@ -167,10 +167,10 @@
                 menu.classList.toggle('active');
             
                 if (menu.classList.contains('active')) {
-                    icon.src = 'close-icon.png';
+                    icon.src = 'close-icon.webp';
                     icon.alt = 'Menüyü Kapat';
                 } else {
-                    icon.src = 'menu-icon.png';
+                    icon.src = 'menu-icon.webp';
                     icon.alt = 'Menü';
                 }
                 
@@ -187,7 +187,7 @@
                 if (menu.classList.contains('active')) {
                     menu.classList.remove('active');
                     const icon = menuIcon.querySelector('img');
-                    icon.src = 'menu-icon.png';
+                    icon.src = 'menu-icon.webp';
                     icon.alt = 'Menü';
                 }
             }

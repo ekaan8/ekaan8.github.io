@@ -13,17 +13,17 @@
     <div class="navbar">
         <!-- Tema değiştirme butonu -->
         <div class="toggle-mode" onclick="toggleMode()">
-            <img id="mode-icon" src="day.png" alt="Aydınlık Mod">
+            <img id="mode-icon" src="day.webp" alt="Aydınlık Mod">
         </div>
         <!-- Site başlığı -->
         <div class="mobile-site-title">emre kaan</div>
         <!-- Dil İkonu (Sağ Tarafta) -->
         <div class="language-toggle" onclick="changeLanguage()">
-            <img id="language-icon" src="language-icon.png" alt="Dil Değiştir" />
+            <img id="language-icon" src="language-icon.webp" alt="Dil Değiştir" />
         </div>       
         <!-- Hamburger ikonu (sadece mobilde görünecek) -->
         <div class="menu-icon" onclick="toggleMenu()">
-            <img src="menu-icon.png" alt="Menü" style="width: 24px;">
+            <img src="menu-icon.webp" alt="Menü" style="width: 24px;">
         </div>
         <div class="menu">
             <a href="index-en.html" class="menu-link">home</a>
@@ -35,7 +35,7 @@
 
     <div class="back-button">
         <a href="javascript:history.back()">
-            <img src="iback.png" alt="back-button" />
+            <img src="iback.webp" alt="back-button" />
         </a>
     </div>
     
@@ -53,7 +53,7 @@
             </p> 
             
             <div class="image-wrapper">
-                <img src="gold.png" alt="Vizyonumuz" class="ilke-image">
+                <img src="gold.webp" alt="Vizyonumuz" class="ilke-image">
                 <p class="golden-ratio-text">golden ratio = 1,618</p>
             </div>
             
@@ -63,7 +63,7 @@
                 instead, we believe in first creating a work of art — imagining and crafting simple yet striking outcomes that follow one another in perfect proportion — and only then building the technique to serve it. our eyes love simplicity. this affection includes the desert and the sea. we also love places without boundaries, like forests — places ready to be discovered or lost in. but we despise staying within four walls or using elevators; they keep us away from places to explore or from reaching a deeper tranquility.    
             </p>
             <div class="image-wrapper1">
-                <img src="goldenratio.jpg" alt="shell" class="ilke-image1">
+                <img src="goldenratio.webp" alt="shell" class="ilke-image1">
             </div>
             <p>
                 <br>this is the essence of our principles: to avoid what the eye avoids, and to build what it loves to discover. that’s how remarkable things come to life — through solid vision and deep emotion behind them.
@@ -88,7 +88,7 @@
             <div class="bottom-navigation">
                     <div class="nav-button left">
                         <a href="metod-en.html">
-                            <img src="iback.png" alt="previous page" />
+                            <img src="iback.webp" alt="previous page" />
                         </a>
                         <span class="nav-text">development of technology</span>
                     </div>
@@ -100,7 +100,7 @@
                     <div class="nav-button right">
                         <span class="nav-text">on the trail of truth</span>
                         <a href="hakikat-en.html">
-                            <img src="inext.png" alt="next page" />
+                            <img src="inext.webp" alt="next page" />
                         </a>
                     </div>
                 </div>
@@ -120,11 +120,11 @@
             // Karanlık mod durumu LocalStorage'a kaydediliyor
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
-                modeIcon.src = 'night.png';
+                modeIcon.src = 'night.webp';
                 modeIcon.alt = 'Karanlık Mod';
             } else {
                 localStorage.setItem('darkMode', 'disabled');
-                modeIcon.src = 'day.png';
+                modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Aydınlık Mod';
             }
         }
@@ -136,11 +136,11 @@
     
             if (darkMode === 'enabled') {
                 document.body.classList.add('dark-mode');
-                modeIcon.src = 'night.png';
+                modeIcon.src = 'night.webp';
                 modeIcon.alt = 'Karanlık Mod';
             } else {
                 document.body.classList.remove('dark-mode');
-                modeIcon.src = 'day.png';
+                modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Aydınlık Mod';
             }
     
@@ -149,7 +149,7 @@
             document.documentElement.lang = savedLanguage;
     
             const languageIcon = document.getElementById('language-icon');
-            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.png' : 'language-icon.png';
+            languageIcon.src = savedLanguage === 'tr' ? 'language-icon.webp' : 'language-icon.webp';
         };
     
         function changeLanguage() {
@@ -182,10 +182,10 @@
                 menu.classList.toggle('active');
             
                 if (menu.classList.contains('active')) {
-                    icon.src = 'close-icon.png';
+                    icon.src = 'close-icon.webp';
                     icon.alt = 'Menüyü Kapat';
                 } else {
-                    icon.src = 'menu-icon.png';
+                    icon.src = 'menu-icon.webp';
                     icon.alt = 'Menü';
                 }
                 
@@ -202,7 +202,7 @@
                 if (menu.classList.contains('active')) {
                     menu.classList.remove('active');
                     const icon = menuIcon.querySelector('img');
-                    icon.src = 'menu-icon.png';
+                    icon.src = 'menu-icon.webp';
                     icon.alt = 'Menü';
                 }
             }
