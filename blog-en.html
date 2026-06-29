@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="preload" as="font" href="fonts/Inter-VF-subset.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="fonts/Pacifico-Regular.woff2" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="blog2.min.css"></head>
+    <link rel="stylesheet" href="blog2.min.css">
+</head>
+
 <body>
     <div class="navbar">
         <div class="toggle-mode" onclick="toggleMode()">
@@ -16,7 +19,7 @@
         <div class="mobile-site-title">emre kaan</div>
         <div class="language-toggle" onclick="changeLanguage()">
             <img id="language-icon" src="language-icon.webp" alt="change language" width="100" height="100">
-        </div>       
+        </div>
         <div class="menu-icon" onclick="toggleMenu()">
             <img src="menu-icon.webp" alt="Menu" style="width: 24px; height: 24px;" width="100" height="100">
         </div>
@@ -37,7 +40,7 @@
             <h2>
                 <span class="website-h">website</span>
             </h2>
-        
+
             <div class="jackorn">
                 <a href="https://emrekaan.com" class="jackorn-link">emrekaan.com</a>
             </div>
@@ -47,31 +50,47 @@
                     <div class="text-slide">
                         <div class="website-text">
                             <p>
-                            this site was designed as a personal portfolio. before i began, i set a few clear principles for myself.
-                            every decision was not just about aesthetics, but about shaping the overall experience.
-                            the menu is transparent, subtly reflecting the background content. the corners of the boxes are soft.
-                            i chose san francisco as the typeface — clean, readable, and free from unnecessary detail.
-                            every clickable element is clearly recognizable; hover feedback is noticeable yet understated.
-                            from the very beginning, the site has included both light and dark modes, each with its own character. headings, texts, and containers adapt distinctly between day and night views.
-                            smooth and intuitive navigation across the site was a key priority. the menu structure is simple, content is accessible, and both language and theme can be switched instantly.
-                            although the css for mobile and desktop layouts is entirely different, the navigation logic remains the same. no matter the device, the experience feels familiar.
+                                this site was designed as a personal portfolio. before i began, i set a few clear
+                                principles for myself.
+                                every decision was not just about aesthetics, but about shaping the overall experience.
+                                the menu is transparent, subtly reflecting the background content. the corners of the
+                                boxes are soft.
+                                i chose san francisco as the typeface — clean, readable, and free from unnecessary
+                                detail.
+                                every clickable element is clearly recognizable; hover feedback is noticeable yet
+                                understated.
+                                from the very beginning, the site has included both light and dark modes, each with its
+                                own character. headings, texts, and containers adapt distinctly between day and night
+                                views.
+                                smooth and intuitive navigation across the site was a key priority. the menu structure
+                                is simple, content is accessible, and both language and theme can be switched instantly.
+                                although the css for mobile and desktop layouts is entirely different, the navigation
+                                logic remains the same. no matter the device, the experience feels familiar.
                             </p>
                         </div>
                     </div>
-                    
+
                     <!-- İkinci Slide -->
                     <div class="text-slide">
                         <div class="website-text">
                             <p>
-                            i paid special attention to how the content adapts automatically when the window is resized, especially on desktop. the way headings, images, and containers adjust to different widths keeps the layout consistent under all conditions. for me, this flexibility is part of visual harmony.
-                            technically, the html and script parts brought some challenges, but my main focus was always on css. i spent time thinking about color balance, the feel of spacing, font weights, shadow intensity — all the little details that shape the language of the site.
-                            soft transitions, gradient headers, subtle shadows, glassy reflections, fluid text and visuals — they’re all noticeable as you move through the page.
-                            i first designed the structure in my mind, knowing what kind of experience i wanted to build. then, through code, i gradually brought it to life. the result is a simple yet intentional piece of work that reflects my approach to design.
+                                i paid special attention to how the content adapts automatically when the window is
+                                resized, especially on desktop. the way headings, images, and containers adjust to
+                                different widths keeps the layout consistent under all conditions. for me, this
+                                flexibility is part of visual harmony.
+                                technically, the html and script parts brought some challenges, but my main focus was
+                                always on css. i spent time thinking about color balance, the feel of spacing, font
+                                weights, shadow intensity — all the little details that shape the language of the site.
+                                soft transitions, gradient headers, subtle shadows, glassy reflections, fluid text and
+                                visuals — they’re all noticeable as you move through the page.
+                                i first designed the structure in my mind, knowing what kind of experience i wanted to
+                                build. then, through code, i gradually brought it to life. the result is a simple yet
+                                intentional piece of work that reflects my approach to design.
                             </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slider Controls -->
                 <div class="slider-controls">
                     <div class="slider-arrow arrow-left" id="prevBtn">
@@ -82,55 +101,40 @@
                         <div class="arrow-icon"></div>
                     </div>
                 </div>
-                
+
                 <!-- Slide Indicators -->
                 <div class="slide-indicator">
                     <div class="indicator-dot active" data-slide="0"></div>
                     <div class="indicator-dot" data-slide="1"></div>
                 </div>
             </div>
-   
-            <!-- Website Görsel Grid -->
-            <div class="website-grid-container">
-                    <div class="website-grid">
-                        <div class="website-image">
-                            <img fetchpriority="high" loading="eager" src="web50.webp" alt="Website image 1" width="1050" height="1050">
-                        </div>
-                        <div class="website-image">
-                            <img loading="lazy" src="web20.webp" alt="Website image 2" width="742" height="735">
-                        </div>
-                        <div class="website-image">
-                            <img loading="lazy" src="web3.webp" alt="Website image 3" width="800" height="1026">
-                        </div>
-                        <div class="website-image">
-                            <img loading="lazy" src="web42.webp" alt="Website image 4" width="1453" height="1064">
-                        </div>
-                        <div class="website-image">
-                            <img loading="lazy" src="web8.webp" alt="Website image 4" width="1140" height="1140">
-                        </div>
-                        <div class="website-image">
-                            <img loading="lazy" src="web7.webp" alt="Website image 4" width="1572" height="1572">
-                        </div>
-                    </div>
-            </div>
+
         </div>
-        
+
         <!-- Instagram Bölümü -->
         <div class="instagram-about">
             <h2>
                 <span class="instagram-text">instagram</span>
                 <span class="tag">
-                    <a href="https://www.instagram.com/technovision101/" target="_blank" class="tag-link">@technovision101</a>
+                    <a href="https://www.instagram.com/technovision101/" target="_blank"
+                        class="tag-link">@technovision101</a>
                 </span>
             </h2>
             <div class="insta-text">
                 <p>
-                    this is where technovision lives. in just 10 frames, i explore works, products, and remarkable ideas — especially those born from the world of computer science.
-                    there’s also another section called “icontech,” where we remember the visionary minds who built this world — von neumann, ada, shannon, bush, and many others.
-                    looking at my posts from past to present, it’s almost a design journey of my own. at first, there were barely any boundaries, and the layout followed a straightforward line. eventually, i grew tired of that and slowly started to discover my own visual language.
-                    as i moved closer to the present, i began shaping softer corners, glassy containers, calm gradient tones, and shadows that felt right for the content. 
-                    <br><br>in short, i finally arrived at a style that doesn’t tire the eye and gently invites exploration.
-                    this section matters a lot to me — it’s a vast and dynamic world that fascinates me, and here, i get to reflect it entirely through my own taste.
+                    this is where technovision lives. in just 10 frames, i explore works, products, and remarkable ideas
+                    — especially those born from the world of computer science.
+                    there’s also another section called “icontech,” where we remember the visionary minds who built this
+                    world — von neumann, ada, shannon, bush, and many others.
+                    looking at my posts from past to present, it’s almost a design journey of my own. at first, there
+                    were barely any boundaries, and the layout followed a straightforward line. eventually, i grew tired
+                    of that and slowly started to discover my own visual language.
+                    as i moved closer to the present, i began shaping softer corners, glassy containers, calm gradient
+                    tones, and shadows that felt right for the content.
+                    <br><br>in short, i finally arrived at a style that doesn’t tire the eye and gently invites
+                    exploration.
+                    this section matters a lot to me — it’s a vast and dynamic world that fascinates me, and here, i get
+                    to reflect it entirely through my own taste.
                     <br>to see all these things in their true colors, you can visit
                     <a href="https://www.instagram.com/technovision101/" target="_blank"> my instagram page.</a>
                 </p>
@@ -142,40 +146,47 @@
                     <div class="instagram-grid-slider">
                         <!-- İlk grup (varsayılan gösterilen) -->
                         <div class="post-group">
-                            
+
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DLzsDtcKofM/" target="_blank">
-                                    <img loading="lazy" src="tv101/akay.webp" alt="Instagram Post 1" width="1005" height="1005">
+                                    <img loading="lazy" src="tv101/akay.webp" alt="Instagram Post 1" width="1005"
+                                        height="1005">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DDRymcsocub/" target="_blank">
-                                    <img loading="lazy" src="tv101/risc.webp" alt="Instagram Post 2" width="612" height="616">
+                                    <img loading="lazy" src="tv101/risc.webp" alt="Instagram Post 2" width="612"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C-zqv1HgdqQ/" target="_blank">
-                                    <img loading="lazy" src="tv101/linux.webp" alt="Instagram Post 3" width="612" height="616">
+                                    <img loading="lazy" src="tv101/linux.webp" alt="Instagram Post 3" width="612"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C_ik9N-osib/" target="_blank">
-                                    <img loading="lazy" src="tv101/transistor.webp" alt="Instagram Post 4" width="660" height="660">
+                                    <img loading="lazy" src="tv101/transistor.webp" alt="Instagram Post 4" width="660"
+                                        height="660">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6y7J2gKRog/" target="_blank">
-                                    <img loading="lazy" src="tv101/hellog3.webp" alt="Instagram Post 4" width="1002" height="1002">
+                                    <img loading="lazy" src="tv101/hellog3.webp" alt="Instagram Post 4" width="1002"
+                                        height="1002">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DEup3k2AYBd/" target="_blank">
-                                    <img loading="lazy" src="tv101/intelli.webp" alt="Instagram Post 4" width="1005" height="1005">
+                                    <img loading="lazy" src="tv101/intelli.webp" alt="Instagram Post 4" width="1005"
+                                        height="1005">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DFx3OYLABqC/" target="_blank">
-                                    <img loading="lazy" src="tv101/display.webp" alt="Instagram Post 4" width="756" height="756">
+                                    <img loading="lazy" src="tv101/display.webp" alt="Instagram Post 4" width="756"
+                                        height="756">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
@@ -189,42 +200,50 @@
                         <div class="post-group">
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/gui2.webp" alt="Instagram Post 13" width="880" height="880">
+                                    <img loading="lazy" src="tv101/gui2.webp" alt="Instagram Post 13" width="880"
+                                        height="880">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C9zHVlTgXpw/" target="_blank">
-                                    <img loading="lazy" src="tv101/arm.webp" alt="Instagram Post 13" width="760" height="760">
+                                    <img loading="lazy" src="tv101/arm.webp" alt="Instagram Post 13" width="760"
+                                        height="760">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DMsFbwwKHkf/" target="_blank">
-                                    <img loading="lazy" src="xparc-2.webp" alt="Instagram Post 13" width="704" height="704">
+                                    <img loading="lazy" src="xparc-2.webp" alt="Instagram Post 13" width="704"
+                                        height="704">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DFDnrvuAc17/" target="_blank">
-                                    <img loading="lazy" src="tv101/nvidia.webp" alt="Instagram Post 13" width="995" height="995">
+                                    <img loading="lazy" src="tv101/nvidia.webp" alt="Instagram Post 13" width="995"
+                                        height="995">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DBjkDs8IoLg/" target="_blank">
-                                    <img loading="lazy" src="tv101/mham.webp" alt="Instagram Post 17" width="610" height="610">
+                                    <img loading="lazy" src="tv101/mham.webp" alt="Instagram Post 17" width="610"
+                                        height="610">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C7mw7njgmbc/" target="_blank">
-                                    <img loading="lazy" src="tv101/moore.webp" alt="Instagram Post 13" width="760" height="760">
+                                    <img loading="lazy" src="tv101/moore.webp" alt="Instagram Post 13" width="760"
+                                        height="760">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DCwYUU0oMMS/" target="_blank">
-                                    <img loading="lazy" src="tv101/mouse.webp" alt="Instagram Post 13" width="763" height="763">
+                                    <img loading="lazy" src="tv101/mouse.webp" alt="Instagram Post 13" width="763"
+                                        height="763">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C-lLW-YAzdr/" target="_blank">
-                                    <img loading="lazy" src="tv101/spc.webp" alt="Instagram Post 13" width="1002" height="1002">
+                                    <img loading="lazy" src="tv101/spc.webp" alt="Instagram Post 13" width="1002"
+                                        height="1002">
                                 </a>
                             </div>
                         </div>
@@ -233,87 +252,103 @@
                         <div class="post-group">
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DD4N7l_g23v/" target="_blank">
-                                    <img loading="lazy" src="tv101/is.webp" alt="Instagram Post 17" width="616" height="616">
+                                    <img loading="lazy" src="tv101/is.webp" alt="Instagram Post 17" width="616"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/endustrimuh101/p/C7R9Q_DtVyZ/" target="_blank">
-                                    <img loading="lazy" src="tv101/ftay.webp" alt="Instagram Post 13" width="612" height="612">
+                                    <img loading="lazy" src="tv101/ftay.webp" alt="Instagram Post 13" width="612"
+                                        height="612">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C-5bF2ZKLcF/" target="_blank">
-                                    <img loading="lazy" src="tv101/dknu.webp" alt="Instagram Post 13" width="610" height="610">
+                                    <img loading="lazy" src="tv101/dknu.webp" alt="Instagram Post 13" width="610"
+                                        height="610">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C97bIJlKsec/" target="_blank">
-                                    <img loading="lazy" src="tv101/jmc.webp" alt="Instagram Post 13" width="616" height="616">
+                                    <img loading="lazy" src="tv101/jmc.webp" alt="Instagram Post 13" width="616"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6d0kyrq9Q-/" target="_blank">
-                                    <img loading="lazy" src="tv101/vb.webp" alt="Instagram Post 13" width="616" height="616">
+                                    <img loading="lazy" src="tv101/vb.webp" alt="Instagram Post 13" width="616"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C9Scc_wqAzk/" target="_blank">
-                                    <img loading="lazy" src="tv101/shan.webp" alt="Instagram Post 13" width="612" height="612">
+                                    <img loading="lazy" src="tv101/shan.webp" alt="Instagram Post 13" width="612"
+                                        height="612">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6i4Z16KFVG/" target="_blank">
-                                    <img loading="lazy" src="tv101/jvn.webp" alt="Instagram Post 13" width="616" height="616">
+                                    <img loading="lazy" src="tv101/jvn.webp" alt="Instagram Post 13" width="616"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6jRPKEqbiZ/" target="_blank">
-                                    <img loading="lazy" src="tv101/ada.webp" alt="Instagram Post 1" width="610" height="610">
+                                    <img loading="lazy" src="tv101/ada.webp" alt="Instagram Post 1" width="610"
+                                        height="610">
                                 </a>
                             </div>
                         </div>
                         <div class="post-group">
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6ggCxGqGy_/" target="_blank">
-                                    <img loading="lazy" src="tv101/mic.webp" alt="Instagram Post 13" width="858" height="858">
+                                    <img loading="lazy" src="tv101/mic.webp" alt="Instagram Post 13" width="858"
+                                        height="858">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/stack.webp" alt="Instagram Post 13" width="616" height="616">
+                                    <img loading="lazy" src="tv101/stack.webp" alt="Instagram Post 13" width="616"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/timwww.webp" alt="Instagram Post 13" width="610" height="610">
+                                    <img loading="lazy" src="tv101/timwww.webp" alt="Instagram Post 13" width="610"
+                                        height="610">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/hsim.webp" alt="Instagram Post 13" width="610" height="610">
+                                    <img loading="lazy" src="tv101/hsim.webp" alt="Instagram Post 13" width="610"
+                                        height="610">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/unix.webp" alt="Instagram Post 13" width="763" height="763">
+                                    <img loading="lazy" src="tv101/unix.webp" alt="Instagram Post 13" width="763"
+                                        height="763">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/open.webp" alt="Instagram Post 13" width="928" height="935">
+                                    <img loading="lazy" src="tv101/open.webp" alt="Instagram Post 13" width="928"
+                                        height="935">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C61XX9LKgLz/" target="_blank">
-                                    <img loading="lazy" src="tv101/ibm.webp" alt="Instagram Post 13" width="760" height="760">
+                                    <img loading="lazy" src="tv101/ibm.webp" alt="Instagram Post 13" width="760"
+                                        height="760">
                                 </a>
-                            </div> 
+                            </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C7WzA9fKgna/" target="_blank">
-                                    <img loading="lazy" src="tv101/hopper.webp" alt="Instagram Post 13" width="763" height="763">
+                                    <img loading="lazy" src="tv101/hopper.webp" alt="Instagram Post 13" width="763"
+                                        height="763">
                                 </a>
-                            </div>                             
-                            
+                            </div>
+
 
                         </div>
 
@@ -337,10 +372,48 @@
                         <img loading="lazy" src="96f.webp" alt="Sonraki" width="24" height="24">
                     </button>
                 </div>
-                
+
             </div>
         </div>
 
+        <!-- SPHAS (Smart Plant Health Analysis System) Section -->
+        <div class="sphas-about">
+            <h2>
+                <span class="sphas-header">sphas</span>
+            </h2>
+            <div class="sphas-text">
+                <p>
+                    SPHAS (Smart Plant Health Analysis System) is an integrated smart agriculture and plant-care
+                    platform developed within the Computer Engineering Project course at Gebze Technical University. It
+                    combines Raspberry Pi based hardware control, AI-based disease and plant species recognition,
+                    autonomous watering and fertilisation systems, and real-time 3D Digital Twin visualization.
+                    <br><br>
+                    My primary contribution was within the Web Dashboard module. Using React, Three.js, and WebSockets,
+                    I built the user interface that integrates real-time sensor monitoring, AI analysis results, and
+                    manual hardware control into a single unified dashboard. Additionally, I implemented the 3D Digital
+                    Twin using Three.js to visualize the physical system state in real time.
+                </p>
+            </div>
+
+            <!-- SPHAS Images -->
+            <div class="sphas-images">
+                <div class="sphas-image-pair">
+                    <img loading="lazy" src="sphas1.webp" alt="SPHAS Dashboard Image 1">
+                    <img loading="lazy" src="sphas2.webp" alt="SPHAS Dashboard Image 2">
+                </div>
+            </div>
+
+            <!-- Divider and Links -->
+            <hr class="sphas-divider">
+            <div class="sphas-links">
+                <a href="https://kerim111.github.io/GROUP1/" target="_blank">Website</a>
+                <span class="link-separator">·</span>
+                <a href="https://www.youtube.com/watch?v=OEOXxKMZTmY&feature=youtu.be" target="_blank">YouTube</a>
+                <span class="link-separator">·</span>
+                <a href="SPHAS_FINAL_REPORT_GROUP1.pdf" target="_blank" class="sphas-pdf-btn">Download Technical
+                    Doc</a>
+            </div>
+        </div>
 
 
         <!-- Instagram bölümünden sonra, content-about bölümünden önce -->
@@ -350,14 +423,16 @@
             </h2>
             <div class="dot-image-text">
                 <p>
-                i developed a web application that transforms your visuals into dot-based artworks.
-                with this tool, you can convert your photos into pointillistic-style images and adjust the number and size of the dots to achieve highly detailed results closer to the original.
-                on the other hand, lowering these values creates a simpler, more nostalgic visual atmosphere.
-                <br><br>i added 12 distinct color palettes: original, retro, pastel, dark, warm, cool, earth, punk, sunset, ocean, galaxy, and gold.
-                you can download or copy the transformed images as you like.
+                    i developed a web application that transforms your visuals into dot-based artworks.
+                    with this tool, you can convert your photos into pointillistic-style images and adjust the number
+                    and size of the dots to achieve highly detailed results closer to the original.
+                    on the other hand, lowering these values creates a simpler, more nostalgic visual atmosphere.
+                    <br><br>i added 12 distinct color palettes: original, retro, pastel, dark, warm, cool, earth, punk,
+                    sunset, ocean, galaxy, and gold.
+                    you can download or copy the transformed images as you like.
                 </p>
             </div>
-            
+
             <!-- Dot Image Görsel Grid -->
             <div class="dot-image-grid">
                 <div class="dot-image-pair">
@@ -387,12 +462,15 @@
             </h2>
             <div class="gradient-text-content">
                 <p>
-                i've often talked about gradient texts and smooth transitions — so i decided to bring those ideas to life through a custom web tool.
-                with this tool, you can create gradient texts using your choice of fonts, sizes, backgrounds, and up to 10 colors.
-                i built it because i use gradients frequently and got tired of switching between different tools. now, adjusting and dragging colors feels simple, fluid and enjoyable.
+                    i've often talked about gradient texts and smooth transitions — so i decided to bring those ideas to
+                    life through a custom web tool.
+                    with this tool, you can create gradient texts using your choice of fonts, sizes, backgrounds, and up
+                    to 10 colors.
+                    i built it because i use gradients frequently and got tired of switching between different tools.
+                    now, adjusting and dragging colors feels simple, fluid and enjoyable.
                 </p>
             </div>
-            
+
             <div class="gradient-image-grid">
                 <div class="gradient-image-pair">
                     <img loading="lazy" src="gradial.webp" alt="Gradyan Metin Örneği 1" width="1422" height="1422">
@@ -414,15 +492,21 @@
             </h2>
             <div class="marcia-content">
                 <p>
-                there was a time when i was immersed in homer’s iliad and odyssey, reading aristophanes and shakespeare alongside them. i became so familiar with the elevated language of the age of heroes that inspiration found me when i least expected it.
-                i couldn’t stop myself — i began writing down the words and verses that came to mind without pause.
-                what emerged was the opening of a short play set between sea and desert. it’s still unfinished, but has already grown beyond 800 lines.
-                <br>these verses tell the story of marcia, daughter of the king of crete, her father king balehund, and kefaric — the wild ruler of numidia, across the sea. the tale begins under a lunar eclipse.
-                <br>to me, the desert is a different expression of the sea — this story reflects a blend of ideas i've long carried. at its core, though, it centers on the conflict between the age of gold and the age of iron, as seen through marcia and kefaric.
-                much like the iliad, it’s a story of east and west.
+                    there was a time when i was immersed in homer’s iliad and odyssey, reading aristophanes and
+                    shakespeare alongside them. i became so familiar with the elevated language of the age of heroes
+                    that inspiration found me when i least expected it.
+                    i couldn’t stop myself — i began writing down the words and verses that came to mind without pause.
+                    what emerged was the opening of a short play set between sea and desert. it’s still unfinished, but
+                    has already grown beyond 800 lines.
+                    <br>these verses tell the story of marcia, daughter of the king of crete, her father king balehund,
+                    and kefaric — the wild ruler of numidia, across the sea. the tale begins under a lunar eclipse.
+                    <br>to me, the desert is a different expression of the sea — this story reflects a blend of ideas
+                    i've long carried. at its core, though, it centers on the conflict between the age of gold and the
+                    age of iron, as seen through marcia and kefaric.
+                    much like the iliad, it’s a story of east and west.
                 </p>
             </div>
-            
+
             <!-- Görseller için grid -->
             <div class="marcia-image-grid">
                 <div class="marcia-image-pair">
@@ -437,23 +521,27 @@
                 </a>
             </div>
         </div>
-        
+
         <div class="content-about">
             <h2>one more thing</h2>
             <p>
-            this section sits at the outer edge of my content — and often reaches beyond it.
-            while it’s rooted in the intersection of technology and art, the writings here reflect everything that captures my interest, sparks my curiosity, or invites deeper thought.    
-            <br><br>
-            i kept the design deliberately minimal. although the mobile and desktop layouts differ, they both carry the same clarity and simplicity.
-            images are mostly used as guiding visuals alongside the texts. some were custom-made, others carefully chosen.
-            <br><br>
-            some writings are brief and easy to skim. others are long and ask for time and attention.
-            this range is intentional — because at the core of my website lie the ideas expressed right here.
+                this section sits at the outer edge of my content — and often reaches beyond it.
+                while it’s rooted in the intersection of technology and art, the writings here reflect everything that
+                captures my interest, sparks my curiosity, or invites deeper thought.
+                <br><br>
+                i kept the design deliberately minimal. although the mobile and desktop layouts differ, they both carry
+                the same clarity and simplicity.
+                images are mostly used as guiding visuals alongside the texts. some were custom-made, others carefully
+                chosen.
+                <br><br>
+                some writings are brief and easy to skim. others are long and ask for time and attention.
+                this range is intentional — because at the core of my website lie the ideas expressed right here.
             </p>
             <div class="post-grid-about">
                 <div class="post-card-about">
                     <a href="metod-en.html">
-                        <img loading="lazy" src="techevo2.webp" class="post-card-image" alt="Sanat İnancımız" width="501" height="501">
+                        <img loading="lazy" src="techevo2.webp" class="post-card-image" alt="Sanat İnancımız"
+                            width="501" height="501">
                         <div class="post-card-content">
                             <h3>development of technology</h3>
                             <p>what takes a thousand years to happen can sometimes unfold in just a few days.</p>
@@ -463,7 +551,8 @@
                 <!-- Her bir post-card-about içine img ekleyin -->
                 <div class="post-card-about">
                     <a href="ilke-en.html">
-                        <img loading="lazy" src="artstyle.webp" class="post-card-image" alt="Sanat İnancımız" width="716" height="716">
+                        <img loading="lazy" src="artstyle.webp" class="post-card-image" alt="Sanat İnancımız"
+                            width="716" height="716">
                         <div class="post-card-content">
                             <h3>our belief in art</h3>
                             <p>we care about discovering natural beauty that is pleasing to the eye.</p>
@@ -472,34 +561,41 @@
                 </div>
                 <div class="post-card-about">
                     <a href="hakikat-en.html">
-                        <img loading="lazy" src="kadim2.webp" class="post-card-image" alt="Sanat İnancımız" width="501" height="752">
+                        <img loading="lazy" src="kadim2.webp" class="post-card-image" alt="Sanat İnancımız" width="501"
+                            height="752">
                         <div class="post-card-content">
                             <h3>on the trail of truth</h3>
-                            <p>the path to truth may be found beyond complex quests, in the quiet moment when a sparrow drinks water.</p>
+                            <p>the path to truth may be found beyond complex quests, in the quiet moment when a sparrow
+                                drinks water.</p>
                         </div>
                     </a>
                 </div>
                 <div class="post-card-about">
                     <a href="bant-en.html">
-                        <img loading="lazy" src="iband.webp" class="post-card-image" alt="Sanat İnancımız" width="405" height="405">
+                        <img loading="lazy" src="iband.webp" class="post-card-image" alt="Sanat İnancımız" width="405"
+                            height="405">
                         <div class="post-card-content">
                             <h3>turing problem</h3>
-                            <p>can artificial intelligence that can solve every problem in infinite time really stand still?</p>
+                            <p>can artificial intelligence that can solve every problem in infinite time really stand
+                                still?</p>
                         </div>
                     </a>
                 </div>
                 <div class="post-card-about">
                     <a href="iskender-en.html">
-                        <img loading="lazy" src="agreatking.webp" class="post-card-image" alt="keşif" width="1000" height="748">
+                        <img loading="lazy" src="agreatking.webp" class="post-card-image" alt="keşif" width="1000"
+                            height="748">
                         <div class="post-card-content">
                             <h3>one who has a rival can't race against time</h3>
-                            <p>when we really end the competition, can we create artifacts that are ready to be discovered?</p>
+                            <p>when we really end the competition, can we create artifacts that are ready to be
+                                discovered?</p>
                         </div>
                     </a>
                 </div>
                 <div class="post-card-about">
                     <a href="harmoni-en.html">
-                        <img loading="lazy" src="hispaniola0.webp" class="post-card-image" alt="Sanat İnancımız" width="501" height="752">
+                        <img loading="lazy" src="hispaniola0.webp" class="post-card-image" alt="Sanat İnancımız"
+                            width="501" height="752">
                         <div class="post-card-content">
                             <h3>harmonium</h3>
                             <p>a harmony of a few words about the french revolution, hispaniola and germania</p>
@@ -508,19 +604,23 @@
                 </div>
                 <div class="post-card-about">
                     <a href="computer-en.html">
-                        <img loading="lazy" src="m-e.webp" class="post-card-image" alt="Sanat İnancımız" width="759" height="954">
+                        <img loading="lazy" src="m-e.webp" class="post-card-image" alt="Sanat İnancımız" width="759"
+                            height="954">
                         <div class="post-card-content">
                             <h3>who invented the first computer?</h3>
-                            <p>the real difference between atanasoff and eckert-mauchly goes beyond ideas and lies in live models</p>
+                            <p>the real difference between atanasoff and eckert-mauchly goes beyond ideas and lies in
+                                live models</p>
                         </div>
                     </a>
                 </div>
                 <div class="post-card-about">
                     <a href="arch-en.html">
-                        <img loading="lazy" src="riscarch.webp" class="post-card-image" alt="Sanat İnancımız" width="854" height="854">
+                        <img loading="lazy" src="riscarch.webp" class="post-card-image" alt="Sanat İnancımız"
+                            width="854" height="854">
                         <div class="post-card-content">
                             <h3>the future in arm architecture</h3>
-                            <p>the risc architecture is built on solid foundations and will develop at an increasing pace because this is now a natural process.</p>
+                            <p>the risc architecture is built on solid foundations and will develop at an increasing
+                                pace because this is now a natural process.</p>
                         </div>
                     </a>
                 </div>
@@ -535,10 +635,10 @@
         function toggleMode() {
             const body = document.body;
             const modeIcon = document.getElementById('mode-icon');
-            
+
             // Mod değiştirme
             body.classList.toggle('dark-mode');
-    
+
             // Karanlık mod durumu LocalStorage'a kaydediliyor
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
@@ -550,12 +650,12 @@
                 modeIcon.alt = 'Aydınlık Mod';
             }
         }
-    
+
         // Sayfa yüklendiğinde karanlık mod ve dil durumunu kontrol et
-        window.onload = function() {
+        window.onload = function () {
             const modeIcon = document.getElementById('mode-icon');
             const darkMode = localStorage.getItem('darkMode');
-    
+
             if (darkMode === 'enabled') {
                 document.body.classList.add('dark-mode');
                 modeIcon.src = 'night.webp';
@@ -565,22 +665,22 @@
                 modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Aydınlık Mod';
             }
-    
-            
+
+
             const savedLanguage = localStorage.getItem('language') || 'tr';
             document.documentElement.lang = savedLanguage;
-    
+
             const languageIcon = document.getElementById('language-icon');
             languageIcon.src = savedLanguage === 'tr' ? 'language-icon.webp' : 'language-icon.webp';
         };
-    
+
         function changeLanguage() {
             const currentLang = document.documentElement.lang;
             const newLang = currentLang === 'tr' ? 'en' : 'tr';
-    
+
             // Dil tercihini kaydet
             localStorage.setItem('language', newLang);
-    
+
             // İlgili sayfaya yönlendir
             if (newLang === 'en') {
                 window.location.href = 'blog-en.html';
@@ -597,33 +697,33 @@
 
         function slideImages(direction) {
             const slider = document.querySelector('.instagram-grid-slider');
-            
+
             if (direction === 'next' && currentSlide < totalSlides - 1) {
                 currentSlide++;
             } else if (direction === 'prev' && currentSlide > 0) {
                 currentSlide--;
             }
-            
+
             // Slider'ı translate et (yatay kaydırma)
             const translateValue = -(currentSlide * 100);
             slider.style.transform = `translateX(${translateValue}%)`;
-            
+
             // Navigasyon butonlarını ve aktif daireyi güncelle
             updateNavigationButtons();
             updateActiveDot();
         }
-        
+
         function updateNavigationButtons() {
             const prevButton = document.querySelector('.prev-button');
             const nextButton = document.querySelector('.next-button');
-            
+
             prevButton.style.opacity = currentSlide === 0 ? '0.5' : '1';
             prevButton.style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
-            
+
             nextButton.style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
             nextButton.style.pointerEvents = currentSlide === totalSlides - 1 ? 'none' : 'auto';
         }
-        
+
         function updateActiveDot() {
             const dots = document.querySelectorAll('.dot');
             dots.forEach(dot => dot.classList.remove('active'));
@@ -631,14 +731,14 @@
                 dots[currentSlide].classList.add('active');
             }
         }
-        
+
         // Sayfa yüklendiğinde buton ve dot durumlarını güncelle
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             updateNavigationButtons();
             updateActiveDot();
         });
 
-    
+
     </script>
 
 
@@ -647,26 +747,26 @@
         function toggleMenu() {
             const menu = document.querySelector('.menu');
             const icon = document.querySelector('.menu-icon img');
-            
-       
+
+
             icon.style.opacity = 0;
-            
+
             setTimeout(() => {
                 menu.classList.toggle('active');
-            
+
                 if (menu.classList.contains('active')) {
-                    icon.src = 'close-icon.webp'; 
+                    icon.src = 'close-icon.webp';
                     icon.alt = 'Menüyü Kapat';
                 } else {
                     icon.src = 'menu-icon.webp';
                     icon.alt = 'Menü';
                 }
-                
-               
+
+
                 icon.style.opacity = 1;
-            }, 150); 
+            }, 150);
         }
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             const menu = document.querySelector('.menu');
@@ -695,88 +795,90 @@
             </button>
         </div>
     </div>
-  
-  
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    
-      const images = Array.from(document.querySelectorAll('.dot-image-pair img'));  // tüm küçük görseller
-      const modal     = document.getElementById('imgModal');
-      const modalImg  = document.getElementById('imgModalSrc');
-      const closeBtn  = document.querySelector('.img-close');
-      const prevBtn   = document.querySelector('.img-prev');
-      const nextBtn   = document.querySelector('.img-next');
-      let currentIndex = 0;  // aktif görselin indexi
-    
-      images.forEach((img, index) => {
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', () => openImg(index));
-        img.addEventListener('touchstart', () => openImg(index), { passive: true });
-      });
-    
-      function openImg(index){
-        currentIndex = index;
-        modalImg.src = images[currentIndex].src;
-        modal.style.display = 'flex';
-      }
-    
-      function closeModal(){
-        modal.style.display = 'none';
-      }
-    
-      function showPrev(){
-        currentIndex = (currentIndex - 1 + images.length) % images.length; 
-        modalImg.src = images[currentIndex].src;
-      }
-    
-      function showNext(){
-        currentIndex = (currentIndex + 1) % images.length;  
-        modalImg.src = images[currentIndex].src;
-      }
-    
-      closeBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', e => {
-        if (e.target === modal) closeModal();
-      });
-      prevBtn.addEventListener('click', showPrev);
-      nextBtn.addEventListener('click', showNext);
-    
-      // Klavye kontrolü
-      document.addEventListener('keydown', e => {
-        if (modal.style.display === 'flex') {
-          if (e.key === 'ArrowLeft') showPrev();
-          if (e.key === 'ArrowRight') showNext();
-          if (e.key === 'Escape') closeModal();
-        }
-      });
-    
-    });
-    </script>
-    
+
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const delay = entry.target.dataset.delay || 0;
-                entry.target.style.animationDelay = `${delay}ms`;
-                entry.target.classList.add('slide-up-visible');
-                observer.unobserve(entry.target);
+            const images = Array.from(document.querySelectorAll('.dot-image-pair img'));  // tüm küçük görseller
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('imgModalSrc');
+            const closeBtn = document.querySelector('.img-close');
+            const prevBtn = document.querySelector('.img-prev');
+            const nextBtn = document.querySelector('.img-next');
+            let currentIndex = 0;  // aktif görselin indexi
+
+            images.forEach((img, index) => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', () => openImg(index));
+                img.addEventListener('touchstart', () => openImg(index), { passive: true });
+            });
+
+            function openImg(index) {
+                currentIndex = index;
+                modalImg.src = images[currentIndex].src;
+                modal.style.display = 'flex';
             }
+
+            function closeModal() {
+                modal.style.display = 'none';
+            }
+
+            function showPrev() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                modalImg.src = images[currentIndex].src;
+            }
+
+            function showNext() {
+                currentIndex = (currentIndex + 1) % images.length;
+                modalImg.src = images[currentIndex].src;
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', e => {
+                if (e.target === modal) closeModal();
+            });
+            prevBtn.addEventListener('click', showPrev);
+            nextBtn.addEventListener('click', showNext);
+
+            // Klavye kontrolü
+            document.addEventListener('keydown', e => {
+                if (modal.style.display === 'flex') {
+                    if (e.key === 'ArrowLeft') showPrev();
+                    if (e.key === 'ArrowRight') showNext();
+                    if (e.key === 'Escape') closeModal();
+                }
+            });
+
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '30px'
-    });
+    </script>
 
 
-    const elements = document.querySelectorAll(`
+    <script>
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    entry.target.style.animationDelay = `${delay}ms`;
+                    entry.target.classList.add('slide-up-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '30px'
+        });
+
+
+        const elements = document.querySelectorAll(`
         .website h2,
         .website .jackorn,
         .website .website-text,
         .instagram-about h2,
         .instagram-about .insta-text,
+        .sphas-about h2,
+        .sphas-about .sphas-text,
         .dot-image-about h2,
         .dot-image-about .dot-image-text,
         .gradient-text-about h2,
@@ -788,20 +890,20 @@
     `);
 
 
-    elements.forEach((element, index) => {
-        
-        if (element.tagName === 'H2') {
-            element.dataset.delay = index * 50; 
-        } else {
-            element.dataset.delay = 80 + (index * 50); 
-        }
-        observer.observe(element);
-    });
+        elements.forEach((element, index) => {
+
+            if (element.tagName === 'H2') {
+                element.dataset.delay = index * 50;
+            } else {
+                element.dataset.delay = 80 + (index * 50);
+            }
+            observer.observe(element);
+        });
     </script>
 
 
     <script>
-            document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             let currentSlide = 0;
             const totalSlides = 2;
             const slider = document.getElementById('textSlider');
@@ -812,11 +914,11 @@
             function updateSlider() {
                 // Slider pozisyonunu güncelle
                 slider.style.transform = `translateX(-${currentSlide * 50}%)`;
-                
+
                 // Button durumlarını güncelle
                 prevBtn.classList.toggle('disabled', currentSlide === 0);
                 nextBtn.classList.toggle('disabled', currentSlide === totalSlides - 1);
-                
+
                 // Indicator durumlarını güncelle
                 indicators.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentSlide);
@@ -867,7 +969,7 @@
             slider.addEventListener('touchend', (e) => {
                 endX = e.changedTouches[0].clientX;
                 const diff = startX - endX;
-                
+
                 if (Math.abs(diff) > 50) {
                     if (diff > 0) nextSlide();
                     else prevSlide();
@@ -883,7 +985,8 @@
             updateSlider();
         });
     </script>
-    
-  
+
+
 </body>
+
 </html>
