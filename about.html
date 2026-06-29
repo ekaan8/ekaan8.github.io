@@ -1,563 +1,620 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hakkımda</title>
     <style>
-/* Add at the top of your CSS */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+        /* Add at the top of your CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;*/
-    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
-    background-color: rgb(245, 245, 247);
-    color: rgb(29, 29, 32);
-    min-height: 100vh;
-}
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;*/
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: rgb(245, 245, 247);
+            color: rgb(29, 29, 32);
+            min-height: 100vh;
+        }
 
-html, body {
-    overflow-x: hidden;
-  }
-  
-
-/* Navbar */
-.navbar {
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.68);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-    position: fixed;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(5.0px);
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    box-shadow: 0 0.8px 1px rgba(18, 18, 18, 0.089);
-}
-body.dark-mode .navbar {
-    background-color: rgba(30, 30, 30, 0.9) !important;
-    box-shadow: 0 0.8px 1px rgba(240, 240, 240, 0.271);
-}
-
-/* Menu */
-.menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-    padding: 0;
-}
-
-.menu-link {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 18px;
-    transition: color 0.3s;
-    position: relative;
-    padding-bottom: 5px;
-}
-
-.mobile-site-title {
-    display: none;
-}
+        html,
+        body {
+            overflow-x: hidden;
+        }
 
 
-.menu-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -18px;
-    width: 100%;
-    height: 2px;
-    background-color: #6c6c6c;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
+        /* Navbar */
+        .navbar {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.68);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            position: fixed;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(5.0px);
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 0.8px 1px rgba(18, 18, 18, 0.089);
+        }
 
-.menu-link:hover::after,
-.menu-link.active::after {
-    transform: scaleX(1);
-}
+        body.dark-mode .navbar {
+            background-color: rgba(30, 30, 30, 0.9) !important;
+            box-shadow: 0 0.8px 1px rgba(240, 240, 240, 0.271);
+        }
 
-/* Dark Mode Styles */
-body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-}
+        /* Menu */
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+            padding: 0;
+        }
 
-/* This is the key addition needed */
-body.dark-mode ~ html,
-html {
-    background-color: inherit;
-}
+        .menu-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 18px;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
 
-
-
-body.dark-mode .menu-link {
-    color: #ffffff;
-}
-
-body.dark-mode .menu-link::after {
-    background-color: #ffffff;
-}
-
-
-/* Toggle Mode */
-.toggle-mode {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-.toggle-mode img {
-    width: 36px;
-    height: 36px;
-    transition: transform 0.3s ease;
-}
-
-/* Language Toggle */
-.language-toggle {
-    position: absolute;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-.language-toggle img {
-    width: 28px;
-    height: 28px;
-    transition: transform 0.3s ease;
-}
-.language-toggle:hover img {
-    transform: scale(1.1);
-}
-
-body.dark-mode .language-toggle img {
-    filter: invert(1);
-}
+        .mobile-site-title {
+            display: none;
+        }
 
 
-.about-container {
-    padding-top: 80px;
-    min-height: 100vh;
-    position: relative;
-    width: 100%; 
-}
+        .menu-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -18px;
+            width: 100%;
+            height: 2px;
+            background-color: #6c6c6c;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-link:hover::after,
+        .menu-link.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        /* This is the key addition needed */
+        body.dark-mode~html,
+        html {
+            background-color: inherit;
+        }
 
 
 
-.profile-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px; 
-    padding-top: 2.8rem; 
-    border-radius: 32px;
-    padding: 2.5rem;
-}
+        body.dark-mode .menu-link {
+            color: #ffffff;
+        }
+
+        body.dark-mode .menu-link::after {
+            background-color: #ffffff;
+        }
 
 
-/* Card için düzeltilmiş margin */
-.card {
-    background-color: #fff;
-    border-radius: 32px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 2.5rem;
-    margin: 0 auto; 
-    max-width: 95%;
-    margin-top: 4%;
-    margin-bottom: 4%;
-    border-top:    1px solid rgba(205, 205, 205, 0.62);
-    border-left: 1px solid rgba(205, 205, 205, 0.62);
-}
+        /* Toggle Mode */
+        .toggle-mode {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .toggle-mode img {
+            width: 36px;
+            height: 36px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .language-toggle img {
+            width: 28px;
+            height: 28px;
+            transition: transform 0.3s ease;
+        }
+
+        .language-toggle:hover img {
+            transform: scale(1.1);
+        }
+
+        body.dark-mode .language-toggle img {
+            filter: invert(1);
+        }
 
 
-body.dark-mode .card {
-
-    border-top:    1px solid rgba(255, 255, 255, 0.3);
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(48, 48, 49, 0.68);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-}
+        .about-container {
+            padding-top: 80px;
+            min-height: 100vh;
+            position: relative;
+            width: 100%;
+        }
 
 
-.profile-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-}
 
-/* Add this to your CSS */
-.profile-section.card {
-    background: linear-gradient(145deg, #ffffff, #f5f5f5);
-    border-radius: 32px;
-    padding: 2.5rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-body.dark-mode .profile-section.card {
-    background: linear-gradient(145deg, #222222, #333333);
-}
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            padding-top: 2.8rem;
+            border-radius: 32px;
+            padding: 2.5rem;
+        }
 
-.profile-pic {
-    width: 280px;
-    height: auto;
-    max-width: 100%;
-    border-radius: 32px;
-    object-fit: cover;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
 
-.text-content {
-    width: 100%;
-    font-weight: 500;
-    font-size: 1.8rem;
-}
+        /* Card için düzeltilmiş margin */
+        .card {
+            background-color: #fff;
+            border-radius: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin: 0 auto;
+            max-width: 95%;
+            margin-top: 4%;
+            margin-bottom: 4%;
+            border-top: 1px solid rgba(205, 205, 205, 0.62);
+            border-left: 1px solid rgba(205, 205, 205, 0.62);
+        }
 
-.text-content p {
-    max-width: 100%;
-    word-break: break-word;
-}
 
-.gradient-text {
-    font-size: 3rem;
-    font-weight: bold;
-    background: linear-gradient(to right, #3d45b8, #2fa2c9, #33e8e8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    
-    padding-top: 1%;
-}
-body.dark-mode .gradient-text {
-    /*background: linear-gradient(to bottom, #1e3c72 0%, #2a5298 40%, #005f73 100%);*/
-      background: linear-gradient(
-    to right,
-    #e44bae 0%,   /* fuşya ton */
-    #ff7750 100%  /* turuncumsu ton */
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        body.dark-mode .card {
 
-/* Gradyan yazı ile açıklama metni arasına boşluk ekle */
-.text-content h1.gradient-text {
-    margin-bottom: 1.5rem; /* İstediğiniz boşluğa göre bu değeri ayarlayabilirsiniz */
-}
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 2.7rem !important;
-    }
-}
-@media screen and (max-width: 768px) {
-    body {
-        overflow-x: hidden;
-    }
-    /*.about-container {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(48, 48, 49, 0.68);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+
+        .profile-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        /* Add this to your CSS */
+        .profile-section.card {
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            border-radius: 32px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        body.dark-mode .profile-section.card {
+            background: linear-gradient(145deg, #222222, #333333);
+        }
+
+        .profile-pic {
+            width: 280px;
+            height: auto;
+            max-width: 100%;
+            border-radius: 32px;
+            object-fit: cover;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-content {
+            width: 100%;
+            font-weight: 500;
+            font-size: 1.8rem;
+        }
+
+        .text-content p {
+            max-width: 100%;
+            word-break: break-word;
+        }
+
+        .gradient-text {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #3d45b8, #2fa2c9, #33e8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            padding-top: 1%;
+        }
+
+        body.dark-mode .gradient-text {
+            /*background: linear-gradient(to bottom, #1e3c72 0%, #2a5298 40%, #005f73 100%);*/
+            background: linear-gradient(to right,
+                    #e44bae 0%,
+                    /* fuşya ton */
+                    #ff7750 100%
+                    /* turuncumsu ton */
+                );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Gradyan yazı ile açıklama metni arasına boşluk ekle */
+        .text-content h1.gradient-text {
+            margin-bottom: 1.5rem;
+            /* İstediğiniz boşluğa göre bu değeri ayarlayabilirsiniz */
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.7rem !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            /*.about-container {
         padding: 80px 20px 20px 20px;
     }*/
-    .about-container {
-        width: 100%;
-        padding: 80px 15px 20px 15px;
-    }
-    .about-contact {
-        padding: 20px;
-    }
-  /* Her bir iletişim linki (kutucuk) */
-    .about-contact .contact-link {
-        width: 100%;          /* Kutucuğun container'ın tamamını kaplamasını sağlar */
-        padding: 16px;        /* Daha büyük kutucuk görünümü için iç boşluk artırıldı */
-        font-size: 1rem;      /* Gerekirse font boyutunu ayarlayın */
-        white-space: normal;  /* Gerekirse metin sarılsın */
-        text-align: center;   /* Metni ortalar */
-        overflow: visible;    /* Taşmayı engellemek için */
-        text-overflow: clip;
-    }
-    .about-contact .contact-links {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;            /* Kutucuklar arası boşluk */
-        width: 100%;
-        margin-left: 0;       /* Eski indent değerini kaldırın */
-        justify-items: center;
-    }
-    .about-contact .contact-link img {
-        width: 20px;
-        height: 20px;
-        margin-right: 8px;
-    }
+            .about-container {
+                width: 100%;
+                padding: 80px 15px 20px 15px;
+            }
 
-    .card {
-        width: auto;
-        max-width: 100%;
-        margin: 4% auto;  /* dikey boşluk + yatayda otomatik ortalama */
-    }
+            .about-contact {
+                padding: 20px;
+            }
 
-    .about-container {
-        width: 100%;
-        padding: 80px 15px 20px 15px; /* soldan-sağdan 15px boşluk */
-        box-sizing: border-box;
-      }
+            /* Her bir iletişim linki (kutucuk) */
+            .about-contact .contact-link {
+                width: 100%;
+                /* Kutucuğun container'ın tamamını kaplamasını sağlar */
+                padding: 16px;
+                /* Daha büyük kutucuk görünümü için iç boşluk artırıldı */
+                font-size: 1rem;
+                /* Gerekirse font boyutunu ayarlayın */
+                white-space: normal;
+                /* Gerekirse metin sarılsın */
+                text-align: center;
+                /* Metni ortalar */
+                overflow: visible;
+                /* Taşmayı engellemek için */
+                text-overflow: clip;
+            }
 
-    .profile-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+            .about-contact .contact-links {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                /* Kutucuklar arası boşluk */
+                width: 100%;
+                margin-left: 0;
+                /* Eski indent değerini kaldırın */
+                justify-items: center;
+            }
 
-    .profile-pic {
-        width: 200px;
-        height: auto;
-        margin-bottom: 20px;
-    }
+            .about-contact .contact-link img {
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+            }
 
-    .gradient-text {
-        font-size: 2.8rem !important;
-        margin-top: 0.12rem;
-    }
+            .card {
+                width: auto;
+                max-width: 100%;
+                margin: 4% auto;
+                /* dikey boşluk + yatayda otomatik ortalama */
+            }
 
-    .text-content p {
-        font-size: 1.34rem;
-        text-align: left;
-        width: 100%;
-    }
+            .about-container {
+                width: 100%;
+                padding: 80px 15px 20px 15px;
+                /* soldan-sağdan 15px boşluk */
+                box-sizing: border-box;
+            }
 
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
+            .profile-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
 
-    .contact-links {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        width: 100%;
-    }
+            .profile-pic {
+                width: 200px;
+                height: auto;
+                margin-bottom: 20px;
+            }
 
-    .contact-link {
-        width: 76%;
-        padding: 12px;
-        font-size: 0.9rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+            .gradient-text {
+                font-size: 2.8rem !important;
+                margin-top: 0.12rem;
+            }
 
-    .contact-link img {
-        width: 20px;
-        height: 20px;
-        margin-right: 8px;
-    }
-    .section-title {
-        font-size: 1.8rem;
-    }
+            .text-content p {
+                font-size: 1.34rem;
+                text-align: left;
+                width: 100%;
+            }
 
-    .timeline-item {
-        padding: 15px;
-    }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
 
-    .timeline-year {
-        font-size: 0.9rem;
-    }
-}
+            .contact-links {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
 
-@media screen and (max-width: 480px) {
-    .about-container {
-        padding: 70px 15px 15px 15px;
-    }
+            .contact-link {
+                width: 76%;
+                padding: 12px;
+                font-size: 0.9rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
 
-    .skills-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
+            .contact-link img {
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+            }
 
-    .gradient-text {
-        font-size: 2.0rem !important;
-    }
-    .about-contact {
-        padding: 15px;
-    }
+            .section-title {
+                font-size: 1.8rem;
+            }
 
-    .contact-link {
-        padding: 10px;
-        font-size: 0.85rem;
-    }
-}
+            .timeline-item {
+                padding: 15px;
+            }
+
+            .timeline-year {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .about-container {
+                padding: 70px 15px 15px 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .gradient-text {
+                font-size: 2.0rem !important;
+            }
+
+            .about-contact {
+                padding: 15px;
+            }
+
+            .contact-link {
+                padding: 10px;
+                font-size: 0.85rem;
+            }
+        }
 
 
 
-/*yeni ekleme*/
-.menu-icon {
-    display: none; /* Masaüstünde varsayılan olarak gizli */
-}
-/* ===== MOBILE STYLES ===== */
-@media (max-width: 768px) {
-    /* Navbar and Menu Layout */
-    .navbar {
-        position: fixed; /* Change from relative to fixed */
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 60px;
-        background-color: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(5.0px);
-        z-index: 1000; /* Ensure it stays on top */
-        box-shadow: 0 0.8px 1px rgba(18, 18, 18, 0.089);
-    }
-    body.dark-mode .navbar {
-        background-color: rgba(30, 30, 30, 0.62) !important; /* Opaklık ekleyin */
-        box-shadow: 0 0.8px 1px rgba(240, 240, 240, 0.271);
-    }
-    
-    /* Mobile site title - position on the far left */
-    .mobile-site-title {
-        display: block;
-        position: absolute;
-        left: 20px; /* Keep on the left */
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.2rem;
-        font-weight: 500;
-        color: #333;
-        text-align: left;
-        z-index: 1; /* Ensure it's above other elements */
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
-      }
-    
-    /* Toggle mode - position to the left of hamburger menu */
-    .toggle-mode {
-      display: block;
-      position: absolute;
-      right: 60px; /* Position to the left of hamburger menu */
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      margin: 0;
-      left: auto; /* Remove left positioning */
-    }
-    
-    /* Language toggle - position to the left of toggle-mode */
-    .language-toggle {
-      display: block;
-      position: absolute;
-      right: 108px; /* Position to the left of toggle-mode */
-      top: 50%;
-      transform: translateY(-50%);
-      margin: 0;
-    }
-    .language-toggle img {
-        width: 28px; /* Reduced from 28px */
-        height: 28px; /* Reduced from 28px */
-        transition: transform 0.3s ease;
-    }
-    
-    /* Menu icon - position on the far right */
-    .menu-icon {
-      display: block;
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
-    
-    /* Menu dropdown */
-    .menu {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px 0;
-        text-align: left;
-      }
-    
-    .menu.active {
-      display: flex;
-    }
-    
-    .menu-link {
-        font-size: 2rem;
-        color: #555;
-        padding-left: 20px; /* mobile-site-title ile aynı hizada olması için */
-        width: auto; /* Changed from 100% to auto */
-        text-align: left; /* Yazıyı sola hizala */
-        display: inline-block; /* Add this line */
-        position: relative; /* Add this line */
-    }
+        /*yeni ekleme*/
+        .menu-icon {
+            display: none;
+            /* Masaüstünde varsayılan olarak gizli */
+        }
 
-    .menu-link::after {
-        content: '';
-        position: absolute;
-        left: 20px;
-        bottom: -4px;
-        width: 0; /* Changed from 100% to 0 */
-        height: 2px;
-        background-color: #6c6c6c;
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
-    }
+        /* ===== MOBILE STYLES ===== */
+        @media (max-width: 768px) {
 
-    .menu-link:hover::after,
-    .menu-link.active::after {
-        transform: scaleX(1);
-        width: calc(100% - 20px);
-    }
-    
-    /* Dark mode adjustments */
-    body.dark-mode .mobile-site-title {
-      color: #ffffff;
-    }
-    
-    body.dark-mode .menu-icon img {
-      filter: invert(1);
-    }
-    .menu-icon img {
-        transition: opacity 0.3s ease;
-    }
-    
-    body.dark-mode .toggle-mode img {
-      content: url('night.png');
-      width: 36px; /* Match light mode size */
-      height: 36px; /* Match light mode size */
-    }
-    
-    body.dark-mode .navbar .menu {
-      background: rgba(30, 30, 30, 0.95);
-    }
-}
-body.dark-mode .toggle-mode img {
-    content: url('night.png');
-}
+            /* Navbar and Menu Layout */
+            .navbar {
+                position: fixed;
+                /* Change from relative to fixed */
+                top: 0;
+                left: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 60px;
+                background-color: rgba(255, 255, 255, 0.7);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(5.0px);
+                z-index: 1000;
+                /* Ensure it stays on top */
+                box-shadow: 0 0.8px 1px rgba(18, 18, 18, 0.089);
+            }
+
+            body.dark-mode .navbar {
+                background-color: rgba(30, 30, 30, 0.62) !important;
+                /* Opaklık ekleyin */
+                box-shadow: 0 0.8px 1px rgba(240, 240, 240, 0.271);
+            }
+
+            /* Mobile site title - position on the far left */
+            .mobile-site-title {
+                display: block;
+                position: absolute;
+                left: 20px;
+                /* Keep on the left */
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: #333;
+                text-align: left;
+                z-index: 1;
+                /* Ensure it's above other elements */
+                font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+            }
+
+            /* Toggle mode - position to the left of hamburger menu */
+            .toggle-mode {
+                display: block;
+                position: absolute;
+                right: 60px;
+                /* Position to the left of hamburger menu */
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                margin: 0;
+                left: auto;
+                /* Remove left positioning */
+            }
+
+            /* Language toggle - position to the left of toggle-mode */
+            .language-toggle {
+                display: block;
+                position: absolute;
+                right: 108px;
+                /* Position to the left of toggle-mode */
+                top: 50%;
+                transform: translateY(-50%);
+                margin: 0;
+            }
+
+            .language-toggle img {
+                width: 28px;
+                /* Reduced from 28px */
+                height: 28px;
+                /* Reduced from 28px */
+                transition: transform 0.3s ease;
+            }
+
+            /* Menu icon - position on the far right */
+            .menu-icon {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
+
+            /* Menu dropdown */
+            .menu {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 0;
+                text-align: left;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-link {
+                font-size: 2rem;
+                color: #555;
+                padding-left: 20px;
+                /* mobile-site-title ile aynı hizada olması için */
+                width: auto;
+                /* Changed from 100% to auto */
+                text-align: left;
+                /* Yazıyı sola hizala */
+                display: inline-block;
+                /* Add this line */
+                position: relative;
+                /* Add this line */
+            }
+
+            .menu-link::after {
+                content: '';
+                position: absolute;
+                left: 20px;
+                bottom: -4px;
+                width: 0;
+                /* Changed from 100% to 0 */
+                height: 2px;
+                background-color: #6c6c6c;
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+
+            .menu-link:hover::after,
+            .menu-link.active::after {
+                transform: scaleX(1);
+                width: calc(100% - 20px);
+            }
+
+            /* Dark mode adjustments */
+            body.dark-mode .mobile-site-title {
+                color: #ffffff;
+            }
+
+            body.dark-mode .menu-icon img {
+                filter: invert(1);
+            }
+
+            .menu-icon img {
+                transition: opacity 0.3s ease;
+            }
+
+            body.dark-mode .toggle-mode img {
+                content: url('night.png');
+                width: 36px;
+                /* Match light mode size */
+                height: 36px;
+                /* Match light mode size */
+            }
+
+            body.dark-mode .navbar .menu {
+                background: rgba(30, 30, 30, 0.95);
+            }
+        }
+
+        body.dark-mode .toggle-mode img {
+            content: url('night.png');
+        }
     </style>
     <link rel="preload" as="font" href="fonts/Inter-VF-subset.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="fonts/Pacifico-Regular.woff2" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="fonts.css">
     <link rel="preload" as="style" href="about.min.css" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="about.min.css"></noscript></head>
+    <noscript>
+        <link rel="stylesheet" href="about.min.css">
+    </noscript>
+</head>
+
 <body>
     <!-- Menü Çubuğu -->
     <div class="navbar">
@@ -567,10 +624,10 @@ body.dark-mode .toggle-mode img {
         </div>
         <!-- Site başlığı -->
         <div class="mobile-site-title">emre kaan</div>
-             <!-- Dil İkonu (Sağ Tarafta) -->
+        <!-- Dil İkonu (Sağ Tarafta) -->
         <div class="language-toggle" onclick="changeLanguage()">
             <img id="language-icon" src="language-icon.webp" alt="Dil Değiştir" width="100" height="100">
-        </div>       
+        </div>
         <!-- Hamburger ikonu (sadece mobilde görünecek) -->
         <div class="menu-icon" onclick="toggleMenu()">
             <img src="menu-icon.webp" alt="Menü" style="width: 24px; height: 24px;" width="100" height="100">
@@ -583,14 +640,15 @@ body.dark-mode .toggle-mode img {
         </div>
     </div>
 
-    
+
     <!-- About Content -->
     <div class="about-container">
         <!-- Profil Bölümü -->
         <div class="profile-section card">
             <div class="profile-content">
                 <div class="header-image-container">
-                    <img fetchpriority="high" loading="eager" src="ekaan8.webp" alt="Profil Fotoğrafı" class="profile-pic" width="1120" height="840">
+                    <img fetchpriority="high" loading="eager" src="altun.jpg" alt="Profil Fotoğrafı" class="profile-pic"
+                        width="1120" height="840">
                     <h1 class="gradient-text">
                         <span>tekrar</span>
                         <span>merhaba,<br></span>
@@ -599,86 +657,115 @@ body.dark-mode .toggle-mode img {
                     </h1>
                 </div>
                 <div class="text-content">
-                    <div class="text-wrapper"> 
-                            <div class="partial-text">
-                                <p>
-                                    ben emre kaan şahin. 
-                                    bu siteyi bir araçtan çok, sade ve doğal bir deneyim olarak tasarladım. her kutucuk, her boşluk, her gölge—hepsi birbiriyle uyum içinde. kodlarını da, tasarımını da bizzat kendim yaptım. temeli atmak kısa sürdü, ama asıl zamanımı alan şey uyumdu. çünkü bence bir tasarım, görünmeyen detaylarında yaşar.
-                                    kutucukların birbirleriyle olan mesafeleri, köşe yumuşaklıkları, yazı tiplerinin büyüklüğü, renklerin geçişleri, cam hissi veren saydamlıklar, gölgelerin ışıkla harmonisi… hepsi üzerine uzun uzun düşündüğüm, hatta bazen tek bir piksel için renk kodlarını detaylıca aradığım güzel bir serüven oldu. sayısal değerlerde neredeyse tamamen altın oranı kullanmaya özen gösterdim, kutucukların mesafeleri ve yarıçapları, oranlarında hep aynı dili kullanan bir yapı var. 
-                                    çünkü göze iyi gelen şeyin tesadüf olmadığını biliyorum.
-                                    <br>ben minimalizmi sevmem, ama sadelikten hoşlanırım. minimalizm bazen insan doğasına ters düşer. ama sadelik, doğaya yakın olan, içgüdüsel olarak huzur veren bir şeydir. bu yüzden tasarımımda sert çizgilerden, metalik soğukluklardan uzak durdum. onların yerine yumuşaklık, saydam geçişler ve keşfetme duygusu koydum.
-                                </p>
-                            </div>
-                            <div class="full-text hidden">
-                                <p>
-                                    bu siteyi oluştururken kendimi anlatmadım. onun yerine, ortaya koyduğum tasarımın kendisinin beni anlatmasına izin verdim. çünkü her detay, her seçim benim düşünce tarzımı ve hayata bakışımı yansıtıyor.
-                                    kod, benim için her zaman yazılabilen bir şey oldu. gerçek mesele, hatırlanacak bir şeyler ortaya koyabilmek. çünkü büyük işler sadece teknolojiyle değil, onunla düşünebilen insanlarla mümkün oluyor. bugün oluşturduğumuz bu araç belki sadece bizim için büyük olabilir ancak sahip olduğu altından temeller daima büyük ilkeleri esas alıyor.
-                                    <br>charles babbage bir devrim başlattı, ama ada lovelace, bu devrime ruh kattı. o, hesap makinelerini sadece sayılarla sınırlamadı, onları bir gün müzik, metin ve görselleri de ifade edebilecek bir dile çevirdi. işte bu vizyon, bugün elimizde tuttuğumuz tüm teknolojilerin temelinde yatıyor.
-                                    ben de bu vizyonu paylaşmaya çalışıyorum. bir tasarımın sadece gözle değil, duyguyla da okunması gerektiğine inanıyorum. bu uzun yazıyı da bundan yazdım, yoksa aracın ve tekniğin tanıtımını kısa tutmak gerekir, ancak burada vermek istediğim farklı bir şey var.
-                                </p>
-                            </div>
-                            <div class="blurred-overlay">
-                                <button id="readMoreBtn">devamını oku</button>
-                            </div>
+                    <div class="text-wrapper">
+                        <div class="partial-text">
+                            <p>
+                                ben emre kaan şahin.
+                                bu siteyi bir araçtan çok, sade ve doğal bir deneyim olarak tasarladım. her kutucuk, her
+                                boşluk, her gölge—hepsi birbiriyle uyum içinde. kodlarını da, tasarımını da bizzat
+                                kendim yaptım. temeli atmak kısa sürdü, ama asıl zamanımı alan şey uyumdu. çünkü bence
+                                bir tasarım, görünmeyen detaylarında yaşar.
+                                kutucukların birbirleriyle olan mesafeleri, köşe yumuşaklıkları, yazı tiplerinin
+                                büyüklüğü, renklerin geçişleri, cam hissi veren saydamlıklar, gölgelerin ışıkla
+                                harmonisi… hepsi üzerine uzun uzun düşündüğüm, hatta bazen tek bir piksel için renk
+                                kodlarını detaylıca aradığım güzel bir serüven oldu. sayısal değerlerde neredeyse
+                                tamamen altın oranı kullanmaya özen gösterdim, kutucukların mesafeleri ve yarıçapları,
+                                oranlarında hep aynı dili kullanan bir yapı var.
+                                çünkü göze iyi gelen şeyin tesadüf olmadığını biliyorum.
+                                <br>ben minimalizmi sevmem, ama sadelikten hoşlanırım. minimalizm bazen insan doğasına
+                                ters düşer. ama sadelik, doğaya yakın olan, içgüdüsel olarak huzur veren bir şeydir. bu
+                                yüzden tasarımımda sert çizgilerden, metalik soğukluklardan uzak durdum. onların yerine
+                                yumuşaklık, saydam geçişler ve keşfetme duygusu koydum.
+                            </p>
+                        </div>
+                        <div class="full-text hidden">
+                            <p>
+                                bu siteyi oluştururken kendimi anlatmadım. onun yerine, ortaya koyduğum tasarımın
+                                kendisinin beni anlatmasına izin verdim. çünkü her detay, her seçim benim düşünce
+                                tarzımı ve hayata bakışımı yansıtıyor.
+                                kod, benim için her zaman yazılabilen bir şey oldu. gerçek mesele, hatırlanacak bir
+                                şeyler ortaya koyabilmek. çünkü büyük işler sadece teknolojiyle değil, onunla
+                                düşünebilen insanlarla mümkün oluyor. bugün oluşturduğumuz bu araç belki sadece bizim
+                                için büyük olabilir ancak sahip olduğu altından temeller daima büyük ilkeleri esas
+                                alıyor.
+                                <br>charles babbage bir devrim başlattı, ama ada lovelace, bu devrime ruh kattı. o,
+                                hesap makinelerini sadece sayılarla sınırlamadı, onları bir gün müzik, metin ve
+                                görselleri de ifade edebilecek bir dile çevirdi. işte bu vizyon, bugün elimizde
+                                tuttuğumuz tüm teknolojilerin temelinde yatıyor.
+                                ben de bu vizyonu paylaşmaya çalışıyorum. bir tasarımın sadece gözle değil, duyguyla da
+                                okunması gerektiğine inanıyorum. bu uzun yazıyı da bundan yazdım, yoksa aracın ve
+                                tekniğin tanıtımını kısa tutmak gerekir, ancak burada vermek istediğim farklı bir şey
+                                var.
+                            </p>
+                        </div>
+                        <div class="blurred-overlay">
+                            <button id="readMoreBtn">devamını oku</button>
+                        </div>
                     </div>
-                </div> 
+                </div>
 
             </div>
         </div>
 
         <div class="about-story card">
             <h2 class="section-title">nasıl başladı</h2>
-          
+
             <div class="story-slider">
-              <div class="story-cards slider">
+                <div class="story-cards slider">
                     <div class="story-card">
-                    <div class="story-year"> erken 2000'ler</div>
-                    <p>toprağın üzerinde yeni bir şeyler var...</p>
+                        <div class="story-year"> erken 2000'ler</div>
+                        <p>toprağın üzerinde yeni bir şeyler var...</p>
                     </div>
 
                     <div class="story-card">
-                    <div class="story-year"> erken lise yılları</div>
-                    <p>coğrafi keşiflere daldım ve bu bana kontrol etmekten çok keşfetme arzusunu aşıladı. 
-                        çeşitli sistemler ve araçlar üzerinden en iyilerini bulma fikri ve sabit fikirli kalmama ideali bu zamanlarda oluştu.</p>
+                        <div class="story-year"> erken lise yılları</div>
+                        <p>coğrafi keşiflere daldım ve bu bana kontrol etmekten çok keşfetme arzusunu aşıladı.
+                            çeşitli sistemler ve araçlar üzerinden en iyilerini bulma fikri ve sabit fikirli kalmama
+                            ideali bu zamanlarda oluştu.</p>
                     </div>
 
                     <div class="story-card">
-                    <div class="story-year"> geç lise yılları</div>
-                    <p>ilk c programlarını yazma ve donanım üzerinde bazı küçük işler yaptım. 
-                        donanımdan çok, onun taşıdığı fikirler ilgimi çekti. yazılımın işlevsel yönünden ziyade yeterli zaman ve yeterli bilgiler ile en karmaşık sorunları çözebileceği fikrini çok sevdim.
-                        bu yüzden her zaman daha iyi sistemler yaratabileceğimiz fikrini benimsedim.</p>
-                    </div>         
-                    
-                    <div class="story-card">
-                    <div class="story-year">erken üniversite</div>
-                    <p>technovision ve icontech ile bilgisayar bilimleri alanında gerçek ilgimi buldum. 
-                        kodun daima yazılabilir olduğunu düşündüm.
-                        asıl amacımız anlamlı işler yapmak, kod bunun için sadece bir araç. 
-                        ötesinde bir şeyler daha var. muhteşem bir şeyler yaratmak için kod gerekli ve saygın bir araç, ama yolculuğun başlangıcı değil.
-                    </p>
-                    </div>  
-                    
-                    <div class="story-card">
-                    <div class="story-year">geç üniversite ~</div>
-                    <p>kendi web sitemi geliştirdim, başlangıçta bende var olduğunu düşündüğüm şeyleri eklediğimi sanarken süreç boyunca aslında fikirlerimi yeniden inşa ettiğimi anladım.
-                        sitemi daha çok geliştireceğim çünkü yapay zeka bütün verilerle eğitildiği için artık daha fazla öğrenebileceği siteler gittikçe azalıyor ve hantal bir sürece giriliyor. 
-                        ölü internet teorisinin gerçeğe dönüşmemesi için bir şeyler yapmamız lazım.
-                    </p>
-                    </div>                    
+                        <div class="story-year"> geç lise yılları</div>
+                        <p>ilk c programlarını yazma ve donanım üzerinde bazı küçük işler yaptım.
+                            donanımdan çok, onun taşıdığı fikirler ilgimi çekti. yazılımın işlevsel yönünden ziyade
+                            yeterli zaman ve yeterli bilgiler ile en karmaşık sorunları çözebileceği fikrini çok sevdim.
+                            bu yüzden her zaman daha iyi sistemler yaratabileceğimiz fikrini benimsedim.</p>
+                    </div>
 
-              </div>
-          
-              <div class="slider-indicators"></div>
+                    <div class="story-card">
+                        <div class="story-year">erken üniversite</div>
+                        <p>technovision ve icontech ile bilgisayar bilimleri alanında gerçek ilgimi buldum.
+                            kodun daima yazılabilir olduğunu düşündüm.
+                            asıl amacımız anlamlı işler yapmak, kod bunun için sadece bir araç.
+                            ötesinde bir şeyler daha var. muhteşem bir şeyler yaratmak için kod gerekli ve saygın bir
+                            araç, ama yolculuğun başlangıcı değil.
+                        </p>
+                    </div>
+
+                    <div class="story-card">
+                        <div class="story-year">geç üniversite ~</div>
+                        <p>kendi web sitemi geliştirdim, başlangıçta bende var olduğunu düşündüğüm şeyleri eklediğimi
+                            sanarken süreç boyunca aslında fikirlerimi yeniden inşa ettiğimi anladım.
+                            sitemi daha çok geliştireceğim çünkü yapay zeka bütün verilerle eğitildiği için artık daha
+                            fazla öğrenebileceği siteler gittikçe azalıyor ve hantal bir sürece giriliyor.
+                            ölü internet teorisinin gerçeğe dönüşmemesi için bir şeyler yapmamız lazım.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="slider-indicators"></div>
             </div>
         </div>
-          
-          
+
+
 
         <!-- Uzmanlık Alanları Bölümü -->
         <div class="about-skills card">
             <h2 class="section-title">nelerle ilgileniyorum</h2>
             <div class="skills-grid">
-                <div class="skill-item">yazılım geliştirme(c++, java, flutter, html-css) ve performans optimizasyonları</div>
+                <div class="skill-item">yazılım geliştirme(c++, java, flutter, html-css) ve performans optimizasyonları
+                </div>
                 <div class="skill-item">donanım kaynaklarını sadeleştirme ve verimli hale getirme</div>
                 <div class="skill-item">teknik ve yaratıcı içerik üretimi, dijital tasarım</div>
                 <div class="skill-item">kullanıcı odaklı arayüz tasarımları(ux/ui)</div>
@@ -691,14 +778,16 @@ body.dark-mode .toggle-mode img {
         <div class="about-vision card">
             <h2 class="section-title">benim yolum</h2>
             <p>
-            teknoloji sadece koddan ibaret değil; bir vizyonu hayata geçirme aracı. 
-            benim yolum, yeniliği ve estetiği birleştiren bir kesişim noktasında, 
-            teknolojinin sanata dönüştüğü yerde başlıyor. 
-            <br><br>benim amacım icontech gibi projeler ile sadece çözümler veya saf bilgiler sunmak değil, 
-            aynı zamanda değişmez görünen yapıların aslında dinamik olduklarını fark etmek. 
-            <br><br>daha hızlı, daha güçlü, daha teknik olabiliriz ve bunlar saygıyı hak eder ancak her zaman birileri tarafından yapılabilir. 
-            benim için asıl mesele gözümüzün önünde olan şeyler için farklı düşünmek ile ilgili. 
-            yoktan yeni bir şey yaratamayacağız ancak var olan şeylere farklı gözle bakacağız, bizim yaratıcılığımız işte burada.
+                teknoloji sadece koddan ibaret değil; bir vizyonu hayata geçirme aracı.
+                benim yolum, yeniliği ve estetiği birleştiren bir kesişim noktasında,
+                teknolojinin sanata dönüştüğü yerde başlıyor.
+                <br><br>benim amacım icontech gibi projeler ile sadece çözümler veya saf bilgiler sunmak değil,
+                aynı zamanda değişmez görünen yapıların aslında dinamik olduklarını fark etmek.
+                <br><br>daha hızlı, daha güçlü, daha teknik olabiliriz ve bunlar saygıyı hak eder ancak her zaman
+                birileri tarafından yapılabilir.
+                benim için asıl mesele gözümüzün önünde olan şeyler için farklı düşünmek ile ilgili.
+                yoktan yeni bir şey yaratamayacağız ancak var olan şeylere farklı gözle bakacağız, bizim yaratıcılığımız
+                işte burada.
             </p>
         </div>
 
@@ -708,27 +797,31 @@ body.dark-mode .toggle-mode img {
             <p>projeler, işbirlikleri veya sadece fikir alışverişi için iletişime geçebiliriz.</p>
             <div class="contact-links">
                 <a href="mailto:e.sahin2022@gtu.edu.tr" class="contact-link">
-                    <img loading="lazy" src="envelope.svg" alt="Email icon" class="contact-icon" width="24" height="24"> mail
+                    <img loading="lazy" src="envelope.svg" alt="Email icon" class="contact-icon" width="24" height="24">
+                    mail
                 </a>
                 <a href="https://instagram.com/ekaan.8" class="contact-link" target="_blank">
-                    <img loading="lazy" src="instagram2.svg" alt="Instagram icon" class="contact-icon" width="24" height="24"> kişisel
-                </a>                
+                    <img loading="lazy" src="instagram2.svg" alt="Instagram icon" class="contact-icon" width="24"
+                        height="24"> kişisel
+                </a>
                 <a href="https://instagram.com/technovision101" class="contact-link" target="_blank">
-                    <img loading="lazy" src="instagram2.svg" alt="Instagram icon" class="contact-icon" width="24" height="24"> içerik
+                    <img loading="lazy" src="instagram2.svg" alt="Instagram icon" class="contact-icon" width="24"
+                        height="24"> içerik
                 </a>
                 <a href="https://www.linkedin.com/in/emre-kaan-şahin-eks8" class="contact-link" target="_blank">
-                    <img loading="lazy" src="linkedin.svg" alt="LinkedIn icon" class="contact-icon" width="24" height="24"> linkedin
+                    <img loading="lazy" src="linkedin.svg" alt="LinkedIn icon" class="contact-icon" width="24"
+                        height="24"> linkedin
                 </a>
             </div>
         </div>
-        
+
     </div>
 
     <script>
         function toggleMode() {
             const body = document.body;
             const modeIcon = document.getElementById('mode-icon');
-            
+
             // Toggle dark mode
             body.classList.toggle('dark-mode');
 
@@ -745,7 +838,7 @@ body.dark-mode .toggle-mode img {
         }
 
         // Check dark mode state on page load
-        window.onload = function() {
+        window.onload = function () {
             const modeIcon = document.getElementById('mode-icon');
             const darkMode = localStorage.getItem('darkMode');
 
@@ -785,235 +878,235 @@ body.dark-mode .toggle-mode img {
 
 
     <script>
-    // Hamburger Menu Toggle
-    function toggleMenu() {
-        const menu = document.querySelector('.menu');
-        const icon = document.querySelector('.menu-icon img');
-        
-        // Fade out
-        icon.style.opacity = 0;
-        
-        setTimeout(() => {
-            menu.classList.toggle('active');
-        
-            if (menu.classList.contains('active')) {
-                icon.src = 'close-icon.webp'; 
-                icon.alt = 'Menüyü Kapat';
-            } else {
-                icon.src = 'menu-icon.webp';
-                icon.alt = 'Menü';
-            }
-            
-            // Fade in
-            icon.style.opacity = 1;
-        }, 150); 
-    }
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        const menu = document.querySelector('.menu');
-        const menuIcon = document.querySelector('.menu-icon');
-        if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
-            if (menu.classList.contains('active')) {
-                menu.classList.remove('active');
-                const icon = menuIcon.querySelector('img');
-                icon.src = 'menu-icon.webp';
-                icon.alt = 'Menü';
-            }
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            const icon = document.querySelector('.menu-icon img');
+
+            // Fade out
+            icon.style.opacity = 0;
+
+            setTimeout(() => {
+                menu.classList.toggle('active');
+
+                if (menu.classList.contains('active')) {
+                    icon.src = 'close-icon.webp';
+                    icon.alt = 'Menüyü Kapat';
+                } else {
+                    icon.src = 'menu-icon.webp';
+                    icon.alt = 'Menü';
+                }
+
+                // Fade in
+                icon.style.opacity = 1;
+            }, 150);
         }
-    });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.querySelector('.menu');
+            const menuIcon = document.querySelector('.menu-icon');
+            if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    const icon = menuIcon.querySelector('img');
+                    icon.src = 'menu-icon.webp';
+                    icon.alt = 'Menü';
+                }
+            }
+        });
     </script>
 
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Mobil cihazlarda sayfa yüklendiğinde en üste scroll yap
-    if (window.innerWidth <= 768) {
-        // Sayfa tamamen yüklendikten sonra en üste scroll yap
-        setTimeout(() => {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'instant'
-            });
-        }, 100);
-        
-        // Sayfa yüklenme sonrası da kontrol et
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                window.scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: 'instant'
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobil cihazlarda sayfa yüklendiğinde en üste scroll yap
+            if (window.innerWidth <= 768) {
+                // Sayfa tamamen yüklendikten sonra en üste scroll yap
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: 'instant'
+                    });
+                }, 100);
+
+                // Sayfa yüklenme sonrası da kontrol et
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: 'instant'
+                        });
+                    }, 50);
                 });
-            }, 50);
-        });
-    }
-    
-    const slider = document.querySelector('.slider');
-    const cards = document.querySelectorAll('.story-card');
-    const dotsBox = document.querySelector('.slider-indicators');
-    
-    // Nokta göstergeleri oluştur
-    cards.forEach((_, i) => {
-        const dot = document.createElement('span');
-        dot.className = 'dot';
-        if (i === 0) dot.classList.add('active');
-        dotsBox.appendChild(dot);
-    });
-    
-    const dots = [...dotsBox.children];
-    
-    let scrollTimeout;
-    let isAutoScrolling = false; // Otomatik scroll kontrolü için flag
-    let pageJustLoaded = true; // Sayfa yeni yüklenme kontrolü
-    
-    slider.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        
-        // Slider'ın merkez noktasını hesapla
-        const centerX = slider.scrollLeft + slider.offsetWidth / 2;
-        
-        cards.forEach((card) => {
-            const cardLeft = card.offsetLeft;
-            const cardWidth = card.offsetWidth;
-            const cardCenter = cardLeft + cardWidth / 2;
-            const distance = Math.abs(centerX - cardCenter);
-            const maxDistance = cardWidth * 0.8;
-            
-            if (distance < maxDistance) {
-                const proximity = 1 - (distance / maxDistance);
-                const scale = 0.8 + (0.2 * proximity);
-                const opacity = 0.6 + (0.4 * proximity);
-                const translateZ = -30 + (30 * proximity);
-                card.style.transform = `scale(${scale}) translateZ(${translateZ}px)`;
-                card.style.opacity = opacity;
-            } else {
-                card.style.transform = 'scale(0.8) translateZ(-30px)';
-                card.style.opacity = '0.6';
             }
+
+            const slider = document.querySelector('.slider');
+            const cards = document.querySelectorAll('.story-card');
+            const dotsBox = document.querySelector('.slider-indicators');
+
+            // Nokta göstergeleri oluştur
+            cards.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                if (i === 0) dot.classList.add('active');
+                dotsBox.appendChild(dot);
+            });
+
+            const dots = [...dotsBox.children];
+
+            let scrollTimeout;
+            let isAutoScrolling = false; // Otomatik scroll kontrolü için flag
+            let pageJustLoaded = true; // Sayfa yeni yüklenme kontrolü
+
+            slider.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+
+                // Slider'ın merkez noktasını hesapla
+                const centerX = slider.scrollLeft + slider.offsetWidth / 2;
+
+                cards.forEach((card) => {
+                    const cardLeft = card.offsetLeft;
+                    const cardWidth = card.offsetWidth;
+                    const cardCenter = cardLeft + cardWidth / 2;
+                    const distance = Math.abs(centerX - cardCenter);
+                    const maxDistance = cardWidth * 0.8;
+
+                    if (distance < maxDistance) {
+                        const proximity = 1 - (distance / maxDistance);
+                        const scale = 0.8 + (0.2 * proximity);
+                        const opacity = 0.6 + (0.4 * proximity);
+                        const translateZ = -30 + (30 * proximity);
+                        card.style.transform = `scale(${scale}) translateZ(${translateZ}px)`;
+                        card.style.opacity = opacity;
+                    } else {
+                        card.style.transform = 'scale(0.8) translateZ(-30px)';
+                        card.style.opacity = '0.6';
+                    }
+                });
+
+                scrollTimeout = setTimeout(() => {
+                    const sliderRect = slider.getBoundingClientRect();
+                    const sliderCenter = sliderRect.left + sliderRect.width / 2;
+
+                    let minDistance = Infinity;
+                    let closestCard = null;
+                    let closestIndex = -1;
+
+                    cards.forEach((card, index) => {
+                        const cardRect = card.getBoundingClientRect();
+                        const cardCenter = cardRect.left + cardRect.width / 2;
+                        const distance = Math.abs(sliderCenter - cardCenter);
+
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closestCard = card;
+                            closestIndex = index;
+                        }
+                    });
+
+                    // Sadece kullanıcı manuel scroll yaptıysa otomatik scroll yap
+                    // Sayfa ilk yüklendiğinde otomatik scroll yapma
+                    if (closestCard && !isAutoScrolling && !pageJustLoaded) {
+                        isAutoScrolling = true;
+                        closestCard.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest',
+                            inline: 'center'
+                        });
+
+                        // Otomatik scroll tamamlandıktan sonra flag'i sıfırla
+                        setTimeout(() => {
+                            isAutoScrolling = false;
+                        }, 500);
+                    }
+
+                    // Tüm kartlardan sınıfları kaldır
+                    cards.forEach(card => {
+                        card.classList.remove('in-view', 'near-view');
+                    });
+
+                    // En yakın karta 'in-view' ekle
+                    if (closestCard) {
+                        closestCard.classList.add('in-view');
+                    }
+
+                    // Komşulara 'near-view' ekle
+                    if (closestIndex > 0) {
+                        cards[closestIndex - 1].classList.add('near-view');
+                    }
+                    if (closestIndex < cards.length - 1) {
+                        cards[closestIndex + 1].classList.add('near-view');
+                    }
+
+                    // Noktaları güncelle
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === closestIndex);
+                    });
+
+                    // Inline stilleri temizle
+                    cards.forEach(card => {
+                        card.style.transition = 'none';
+                        card.style.transform = '';
+                        card.style.opacity = '';
+                        requestAnimationFrame(() => card.style.transition = '');
+                    });
+
+                }, 150);
+            });
+
+            // İlk kartı başlangıçta aktif et (scroll yapmadan)
+            cards[0].classList.add('in-view');
+            if (cards.length > 1) {
+                cards[1].classList.add('near-view');
+            }
+
+            // Sayfa tamamen yüklendikten sonra pageJustLoaded flag'ini kaldır
+            setTimeout(() => {
+                pageJustLoaded = false;
+            }, 1000);
+
+            // Noktalara tıklama işlevi
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => {
+                    isAutoScrolling = true;
+                    cards[idx].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center'
+                    });
+
+                    // Tıklama sonrası otomatik scroll flag'ini sıfırla
+                    setTimeout(() => {
+                        isAutoScrolling = false;
+                    }, 500);
+                });
+            });
         });
-        
-        scrollTimeout = setTimeout(() => {
-            const sliderRect = slider.getBoundingClientRect();
-            const sliderCenter = sliderRect.left + sliderRect.width / 2;
-            
-            let minDistance = Infinity;
-            let closestCard = null;
-            let closestIndex = -1;
-            
-            cards.forEach((card, index) => {
-                const cardRect = card.getBoundingClientRect();
-                const cardCenter = cardRect.left + cardRect.width / 2;
-                const distance = Math.abs(sliderCenter - cardCenter);
-                
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    closestCard = card;
-                    closestIndex = index;
+    </script>
+
+
+    <script>
+        // Intersection Observer oluştur
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Elementlere kademeli gecikme ekle
+                    const delay = entry.target.dataset.delay || 0;
+                    entry.target.style.animationDelay = `${delay}ms`;
+                    entry.target.classList.add('slide-up-visible');
+                    observer.unobserve(entry.target);
                 }
             });
-
-            // Sadece kullanıcı manuel scroll yaptıysa otomatik scroll yap
-            // Sayfa ilk yüklendiğinde otomatik scroll yapma
-            if (closestCard && !isAutoScrolling && !pageJustLoaded) {
-                isAutoScrolling = true;
-                closestCard.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest',
-                    inline: 'center'
-                });
-                
-                // Otomatik scroll tamamlandıktan sonra flag'i sıfırla
-                setTimeout(() => {
-                    isAutoScrolling = false;
-                }, 500);
-            }
-            
-            // Tüm kartlardan sınıfları kaldır
-            cards.forEach(card => {
-                card.classList.remove('in-view', 'near-view');
-            });
-            
-            // En yakın karta 'in-view' ekle
-            if (closestCard) {
-                closestCard.classList.add('in-view');
-            }
-            
-            // Komşulara 'near-view' ekle
-            if (closestIndex > 0) {
-                cards[closestIndex - 1].classList.add('near-view');
-            }
-            if (closestIndex < cards.length - 1) {
-                cards[closestIndex + 1].classList.add('near-view');
-            }
-            
-            // Noktaları güncelle
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === closestIndex);
-            });
-            
-            // Inline stilleri temizle
-            cards.forEach(card => {
-                card.style.transition = 'none';
-                card.style.transform = '';
-                card.style.opacity = '';
-                requestAnimationFrame(() => card.style.transition = '');
-            });
-
-        }, 150);
-    });
-    
-    // İlk kartı başlangıçta aktif et (scroll yapmadan)
-    cards[0].classList.add('in-view');
-    if (cards.length > 1) {
-        cards[1].classList.add('near-view');
-    }
-    
-    // Sayfa tamamen yüklendikten sonra pageJustLoaded flag'ini kaldır
-    setTimeout(() => {
-        pageJustLoaded = false;
-    }, 1000);
-    
-    // Noktalara tıklama işlevi
-    dots.forEach((dot, idx) => {
-        dot.addEventListener('click', () => {
-            isAutoScrolling = true;
-            cards[idx].scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-                inline: 'center'
-            });
-            
-            // Tıklama sonrası otomatik scroll flag'ini sıfırla
-            setTimeout(() => {
-                isAutoScrolling = false;
-            }, 500);
+        }, {
+            threshold: 0.1,
+            rootMargin: '30px'
         });
-    });
-});
-    </script>
 
-
-    <script>
-    // Intersection Observer oluştur
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Elementlere kademeli gecikme ekle
-                const delay = entry.target.dataset.delay || 0;
-                entry.target.style.animationDelay = `${delay}ms`;
-                entry.target.classList.add('slide-up-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '30px'
-    });
-
-    // Animasyon uygulanacak elementleri seç
-    const elements = document.querySelectorAll(`
+        // Animasyon uygulanacak elementleri seç
+        const elements = document.querySelectorAll(`
         .profile-section .gradient-text,
         .profile-section .text-content p,
         .about-story .section-title,
@@ -1026,83 +1119,82 @@ body.dark-mode .toggle-mode img {
         .about-contact .contact-link
     `);
 
-    // Her elemente gecikme değeri ata ve observer'a ekle
-    elements.forEach((element, index) => {
-        // Elementlerin türüne göre farklı gecikmeler
-        let baseDelay = 40; // Temel gecikme
-        if (element.classList.contains('section-title')) {
-            element.dataset.delay = index * 40; // Başlıklar için
-        } else if (element.classList.contains('skill-item')) {
-            element.dataset.delay = 80 + (index * 40); // Skill itemları için
-        } else {
-            element.dataset.delay = 80 + (index * 40); // Diğer elementler için
-        }
-        observer.observe(element);
-    });
-    // Her elemente gecikme değeri ata ve observer'a ekle
-    elements.forEach((element, index) => {
-        // About contact bölümü için daha az gecikme
-        if (element.closest('.about-contact')) {
+        // Her elemente gecikme değeri ata ve observer'a ekle
+        elements.forEach((element, index) => {
+            // Elementlerin türüne göre farklı gecikmeler
+            let baseDelay = 40; // Temel gecikme
             if (element.classList.contains('section-title')) {
-                element.dataset.delay = '1'; // Contact başlığı için minimal gecikme
+                element.dataset.delay = index * 40; // Başlıklar için
+            } else if (element.classList.contains('skill-item')) {
+                element.dataset.delay = 80 + (index * 40); // Skill itemları için
             } else {
-                element.dataset.delay = `${index * 4}`; // Contact içeriği için daha kısa gecikmeler
+                element.dataset.delay = 80 + (index * 40); // Diğer elementler için
             }
-        } 
-        // Diğer bölümler için mevcut gecikmeler
-        else if (element.classList.contains('section-title')) {
-            element.dataset.delay = index * 40;
-        } else if (element.classList.contains('skill-item')) {
-            element.dataset.delay = 80 + (index * 40);
-        } else {
-            element.dataset.delay = 80 + (index * 40);
-        }
-        observer.observe(element);
-    });
-    elements.forEach((element, index) => {
-        // About contact bölümü için daha az gecikme
-        if (element.closest('.about-vision')) {
-            if (element.classList.contains('section-title')) {
-                element.dataset.delay = '16'; // Contact başlığı için minimal gecikme
+            observer.observe(element);
+        });
+        // Her elemente gecikme değeri ata ve observer'a ekle
+        elements.forEach((element, index) => {
+            // About contact bölümü için daha az gecikme
+            if (element.closest('.about-contact')) {
+                if (element.classList.contains('section-title')) {
+                    element.dataset.delay = '1'; // Contact başlığı için minimal gecikme
+                } else {
+                    element.dataset.delay = `${index * 4}`; // Contact içeriği için daha kısa gecikmeler
+                }
+            }
+            // Diğer bölümler için mevcut gecikmeler
+            else if (element.classList.contains('section-title')) {
+                element.dataset.delay = index * 40;
+            } else if (element.classList.contains('skill-item')) {
+                element.dataset.delay = 80 + (index * 40);
             } else {
-                element.dataset.delay = `${40 + (index * 16)}`; // Contact içeriği için daha kısa gecikmeler
+                element.dataset.delay = 80 + (index * 40);
             }
-        } 
-        // Diğer bölümler için mevcut gecikmeler
-        else if (element.classList.contains('section-title')) {
-            element.dataset.delay = index * 40;
-        } else if (element.classList.contains('skill-item')) {
-            element.dataset.delay = 80 + (index * 40);
-        } else {
-            element.dataset.delay = 80 + (index * 40);
-        }
-        observer.observe(element);
-    });
+            observer.observe(element);
+        });
+        elements.forEach((element, index) => {
+            // About contact bölümü için daha az gecikme
+            if (element.closest('.about-vision')) {
+                if (element.classList.contains('section-title')) {
+                    element.dataset.delay = '16'; // Contact başlığı için minimal gecikme
+                } else {
+                    element.dataset.delay = `${40 + (index * 16)}`; // Contact içeriği için daha kısa gecikmeler
+                }
+            }
+            // Diğer bölümler için mevcut gecikmeler
+            else if (element.classList.contains('section-title')) {
+                element.dataset.delay = index * 40;
+            } else if (element.classList.contains('skill-item')) {
+                element.dataset.delay = 80 + (index * 40);
+            } else {
+                element.dataset.delay = 80 + (index * 40);
+            }
+            observer.observe(element);
+        });
     </script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const readMoreBtn = document.getElementById('readMoreBtn');
-        const textWrapper = document.querySelector('.text-wrapper');
-        const fullText = document.querySelector('.full-text');
-        const blurredOverlay = document.querySelector('.blurred-overlay');
+        document.addEventListener('DOMContentLoaded', function () {
+            const readMoreBtn = document.getElementById('readMoreBtn');
+            const textWrapper = document.querySelector('.text-wrapper');
+            const fullText = document.querySelector('.full-text');
+            const blurredOverlay = document.querySelector('.blurred-overlay');
 
-        if (readMoreBtn && textWrapper && fullText && blurredOverlay) {
-            readMoreBtn.addEventListener('click', function() {
-                // full-text'i görünür yap
-                fullText.classList.remove('hidden');
-                
-                // text-wrapper'ın max-height'ini çok büyük bir değere ayarla
-                textWrapper.style.maxHeight = 'none';
-                
-                // Bulanık örtüyü gizle
-                blurredOverlay.classList.add('hidden');
-            });
-        }
-    });
+            if (readMoreBtn && textWrapper && fullText && blurredOverlay) {
+                readMoreBtn.addEventListener('click', function () {
+                    // full-text'i görünür yap
+                    fullText.classList.remove('hidden');
+
+                    // text-wrapper'ın max-height'ini çok büyük bir değere ayarla
+                    textWrapper.style.maxHeight = 'none';
+
+                    // Bulanık örtüyü gizle
+                    blurredOverlay.classList.add('hidden');
+                });
+            }
+        });
     </script>
-  
+
 </body>
+
 </html>
-
-
