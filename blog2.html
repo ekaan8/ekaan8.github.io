@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="preload" as="font" href="fonts/Inter-VF-subset.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="fonts/Pacifico-Regular.woff2" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="blog2.min.css"></head>
+    <link rel="stylesheet" href="blog2.min.css">
+</head>
+
 <body>
     <!-- Menü Çubuğu -->
     <div class="navbar">
@@ -20,7 +23,7 @@
         <!-- Dil İkonu (Sağ Tarafta) -->
         <div class="language-toggle" onclick="changeLanguage()">
             <img id="language-icon" src="language-icon.webp" alt="Dil Değiştir" width="100" height="100">
-        </div>       
+        </div>
         <!-- Hamburger ikonu (sadece mobilde görünecek) -->
         <div class="menu-icon" onclick="toggleMenu()">
             <img src="menu-icon.webp" alt="Menü" style="width: 24px; height: 24px;" width="100" height="100">
@@ -39,110 +42,106 @@
     <!-- İçerik -->
     <div class="container-about">
         <div class="website">
-        <h2>
-            <span class="website-h">website</span>
-        </h2>
-       
-        <div class="jackorn">
-            <a href="https://emrekaan.com" class="jackorn-link">emrekaan.com</a>
-        </div>
+            <h2>
+                <span class="website-h">website</span>
+            </h2>
 
-    <div class="text-slider-container">
-        <div class="text-slider" id="textSlider">
-            <!-- İlk Slide -->
-            <div class="text-slide">
-                <div class="website-text">
-                    <p>
-                        bu site kişisel bir portföy olarak tasarlandı. başlamadan önce, kendime bazı net ilkeler belirledim. 
-                        her karar, sadece estetik değil, aynı zamanda deneyimi şekillendiren bir tercihti.
-                        menü saydam. arka plandaki içeriği hafifçe yansıtıyor. kutuların köşeleri yumuşak. 
-                        yazı tipi olarak san fransisco'yu seçtim, sade, okunaklı ve gereksiz detaylardan uzak. 
-                        tıklanabilir her içerik net şekilde algılanıyor; fareyle üzerine gelindiğinde verdiği tepki belirgin ama abartısız. 
-                        sitede en başından beri aydınlık ve karanlık mod bulunuyor, ikisi de kendisine has charakterlere sahip. başlıklar, yazılar ve kutucuklar gün ve gece modlarında belirgin değişimler içeriyor.
-                        site boyunca dolaşımın kolay ve sezgisel olması önemliydi. menü yapısı sade, içerikler ulaşılabilir, dil ve mod anında değiştirilebilir.
-                        mobil ve masaüstü görünüm için bambaşka css tasarım kodları yazmış olsak da, yön bulma mantığı aynı. hangi cihazdan bakılırsa bakılsın tanıdık bir deneyim sunuyor.
-                    </p>
+            <div class="jackorn">
+                <a href="https://emrekaan.com" class="jackorn-link">emrekaan.com</a>
+            </div>
+
+            <div class="text-slider-container">
+                <div class="text-slider" id="textSlider">
+                    <!-- İlk Slide -->
+                    <div class="text-slide">
+                        <div class="website-text">
+                            <p>
+                                bu site kişisel bir portföy olarak tasarlandı. başlamadan önce, kendime bazı net ilkeler
+                                belirledim.
+                                her karar, sadece estetik değil, aynı zamanda deneyimi şekillendiren bir tercihti.
+                                menü saydam. arka plandaki içeriği hafifçe yansıtıyor. kutuların köşeleri yumuşak.
+                                yazı tipi olarak san fransisco'yu seçtim, sade, okunaklı ve gereksiz detaylardan uzak.
+                                tıklanabilir her içerik net şekilde algılanıyor; fareyle üzerine gelindiğinde verdiği
+                                tepki belirgin ama abartısız.
+                                sitede en başından beri aydınlık ve karanlık mod bulunuyor, ikisi de kendisine has
+                                charakterlere sahip. başlıklar, yazılar ve kutucuklar gün ve gece modlarında belirgin
+                                değişimler içeriyor.
+                                site boyunca dolaşımın kolay ve sezgisel olması önemliydi. menü yapısı sade, içerikler
+                                ulaşılabilir, dil ve mod anında değiştirilebilir.
+                                mobil ve masaüstü görünüm için bambaşka css tasarım kodları yazmış olsak da, yön bulma
+                                mantığı aynı. hangi cihazdan bakılırsa bakılsın tanıdık bir deneyim sunuyor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- İkinci Slide -->
+                    <div class="text-slide">
+                        <div class="website-text">
+                            <p>
+
+                                özellikle masaüstünde pencere boyutu değiştiğinde içeriklerin kendini otomatik olarak
+                                ayarlaması üzerinde çok durdum. başlıkların, görsellerin ve kutuların genişliğe göre
+                                değişmesi, sitenin her koşulda düzenli görünmesini sağlıyor. bu esneklik benim için
+                                görsel tutarlılığın bir parçası.
+                                teknik açıdan html ve script kısımları bazı zorluklar çıkardı, ama asıl odaklandığım yer
+                                css oldu. renklerin dengesi, boşlukların hissi, yazı tiplerinin ağırlığı, gölgelerin
+                                doygunluğu gibi birçok ayrıntı üzerinde düşündüm. çünkü bu detaylar, sitenin dili hâline
+                                geliyor.
+                                yumuşak geçişler, gradyan başlıklar, hafif gölgeler, camsı yansımalar, akışkan yazılar
+                                ve görseller sayfa içinde dolaşırken her yerde fark edilebilir.
+                                aklımda nasıl bir yapı olmasını istediğimi en önce tasarladım. kodlarla yavaş yavaş bunu
+                                ortaya çıkardım. sonuç olarak ortaya çıkan şey, benim tasarıma yaklaşımımı anlatan sade
+                                ama düşünülmüş bir iş oldu.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- İkinci Slide -->
-            <div class="text-slide">
-                <div class="website-text">
-                    <p>
-                        
-                        özellikle masaüstünde pencere boyutu değiştiğinde içeriklerin kendini otomatik olarak ayarlaması üzerinde çok durdum. başlıkların, görsellerin ve kutuların genişliğe göre değişmesi, sitenin her koşulda düzenli görünmesini sağlıyor. bu esneklik benim için görsel tutarlılığın bir parçası.
-                        teknik açıdan html ve script kısımları bazı zorluklar çıkardı, ama asıl odaklandığım yer css oldu. renklerin dengesi, boşlukların hissi, yazı tiplerinin ağırlığı, gölgelerin doygunluğu gibi birçok ayrıntı üzerinde düşündüm. çünkü bu detaylar, sitenin dili hâline geliyor.
-                        yumuşak geçişler, gradyan başlıklar, hafif gölgeler, camsı yansımalar, akışkan yazılar ve görseller sayfa içinde dolaşırken her yerde fark edilebilir.
-                        aklımda nasıl bir yapı olmasını istediğimi en önce tasarladım. kodlarla yavaş yavaş bunu ortaya çıkardım. sonuç olarak ortaya çıkan şey, benim tasarıma yaklaşımımı anlatan sade ama düşünülmüş bir iş oldu.
-                    </p>
+
+                <!-- Slider Controls -->
+                <div class="slider-controls">
+                    <div class="slider-arrow arrow-left" id="prevBtn">
+                        <div class="arrow-icon"></div>
+                    </div>
+                    <div class="slider-line"></div>
+                    <div class="slider-arrow arrow-right" id="nextBtn">
+                        <div class="arrow-icon"></div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Slider Controls -->
-        <div class="slider-controls">
-            <div class="slider-arrow arrow-left" id="prevBtn">
-                <div class="arrow-icon"></div>
-            </div>
-            <div class="slider-line"></div>
-            <div class="slider-arrow arrow-right" id="nextBtn">
-                <div class="arrow-icon"></div>
-            </div>
-        </div>
-        
-        <!-- Slide Indicators -->
-        <div class="slide-indicator">
-            <div class="indicator-dot active" data-slide="0"></div>
-            <div class="indicator-dot" data-slide="1"></div>
-        </div>
-    </div>
 
-
-
-            
-            <!-- Website Görsel Grid -->
-            <div class="website-grid-container">
-                <div class="website-grid">
-                    <div class="website-image">
-                        <img fetchpriority="high" loading="eager" src="web50.webp" alt="Website Görsel 1" width="1050" height="1050">
-                    </div>
-                    <div class="website-image">
-                        <img loading="lazy" src="web20.webp" alt="Website Görsel 2" width="742" height="735">
-                    </div>
-                    <div class="website-image">
-                        <img loading="lazy" src="web3.webp" alt="Website Görsel 3" width="800" height="1026">
-                    </div>
-                    <div class="website-image">
-                        <img loading="lazy" src="web42.webp" alt="Website Görsel 4" width="1453" height="1064">
-                    </div>
-                    <div class="website-image">
-                        <img loading="lazy" src="web8.webp" alt="Website Görsel 4" width="1140" height="1140">
-                    </div>
-                    <div class="website-image">
-                        <img loading="lazy" src="web7.webp" alt="Website Görsel 4" width="1572" height="1572">
-                    </div>
+                <!-- Slide Indicators -->
+                <div class="slide-indicator">
+                    <div class="indicator-dot active" data-slide="0"></div>
+                    <div class="indicator-dot" data-slide="1"></div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Instagram Bölümü -->
         <div class="instagram-about">
             <h2>
                 <span class="instagram-text">instagram</span>
                 <span class="tag">
-                    <a href="https://www.instagram.com/technovision101/" target="_blank" class="tag-link">@technovision101</a>
+                    <a href="https://www.instagram.com/technovision101/" target="_blank"
+                        class="tag-link">@technovision101</a>
                 </span>
             </h2>
             <div class="insta-text">
                 <p>
-                    burada technovision var. bilgisayar bilimleriyle ilgili üretilen eserleri, ortaya çıkan ürünleri ve çarpıcı fikirleri yalnızca 10 kareye sığdırarak sunuyorum.
-                    aynı zamanda bu dünyayı inşa eden büyük isimleri andığım bir bölüm daha var: icontech. burada von neumann, ada lovelace, claude shannon, vannevar bush ve daha pek çok öncüye yer veriyorum.
-                    bu gönderiler, benim için aynı zamanda bir tasarım yolculuğu anlamına geliyor. 
-                    <br><br>en başta neredeyse hiç sınır koymadan, doğrusal bir yapıyla ilerledim. fakat bu tarz beni tatmin etmedi. zamanla kendi görsel estetiğimi keşfettim.
-                    yakın zamandaki içeriklerde yumuşak kenarlara sahip alanlar, camsı kutular, dingin gradyan renkler ve içeriğe uyumlu gölgeler kullanmaya başladım. sonuçta, gözü yormayan ve doğal bir keşif duygusu uyandıran bir tasarıma ulaşabildim.
-                    <br><br>bu bölüm benim için çok değerli. çünkü hem beni derinden etkileyen büyük ve dinamik bir dünya var burada, hem de bu dünyayı tamamen kendi zevkime göre yansıtma özgürlüğüne sahibim.
-                    bütün gönderilerimi gerçek renkleriyle görmek için 
-                    <a href="https://www.instagram.com/technovision101/" target="_blank">instagram sayfamı</a> ziyaret edebilirsiniz.
+                    burada technovision var. bilgisayar bilimleriyle ilgili üretilen eserleri, ortaya çıkan ürünleri ve
+                    çarpıcı fikirleri yalnızca 10 kareye sığdırarak sunuyorum.
+                    aynı zamanda bu dünyayı inşa eden büyük isimleri andığım bir bölüm daha var: icontech. burada von
+                    neumann, ada lovelace, claude shannon, vannevar bush ve daha pek çok öncüye yer veriyorum.
+                    bu gönderiler, benim için aynı zamanda bir tasarım yolculuğu anlamına geliyor.
+                    <br><br>en başta neredeyse hiç sınır koymadan, doğrusal bir yapıyla ilerledim. fakat bu tarz beni
+                    tatmin etmedi. zamanla kendi görsel estetiğimi keşfettim.
+                    yakın zamandaki içeriklerde yumuşak kenarlara sahip alanlar, camsı kutular, dingin gradyan renkler
+                    ve içeriğe uyumlu gölgeler kullanmaya başladım. sonuçta, gözü yormayan ve doğal bir keşif duygusu
+                    uyandıran bir tasarıma ulaşabildim.
+                    <br><br>bu bölüm benim için çok değerli. çünkü hem beni derinden etkileyen büyük ve dinamik bir
+                    dünya var burada, hem de bu dünyayı tamamen kendi zevkime göre yansıtma özgürlüğüne sahibim.
+                    bütün gönderilerimi gerçek renkleriyle görmek için
+                    <a href="https://www.instagram.com/technovision101/" target="_blank">instagram sayfamı</a> ziyaret
+                    edebilirsiniz.
                 </p>
             </div>
 
@@ -152,40 +151,47 @@
                     <div class="instagram-grid-slider">
                         <!-- İlk grup (varsayılan gösterilen) -->
                         <div class="post-group">
-                            
+
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DLzsDtcKofM/" target="_blank">
-                                    <img loading="lazy" src="tv101/akay.webp" alt="Instagram Post 1" width="1005" height="1005">
+                                    <img loading="lazy" src="tv101/akay.webp" alt="Instagram Post 1" width="1005"
+                                        height="1005">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DDRymcsocub/" target="_blank">
-                                    <img loading="lazy" src="tv101/risc.webp" alt="Instagram Post 2" width="612" height="616">
+                                    <img loading="lazy" src="tv101/risc.webp" alt="Instagram Post 2" width="612"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C-zqv1HgdqQ/" target="_blank">
-                                    <img loading="lazy" src="tv101/linux.webp" alt="Instagram Post 3" width="612" height="616">
+                                    <img loading="lazy" src="tv101/linux.webp" alt="Instagram Post 3" width="612"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C_ik9N-osib/" target="_blank">
-                                    <img loading="lazy" src="tv101/transistor.webp" alt="Instagram Post 4" width="660" height="660">
+                                    <img loading="lazy" src="tv101/transistor.webp" alt="Instagram Post 4" width="660"
+                                        height="660">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6y7J2gKRog/" target="_blank">
-                                    <img loading="lazy" src="tv101/hellog3.webp" alt="Instagram Post 4" width="1002" height="1002">
+                                    <img loading="lazy" src="tv101/hellog3.webp" alt="Instagram Post 4" width="1002"
+                                        height="1002">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DEup3k2AYBd/" target="_blank">
-                                    <img loading="lazy" src="tv101/intelli.webp" alt="Instagram Post 4" width="1005" height="1005">
+                                    <img loading="lazy" src="tv101/intelli.webp" alt="Instagram Post 4" width="1005"
+                                        height="1005">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DFx3OYLABqC/" target="_blank">
-                                    <img loading="lazy" src="tv101/display.webp" alt="Instagram Post 4" width="756" height="756">
+                                    <img loading="lazy" src="tv101/display.webp" alt="Instagram Post 4" width="756"
+                                        height="756">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
@@ -199,42 +205,50 @@
                         <div class="post-group">
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/gui2.webp" alt="Instagram Post 13" width="880" height="880">
+                                    <img loading="lazy" src="tv101/gui2.webp" alt="Instagram Post 13" width="880"
+                                        height="880">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C9zHVlTgXpw/" target="_blank">
-                                    <img loading="lazy" src="tv101/arm.webp" alt="Instagram Post 13" width="760" height="760">
+                                    <img loading="lazy" src="tv101/arm.webp" alt="Instagram Post 13" width="760"
+                                        height="760">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DMsFbwwKHkf/" target="_blank">
-                                    <img loading="lazy" src="xparc-2.webp" alt="Instagram Post 13" width="704" height="704">
+                                    <img loading="lazy" src="xparc-2.webp" alt="Instagram Post 13" width="704"
+                                        height="704">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DFDnrvuAc17/" target="_blank">
-                                    <img loading="lazy" src="tv101/nvidia.webp" alt="Instagram Post 13" width="995" height="995">
+                                    <img loading="lazy" src="tv101/nvidia.webp" alt="Instagram Post 13" width="995"
+                                        height="995">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DBjkDs8IoLg/" target="_blank">
-                                    <img loading="lazy" src="tv101/mham.webp" alt="Instagram Post 17" width="610" height="610">
+                                    <img loading="lazy" src="tv101/mham.webp" alt="Instagram Post 17" width="610"
+                                        height="610">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C7mw7njgmbc/" target="_blank">
-                                    <img loading="lazy" src="tv101/moore.webp" alt="Instagram Post 13" width="760" height="760">
+                                    <img loading="lazy" src="tv101/moore.webp" alt="Instagram Post 13" width="760"
+                                        height="760">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DCwYUU0oMMS/" target="_blank">
-                                    <img loading="lazy" src="tv101/mouse.webp" alt="Instagram Post 13" width="763" height="763">
+                                    <img loading="lazy" src="tv101/mouse.webp" alt="Instagram Post 13" width="763"
+                                        height="763">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C-lLW-YAzdr/" target="_blank">
-                                    <img loading="lazy" src="tv101/spc.webp" alt="Instagram Post 13" width="1002" height="1002">
+                                    <img loading="lazy" src="tv101/spc.webp" alt="Instagram Post 13" width="1002"
+                                        height="1002">
                                 </a>
                             </div>
                         </div>
@@ -243,43 +257,51 @@
                         <div class="post-group">
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/DD4N7l_g23v/" target="_blank">
-                                    <img loading="lazy" src="tv101/is.webp" alt="Instagram Post 17" width="616" height="616">
+                                    <img loading="lazy" src="tv101/is.webp" alt="Instagram Post 17" width="616"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/endustrimuh101/p/C7R9Q_DtVyZ/" target="_blank">
-                                    <img loading="lazy" src="tv101/ftay.webp" alt="Instagram Post 13" width="612" height="612">
+                                    <img loading="lazy" src="tv101/ftay.webp" alt="Instagram Post 13" width="612"
+                                        height="612">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C-5bF2ZKLcF/" target="_blank">
-                                    <img loading="lazy" src="tv101/dknu.webp" alt="Instagram Post 13" width="610" height="610">
+                                    <img loading="lazy" src="tv101/dknu.webp" alt="Instagram Post 13" width="610"
+                                        height="610">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C97bIJlKsec/" target="_blank">
-                                    <img loading="lazy" src="tv101/jmc.webp" alt="Instagram Post 13" width="616" height="616">
+                                    <img loading="lazy" src="tv101/jmc.webp" alt="Instagram Post 13" width="616"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6d0kyrq9Q-/" target="_blank">
-                                    <img loading="lazy" src="tv101/vb.webp" alt="Instagram Post 13" width="616" height="616">
+                                    <img loading="lazy" src="tv101/vb.webp" alt="Instagram Post 13" width="616"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C9Scc_wqAzk/" target="_blank">
-                                    <img loading="lazy" src="tv101/shan.webp" alt="Instagram Post 13" width="612" height="612">
+                                    <img loading="lazy" src="tv101/shan.webp" alt="Instagram Post 13" width="612"
+                                        height="612">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6i4Z16KFVG/" target="_blank">
-                                    <img loading="lazy" src="tv101/jvn.webp" alt="Instagram Post 13" width="616" height="616">
+                                    <img loading="lazy" src="tv101/jvn.webp" alt="Instagram Post 13" width="616"
+                                        height="616">
                                 </a>
                             </div>
 
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6jRPKEqbiZ/" target="_blank">
-                                    <img loading="lazy" src="tv101/ada.webp" alt="Instagram Post 1" width="610" height="610">
+                                    <img loading="lazy" src="tv101/ada.webp" alt="Instagram Post 1" width="610"
+                                        height="610">
                                 </a>
                             </div>
 
@@ -287,45 +309,53 @@
                         <div class="post-group">
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6ggCxGqGy_/" target="_blank">
-                                    <img loading="lazy" src="tv101/mic.webp" alt="Instagram Post 13" width="858" height="858">
+                                    <img loading="lazy" src="tv101/mic.webp" alt="Instagram Post 13" width="858"
+                                        height="858">
                                 </a>
                             </div>
 
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/stack.webp" alt="Instagram Post 13" width="616" height="616">
+                                    <img loading="lazy" src="tv101/stack.webp" alt="Instagram Post 13" width="616"
+                                        height="616">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/timwww.webp" alt="Instagram Post 13" width="610" height="610">
+                                    <img loading="lazy" src="tv101/timwww.webp" alt="Instagram Post 13" width="610"
+                                        height="610">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/hsim.webp" alt="Instagram Post 13" width="610" height="610">
+                                    <img loading="lazy" src="tv101/hsim.webp" alt="Instagram Post 13" width="610"
+                                        height="610">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/unix.webp" alt="Instagram Post 13" width="763" height="763">
+                                    <img loading="lazy" src="tv101/unix.webp" alt="Instagram Post 13" width="763"
+                                        height="763">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C6hNeqEAgk-/" target="_blank">
-                                    <img loading="lazy" src="tv101/open.webp" alt="Instagram Post 13" width="928" height="935">
+                                    <img loading="lazy" src="tv101/open.webp" alt="Instagram Post 13" width="928"
+                                        height="935">
                                 </a>
                             </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C61XX9LKgLz/" target="_blank">
-                                    <img loading="lazy" src="tv101/ibm.webp" alt="Instagram Post 13" width="760" height="760">
+                                    <img loading="lazy" src="tv101/ibm.webp" alt="Instagram Post 13" width="760"
+                                        height="760">
                                 </a>
-                            </div>  
+                            </div>
                             <div class="instagram-post-about">
                                 <a href="https://www.instagram.com/technovision101/p/C7WzA9fKgna/" target="_blank">
-                                    <img loading="lazy" src="tv101/hopper.webp" alt="Instagram Post 13" width="763" height="763">
+                                    <img loading="lazy" src="tv101/hopper.webp" alt="Instagram Post 13" width="763"
+                                        height="763">
                                 </a>
-                            </div>                                                       
+                            </div>
 
                         </div>
 
@@ -349,7 +379,7 @@
                         <img loading="lazy" src="96f.webp" alt="Sonraki" width="24" height="24">
                     </button>
                 </div>
-                
+
             </div>
         </div>
 
@@ -363,13 +393,16 @@
             <div class="dot-image-text">
                 <p>
                     görsellerimizi nokta tabanlı sanat eserlerine dönüştürebileceğiniz bir web uygulaması geliştirdim.
-                    bu uygulama ile fotoğraflarınızı nokta-tabanlı görsellere dönüştürebilir, 
-                    nokta sayısını ve boyutunu artırarak orijinal görsele daha yakın, yüksek detaylı sonuçlar elde edebilirsiniz. tersine, bu değerleri düşürerek daha sade ve nostaljik bir görsel atmosfer yaratmanız da mümkün.
-                    <br><br>original, retro, pastel, dark, warm, cool, earth, punk, sunset, ocean, galaxy ve gold olmak üzere 12 ayrı palet ekledim. <br>
+                    bu uygulama ile fotoğraflarınızı nokta-tabanlı görsellere dönüştürebilir,
+                    nokta sayısını ve boyutunu artırarak orijinal görsele daha yakın, yüksek detaylı sonuçlar elde
+                    edebilirsiniz. tersine, bu değerleri düşürerek daha sade ve nostaljik bir görsel atmosfer yaratmanız
+                    da mümkün.
+                    <br><br>original, retro, pastel, dark, warm, cool, earth, punk, sunset, ocean, galaxy ve gold olmak
+                    üzere 12 ayrı palet ekledim. <br>
                     dönüştürülen görselleri indirebilir veya kopyalayabilirsiniz.
                 </p>
             </div>
-            
+
             <!-- Dot Image Görsel Grid -->
             <div class="dot-image-grid">
                 <div class="dot-image-pair">
@@ -400,12 +433,15 @@
             </h2>
             <div class="gradient-text-content">
                 <p>
-                gradyan metinler ve yumuşak geçişler hakkında sık sık konuştum - bu yüzden bu fikirleri özel bir web aracıyla hayata geçirmeye karar verdim.
-                bu araçla, seçtiğiniz yazı tiplerini, boyutları, arka planları ve en fazla 10 rengi kullanarak gradyan metinler üretebilirsiniz.
-                bunu oluşturdum çünkü degradeleri sık sık kullanıyorum ve farklı araçlar arasında geçiş yapmaktan yoruldum. şimdi, renkleri ayarlamayı ve sürüklemeyi basit, akıcı ve keyifli buluyorum
+                    gradyan metinler ve yumuşak geçişler hakkında sık sık konuştum - bu yüzden bu fikirleri özel bir web
+                    aracıyla hayata geçirmeye karar verdim.
+                    bu araçla, seçtiğiniz yazı tiplerini, boyutları, arka planları ve en fazla 10 rengi kullanarak
+                    gradyan metinler üretebilirsiniz.
+                    bunu oluşturdum çünkü degradeleri sık sık kullanıyorum ve farklı araçlar arasında geçiş yapmaktan
+                    yoruldum. şimdi, renkleri ayarlamayı ve sürüklemeyi basit, akıcı ve keyifli buluyorum
                 </p>
             </div>
-            
+
             <!-- Görseller için grid ekliyoruz -->
             <div class="gradient-image-grid">
                 <div class="gradient-image-pair">
@@ -428,12 +464,20 @@
             </h2>
             <div class="marcia-content">
                 <p>
-                homeros'un ilyada ve odysseia'sına daldığım, onlarla birlikte aristophanes ve shakespeare okuduğum bir zaman vardı. kahramanlar çağının süslü diline o kadar aşina olmuştum ki, ilham beni hiç beklemediğim bir anda buldu. kendimi durduramadım - duraksamadan aklıma gelen kelimeleri ve dizeleri yazmaya başladım. ortaya çıkan şey, deniz ve çöl arasında geçen kısa bir oyunun başlangıcı oldu. hala bitmedi, ama şimdiden 800 satırı aştı.
-                <br><br>bu dizeler, girit kralı balehund, kızı marcia ve denizin ötesindeki numidia'nın vahşi hükümdarı kefaric'in hikayesini anlatıyor. hikaye bir ay tutulmasıve peşinden gelen bir göç ile başlıyor.
-                benim için çöl, denizin farklı bir yansıması - bu hikaye de uzun zamandır taşıdığım fikirlerin bir karışımını yansıtıyor. özünde, marcia ve kefaric'in gözünden altın çağı ve demir çağı arasındaki çatışmaya odaklanıyor. ilyada gibi, bu da doğu ve batının hikayesi.
+                    homeros'un ilyada ve odysseia'sına daldığım, onlarla birlikte aristophanes ve shakespeare okuduğum
+                    bir zaman vardı. kahramanlar çağının süslü diline o kadar aşina olmuştum ki, ilham beni hiç
+                    beklemediğim bir anda buldu. kendimi durduramadım - duraksamadan aklıma gelen kelimeleri ve dizeleri
+                    yazmaya başladım. ortaya çıkan şey, deniz ve çöl arasında geçen kısa bir oyunun başlangıcı oldu.
+                    hala bitmedi, ama şimdiden 800 satırı aştı.
+                    <br><br>bu dizeler, girit kralı balehund, kızı marcia ve denizin ötesindeki numidia'nın vahşi
+                    hükümdarı kefaric'in hikayesini anlatıyor. hikaye bir ay tutulmasıve peşinden gelen bir göç ile
+                    başlıyor.
+                    benim için çöl, denizin farklı bir yansıması - bu hikaye de uzun zamandır taşıdığım fikirlerin bir
+                    karışımını yansıtıyor. özünde, marcia ve kefaric'in gözünden altın çağı ve demir çağı arasındaki
+                    çatışmaya odaklanıyor. ilyada gibi, bu da doğu ve batının hikayesi.
                 </p>
             </div>
-            
+
             <!-- Görseller için grid -->
             <div class="marcia-image-grid">
                 <div class="marcia-image-pair">
@@ -448,18 +492,25 @@
                 </a>
             </div>
         </div>
-        
+
         <div class="content-about">
             <h2>birkaç şey daha</h2>
             <p>
-                bu bölüm içeriklerimin en uç noktasında yer alıyor ve onların ötesine geçiyor. temelinde teknoloji ve sanatın kesişiminde yer alsa da, burada yer alan yazılar ilgimi çeken, anlamaya çalıştığım ve üzerine düşündüğüm her şeyi kapsıyor.
-                <br><br>tasarımı bilinçli biçimde sade tuttum. mobil ve masaüstü görünümleri farklı olsa da, ikisi de aynı yalınlığı taşıyor. görseller çoğunlukla yazılara eşlik eden yol göstericiler olarak kullanıldı. bazıları özel olarak tasarlandı, bazıları ise özenle seçildi.
-                <br><br>yazıların bir kısmı kısa ve hızlıca göz gezdirilebilir nitelikte. diğerleri ise daha uzun ve zaman isteyen metinler. bunlar çeşitlilik bilinçli bir tercih, sonuç olarak web sitemin öz kaynakları buradaki fikirlerde yer alıyor.
+                bu bölüm içeriklerimin en uç noktasında yer alıyor ve onların ötesine geçiyor. temelinde teknoloji ve
+                sanatın kesişiminde yer alsa da, burada yer alan yazılar ilgimi çeken, anlamaya çalıştığım ve üzerine
+                düşündüğüm her şeyi kapsıyor.
+                <br><br>tasarımı bilinçli biçimde sade tuttum. mobil ve masaüstü görünümleri farklı olsa da, ikisi de
+                aynı yalınlığı taşıyor. görseller çoğunlukla yazılara eşlik eden yol göstericiler olarak kullanıldı.
+                bazıları özel olarak tasarlandı, bazıları ise özenle seçildi.
+                <br><br>yazıların bir kısmı kısa ve hızlıca göz gezdirilebilir nitelikte. diğerleri ise daha uzun ve
+                zaman isteyen metinler. bunlar çeşitlilik bilinçli bir tercih, sonuç olarak web sitemin öz kaynakları
+                buradaki fikirlerde yer alıyor.
             </p>
             <div class="post-grid-about">
                 <div class="post-card-about">
                     <a href="metod.html">
-                        <img loading="lazy" src="techevo2.webp" class="post-card-image" alt="Sanat İnancımız" width="501" height="501">
+                        <img loading="lazy" src="techevo2.webp" class="post-card-image" alt="Sanat İnancımız"
+                            width="501" height="501">
                         <div class="post-card-content">
                             <h3>teknolojinin gelişimi</h3>
                             <p>bin yılda olmayan gelişmeler birkaç günde olabilir</p>
@@ -468,7 +519,8 @@
                 </div>
                 <div class="post-card-about">
                     <a href="ilke.html">
-                        <img loading="lazy" src="artstyle.webp" class="post-card-image" alt="Sanat İnancımız" width="716" height="716">
+                        <img loading="lazy" src="artstyle.webp" class="post-card-image" alt="Sanat İnancımız"
+                            width="716" height="716">
                         <div class="post-card-content">
                             <h3>sanat inancımız</h3>
                             <p>göze hoş gelen doğal güzelliği keşfetmeyi önemsiyoruz</p>
@@ -477,16 +529,19 @@
                 </div>
                 <div class="post-card-about">
                     <a href="hakikat.html">
-                        <img loading="lazy" src="kadim2.webp" class="post-card-image" alt="Sanat İnancımız" width="501" height="752">
+                        <img loading="lazy" src="kadim2.webp" class="post-card-image" alt="Sanat İnancımız" width="501"
+                            height="752">
                         <div class="post-card-content">
                             <h3>gerçeğin izinde</h3>
-                            <p>hakikate giden yol, karmaşık arayışların ötesinde, bir serçenin su içtiği anın sakinliğinde saklı olabilir</p>
+                            <p>hakikate giden yol, karmaşık arayışların ötesinde, bir serçenin su içtiği anın
+                                sakinliğinde saklı olabilir</p>
                         </div>
                     </a>
                 </div>
                 <div class="post-card-about">
                     <a href="bant.html">
-                        <img loading="lazy" src="iband.webp" class="post-card-image" alt="Sanat İnancımız" width="405" height="405">
+                        <img loading="lazy" src="iband.webp" class="post-card-image" alt="Sanat İnancımız" width="405"
+                            height="405">
                         <div class="post-card-content">
                             <h3>turing problemi</h3>
                             <p>sonsuz zamanda her problemi çözebilen yapay zeka gerçekten bir yerde durabilir mi?</p>
@@ -495,16 +550,19 @@
                 </div>
                 <div class="post-card-about">
                     <a href="iskender.html">
-                        <img loading="lazy" src="agreatking.webp" class="post-card-image" alt="keşif" width="1000" height="748">
+                        <img loading="lazy" src="agreatking.webp" class="post-card-image" alt="keşif" width="1000"
+                            height="748">
                         <div class="post-card-content">
                             <h3>rakibi olan zamanla yarışamaz</h3>
-                            <p>rekabeti gerçekten bitirdiğimiz zaman keşfedilmeye hazır eserler ortaya çıkarabilir miyiz?</p>
+                            <p>rekabeti gerçekten bitirdiğimiz zaman keşfedilmeye hazır eserler ortaya çıkarabilir
+                                miyiz?</p>
                         </div>
                     </a>
                 </div>
                 <div class="post-card-about">
                     <a href="harmoni.html">
-                        <img loading="lazy" src="hispaniola0.webp" class="post-card-image" alt="Sanat İnancımız" width="501" height="752">
+                        <img loading="lazy" src="hispaniola0.webp" class="post-card-image" alt="Sanat İnancımız"
+                            width="501" height="752">
                         <div class="post-card-content">
                             <h3>harmonium</h3>
                             <p>fransız devrimine, hispanyola'ya ve germania'ya dair birkaç sözün harmonisi</p>
@@ -513,19 +571,23 @@
                 </div>
                 <div class="post-card-about">
                     <a href="computer.html">
-                        <img loading="lazy" src="m-e.webp" class="post-card-image" alt="Sanat İnancımız" width="759" height="954">
+                        <img loading="lazy" src="m-e.webp" class="post-card-image" alt="Sanat İnancımız" width="759"
+                            height="954">
                         <div class="post-card-content">
                             <h3>ilk bilgisayarı kim icat etti?</h3>
-                            <p>atanasoff ile eckert-mauchly arasındaki gerçek fark fikirlerden daha ötede canlı modellerde yatıyor</p>
+                            <p>atanasoff ile eckert-mauchly arasındaki gerçek fark fikirlerden daha ötede canlı
+                                modellerde yatıyor</p>
                         </div>
                     </a>
                 </div>
                 <div class="post-card-about">
                     <a href="arch.html">
-                        <img loading="lazy" src="riscarch.webp" class="post-card-image" alt="Sanat İnancımız" width="854" height="854">
+                        <img loading="lazy" src="riscarch.webp" class="post-card-image" alt="Sanat İnancımız"
+                            width="854" height="854">
                         <div class="post-card-content">
                             <h3>gelecek arm mimarisinde</h3>
-                            <p>risc mimarisi sağlam temeller üzerine kurulu, artan hızdaki bir ivmeyle gelişecek çünkü bu artık doğal bir süreç</p>
+                            <p>risc mimarisi sağlam temeller üzerine kurulu, artan hızdaki bir ivmeyle gelişecek çünkü
+                                bu artık doğal bir süreç</p>
                         </div>
                     </a>
                 </div>
@@ -540,10 +602,10 @@
         function toggleMode() {
             const body = document.body;
             const modeIcon = document.getElementById('mode-icon');
-            
+
             // Mod değiştirme
             body.classList.toggle('dark-mode');
-    
+
             // Karanlık mod durumu LocalStorage'a kaydediliyor
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
@@ -555,12 +617,12 @@
                 modeIcon.alt = 'Aydınlık Mod';
             }
         }
-    
+
         // Sayfa yüklendiğinde karanlık mod ve dil durumunu kontrol et
-        window.onload = function() {
+        window.onload = function () {
             const modeIcon = document.getElementById('mode-icon');
             const darkMode = localStorage.getItem('darkMode');
-    
+
             if (darkMode === 'enabled') {
                 document.body.classList.add('dark-mode');
                 modeIcon.src = 'night.webp';
@@ -570,22 +632,22 @@
                 modeIcon.src = 'day.webp';
                 modeIcon.alt = 'Aydınlık Mod';
             }
-    
+
             // Dil durumunu kontrol et
             const savedLanguage = localStorage.getItem('language') || 'tr';
             document.documentElement.lang = savedLanguage;
-    
+
             const languageIcon = document.getElementById('language-icon');
             languageIcon.src = savedLanguage === 'tr' ? 'language-icon.webp' : 'language-icon.webp';
         };
-    
+
         function changeLanguage() {
             const currentLang = document.documentElement.lang;
             const newLang = currentLang === 'tr' ? 'en' : 'tr';
-    
+
             // Dil tercihini kaydet
             localStorage.setItem('language', newLang);
-    
+
             // İlgili sayfaya yönlendir
             if (newLang === 'en') {
                 window.location.href = 'blog-en.html';
@@ -602,33 +664,33 @@
 
         function slideImages(direction) {
             const slider = document.querySelector('.instagram-grid-slider');
-            
+
             if (direction === 'next' && currentSlide < totalSlides - 1) {
                 currentSlide++;
             } else if (direction === 'prev' && currentSlide > 0) {
                 currentSlide--;
             }
-            
+
             // Slider'ı translate et (yatay kaydırma)
             const translateValue = -(currentSlide * 100);
             slider.style.transform = `translateX(${translateValue}%)`;
-            
+
             // Navigasyon butonlarını ve aktif daireyi güncelle
             updateNavigationButtons();
             updateActiveDot();
         }
-        
+
         function updateNavigationButtons() {
             const prevButton = document.querySelector('.prev-button');
             const nextButton = document.querySelector('.next-button');
-            
+
             prevButton.style.opacity = currentSlide === 0 ? '0.5' : '1';
             prevButton.style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
-            
+
             nextButton.style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
             nextButton.style.pointerEvents = currentSlide === totalSlides - 1 ? 'none' : 'auto';
         }
-        
+
         function updateActiveDot() {
             const dots = document.querySelectorAll('.dot');
             // Tüm dot'lardan aktif sınıfını kaldır
@@ -638,14 +700,14 @@
                 dots[currentSlide].classList.add('active');
             }
         }
-        
+
         // Sayfa yüklendiğinde buton ve dot durumlarını güncelle
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             updateNavigationButtons();
             updateActiveDot();
         });
 
-        
+
 
     </script>
 
@@ -655,14 +717,14 @@
         function toggleMenu() {
             const menu = document.querySelector('.menu');
             const icon = document.querySelector('.menu-icon img');
-            
+
             // Fade out
             icon.style.opacity = 0;
-            
+
             // Toggle menu ve src güncellemesini fade-out animasyonu tamamlandıktan sonra yapıyoruz
             setTimeout(() => {
                 menu.classList.toggle('active');
-            
+
                 if (menu.classList.contains('active')) {
                     icon.src = 'close-icon.webp'; // "X" ikonunuzun dosya adını kullanın
                     icon.alt = 'Menüyü Kapat';
@@ -670,12 +732,12 @@
                     icon.src = 'menu-icon.webp';
                     icon.alt = 'Menü';
                 }
-                
+
                 // Fade in
                 icon.style.opacity = 1;
             }, 150); // 150ms delay, ihtiyaca göre ayarlanabilir
         }
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             const menu = document.querySelector('.menu');
@@ -704,83 +766,83 @@
             </button>
         </div>
     </div>
-  
-  
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    
-      const images = Array.from(document.querySelectorAll('.dot-image-pair img'));  // tüm küçük görseller
-      const modal     = document.getElementById('imgModal');
-      const modalImg  = document.getElementById('imgModalSrc');
-      const closeBtn  = document.querySelector('.img-close');
-      const prevBtn   = document.querySelector('.img-prev');
-      const nextBtn   = document.querySelector('.img-next');
-      let currentIndex = 0;  // aktif görselin indexi
-    
-      images.forEach((img, index) => {
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', () => openImg(index));
-        img.addEventListener('touchstart', () => openImg(index), { passive: true });
-      });
-    
-      function openImg(index){
-        currentIndex = index;
-        modalImg.src = images[currentIndex].src;
-        modal.style.display = 'flex';
-      }
-    
-      function closeModal(){
-        modal.style.display = 'none';
-      }
-    
-      function showPrev(){
-        currentIndex = (currentIndex - 1 + images.length) % images.length;  // sona sardı
-        modalImg.src = images[currentIndex].src;
-      }
-    
-      function showNext(){
-        currentIndex = (currentIndex + 1) % images.length;  // başa sardı
-        modalImg.src = images[currentIndex].src;
-      }
-    
-      closeBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', e => {
-        if (e.target === modal) closeModal();
-      });
-      prevBtn.addEventListener('click', showPrev);
-      nextBtn.addEventListener('click', showNext);
-    
-      // Klavye kontrolü
-      document.addEventListener('keydown', e => {
-        if (modal.style.display === 'flex') {
-          if (e.key === 'ArrowLeft') showPrev();
-          if (e.key === 'ArrowRight') showNext();
-          if (e.key === 'Escape') closeModal();
-        }
-      });
-    
-    });
-    </script>
-    
+
 
     <script>
-    // Intersection Observer oluştur
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const delay = entry.target.dataset.delay || 0;
-                entry.target.style.animationDelay = `${delay}ms`;
-                entry.target.classList.add('slide-up-visible');
-                observer.unobserve(entry.target);
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const images = Array.from(document.querySelectorAll('.dot-image-pair img'));  // tüm küçük görseller
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('imgModalSrc');
+            const closeBtn = document.querySelector('.img-close');
+            const prevBtn = document.querySelector('.img-prev');
+            const nextBtn = document.querySelector('.img-next');
+            let currentIndex = 0;  // aktif görselin indexi
+
+            images.forEach((img, index) => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', () => openImg(index));
+                img.addEventListener('touchstart', () => openImg(index), { passive: true });
+            });
+
+            function openImg(index) {
+                currentIndex = index;
+                modalImg.src = images[currentIndex].src;
+                modal.style.display = 'flex';
             }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '30px'
-    });
 
-    // Animasyon uygulanacak elementleri seç
-    const elements = document.querySelectorAll(`
+            function closeModal() {
+                modal.style.display = 'none';
+            }
+
+            function showPrev() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;  // sona sardı
+                modalImg.src = images[currentIndex].src;
+            }
+
+            function showNext() {
+                currentIndex = (currentIndex + 1) % images.length;  // başa sardı
+                modalImg.src = images[currentIndex].src;
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', e => {
+                if (e.target === modal) closeModal();
+            });
+            prevBtn.addEventListener('click', showPrev);
+            nextBtn.addEventListener('click', showNext);
+
+            // Klavye kontrolü
+            document.addEventListener('keydown', e => {
+                if (modal.style.display === 'flex') {
+                    if (e.key === 'ArrowLeft') showPrev();
+                    if (e.key === 'ArrowRight') showNext();
+                    if (e.key === 'Escape') closeModal();
+                }
+            });
+
+        });
+    </script>
+
+
+    <script>
+        // Intersection Observer oluştur
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    entry.target.style.animationDelay = `${delay}ms`;
+                    entry.target.classList.add('slide-up-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '30px'
+        });
+
+        // Animasyon uygulanacak elementleri seç
+        const elements = document.querySelectorAll(`
         .website h2,
         .website .jackorn,
         .website .website-text,
@@ -796,103 +858,104 @@
         .content-about > p
     `);
 
-    // Her elemente gecikme değeri ata ve observer'a ekle
-    elements.forEach((element, index) => {
-        // Başlıklar ve içerikler için farklı gecikmeler
-        if (element.tagName === 'H2') {
-            element.dataset.delay = index * 50; // Başlıklar için daha kısa gecikme
-        } else {
-            element.dataset.delay = 80 + (index * 50); // İçerik için biraz daha uzun gecikme
-        }
-        observer.observe(element);
-    });
+        // Her elemente gecikme değeri ata ve observer'a ekle
+        elements.forEach((element, index) => {
+            // Başlıklar ve içerikler için farklı gecikmeler
+            if (element.tagName === 'H2') {
+                element.dataset.delay = index * 50; // Başlıklar için daha kısa gecikme
+            } else {
+                element.dataset.delay = 80 + (index * 50); // İçerik için biraz daha uzun gecikme
+            }
+            observer.observe(element);
+        });
     </script>
 
 
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-        let currentSlide = 0;
-        const totalSlides = 2;
-        const slider = document.getElementById('textSlider');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const indicators = document.querySelectorAll('.indicator-dot');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentSlide = 0;
+            const totalSlides = 2;
+            const slider = document.getElementById('textSlider');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicators = document.querySelectorAll('.indicator-dot');
 
-        function updateSlider() {
-            // Slider pozisyonunu güncelle
-            slider.style.transform = `translateX(-${currentSlide * 50}%)`;
-            
-            // Button durumlarını güncelle
-            prevBtn.classList.toggle('disabled', currentSlide === 0);
-            nextBtn.classList.toggle('disabled', currentSlide === totalSlides - 1);
-            
-            // Indicator durumlarını güncelle
+            function updateSlider() {
+                // Slider pozisyonunu güncelle
+                slider.style.transform = `translateX(-${currentSlide * 50}%)`;
+
+                // Button durumlarını güncelle
+                prevBtn.classList.toggle('disabled', currentSlide === 0);
+                nextBtn.classList.toggle('disabled', currentSlide === totalSlides - 1);
+
+                // Indicator durumlarını güncelle
+                indicators.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlider();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlider();
+                }
+            }
+
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateSlider();
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
             indicators.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
+                dot.addEventListener('click', () => goToSlide(index));
             });
-        }
 
-        function nextSlide() {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                updateSlider();
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'ArrowRight') nextSlide();
+            });
+
+            // Touch/swipe support
+            let startX = 0;
+            let endX = 0;
+
+            slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            slider.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) nextSlide();
+                    else prevSlide();
+                }
+            });
+
+            // Dark mode toggle (demo amaçlı)
+            function toggleDarkMode() {
+                document.body.classList.toggle('dark-mode');
             }
-        }
 
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateSlider();
-            }
-        }
-
-        function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
+            // İlk yükleme
             updateSlider();
-        }
-
-        // Event listeners
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-
-        indicators.forEach((dot, index) => {
-            dot.addEventListener('click', () => goToSlide(index));
         });
+    </script>
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') prevSlide();
-            if (e.key === 'ArrowRight') nextSlide();
-        });
 
-        // Touch/swipe support
-        let startX = 0;
-        let endX = 0;
-
-        slider.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-
-        slider.addEventListener('touchend', (e) => {
-            endX = e.changedTouches[0].clientX;
-            const diff = startX - endX;
-            
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) nextSlide();
-                else prevSlide();
-            }
-        });
-
-        // Dark mode toggle (demo amaçlı)
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-
-        // İlk yükleme
-        updateSlider();
-    });
-</script>
-    
-  
 </body>
+
 </html>
