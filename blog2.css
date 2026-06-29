@@ -1483,6 +1483,7 @@ body.dark-mode .dot-image-text {
 
 .dot-image-pair img {
     width: 100%; /* Her görsel kendi grid hücresini doldursun */
+    height: auto;
     border-radius: 16px;
     transition: transform 0.3s ease;
 }
